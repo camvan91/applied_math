@@ -1,0 +1,115 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2854,         78]*)
+(*NotebookOutlinePosition[      3484,        100]*)
+(*  CellTagsIndexPosition[      3440,         96]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["The real and imaginary part of the Log.", "Text"],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          Plot3D[Log[x\^2 + y\^2]/2, {x, \(-2\), 2}, {y, \(-2\), 2}, 
+            PlotRange -> {\(-2\), 1}, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}], 
+          ParametricPlot3D[{r\ Cos[\[Theta]], r\ Sin[\[Theta]], \[Theta]}, {
+              r, 0, 2}, {\[Theta], \(-\[Pi]\), \[Pi]}, 
+            BoxRatios \[Rule] {1, 1, 0.4}, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}]}]]; \)\)], "Input"],
+
+Cell["The real and imaginary part of the log.", "Text"],
+
+Cell[BoxData[
+    \(\(Show[
+        GraphicsArray[{Plot3D[
+              Log[x\^2 + y\^2]/2, {x, \(-2\), 2}, {y, \(-2\), 2}, 
+              PlotRange -> {\(-2\), 1}, 
+              AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}], 
+            ParametricPlot3D[{r\ Cos[\[Theta]], 
+                r\ Sin[\[Theta]], \[Theta]}, {r, 0, 
+                2}, {\[Theta], \(-3\) \[Pi], 3  \[Pi]}, 
+              PlotPoints \[Rule] {10, 45}, BoxRatios \[Rule] {1, 1, 0.4}, 
+              AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}]}], 
+        ImageSize \[Rule] 400];\)\)], "Input"]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 455},
+WindowMargins->{{Automatic, -3}, {Automatic, 26}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 55, 0, 32, "Text"],
+Cell[1763, 52, 463, 9, 120, "Input"],
+Cell[2229, 63, 55, 0, 32, "Text"],
+Cell[2287, 65, 563, 11, 139, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

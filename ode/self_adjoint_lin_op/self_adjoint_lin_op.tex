@@ -1,0 +1,236 @@
+\flushbottom
+
+%% CONTINUE: This needs a lot of work.
+
+
+
+
+%%=============================================================================
+%%=============================================================================
+\chapter{Self Adjoint Linear Operators}
+
+
+
+
+%%=============================================================================
+\section{Adjoint Operators}
+
+
+
+The \textit{adjoint} of an operator, $L^*$, satisfies
+\[
+\langle v | L u \rangle - \langle L^* v | u \rangle = 0
+\]
+for all elements $u$ an $v$.  This is known as \textit{Green's Identity}.
+
+
+
+\paragraph{The adjoint of a matrix.}
+For vectors, one can represent linear operators $L$ with matrix multiplication.
+\[
+L \mathbf{x} \equiv \mathbf{A} \mathbf{x}
+\]
+Let $\mathbf{B} = \mathbf{A}^*$ be the adjoint of the matrix $\mathbf{A}$.  We determine
+the adjoint of $\mathbf{A}$ from Green's Identity.
+\begin{gather*}
+  \langle \mathbf{x} | \mathbf{A} \mathbf{y} \rangle - \langle \mathbf{B} \mathbf{x} | \mathbf{y} \rangle = 0 \\
+  \overline{\mathbf{x}} \cdot \mathbf{A} \mathbf{y} = \overline{\mathbf{B} \mathbf{x}} \cdot \mathbf{y} \\
+  \overline{\mathbf{x}}^T \mathbf{A} \mathbf{y} = \overline{\mathbf{B} \mathbf{x}}^T \mathbf{y} \\
+  \overline{\mathbf{x}}^T \mathbf{A} \mathbf{y} = \overline{\mathbf{x}}^T \overline{\mathbf{B}}^T \mathbf{y} \\
+  \overline{\mathbf{y}}^T \overline{\mathbf{A}}^T \mathbf{x} = \overline{\mathbf{y}}^T \mathbf{B} \mathbf{x} 
+  \mathbf{B} = \overline{\mathbf{A}}^T
+\end{gather*}
+Thus we see that the adjoint of a matrix is the \textit{conjugate transpose} 
+of the matrix, $\mathbf{A}^* = \overline{\mathbf{A}}^T$.  The conjugate transpose is also called
+the \textit{Hermitian transpose} and is denoted $\mathbf{A}^H$.
+
+
+
+
+
+
+
+
+
+
+\paragraph{The adjoint of a differential operator.}
+Consider a second order linear differential operator acting on $C^2$ functions
+defined on $(a \ldots b)$ which satisfy certain boundary conditions.
+\[
+L u \equiv p_2(x) u'' + p_1(x) u' + p_0(x) u
+\]
+
+
+
+
+%%-----------------------------------------------------------------------------
+\section{Self-Adjoint Operators}
+
+
+\paragraph{Matrices.}
+A matrix is self-adjoint if it is equal to its conjugate transpose
+$\mathbf{A} = \mathbf{A}^H \equiv \overline{\mathbf{A}}^T$.  Such matrices are called 
+\textit{Hermitian}.   For a Hermitian matrix $\mathbf{H}$, Green's identity is 
+\begin{gather*}
+  \langle \mathbf{y} | \mathbf{H} \mathbf{x} \rangle = \langle \mathbf{H} \mathbf{y} | \mathbf{x} \rangle \\
+  \overline{\mathbf{y}} \cdot \mathbf{H} \mathbf{x} = \overline{\mathbf{H} \mathbf{y}} \cdot \mathbf{x}
+\end{gather*}
+The eigenvalues of a Hermitian matrix are real.
+Let $\mathbf{x}$ be an eigenvector with eigenvalue $\lambda$.
+\begin{gather*}
+  \langle \mathbf{x} | \mathbf{H} \mathbf{x} \rangle = \langle \mathbf{H} \mathbf{x} | \mathbf{x} \rangle \\
+  \langle \mathbf{x} | \lambda \mathbf{x} \rangle - \langle \lambda \mathbf{x} | \mathbf{x} \rangle = 0 \\
+  (\lambda - \overline{\lambda}) \langle \mathbf{x} | \mathbf{x} \rangle = 0 \\
+  \lambda = \overline{\lambda}
+\end{gather*}
+The eigenvectors corresponding to distinct eigenvalues are distinct.
+Let $\mathbf{x}$ and $\mathbf{y}$ be eigenvectors with distinct eigenvalues $\lambda$ and 
+$\mu$.
+\begin{gather*}
+  \langle \mathbf{y} | \mathbf{H} \mathbf{x} \rangle = \langle \mathbf{H} \mathbf{y} | \mathbf{x} \rangle \\
+  \langle \mathbf{y} | \lambda \mathbf{x} \rangle - \langle \mu \mathbf{y} | \mathbf{x} \rangle = 0 \\
+  (\lambda - \overline{\mu}) \langle \mathbf{y} | \lambda \mathbf{x} \rangle = 0 \\
+  (\lambda - \mu) \langle \mathbf{y} | \mathbf{x} \rangle = 0 \\
+  \langle \mathbf{y} | \mathbf{x} \rangle = 0 \\
+\end{gather*}
+Furthermore, all Hermitian matrices are similar to a diagonal matrix and 
+have a complete set of orthogonal eigenvectors.
+
+
+
+
+\paragraph{Trigonometric Series.}
+Consider the problem 
+\[
+-y'' = \lambda y, \quad y(0) = y(2 \pi), \quad y'(0) = y'(2 \pi).
+\]
+We verify that the differential operator $L = - \frac{\dd^2}{\dd x^2}$ with periodic
+boundary conditions is self-adjoint.
+\begin{align*}
+  \langle v | L u \rangle
+  &= \langle v | -u'' \rangle \\
+  &= \left[ - \overline{v} u' \right]_0^{2\pi} - \langle v' | -u' \rangle \\
+  &= \langle v' | u' \rangle \\
+  &= \left[ \overline{v'} u \right]_0^{2\pi} - \langle v'' | u \rangle \\
+  &= \langle -v'' | u \rangle \\
+  &= \langle L v | u \rangle 
+\end{align*}
+The eigenvalues and eigenfunctions of this problem are
+\begin{gather*}
+  \lambda_0 = 0, \quad \phi_0 = 1 \\
+  \lambda_n = n^2, \quad \phi_n^{(1)} = \cos(n x), 
+  \quad \phi_n^{(2)} = \sin(n x), \quad n \in \mathbb{Z}^+
+\end{gather*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+%%============================================================================
+\exercises{
+\pagebreak
+\flushbottom
+\section{Exercises}
+
+
+
+%%-----------------------------------------------------------------------------
+%%\begin{large}
+%%\noindent
+%%\textbf{Exact Equations}
+%%\end{large}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+%%============================================================================
+\hints{
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+
+%%-----------------------------------------------------------------------------
+%%\begin{large}
+%%\noindent
+%%\textbf{Exact Equations}
+%%\end{large}
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+%%============================================================================
+\solutions{
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+
+%%-----------------------------------------------------------------------------
+%%\begin{large}
+%%\noindent
+%%\textbf{Exact Equations}
+%%\end{large}
+
+
+
+
+
+
+
+\raggedbottom
+
+}

@@ -1,0 +1,109 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2447,         71]*)
+(*NotebookOutlinePosition[      3095,         94]*)
+(*  CellTagsIndexPosition[      3051,         90]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(Plot[{}, {x, \(-7\), 7}, 
+        PlotRange \[Rule] {{\(-7\), 7}, {\(-7\), 7}}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+        Graphics[{\[IndentingNewLine]PointSize[
+              0.03], \[IndentingNewLine]Point[{0, 
+                0}], \[IndentingNewLine]Point[{0, 
+                2  \[Pi]}], \[IndentingNewLine]Point[{0, \(-2\) \[Pi]}], \
+\[IndentingNewLine]Line[{{1, 1}, {\(-1\), 
+                  1}, {\(-1\), \(-1\)}, {1, \(-1\)}, {1, 
+                  1}}], \[IndentingNewLine]Circle[{0, 0}, 
+              4]\[IndentingNewLine]}]];\)\)], "Input"],
+
+Cell["Save as z1ez.eps.", "Text"],
+
+Cell[BoxData[
+    \(\(Show[%%, %, AspectRatio \[Rule] Automatic, 
+        ImageSize \[Rule] 150];\)\)], "Input"]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{674, 847},
+WindowMargins->{{8, Automatic}, {Automatic, 8}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 117, 2, 39, "Input"],
+Cell[1825, 54, 467, 9, 223, "Input"],
+Cell[2295, 65, 33, 0, 46, "Text"],
+Cell[2331, 67, 112, 2, 62, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

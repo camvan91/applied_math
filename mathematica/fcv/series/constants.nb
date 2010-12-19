@@ -1,0 +1,255 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4756,        176]*)
+(*NotebookOutlinePosition[      5415,        200]*)
+(*  CellTagsIndexPosition[      5371,        196]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Functions of a Complex Variable/Series and Convergence", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Series of Constants", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@its.caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n4/19/00"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Clear[n, x]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(\[Sum]\_\(n = 2\)\%\[Infinity] 1\/\(n\ Log[n]\)\)]]], "Section"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " will return the input.  It does not say that the sum is divergent."
+}], "Text"],
+
+Cell[BoxData[
+    \(\[Sum]\_\(n = 2\)\%\[Infinity] 1\/\(n\ Log[n]\)\)], "Input"],
+
+Cell["\<\
+Trying to sum it numerically makes us suspect it is \
+divergent.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(NSum[1\/\(n\ Log[n]\), {n, 2, \[Infinity]}]\)], "Input"],
+
+Cell["\<\
+Since the associated integral diverges, the sum is divergent.\
+\>", \
+"Text"],
+
+Cell[BoxData[
+    \(\[Integral]\_2\%\[Infinity]\( 
+            1\/\(x\ Log[x]\)\) \[DifferentialD]x\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(\[Sum]\_\(n = 1\)\%\[Infinity]\((\(-1\))\)\^\(n + 1\)\/n\)]]], "Section"],
+
+Cell[BoxData[
+    \(\[Sum]\_\(n = 1\)\%\[Infinity]\((\(-1\))\)\^\(n + 1\)\/n\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(\[Sum]\_\(n = 1\)\%\[Infinity] 1\/n\)]]], "Section"],
+
+Cell[BoxData[
+    \(\[Sum]\_\(n = 1\)\%\[Infinity] 1\/n\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(\[Sum]\_\(n = 1\)\%\[Infinity]\( n!\)\/n\^n\)]]], "Section"],
+
+Cell[TextData[{
+  "Since this does not sum to a simple expression, ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " returns the input."
+}], "Text"],
+
+Cell[BoxData[
+    \(\[Sum]\_\(n = 1\)\%\[Infinity]\( n!\)\/n\^n\)], "Input"],
+
+Cell[TextData[{
+  "Since ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " does not complain when doing the numerical sum, we suspect that the sum \
+converges."
+}], "Text"],
+
+Cell[BoxData[
+    \(NSum[\(n!\)\/n\^n, {n, 1, \[Infinity]}]\)], "Input"],
+
+Cell["We apply the ratio test.", "Text"],
+
+Cell[BoxData[
+    \(Limit[\(\(\((n + 1)\)!\)/\((n + 1)\)\^\(n + 1\)\)\/\(\(n!\)/n\^n\), 
+      n \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[TextData[{
+  "That choked.  However, if we simplify the expression, ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " can evaluate the limit."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(\(\((n + 1)\)!\)/\((n + 1)\)\^\(n + 1\)\)\/\(\(n!\)/n\^n\) // 
+      FullSimplify\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[%, n \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`1\/\[ExponentialE] < 1\)]],
+  ", so the sum converges by the ratio test."
+}], "Text"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 18}, {Automatic, 0}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 144, 3, 307, "Title",
+  Evaluatable->False],
+Cell[1886, 56, 39, 0, 82, "Subtitle"],
+Cell[1928, 58, 281, 9, 101, "Text",
+  Evaluatable->False],
+Cell[2212, 69, 44, 1, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[2281, 74, 98, 1, 70, "Section"],
+Cell[2382, 77, 151, 4, 59, "Text"],
+Cell[2536, 83, 80, 1, 60, "Input"],
+Cell[2619, 86, 88, 3, 38, "Text"],
+Cell[2710, 91, 76, 1, 60, "Input"],
+Cell[2789, 94, 87, 3, 38, "Text"],
+Cell[2879, 99, 112, 2, 60, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3028, 106, 107, 1, 71, "Section"],
+Cell[3138, 109, 89, 1, 60, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3264, 115, 86, 1, 67, "Section"],
+Cell[3353, 118, 68, 1, 57, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3458, 124, 94, 1, 67, "Section"],
+Cell[3555, 127, 157, 5, 59, "Text"],
+Cell[3715, 134, 76, 1, 56, "Input"],
+Cell[3794, 137, 181, 6, 59, "Text"],
+Cell[3978, 145, 72, 1, 56, "Input"],
+Cell[4053, 148, 40, 0, 38, "Text"],
+Cell[4096, 150, 130, 2, 61, "Input"],
+Cell[4229, 154, 168, 5, 59, "Text"],
+Cell[4400, 161, 116, 2, 61, "Input"],
+Cell[4519, 165, 64, 1, 35, "Input"],
+Cell[4586, 168, 142, 4, 42, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

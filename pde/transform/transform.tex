@@ -1,0 +1,1592 @@
+\flushbottom
+
+
+
+
+%%============================================================================
+%%============================================================================
+\chapter{Transform Methods}
+
+
+
+
+
+%%============================================================================
+\section{Fourier Transform for Partial Differential Equations}
+Solve Laplace's equation in the upper half plane
+\begin{alignat*}{2}
+  &\nabla^2 u = 0 &\qquad
+  & -\infty < x < \infty,\ y > 0 \\
+  &u(x,0) = f(x) &\qquad
+  &-\infty < x < \infty
+\end{alignat*}
+
+Taking the Fourier transform in the $x$ variable of the equation and the
+boundary condition,
+\begin{gather*}
+  \mathcal{F}\left[ \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right] = 0, \qquad
+  \mathcal{F}\left[u(x,0)\right] = \mathcal{F}\left[f(x)\right] \\
+  -\omega^2 U(\omega,y) + \frac{\partial^2}{\partial y^2} U(\omega,y) = 0, \qquad
+  U(\omega,0) = F(\omega).
+\end{gather*}
+The general solution to the equation is
+\[U(\omega,y) = a \e^{\omega y} + b \e^{-\omega y}. \]
+Remember that in solving the differential equation here we consider
+$\omega$ to be a parameter.
+Requiring that the solution be bounded for $y \in [0,\infty)$ yields
+\[ U(\omega,y) = a \e^{-|\omega| y}. \]
+Applying the boundary condition,
+\[U(\omega, y) = F(\omega) \e^{-|\omega|y}. \]
+The inverse Fourier transform of $\e^{-|\omega|y}$ is
+\[ \mathcal{F}^{-1}\left[\e^{-|\omega|y}\right] = \frac{2 y}{x^2 + y^2}. \]
+Thus
+\begin{gather*}
+  U(\omega, y) = F(\omega)\  \mathcal{F}\left[\frac{2 y}{x^2 + y^2}
+  \right] \\
+  \mathcal{F}\left[u(x,y)\right] =  \mathcal{F}\left[f(x)\right]
+  \ \mathcal{F}\left[\frac{2 y}{x^2 + y^2} \right].
+\end{gather*}
+Recall that the convolution theorem is
+\[ \mathcal{F}\left[ \frac{1}{2\pi}
+  \int_{-\infty}^\infty f(x-\xi) g(\xi)\,d\xi\right] =
+F(\omega)G(\omega). \]
+Applying the convolution theorem to the equation for $U$,
+\[ u(x,y) = \frac{1}{2\pi} \int_{-\infty}^\infty \frac{f(x-\xi) 2y}
+{\xi^2 + y^2} \,d\xi \]
+\[\boxed{u(x,y) = \frac{y}{\pi} \int_{-\infty}^\infty
+  \frac{f(x-\xi)}{\xi^2 + y^2}\,d\xi.}\]
+
+
+
+
+
+
+
+
+
+%%==============================================================================
+\section{The Fourier Sine Transform}
+%% CONTINUE: use the convolution theorem here.
+
+Consider the problem
+\begin{gather*}
+  u_t = \kappa u_{x x}, \quad x > 0, \quad t > 0 \\
+  u(0,t) = 0, \quad u(x,0) = f(x)
+\end{gather*}
+Since we are given the position at $x=0$ we apply the Fourier
+sine transform.
+\begin{gather*}
+  \hat{u}_t = \kappa \left(-\omega^2 \hat{u} 
+    + \frac{2}{\pi} \omega u(0,t) \right) \\
+  \hat{u}_t = - \kappa \omega^2 \hat{u} \\
+  \hat{u}(\omega,t) = c(\omega) \e^{-\kappa \omega^2 t}
+\end{gather*}
+The initial condition is
+\[ 
+\hat{u}(\omega,0) = \hat{f}(\omega).
+\]
+We solve the first order differential equation to determine $\hat{u}$.
+\begin{gather*}
+  \hat{u}(\omega,t) = \hat{f}(\omega) \e^{-\kappa \omega^2 t} \\ 
+  \hat{u}(\omega,t) = \hat{f}(\omega) \mathcal{F}_c \left[
+    \frac{ 1 }{ \sqrt{ 4 \pi \kappa t } } 
+    \e^{ -x^2 / (4 \kappa t) } \right]
+\end{gather*}
+We take the inverse sine transform with the convolution theorem.
+\[
+\boxed{
+  u(x,t) = \frac{ 1 }{ 4 \pi^{3/2} \sqrt{ \kappa t } } 
+  \int_0^\infty f(\xi) \left( \e^{ -|x-\xi|^2 / (4 \kappa t) }
+    - \e^{ -(x+\xi)^2 / (4 \kappa t) } \right) \,d \xi
+  }
+\]
+
+
+
+%%=============================================================================
+\section{Fourier Transform}
+
+Consider the problem
+\[
+\frac{\partial u}{\partial t} - \frac{\partial u}{\partial x} + u = 0, \quad -\infty < x < \infty, 
+\quad t > 0,
+\]
+\[
+u(x,0) = f(x).
+\]
+
+Taking the Fourier Transform of the partial differential equation and 
+the initial condition yields
+\[
+\frac{\partial U}{\partial t} - \imath \omega U + U = 0,
+\]
+\[
+U(\omega,0) = F(\omega) = \frac{1}{2\pi} \int_{-\infty}^\infty f(x) \e^{-\imath \omega x}\,d x.
+\]
+Now we have a first order differential equation for $U(\omega,t)$ with 
+the solution
+\[
+U(\omega,t) = F(\omega) \e^{(-1+ \imath \omega) t}.
+\]
+Now we apply the inverse Fourier transform.
+\[
+u(x,t) = \int_{-\infty}^\infty F(\omega) \e^{(-1+ \imath \omega) t} \e^{\imath \omega x}\,d\omega
+\]
+\[
+u(x,t) = \e^{-t} \int_{-\infty}^\infty F(\omega) \e^{\imath \omega (x+t)} \,d\omega
+\]
+\[
+\boxed{
+  u(x,t) = \e^{-t} f(x+t)
+  }
+\]
+
+
+
+
+
+
+
+
+\raggedbottom
+%%=============================================================================
+\exercises{
+\pagebreak
+\flushbottom
+\section{Exercises}
+
+
+
+
+
+%% u_{x x} + u_{y y} = 0\ \mathrm{in}\ -\infty < x < \infty,\ 0 < y < \infty,
+\begin{Exercise}
+  Find an integral representation of the solution $u(x,y)$, of
+  \[
+  u_{x x} + u_{y y} = 0\ \mathrm{in}\ -\infty < x < \infty,\ 0 < y < \infty,
+  \]
+  subject to the boundary conditions:
+  \begin{gather*}
+    u(x,0) = f(x),\ -\infty < x < \infty; \\
+    u(x,y) \to 0\ \mathrm{as}\ x^2 + y^2 \to \infty.
+  \end{gather*}
+\end{Exercise}
+
+
+
+
+
+%% Solve the Cauchy problem for the one-dimensional heat  equation.
+\begin{Exercise}
+  Solve the Cauchy problem for the one-dimensional heat equation in the
+  domain $-\infty < x < \infty$, $t > 0$,
+  \[
+  u_{t} = \kappa u_{x x}, \quad u(x,0) = f(x), 
+  \]
+  with the Fourier transform.
+\end{Exercise}
+
+
+
+
+
+%% Solve the Cauchy problem for the 1D heat equation with Laplace transform.
+\begin{Exercise}
+  Solve the Cauchy problem for the one-dimensional heat equation in the
+  domain $-\infty < x < \infty$, $t > 0$,
+  \[
+  u_{t} = \kappa u_{x x}, \quad u(x,0) = f(x), 
+  \]
+  with the Laplace transform.
+\end{Exercise}
+
+
+
+
+%% Cauchy problem for the 1D heat equation.  Method of images.
+\begin{Exercise}
+  \begin{enumerate}
+  \item
+    In Exercise~\ref{exercise_phi_t=a^2phi_xx_laplace} above, 
+    let $f(-x) = -f(x)$ for
+    all $x$ and verify that $\phi(x,t)$ so obtained is the solution,
+    for $x > 0$, of the following problem: find $\phi(x,t)$ satisfying
+    \[
+    \phi_t = a^2\phi_{xx}
+    \]
+    in $0 < x < \infty$, $t > 0$, with boundary condition $\phi(0,t) = 0$
+    and initial condition $\phi(x,0) = f(x)$. This technique, in which the
+    solution for a semi-infinite interval is obtained from that for an
+    infinite interval, 
+    is an example of what is called the \textit{method of images}. 
+  \item
+    How would
+    you modify the  result of part (a) if the boundary condition
+    $\phi(0,t) = 0$ was replaced by $\phi_x(0,t) = 0$?
+  \end{enumerate}
+\end{Exercise}
+
+
+
+
+
+%% Solve the Cauchy problem for the one-dimensional wave equation.
+\begin{Exercise}
+  Solve the Cauchy problem for the one-dimensional wave equation in the
+  domain $-\infty < x < \infty$, $t>0$,
+  \[
+  u_{tt} = c^2 u_{xx}, \quad u(x,0) = f(x), \quad u_t(x,0) = g(x),
+  \]
+  with the Fourier transform.
+\end{Exercise}
+
+
+
+\begin{Exercise}
+  Solve the Cauchy problem for the one-dimensional wave equation in the
+  domain $-\infty < x < \infty$, $t>0$,
+  \[
+  u_{tt} = c^2 u_{xx}, \quad u(x,0) = f(x), \quad u_t(x,0) = g(x),
+  \]
+  with the Laplace transform.
+\end{Exercise}
+
+
+
+
+%% Heat eqn.  x > 0, t > 0.  \phi(x,0) = 0.  \phi(0,t) = f(t).
+\begin{Exercise}
+  Consider the problem of determining $\phi(x,t)$
+  in the region $ 0 < x < \infty$, $0 < t < \infty$, such that
+  \begin{equation}
+    \label{1:phi_t=a^2phi_xx}
+    \phi_t = a^2 \phi_{xx},
+  \end{equation}
+  with initial and boundary conditions
+  \begin{alignat*}{2}
+    &\phi(x,0) = 0            &\quad &\mathrm{for all}\ x > 0, \\
+    &\phi(0,t) = f(t) &\quad &\mathrm{for all}\ t > 0,
+  \end{alignat*}
+  where $f(t)$ is a given function. 
+  \begin{enumerate}
+  \item 
+    Obtain the formula for the Laplace
+    transform of $\phi(x,t)$, $\Phi(x,s)$ and use the convolution theorem
+    for Laplace transforms to show that
+    \[
+    \phi(x,t) = \frac{x}{2 a \sqrt{\pi}} \int_0^t f(t - \tau) 
+    \frac{1}{\tau^{3/2}} \exp \left( - \frac{x^2}{4 a^2 \tau} 
+    \right) \,d\tau.
+    \]
+  \item
+    Discuss the special case obtained by setting $f(t) = 1$ and 
+    also that in which $f(t) = 1$ for $0 < t < T$, with $ f(t) = 0$ for 
+    $ t > T$. Here $T$ is some positive constant.
+  \end{enumerate}
+\end{Exercise}
+
+
+
+
+
+%% Radiating half space problem.
+\begin{Exercise}
+  Solve the radiating half space problem:
+  \begin{gather*}
+    u_t = \kappa u_{x x}, \quad x > 0, \quad t > 0, \\
+    u_x(0,t) - \alpha u(0,t) = 0, \quad u(x,0) = f(x).
+  \end{gather*}
+  To do this, define 
+  \[
+  v(x,t) = u_x(x,t) - \alpha u(x,t)
+  \]
+  and find the half space problem that $v$ satisfies.  Solve this problem and
+  then show that 
+  \[
+  u(x,t) = - \int_x^\infty \e^{-\alpha (\xi-x)} v(\xi,t) \,d\xi.
+  \]
+\end{Exercise}
+
+
+
+%% Solve heat equation with sine transform.
+\begin{Exercise}
+  Show that
+  \[
+  \int_0^\infty \omega \e^{-c \omega^2} \sin(\omega x) \,d \omega 
+  = \frac{ x \sqrt{\pi} }{ 4 c^{3/2} } \e^{-x^2 / (4 c)}.
+  \]
+  Use the sine transform to solve:
+  \begin{gather*}
+    u_t = u_{x x}, \quad x > 0, \quad t > 0, \\
+    u(0,t) = g(t), \quad u(x,0) = 0.
+  \end{gather*}
+\end{Exercise}
+
+
+%% Steady state temperature in a semi-infinite rectangular slab.
+\begin{Exercise}
+  Use the Fourier sine transform to find the steady state temperature
+  $u(x,y)$ in a slab: $x \geq 0$,
+  $0 \leq y \leq 1$, which has zero temperature on the faces $y = 0$ and
+  $y = 1$ and has a given distribution: $u(y,0) = f(y)$ on the
+  edge $x = 0$, $0 \leq y \leq 1$.
+\end{Exercise}
+
+
+
+%% Potential equation in the upper half plane.
+\begin{Exercise}
+  Find a harmonic function $u(x,y)$ in the upper half plane which takes on the
+  value $g(x)$ on the $x$-axis.  Assume that $u$ and $u_x$ vanish as
+  $|x| \to \infty$.  Use the Fourier transform with respect to $x$.  
+  Express the solution as a single integral by using the convolution 
+  formula.
+\end{Exercise}
+
+
+
+%% Bounded solution of $u_t = \kappa u_{x x} - \a^2 u$.
+\begin{Exercise}
+  Find the bounded solution of
+  \begin{gather*}
+    u_t = \kappa u_{x x} - a^2 u, \quad 0 < x < \infty, t > 0, \\
+    -u_x(0,t) = f(t), \quad u(x,0) = 0.
+  \end{gather*}
+\end{Exercise}
+
+
+
+
+
+%% Finite string, Laplace transform
+\begin{Exercise}
+  The left end of a taut string of length $L$ is displaced according to
+  $u(0,t) = f(t)$.  The right end is fixed, $u(L,t) = 0$.  Initially the
+  string is at rest with no displacement.  If $c$ is the wave speed for the 
+  string, find its motion for all $t > 0$.
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+%% $\nabla^2 \phi = 0$, $0 < y < l$, $-\infty < x < \infty$.
+\begin{Exercise}
+  Let $\nabla^2 \phi = 0$ in the $(x,y)$-plane 
+  region defined by $0 < y < l$, $-\infty < x < \infty$, with 
+  $\phi(x,0) = \delta(x-\xi)$, $\phi(x,l) = 0$, and $\phi \to 0$ as
+  $|x| \to \infty$. Solve for $\phi$ using Fourier transforms. You may
+  leave your answer in the form of an integral but in fact it is possible to use
+  techniques of contour integration to show that
+  \[
+  \phi(x,y|\xi) = \frac{1}{2l} \left [ \frac{\sin (\pi y/l)}
+    {\cosh[\pi (x-\xi)/l] - \cos(\pi y/l)}\right].
+  \]
+  Note that as $l \to \infty$ we recover the result derived in 
+  class:
+  \[
+  \phi \to  \frac{1}{\pi} \frac{y}{(x-\xi)^2 + y^2},
+  \]
+  which clearly approaches $\delta(x-\xi)$ as $y \to 0$.
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+%%=============================================================================
+\hints{
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+
+
+
+
+
+%% u_{x x} + u_{y y} = 0\ \mathrm{in}\ -\infty < x < \infty,\ 0 < y < \infty,
+\begin{Hint}
+  The desired solution form is: 
+  $u(x,y) = \int_{-\infty}^\infty K(x-\xi,y) f(\xi)\,d\xi$.  You must find the correct $K$.
+  Take the Fourier transform with respect to $x$ and solve for 
+  $\hat{u}(\omega, y)$ recalling that $\hat{u}_{x x} = - \omega^2 \hat{u}$.
+  By $\hat{u}_{x x}$ we denote the Fourier transform with respect to $x$
+  of $u_{x x}(x,y)$.
+\end{Hint}
+
+
+
+
+%% Solve the Cauchy problem for the one-dimensional heat  equation.
+\begin{Hint}
+  Use the Fourier convolution theorem and the table of Fourier transforms
+  in the appendix.
+\end{Hint}
+
+
+
+%% Solve the Cauchy problem for the 1D heat equation with Laplace transform.
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+%% Cauchy problem for the 1D heat equation.  Method of images.
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+%% Solve the Cauchy problem for the one-dimensional wave equation.
+\begin{Hint}
+  Use the Fourier convolution theorem.  The transform pairs,
+  \begin{align*}
+    \mathcal{F}[\pi ( \delta(x+\tau) + \delta(x-\tau))]
+    &= \cos(\omega \tau), \\
+    \mathcal{F}[\pi ( H(x+\tau) - H(x-\tau) )]
+    &= \frac{\sin(\omega \tau)}{\omega},
+  \end{align*}
+  will be useful.
+\end{Hint}
+
+
+\begin{Hint}
+  %%CONTINUE
+\end{Hint}
+
+
+
+
+%% Heat eqn.  x > 0, t > 0.  \phi(x,0) = 0.  \phi(0,t) = f(t).
+\begin{Hint}
+  %%CONTINUE
+\end{Hint}
+
+
+
+
+%% Radiating half space problem.
+\begin{Hint}
+  $v(x,t)$ satisfies the same partial differential equation.  You can solve
+  the problem for $v(x,t)$ with the Fourier sine transform.  Use the 
+  convolution theorem to invert the transform.
+
+  To show that 
+  \[
+  u(x,t) = - \int_x^\infty \e^{-\alpha (\xi-x)} v(\xi,t) \,d\xi,
+  \]
+  find the solution of 
+  \[
+  u_x - \alpha u = v
+  \]
+  that is bounded as $x \to \infty$.
+\end{Hint}
+
+
+
+%% Solve heat equation with sine transform.
+\begin{Hint}
+  Note that
+  \[
+  \int_0^\infty \omega \e^{-c \omega^2} \sin(\omega x) \,d \omega 
+  = - \frac{\partial}{\partial x} \int_0^\infty \e^{-c \omega^2} \cos(\omega x) \,d \omega.
+  \]
+  Write the integral as a Fourier transform.
+
+  Take the Fourier sine transform of the heat equation to obtain a first order,
+  ordinary differential equation for $\hat{u}(\omega,t)$.  Solve the 
+  differential equation and do the inversion with the convolution 
+  theorem.
+\end{Hint}
+
+
+
+
+
+
+%% Steady state temperature in a semi-infinite rectangular slab.
+\begin{Hint}
+  %%CONTINUE
+\end{Hint}
+
+
+
+%% Potential equation in the upper half plane.
+\begin{Hint}
+  %%CONTINUE
+\end{Hint}
+
+
+
+%% Bounded solution of $u_t = \kappa u_{x x} - \a^2 u$.
+\begin{Hint}
+  %%CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+
+%% Finite string, Laplace transform
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+%% $\nabla^2 \phi = 0$, $0 < y < l$, $-\infty < x < \infty$.
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+%%=============================================================================
+\solutions{
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+
+
+
+
+%% u_{x x} + u_{y y} = 0\ \mathrm{in}\ -\infty < x < \infty,\ 0 < y < \infty,
+\begin{Solution}
+  \begin{enumerate}
+    %%
+    %%
+  \item
+    We take the Fourier transform of the integral equation, noting that
+    the left side is the convolution of $u(x)$ and $\frac{1}{x^2 + a^2}$.
+    \[
+    2 \pi \hat{u}(\omega) \mathcal{F} \left[ \frac{1}{x^2 + a^2} \right]
+    = \mathcal{F} \left[ \frac{1}{x^2 + b^2} \right]
+    \]
+
+    We find the Fourier transform of $f(x) = \frac{1}{x^2 + c^2}$.
+    Note that since $f(x)$ is an even, real-valued function, $\hat{f}(\omega)$
+    is an even, real-valued function.
+    \begin{align*}
+      \mathcal{F} \left[ \frac{1}{x^2 + c^2} \right]
+      &= \frac{1}{2\pi} \int_{-\infty}^\infty \frac{1}{x^2 + c^2} \e^{-\imath \omega x} \,d x \\
+      \intertext{For $x > 0$ we close the path of integration in the upper half 
+        plane and apply Jordan's Lemma to evaluate the integral in terms 
+        of the residues.}
+      &= \frac{1}{2 \pi} \imath 2 \pi \Res \left( \frac{\e^{- \imath \omega x}}
+        {(x - \imath c)(x + \imath c)}, x = \imath c \right) \\
+      &= \imath \frac{ \e^{-\imath \omega \imath c } }{ \imath 2 c } \\
+      &= \frac{1}{2 c} \e^{- c \omega }
+    \end{align*}
+    Since $\hat{f}(\omega)$ is an even function, we have
+    \[
+    \mathcal{F} \left[ \frac{1}{x^2 + c^2} \right]
+    = \frac{1}{2 c} \e^{- c |\omega| }.
+    \]
+
+    Our equation for $\hat{u}(\omega)$ becomes,
+    \begin{gather*}
+      2 \pi \hat{u}(\omega) \frac{1}{2 a} \e^{-a |\omega| }
+      = \frac{1}{2 b} \e^{-b |\omega|} \\
+      \hat{u}(\omega) = \frac{ a }{ 2 \pi b } \e^{- (b-a) |omega| }.
+    \end{gather*}
+    We take the inverse Fourier transform using the transform pair we derived
+    above.
+    \begin{gather*}
+      u(x) = \frac{ a }{ 2 \pi b } \frac{ 2 (b-a) }{ x^2 + (b-a)^2 } \\
+      \boxed{
+        u(x) = \frac{ a (b-a) }{ \pi b ( x^2 + (b-a)^2 ) } 
+        }
+    \end{gather*}
+    %%
+    %%
+  \item
+    We take the Fourier transform of the partial differential equation and the
+    boundary condtion.
+    \begin{align*}
+      u_{x x} + u_{y y} = 0, \quad u(x,0) = f(x) \\
+      - \omega^2 \hat{u}(\omega,y) + \hat{u}_{y y}(\omega,y) = 0, 
+      \quad \hat{u}(\omega,0) = \hat{f}(\omega) 
+    \end{align*}
+    This is an ordinary differential equation for $\hat{u}$ in which $\omega$ 
+    is a parameter.  The general solution is
+    \[
+    \hat{u} = c_1 \e^{\omega y} + c_2 \e^{- \omega y}.
+    \]
+    We apply the boundary conditions that $\hat{u}(\omega,0) = \hat{f}(\omega)$
+    and $\hat{u} \to 0$ and $y \to \infty$.
+    \[
+    \hat{u}(\omega,y) = \hat{f}(\omega) \e^{- \omega y}
+    \]
+    We take the inverse transform using the convolution theorem.
+    \[
+    \boxed{
+      u(x,y) = \frac{1}{2\pi} \int_{-\infty}^\infty \e^{- (x - \xi) y } f(\xi) \,d \xi
+      }
+    \]
+  \end{enumerate}
+\end{Solution}
+
+
+
+
+
+
+
+
+%% Solve the Cauchy problem for the one-dimensional heat  equation.
+\begin{Solution}
+  \[
+  u_{t} = \kappa u_{x x}, \quad u(x,0) = f(x), 
+  \]
+  We take the Fourier transform of the heat equation and the initial condition.
+  \[
+  \hat{u}_t = - \kappa \omega^2 \hat{u}, 
+  \quad \hat{u}(\omega, 0) = \hat{f}(\omega)
+  \]
+  This is a first order ordinary differential equation which has the solution,
+  \[
+  \hat{u}(\omega, t) = \hat{f}(\omega) \e^{- \kappa \omega^2 t}.
+  \]
+  Using a table of Fourier transforms we can write this in a form that is
+  conducive to applying the convolution theorem.
+  \begin{gather*}
+    \hat{u}(\omega, t) = \hat{f}(\omega) \mathcal{F} \left[
+      \sqrt{ \frac{\pi}{\kappa t} } \e^{-x^2 / (4 \kappa t)} \right] \\
+    \boxed{
+      u(x, t) = \frac{1}{2 \sqrt{ \pi \kappa t} } \int_{-\infty}^\infty \e^{-(x-\xi)^2 / (4 \kappa t)}
+      f(\xi)\,\dd \xi
+      }
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+
+%% Solve the Cauchy problem for the 1D heat equation with Laplace transform.
+\begin{Solution}
+  We take the Laplace transform of the heat equation.
+  \begin{gather}
+    \nonumber
+    u_{t} = \kappa u_{x x}
+    \\
+    \nonumber
+    s \hat{u} - u(x,0) = \kappa \hat{u}_{x x} 
+    \\
+    \label{hatphi_xx-fracsa^2hatphi=fracfxa^2}
+    \hat{u}_{x x} - \frac{s}{\kappa} \hat{u} = - \frac{f(x)}{\kappa}
+  \end{gather}
+  The Green function problem for
+  Equation~\ref{hatphi_xx-fracsa^2hatphi=fracfxa^2} is
+  \[
+  G'' - \frac{s}{\kappa} G = \delta(x-\xi), \quad G(\pm \infty; \xi)\ \mathrm{is bounded}.
+  \]
+  The homogeneous solutions that satisfy the left and right boundary
+  conditions are, respectively,
+  \[
+  \exp \left( \frac{ \sqrt{s}{a} } x \right), \quad
+  \exp \left( - \frac{ \sqrt{s}{a} } x \right).
+  \]
+  We compute the Wronskian of these solutions.
+  \[
+  W = 
+  \begin{vmatrix}
+    \exp \left( \frac{ \sqrt{s} }{a} x \right) & 
+    \exp \left( - \frac{ \sqrt{s} }{a} x \right) 
+    \\
+    \frac{ \sqrt{s} }{a} \exp \left( \frac{ \sqrt{s}{a} } x \right) & 
+    - \frac{ \sqrt{s} }{a} \exp \left( - \frac{ \sqrt{s}{a} } x \right)
+  \end{vmatrix}
+  = - 2 \sqrt{ \frac{s}{\kappa} }
+  \]
+  The Green function is
+  \begin{gather*}
+    G(x;\xi) = \frac{ \exp \left( \sqrt{ \frac{s}{\kappa} } x_< \right)
+      \exp \left( - \sqrt{ \frac{s}{\kappa} } x_> \right) }
+    { - 2 \sqrt{ \frac{s}{\kappa} } } 
+    \\
+    G(x;\xi) = - \frac{ \sqrt{\kappa} }{ 2 \sqrt{s} }
+    \exp \left( - \sqrt{ \frac{s}{\kappa} } |x-\xi| \right).
+  \end{gather*}
+  Now we solve Equation~\ref{hatphi_xx-fracsa^2hatphi=fracfxa^2} 
+  using the Green function.
+  \begin{gather*}
+    \hat{u}(x,s) = \int_{-\infty}^\infty - \frac{ f(\xi) }{ \kappa } G(x;\xi) \,\dd \xi 
+    \\
+    \hat{u}(x,s) = \frac{1}{2 \sqrt{\kappa s}} \int_{-\infty}^{\infty}
+    f(\xi) \exp \left(- \sqrt{ \frac{s}{\kappa} } | x - \xi| \right) \,\dd \xi
+  \end{gather*}
+  Finally we take the inverse Laplace transform to obtain the 
+  solution of the heat equation.
+  \[
+  \boxed{
+    u(x,t) = \frac{1}{2  \sqrt{\pi \kappa t} } \int_{-\infty}^{\infty}
+    f(\xi) \exp\left( - \frac{(x-\xi)^2}{4 \kappa t} \right) \,\dd \xi
+    }
+  \]
+\end{Solution}
+
+
+
+
+
+
+%% Cauchy problem for the 1D heat equation.  Method of images.
+\begin{Solution}
+  \begin{enumerate}
+    %%
+    %%
+  \item
+    Clearly the solution satisfies the differential equation.  We must
+    verify that it satisfies the boundary condition, $\phi(0,t) = 0$.
+    \begin{gather*}
+      \phi(x,t) = \frac{1}{2 a \sqrt{\pi t} } \int_{-\infty}^{\infty}
+      f(\xi) \exp\left( - \frac{(x-\xi)^2}{4 a^2 t} \right) \,d\xi \\
+      \phi(x,t) = \frac{1}{2 a \sqrt{\pi t} } \int_{-\infty}^{0}
+      f(\xi) \exp\left( - \frac{(x-\xi)^2}{4 a^2 t} \right) \,d\xi 
+      + \frac{1}{2 a \sqrt{\pi t} } \int_{0}^{\infty}
+      f(\xi) \exp\left( - \frac{(x-\xi)^2}{4 a^2 t} \right) \,d\xi \\
+      \phi(x,t) = \frac{1}{2 a \sqrt{\pi t} } \int_0^{\infty}
+      f(-\xi) \exp\left( - \frac{(x+\xi)^2}{4 a^2 t} \right) \,d\xi 
+      + \frac{1}{2 a \sqrt{\pi t} } \int_{0}^{\infty}
+      f(\xi) \exp\left( - \frac{(x-\xi)^2}{4 a^2 t} \right) \,d\xi \\
+      \phi(x,t) = - \frac{1}{2 a \sqrt{\pi t} } \int_0^{\infty}
+      f(\xi) \exp\left( - \frac{(x+\xi)^2}{4 a^2 t} \right) \,d\xi 
+      + \frac{1}{2 a \sqrt{\pi t} } \int_{0}^{\infty}
+      f(\xi) \exp\left( - \frac{(x-\xi)^2}{4 a^2 t} \right) \,d\xi \\
+      \phi(x,t) = \frac{1}{2 a \sqrt{\pi t} } \int_0^{\infty}
+      f(\xi) \left( \exp\left( - \frac{(x-\xi)^2}{4 a^2 t} \right)
+        \exp\left( - \frac{(x+\xi)^2}{4 a^2 t} \right) \right) \,d\xi \\
+      \phi(x,t) = \frac{1}{2 a \sqrt{\pi t} } \int_0^{\infty}
+      f(\xi) \exp\left( - \frac{x^2 + \xi^2}{4 a^2 t} \right) \left( 
+        \exp\left( \frac{x \xi}{2 a^2 t} \right)
+        - \exp\left( - \frac{x \xi}{2 a^2 t} \right) \right) \,d\xi \\
+      \boxed{
+        \phi(x,t) = \frac{1}{a \sqrt{\pi t} } \int_0^{\infty}
+        f(\xi) \exp\left( - \frac{x^2 + \xi^2}{4 a^2 t} \right) 
+        \sinh \left( \frac{x \xi}{2 a^2 t} \right) \,d\xi
+        }
+    \end{gather*}
+    Since the integrand is zero for $x = 0$, the solution
+    satisfies the boundary condition there.
+    %%
+    %%
+  \item
+    For the boundary condition $\phi_x(0,t) = 0$ we would choose $f(x)$
+    to be even.  $f(-x) = f(x)$.  The solution is
+    \[
+    \boxed{
+      \phi(x,t) = \frac{1}{a \sqrt{\pi t} } \int_0^{\infty}
+      f(\xi) \exp\left( - \frac{x^2 + \xi^2}{4 a^2 t} \right) 
+      \cosh \left( \frac{x \xi}{2 a^2 t} \right) \,d\xi
+      }
+    \]
+    The derivative with respect to $x$ is
+    \[
+    \phi_x(x,t) = \frac{1}{2 a^3 \sqrt{\pi} t^{3/2} } \int_0^{\infty}
+    f(\xi) \exp\left( - \frac{x^2 + \xi^2}{4 a^2 t} \right) 
+    \left( \xi \sinh \left( \frac{x \xi}{2 a^2 t} \right)
+      - x \cosh \left( \frac{x \xi}{2 a^2 t} \right) \right) \,d\xi.
+    \]
+    Since the integrand is zero for $x = 0$, the solution
+    satisfies the boundary condition there.
+  \end{enumerate}
+\end{Solution}
+
+
+
+
+
+
+%% Solve the Cauchy problem for the one-dimensional wave equation.
+\begin{Solution}
+  \index{wave equation!D'Alembert's solution}
+  \index{wave equation!Fourier transform solution}
+  \[
+  u_{t t} = c^2 u_{x x}, \quad u(x,0) = f(x), \quad u_t(x,0) = g(x),
+  \]
+  With the change of variables
+  \[
+  \tau = c t, \quad 
+  \frac{\partial}{\partial \tau} = \frac{\partial t}{\partial \tau} \frac{\partial}{\partial t} = \frac{1}{c} \frac{\partial}{\partial t},
+  \quad v(x,\tau) = u(x,t),
+  \]
+  the problem becomes
+  \[
+  v_{\tau\tau} =  v_{x x}, 
+  \quad v(x,0) = f(x), 
+  \quad v_\tau(x,0) = \frac{1}{c} g(x).
+  \]
+  (This change of variables isn't necessary, it just gives us fewer 
+  constants to carry around.)
+  We take the Fourier transform in $x$ of the equation and the initial 
+  conditions, (we consider $\tau$ to be a parameter).
+  \[
+  \hat{v}_{\tau\tau}(\omega,\tau) = -\omega^2 \hat{v}(\omega,\tau), \quad
+  \hat{v}(\omega,\tau) = \hat{f}(\omega), \quad
+  \hat{v}_\tau(\omega,\tau) = \frac{1}{c} \hat{g}(\omega)
+  \]
+  Now we have an ordinary differential equation for $\hat{v}(\omega,\tau)$, 
+  (now we consider $\omega$ to be a parameter).  The general solution of this 
+  constant coefficient differential equation is,
+  \[
+  \hat{v}(\omega,\tau) = a(\omega) \cos(\omega \tau) + b(\omega) \sin(\omega \tau),
+  \]
+  where $a$ and $b$ are constants that depend on the parameter $\omega$.
+  We applying the initial conditions to obtain $\hat{v}(\omega,\tau)$.
+  \[
+  \hat{v}(\omega,\tau) = \hat{f}(\omega) \cos(\omega \tau) 
+  + \frac{1}{c \omega} \hat{g}(\omega) \sin(\omega \tau)
+  \]
+  With the Fourier transform pairs
+  \begin{gather*}
+    \mathcal{F}[\pi ( \delta(x+\tau) + \delta(x-\tau))] = \cos(\omega \tau), 
+    \\
+    \mathcal{F}[\pi ( H(x+\tau) - H(x-\tau) )] = \frac{\sin(\omega \tau)}{\omega},
+  \end{gather*}
+  we can write $\hat{v}(\omega,\tau)$ in a form that is conducive to applying
+  the Fourier convolution theorem.
+  \[
+  \hat{v}(\omega,\tau) = 
+  \mathcal{F}[f(x)] \mathcal{F}[\pi ( \delta(x+\tau) + \delta(x-\tau))] +
+  \frac{1}{c} \mathcal{F}[g(x)] \mathcal{F}[\pi ( H(x+\tau) - H(x-\tau) )]
+  \]
+  \begin{multline*}
+    v(x,\tau) = 
+    \frac{1}{2\pi} \int_{-\infty}^\infty f(\xi) 
+    \pi ( \delta(x-\xi+\tau)+\delta(x-\xi-\tau)) \,d\xi \\
+    + \frac{1}{c} \frac{1}{2\pi} \int_{-\infty}^\infty g(\xi) \pi (H(x-\xi+\tau)-H(x-\xi-\tau))
+    \,d\xi
+  \end{multline*}
+  \[
+  v(x,\tau) = \frac{1}{2} (f(x+\tau) + f(x-\tau))
+  + \frac{1}{2c} \int_{x-\tau}^{x+\tau} g(\xi) \,d\xi
+  \]
+  Finally we make the change of variables $t = \tau/c$, $u(x,t)=v(x,\tau)$
+  to obtain D'Alembert's solution of the wave equation,
+  \[
+  \boxed{
+    u(x,t) = \frac{1}{2} (f(x - ct) + f(x + ct))
+    + \frac{1}{2c} \int_{x-ct}^{x+ct} g(\xi)\,d\xi.
+    }
+  \]
+\end{Solution}
+
+
+
+\begin{Solution}
+  \index{wave equation!Laplace transform solution}
+  With the change of variables
+  \[
+  \tau = c t, \quad 
+  \frac{\partial}{\partial \tau} = \frac{\partial t}{\partial \tau} \frac{\partial}{\partial t} = \frac{1}{c} \frac{\partial}{\partial t},
+  \quad v(x,\tau) = u(x,t),
+  \]
+  the problem becomes
+  \[
+  v_{\tau\tau} =  v_{xx}, \quad v(x,0) = f(x), 
+  \quad v_\tau(x,0) = \frac{1}{c} g(x).
+  \]
+  We take the Laplace transform in $\tau$ of the equation,
+  (we consider $x$ to be a parameter),
+  \[
+  s^2 V(x,s) - s v(x,0) - v_\tau(x,0) = V_{xx}(x,s),
+  \]
+  \[
+  V_{xx}(x,s) - s^2 V(x,s) = - s f(x) - \frac{1}{c} g(x),
+  \]
+  Now we have an ordinary differential equation for $V(x,s)$, 
+  (now we consider $s$ to be a parameter).  We impose the boundary conditions
+  that the solution is bounded at $x=\pm \infty$.  Consider the Green's 
+  function problem
+  \[
+  g_{xx}(x;\xi) -s^2 g(x;\xi) = \delta(x-\xi), \quad
+  g(\pm \infty;\xi)\ \mathrm{bounded}.
+  \]
+  $\e^{s x}$ is a homogeneous solution that is bounded at $x=-\infty$.
+  $\e^{-s x}$ is a homogeneous solution that is bounded at $x=+\infty$.
+  The Wronskian of these solutions is 
+  \[
+  W(x) = 
+  \begin{vmatrix}
+    \e^{s x} & \e^{-s x} \\
+    s \e^{s x} & -s \e^{-s x}
+  \end{vmatrix}
+  = -2s.
+  \]
+  Thus the Green's function is
+  %% CONTINUE: reference Result 7.4.4
+  \[
+  g(x;\xi)=
+  \begin{cases}
+    -\frac{1}{2s} \e^{s x} \e^{-s \xi} &\mathrm{for}\ x<\xi, \\
+    -\frac{1}{2s} \e^{s \xi} \e^{-s x} &\mathrm{for}\ x>\xi, 
+  \end{cases}
+  = -\frac{1}{2s} \e^{-s|x-\xi|}.
+  \]
+  The solution for $V(x,s)$ is
+  \[
+  V(x,s) = -\frac{1}{2s} \int_{-\infty}^\infty \e^{-s|x-\xi|} 
+  (-s f(\xi) - \frac{1}{c} g(\xi)) \,d\xi,
+  \]
+  \[
+  V(x,s) = \frac{1}{2} \int_{-\infty}^\infty \e^{-s|x-\xi|} f(\xi) \,d\xi +
+  \frac{1}{2c s} \int_{-\infty}^\infty \e^{-s|x-\xi|} g(\xi)) \,d\xi,
+  \]
+  \[
+  V(x,s) = \frac{1}{2} \int_{-\infty}^\infty \e^{-s|\xi|} f(x-\xi) \,d\xi +
+  \frac{1}{2c} \int_{-\infty}^\infty \frac{\e^{-s|\xi|}}{s} g(x-\xi)) \,d\xi.
+  \]
+  Now we take the inverse Laplace transform and interchange the order of 
+  integration.
+  \[
+  v(x,\tau) = \frac{1}{2} \mathcal{L}^{-1}\left[ 
+    \int_{-\infty}^\infty \e^{-s|\xi|} f(x-\xi) \,d\xi \right] +
+  \frac{1}{2c} \mathcal{L}^{-1}\left[ 
+    \int_{-\infty}^\infty \frac{\e^{-s|\xi|}}{s} g(x-\xi)) \,d\xi \right]
+  \]
+  \[
+  v(x,\tau) = \frac{1}{2} \int_{-\infty}^\infty \mathcal{L}^{-1}\left[\e^{-s|\xi|}\right] 
+  f(x-\xi) \,d\xi +
+  \frac{1}{2c} \int_{-\infty}^\infty \mathcal{L}^{-1}\left[\frac{\e^{-s|\xi|}}{s}\right] 
+  g(x-\xi)) \,d\xi
+  \]
+  \[
+  v(x,\tau) = \frac{1}{2} \int_{-\infty}^\infty \delta(\tau-|\xi|) f(x-\xi) \,d\xi +
+  \frac{1}{2c} \int_{-\infty}^\infty H(\tau-|\xi|) g(x-\xi)) \,d\xi
+  \]
+  \[ 
+  v(x,\tau) = \frac{1}{2}(f(x-\tau)+f(x+\tau)) + 
+  \frac{1}{2c} \int_{-\tau}^{\tau} g(x-\xi) \,d\xi
+  \]
+  \[ 
+  v(x,\tau) = \frac{1}{2}(f(x-\tau)+f(x+\tau)) + 
+  \frac{1}{2c} \int_{-x-\tau}^{-x+\tau} g(-\xi) \,d\xi
+  \]
+  \[ 
+  v(x,\tau) = \frac{1}{2}(f(x-\tau)+f(x+\tau)) + 
+  \frac{1}{2c} \int_{x-\tau}^{x+\tau} g(\xi) \,d\xi
+  \]
+  Now we write make the change of variables $t = \tau/c$, $u(x,t)=v(x,\tau)$
+  to obtain D'Alembert's solution of the wave equation,
+  \[
+  \boxed{
+    u(x,t) = \frac{1}{2} (f(x - ct) + f(x + ct))
+    + \frac{1}{2c} \int_{x-ct}^{x+ct} g(\xi)\,d\xi.
+    }
+  \]
+\end{Solution}
+
+
+
+
+%% Heat eqn.  x > 0, t > 0.  \phi(x,0) = 0.  \phi(0,t) = f(t).
+\begin{Solution}
+  \begin{enumerate}
+    %%
+    %%
+  \item
+    We take the Laplace transform of Equation~\ref{1:phi_t=a^2phi_xx}.
+    \begin{gather}
+      \nonumber
+      s \hat{\phi} - \phi(x,0) = a^2 \hat{\phi}_{x x} \\
+      \label{hatphi_xx-fracsa^2hatphi=0}
+      \hat{\phi}_{x x} - \frac{s}{a^2} \hat{\phi} = 0
+    \end{gather}
+    We take the Laplace transform of the initial condition, 
+    $\phi(0,t) = f(t)$, and use that $\hat{\phi}(x,s)$ vanishes as
+    $x \to \infty$ to obtain boundary conditions for $\hat{\phi}(x,s)$.
+    \[
+    \hat{\phi}(0,s) = \hat{f}(s), \quad
+    \hat{\phi}(\infty,s) = 0
+    \]
+    The solutions of Equation~\ref{hatphi_xx-fracsa^2hatphi=0} are
+    \[
+    \exp \left( \pm \frac{\sqrt{s}}{a} x \right).
+    \]
+    The solution that satisfies the boundary conditions is
+    \[
+    \hat{\phi}(x,s) = \hat{f}(s) \exp \left( -\frac{\sqrt{s}}{a} x \right).
+    \]
+    We write this as the product of two Laplace transforms.
+    \[
+    \hat{\phi}(x,s) = \hat{f}(s) 
+    \mathcal{L} \left[ \frac{ x }{ 2 a \sqrt{\pi} t^{3/2} }
+      \exp \left( - \frac{ x^2 }{ 4 a^2 t } \right) \right]
+    \]
+    We invert using the convolution theorem.
+    \[
+    \boxed{
+      \phi(x,t) = \frac{x}{2 a \sqrt{\pi}} \int_0^t f(t - \tau) 
+      \frac{1}{\tau^{3/2}} \exp \left( - \frac{x^2}{4 a^2 \tau} 
+      \right) \,d\tau.
+      }
+    \]
+    %%
+    %%
+  \item
+    Consider the case $f(t) = 1$.
+    \begin{gather*}
+      \phi(x,t) = \frac{x}{2 a \sqrt{\pi}} \int_0^t 
+      \frac{1}{\tau^{3/2}} \exp \left( - \frac{x^2}{4 a^2 \tau} 
+      \right) \,d\tau \\
+      \xi = \frac{x}{2 a \sqrt{\tau}}, \quad
+      d\xi = - \frac{x}{4 a \tau^{3/2}} \\
+      \phi(x,t) = - \frac{2}{\sqrt{\pi}} \int_\infty^{x/(2 a \sqrt{t})}
+      \e^{-\xi^2} \,d \xi \\
+      \boxed{
+        \phi(x,t) = \erfc \left( \frac{ x }{ 2 a \sqrt{t} } \right)
+        }
+    \end{gather*}
+    Now consider the case in which $f(t) = 1$ for $0 < t < T$, 
+    with $ f(t) = 0$ for $ t > T$.  For $t < T$, $\phi$ is the same 
+    as before.
+    \[
+    \phi(x,t) = \erfc \left( \frac{ x }{ 2 a \sqrt{t} } \right), \quad
+    \mathrm{for}\ 0 < t < T
+    \]
+    Consider $t > T$.
+    \begin{gather*}
+      \phi(x,t) = \frac{x}{2 a \sqrt{\pi}} \int_{t-T}^t 
+      \frac{1}{\tau^{3/2}} \exp \left( - \frac{x^2}{4 a^2 \tau} 
+      \right) \,d\tau \\
+      \phi(x,t) = - \frac{2}{\sqrt{\pi}} \int_{x/(2 a \sqrt{t-T})}^{x/(2 a \sqrt{t})}
+      \e^{-\xi^2} \,d \xi \\
+      \boxed{
+        \phi(x,t) = \erf \left( \frac{ x }{ 2 a \sqrt{t-T} } \right)
+        - \erf \left( \frac{ x }{ 2 a \sqrt{t} } \right)
+        }
+    \end{gather*}
+  \end{enumerate}
+\end{Solution}
+
+
+
+
+
+%% Radiating half space problem.
+\begin{Solution}
+  \begin{gather*}
+    u_t = \kappa u_{x x}, \quad x > 0, \quad t > 0, \\
+    u_x(0,t) - \alpha u(0,t) = 0, \quad u(x,0) = f(x).
+  \end{gather*}
+  First we find the partial differential equation that $v$ satisfies.  We 
+  start with the partial differential equation for $u$,
+  \[
+  u_t = \kappa u_{x x}.
+  \]
+  Differentiating this equation with respect to $x$ yields,
+  \[
+  u_{t x} = \kappa u_{x x x}.
+  \]
+  Subtracting $\alpha$ times the former equation from the latter yields,
+  \begin{gather*}
+    u_{t x} - \alpha u_t = \kappa u_{x x x} - \alpha \kappa u_{x x}, \\
+    \frac{\partial}{\partial t} \left( u_x - \alpha u \right)
+    = \kappa \frac{\partial^2}{\partial x^2} \left( u_x - \alpha u \right),\\
+    v_t = \kappa v_{x x}.
+  \end{gather*}
+  Thus $v$ satisfies the same partial differential equation as $u$.  This is
+  because the equation for $u$ is linear and homogeneous and $v$ is a linear
+  combination of $u$ and its derivatives.  The problem for $v$ is,
+  \begin{gather*}
+    v_t = \kappa v_{x x}, \quad x > 0, \quad t > 0, \\
+    v(0,t) = 0, \quad v(x,0) = f'(x) - \alpha f(x).
+  \end{gather*}
+  With this new boundary condition, we can solve the problem with the 
+  Fourier sine transform.  We take the sine transform of the partial differential
+  equation and the initial condition.  
+  \begin{gather*}
+    \hat{v}_t(\omega,t) = \kappa \left( - \omega^2 \hat{v}(\omega, t) 
+      + \frac{1}{\pi} \omega v(0,t) \right), \\
+    \hat{v}(\omega,0) = \mathcal{F}_s \left[ f'(x) - \alpha f(x) \right]
+  \end{gather*}
+  \begin{gather*}
+    \hat{v}_t(\omega,t) = - \kappa \omega^2 \hat{v}(\omega, t) \\
+    \hat{v}(\omega,0) = \mathcal{F}_s \left[ f'(x) - \alpha f(x) \right]
+  \end{gather*}
+  Now we have a first order, ordinary differential equation for $\hat{v}$.  The 
+  general solution is,
+  \[
+  \hat{v}(\omega,t) = c \e^{-\kappa \omega^2 t}.
+  \]
+  The solution subject to the initial condition is,
+  \[
+  \hat{v}(\omega,t) = \mathcal{F}_s \left[ f'(x) - \alpha f(x) \right]
+  \e^{-\kappa \omega^2 t}.
+  \]
+  Now we take the inverse sine transform to find $v$.  We utilize the Fourier
+  cosine transform pair,
+  \[
+  \mathcal{F}_c^{-1} \left[ \e^{- \kappa \omega^2 t } \right]
+  = \sqrt{ \frac{\pi}{\kappa t} } \e^{- x^2 / (4 \kappa t) },
+  \]
+  to write $\hat{v}$ in a form that is suitable for the convolution theorem.
+  \[
+  \hat{v}(\omega,t) = \mathcal{F}_s \left[ f'(x) - \alpha f(x) \right]
+  \mathcal{F}_c \left[ \sqrt{ \frac{\pi}{\kappa t} } 
+    \e^{- x^2 / (4 \kappa t) } \right]
+  \]
+  Recall that the Fourier sine convolution theorem is,
+  \[
+  \mathcal{F}_s \left[ \frac{1}{2\pi} \int_0^\infty f(\xi) \left( g(|x-\xi|) 
+      - g(x+\xi) \right) \,d \xi \right] 
+  = \mathcal{F}_s [f(x)] \mathcal{F}_c [g(x)].
+  \]
+  Thus $v(x,t)$ is
+  \[
+  \boxed{
+    v(x,t) = \frac{1}{2 \sqrt{ \pi \kappa t } } \int_0^\infty (f'(\xi) - \alpha f(\xi))
+    \left( \e^{- |x-\xi|^2 / (4 \kappa t) }
+      - \e^{- (x+\xi)^2 / (4 \kappa t) } \right) \,d \xi.
+    }
+  \]
+  With $v$ determined, we have a first order, ordinary differential equation 
+  for $u$,
+  \[
+  u_x - \alpha u = v.
+  \]
+  We solve this equation by multiplying by the integrating factor and 
+  integrating.
+  \begin{gather*}
+    \frac{\partial}{\partial x} \left( \e^{-\alpha x} u \right) = \e^{- \alpha x} v \\
+    \e^{-\alpha x} u = \int^x \e^{-\alpha \xi} v(x,t) \,d\xi + c(t) \\
+    u = \int^x \e^{-\alpha (\xi - x)} v(x,t) \,d\xi + \e^{\alpha x} c(t) 
+  \end{gather*}
+  The solution that vanishes as $x \to \infty$ is
+  \[
+  \boxed{
+    u(x,t) = - \int_x^\infty \e^{- \alpha (\xi - x) } v(\xi, t) \,d \xi.
+    }
+  \]
+\end{Solution}
+
+
+
+%% Solve heat equation with sine transform.
+\begin{Solution}
+  \begin{align*}
+    \int_0^\infty \omega \e^{-c \omega^2} \sin(\omega x) \,d \omega 
+    &= - \frac{\partial}{\partial x} \int_0^\infty e^{-c \omega^2} \cos(\omega x) \,d \omega \\
+    &= - \frac{1}{2} \frac{\partial}{\partial x} \int_{-\infty}^\infty e^{-c \omega^2} 
+    \cos(\omega x) \,d \omega \\
+    &= - \frac{1}{2} \frac{\partial}{\partial x} \int_{-\infty}^\infty e^{-c \omega^2 + \imath \omega x} 
+    \,d \omega \\
+    &= - \frac{1}{2} \frac{\partial}{\partial x} \int_{-\infty}^\infty e^{-c (\omega + \imath x/(2c))^2}
+    \e^{-x^2/(4c)} \,d \omega \\
+    &= - \frac{1}{2} \frac{\partial}{\partial x} \e^{-x^2/(4c)} \int_{-\infty}^\infty e^{-c \omega^2}
+    \,d \omega \\
+    &= - \frac{1}{2} \sqrt{ \frac{\pi}{c} } \frac{\partial}{\partial x} \e^{-x^2/(4c)}\\
+    &= \frac{ x \sqrt{\pi} }{ 4 c^{3/2} } \e^{-x^2/(4c)}
+  \end{align*}
+  \begin{gather*}
+    u_t = u_{x x}, \quad x > 0, \quad t > 0, \\
+    u(0,t) = g(t), \quad u(x,0) = 0.
+  \end{gather*}
+  We take the Fourier sine transform of the partial differential equation
+  and the initial condition.
+  \[
+  \hat{u}_t(\omega, t) = - \omega^2 \hat{u}(\omega, t) + \frac{\omega}{\pi} g(t),
+  \qquad \hat{u}(\omega,0) = 0
+  \]
+  Now we have a first order, ordinary differential equation for 
+  $\hat{u}(\omega,t)$.
+  \begin{gather*}
+    \frac{\partial}{\partial t} \left( \e^{\omega^2 t} \hat{u}_t(\omega, t) \right) 
+    = \frac{\omega}{\pi} g(t) \e^{\omega^2 t} \\
+    \hat{u}(\omega, t) = \frac{\omega}{\pi} \e^{-\omega^2 t} \int_0^t
+    g(\tau) \e^{\omega^2 \tau} \,d\tau + c(\omega) \e^{-\omega^2 t}
+  \end{gather*}
+  The initial condition is satisfied for $c(\omega) = 0$.
+  \[
+  \hat{u}(\omega, t) = \frac{\omega}{\pi} \int_0^t
+  g(\tau) \e^{- \omega^2 (t - \tau) } \,d\tau 
+  \]
+  We take the inverse sine transform to find $u$.
+  \[
+  u(x,t) = \mathcal{F}_s^{-1} \left[ \frac{\omega}{\pi} \int_0^t
+    g(\tau) \e^{- \omega^2 (t - \tau) } \,d\tau \right]
+  \]
+  \[
+  u(x,t) = \int_0^t g(\tau) \mathcal{F}_s^{-1} \left[ \frac{\omega}{\pi} 
+    \e^{- \omega^2 (t - \tau) } \right] \,d\tau 
+  \]
+  \[
+  u(x,t) = \int_0^t g(\tau) \frac{x}{2 \sqrt{\pi} (t-\tau)^{3/2} }
+  \e^{-x^2 / (4(t-\tau))} \,d\tau 
+  \]
+  \[
+  \boxed{
+    u(x,t) = \frac{x}{2 \sqrt{\pi}} \int_0^t g(\tau) 
+    \frac{ \e^{-x^2 / (4(t-\tau))} }{ (t-\tau)^{3/2} } \,d\tau 
+    }
+  \]
+\end{Solution}
+
+
+
+
+
+
+
+
+%% Steady state temperature in a semi-infinite rectangular slab.
+\begin{Solution}
+  The problem is
+  \begin{gather*}
+    u_{x x} + u_{y y} = 0, \quad 0 < x, 0 < y < 1, \\
+    u(x,0) = u(x,1) = 0, \quad u(0,y) = f(y).
+  \end{gather*}
+  We take the Fourier sine transform of the partial differential equation
+  and the boundary conditions.
+  \begin{gather*}
+    -\omega^2 \hat{u}(\omega, y) + \frac{k}{\pi} u(0,y) + \hat{u}_{y y}(\omega,y)
+    = 0 \\
+    \hat{u}_{y y}(\omega,y) -\omega^2 \hat{u}(\omega, y) = -  \frac{k}{\pi} f(y),
+    \quad \hat{u}(\omega,0) = \hat{u}(\omega,1) = 0 
+  \end{gather*}
+  This is an inhomogeneous, ordinary differential equation that we can solve 
+  with Green functions.  The homogeneous solutions are
+  \[
+  \{ \cosh(\omega y), \sinh( \omega y) \}.
+  \]
+  The homogeneous solutions that satisfy the left and right boundary conditions
+  are
+  \[
+  y_1 = \sinh(\omega y), \quad y_2 = \sinh(\omega(y-1)).
+  \]
+  The Wronskian of these two solutions is,
+  \begin{align*}
+    W(x)    &= \begin{vmatrix} \sinh(\omega y) & \sinh(\omega(y-1)) \\
+      \omega \cosh(\omega y) & \omega \cosh(\omega(y-1)) 
+    \end{vmatrix} \\
+    &= \omega \left( \sinh(\omega y) \cosh(\omega(y-1))
+      - \cosh(\omega y) \sinh(\omega(y-1)) \right) \\
+    &= \omega \sinh(\omega ).
+  \end{align*}
+  The Green function is
+  \[
+  G(y|\eta) = \frac{ \sinh(\omega y_<) \sinh( \omega(y_> -1)) }
+  { \omega \sinh( \omega ) }.
+  \]
+  The solution of the ordinary differential equation for $\hat{u}(\omega,y)$ is
+  \begin{align*}
+    \hat{u}(\omega,y)
+    &= - \frac{\omega}{\pi} \int_0^1 f(\eta) G(y|\eta) \,d\eta \\
+    &= - \frac{1}{\pi} \int_0^y f(\eta) 
+    \frac{ \sinh(\omega \eta) \sinh(\omega(y-1)) }
+    { \sinh(\omega) } \,d \eta
+    - \frac{1}{\pi} \int_y^1 f(\eta) 
+    \frac{ \sinh(\omega y) \sinh(\omega(\eta-1)) }
+    { \sinh(\omega) } \,d \eta.
+  \end{align*}
+  With some uninteresting grunge, you can show that,
+  \[
+  2 \int_0^\infty \frac{ \sinh(\omega \eta) \sinh( \omega(y-1)) }{ \sinh(\omega) }
+  \sin( \omega x ) \,d \omega
+  = - 2 \frac{ \sin( \pi \eta ) \sin( \pi y ) }
+  { ( \cosh(\pi x) - \cos(\pi(y-\eta)))(\cosh(\pi x)-\cos(\pi(y+\eta)))}.
+  \]
+  Taking the inverse Fourier sine transform of $\hat{u}(\omega, y)$ and 
+  interchanging the order of integration yields,
+  \begin{multline*}
+    u(x,y) = \frac{2}{\pi} \int_0^y f(\eta) \frac{ \sin( \pi \eta ) \sin( \pi y ) }
+    { (\cosh(\pi x) - \cos(\pi(y-\eta)))(\cosh(\pi x)-\cos(\pi(y+\eta)))}\,d \eta \\
+    + \frac{2}{\pi} \int_y^1 f(\eta) \frac{ \sin( \pi y ) \sin( \pi \eta ) }
+    { ( \cosh(\pi x) - \cos(\pi(\eta-y)))(\cosh(\pi x)-\cos(\pi(\eta+y)))}\,d \eta.
+  \end{multline*}
+  \[
+  \boxed{
+    u(x,y) = \frac{2}{\pi} \int_0^1 f(\eta)
+    \frac{ \sin( \pi \eta ) \sin( \pi y ) }
+    { ( \cosh(\pi x) - \cos(\pi(y-\eta)))(\cosh(\pi x)-\cos(\pi(y+\eta)))}\,d \eta
+    }
+  \]
+\end{Solution}
+
+
+
+%% Potential equation in the upper half plane.
+\begin{Solution}
+  The problem for $u(x,y)$ is,
+  \begin{gather*}
+    u_{x x} + u_{y y} = 0, \quad -\infty < x < \infty, y > 0, \\
+    u(x,0) = g(x).
+  \end{gather*}
+  We take the Fourier transform of the partial differential equation and the
+  boundary condition.
+  \[
+  -\omega^2 \hat{u}(\omega, y) + \hat{u}_{y y}(\omega, y) = 0, \quad
+  \hat{u}(\omega, 0) = \hat{g}(\omega).
+  \]
+  This is an ordinary differential equation for $\hat{u}(\omega,y)$.  So 
+  far we only have one boundary condition.  In order that $u$ is bounded
+  we impose the second boundary condition $\hat{u}(\omega, y)$ is bounded as
+  $y \to \infty$.  The general solution of the differential equation is
+  \[
+  \hat{u}(\omega,y) = \begin{cases}
+    c_1(\omega) \e^{\omega y} + c_2(\omega) \e^{- \omega y}, 
+    &\mathrm{for}\ \omega \neq 0, \\
+    c_1(\omega) + c_2(\omega) y,
+    &\mathrm{for}\ \omega = 0. 
+  \end{cases}
+  \]
+  Note that $\e^{\omega y}$ is the bounded solution for $\omega < 0$, $1$ is
+  the bounded solution for $\omega = 0$ and $\e^{- \omega y}$ is the 
+  bounded solution for $\omega > 0$.  Thus the bounded solution is
+  \[
+  \hat{u}(\omega,y) = c(\omega) \e^{-|\omega| y}.
+  \]
+  The boundary condition at $y = 0$ determines the constant of integration.
+  \[
+  \hat{u}(\omega,y) = \hat{g}(\omega) \e^{-|\omega| y}
+  \]
+  Now we take the inverse Fourier transform to obtain the solution for 
+  $u(x,y)$.  To do this we use the Fourier transform pair,
+  \[
+  \mathcal{F} \left[ \frac{2 c}{x^2 + c^2} \right] = \e^{-c |\omega|},
+  \]
+  and the convolution theorem,
+  \[
+  \mathcal{F} \left[ \frac{1}{2\pi} \int_{-\infty}^\infty f(\xi) g(x-\xi) \,d\xi \right]
+  = \hat{f}(\omega) \hat{g}(\omega).
+  \]
+  \[
+  \boxed{
+    u(x,y) = \frac{1}{2\pi} \int_{-\infty}^\infty g(\xi) \frac{2 y}{ (x-\xi)^2 + y^2}\,d\xi.
+    }
+  \]
+\end{Solution}
+
+
+
+%% Bounded solution of $u_t = \kappa u_{x x} - \a^2 u$.
+\begin{Solution}
+  Since the derivative of $u$ is specified at $x = 0$, we take the cosine 
+  transform of the partial differential equation and the initial condition.
+  \begin{gather*}
+    \hat{u}_t(\omega,t) = \kappa \left( - \omega^2 \hat{u}(\omega,t) 
+      - \frac{1}{\pi} u_x(0,t) \right) - a^2 \hat{u}(\omega,t), \quad
+    \hat{u}(\omega,0) = 0 \\
+    \hat{u}_t + \left( \kappa \omega^2 + a^2 \right) \hat{u} 
+    = \frac{\kappa}{\pi} f(t), \quad \hat{u}(\omega,0) = 0
+  \end{gather*}
+  This first order, ordinary differential equation for $\hat{u}(\omega,t)$
+  has the solution,
+  \[
+  \hat{u}(\omega,t) = \frac{\kappa}{\pi} \int_0^t \e^{- (\kappa \omega^2 + a^2)
+    (t - \tau) } f(\tau) \,d\tau.
+  \]
+  We take the inverse Fourier cosine transform to find the solution $u(x,t)$.
+  \begin{gather*}
+    u(x,t) = \frac{\kappa}{\pi} \mathcal{F}_c^{-1} \left[        
+      \int_0^t \e^{- (\kappa \omega^2 + a^2)
+        (t - \tau) } f(\tau) \,d\tau \right] \\
+    u(x,t) = \frac{\kappa}{\pi} 
+    \int_0^t \mathcal{F}_c^{-1} \left[ \e^{- \kappa \omega^2
+        (t - \tau) } \right] \e^{-a^2 (t - \tau)} f(\tau) \,d\tau \\
+    u(x,t) = \frac{\kappa}{\pi} 
+    \int_0^t \sqrt{ \frac{\pi}{\kappa (t-\tau)} } 
+    \e^{- x^2 / (4 \kappa (t - \tau)) }
+    \e^{-a^2 (t - \tau)} f(\tau) \,d\tau 
+  \end{gather*}
+  \[
+  \boxed{
+    u(x,t) = \sqrt{ \frac{\kappa}{\pi} } \int_0^t
+    \frac{ \e^{- x^2 / (4 \kappa (t - \tau)) - a^2 (t - \tau)} }
+    { \sqrt{t-\tau} }
+    f(\tau) \,d\tau 
+    }
+  \]
+\end{Solution}
+
+
+
+
+
+
+
+%% Finite string, Laplace transform
+\begin{Solution}
+  Mathematically stated we have
+  \begin{gather*}
+    u_{t t} = c^2 u_{x x}, \quad 0 < x < L, \quad t > 0, \\
+    u(x,0) = u_t(x,0) = 0, \\
+    u(0,t) = f(t), \quad u(L,t) = 0.
+  \end{gather*}
+  We take the Laplace transform of the partial differential equation and the
+  boundary conditions.
+  \begin{gather*}
+    s^2 \hat{u}(x,s) - s u(x,0) - u_t(x,0) = c^2 \hat{u}_{x x}(x,s) \\
+    \hat{u}_{x x} = \frac{s^2}{c^2} \hat{u}, \quad \hat{u}(0,s) = \hat{f}(s),
+    \quad \hat{u}(L,s) = 0
+  \end{gather*}
+  Now we have an ordinary differential equation.  A set of solutions is
+  \[
+  \left\{ \cosh \left( \frac{s x}{c} \right), \sinh \left( \frac{s x}{c} \right)
+  \right\}.
+  \]
+  The solution that satisfies the right boundary condition is
+  \[
+  \hat{u} = a \sinh \left( \frac{s (L-x)}{c} \right).
+  \]
+  The left boundary condition determines the multiplicative constant.
+  \[
+  \hat{u}(x,s) = \hat{f}(s) \frac{ \sinh(s(L-x)/c) }{ \sinh(s L/c) }
+  \]
+  If we can find the inverse Laplace transform of 
+  \[
+  \hat{u}(x,s) = \frac{ \sinh(s(L-x)/c) }{ \sinh(s L/c) }
+  \]
+  then we can use the convolution theorem to write $u$ in terms of a single 
+  integral.  We proceed by expanding this function in a sum.
+  \begin{align*}
+    \frac{ \sinh(s(L-x)/c) }{ \sinh(s L/c) }
+    &= \frac{ \e^{s(L-x)/c} - \e^{-s(L-x)/c} }
+    { \e^{s L/c} - \e^{-s L/c} } \\
+    &= \frac{ \e^{-s x/c} - \e^{-s (2L-x)/c} }{ 1 - \e^{-2 s L/c} } \\
+    &= \left( \e^{-s x/c} - \e^{-s(2L-x)/c} \right)
+    \sum_{n = 0}^\infty \e^{-2 n s L/c} \\
+    &= \sum_{n = 0}^\infty \e^{-s (2 n L + x)/c} 
+    - \sum_{n = 0}^\infty \e^{-s (2 (n+1) L - x)/c} \\
+    &= \sum_{n = 0}^\infty \e^{-s (2 n L + x)/c} 
+    - \sum_{n = 1}^\infty \e^{-s (2 n L - x)/c} 
+  \end{align*}
+  Now we use the Laplace transform pair:
+  \[
+  \mathcal{L}[\delta(x-a)] = \e^{-s a}.
+  \]
+  \[
+  \mathcal{L}^{-1} \left[ \frac{ \sinh(s(L-x)/c) }{ \sinh(s L/c) } \right]
+  = \sum_{n = 0}^\infty \delta( t - (2 n L + x)/c)
+  - \sum_{n = 1}^\infty \delta( t - (2 n L - x)/c)
+  \]
+  We write $\hat{u}$ in the form,
+  \[
+  \hat{u}(x,s) = \mathcal{L}[f(t)]
+  \mathcal{L} \left[ \sum_{n = 0}^\infty \delta( t - (2 n L + x)/c)
+    - \sum_{n = 1}^\infty \delta( t - (2 n L - x)/c) \right].
+  \]
+  By the convolution theorem we have
+  \[
+  u(x,t) = \int_0^t f(\tau) \left(
+    \sum_{n = 0}^\infty \delta( t - \tau - (2 n L + x)/c)
+    - \sum_{n = 1}^\infty \delta( t - \tau - (2 n L - x)/c) \right) \,d \tau.
+  \]
+  We can simplify this a bit.  First we determine which Dirac delta functions 
+  have their singularities in the range $\tau \in (0..t)$.  For the first 
+  sum, this condition is
+  \[
+  0 < t - (2 n L + x) / c < t.
+  \]
+  The right inequality is always satisfied.  The left inequality becomes
+  \begin{gather*}
+    (2 n L + x) / c < t, \\
+    n < \frac{c t - x}{2 L}.
+  \end{gather*}
+  For the second sum, the condition is
+  \[
+  0 < t - (2 n L - x) / c < t.
+  \]
+  Again the right inequality is always satisfied.  The left inequality becomes
+  \[
+  n < \frac{c t + x}{2 L}.
+  \]
+  We change the index range to reflect the nonzero contributions and do the 
+  integration.
+  \[
+  u(x,t) = \int_0^t f(\tau) \left(
+    \sum_{n=0}^{\lfloor \frac{c t - x}{2 L} \rfloor} 
+    \delta( t - \tau - (2 n L + x)/c)
+    \sum_{n=1}^{\lfloor \frac{c t + x}{2 L} \rfloor} 
+    \delta( t - \tau - (2 n L - x)/c) \right) \,d \tau.
+  \]
+  \[
+  \boxed{
+    u(x,t) = \sum_{n=0}^{\lfloor \frac{c t - x}{2 L} \rfloor} 
+    f( t - (2 n L + x)/c)
+    \sum_{n=1}^{\lfloor \frac{c t + x}{2 L} \rfloor} 
+    f( t - (2 n L - x)/c) 
+    }
+  \]
+\end{Solution}
+
+
+
+
+
+
+
+
+
+
+%% $\nabla^2 \phi = 0$, $0 < y < l$, $-\infty < x < \infty$.
+\begin{Solution}
+  We take the Fourier transform of the partial differential equation and
+  the boundary conditions. 
+  \[
+  - \omega^2 \hat{\phi} + \hat{\phi}_{y y} = 0, \quad
+  \hat{\phi}(\omega,0) = \frac{1}{2 \pi} \e^{- \imath \omega \xi}, 
+  \quad \hat{\phi}(\omega,l) = 0
+  \]
+  We solve this boundary value problem.
+  \begin{gather*}
+    \hat{\phi}(\omega,y) = c_1 \cosh(\omega(l - y)) + c_2 \sinh(\omega(l - y)) \\
+    \hat{\phi}(\omega,y) = \frac{1}{2 \pi} \e^{- \imath \omega \xi}
+    \frac{ \sinh(\omega(l - y)) }{ \sinh(\omega l) }
+  \end{gather*}
+  We take the inverse Fourier transform to obtain an expression for the
+  solution.
+  \[
+  \boxed{
+    \phi(x,y) = \frac{1}{2 \pi} \int_{-\infty}^\infty \e^{\imath \omega (x - \xi)}
+    \frac{ \sinh(\omega(l - y)) }{ \sinh(\omega l) } \,d \omega
+    }
+  \]
+\end{Solution}
+
+
+
+
+
+
+
+
+\raggedbottom
+}

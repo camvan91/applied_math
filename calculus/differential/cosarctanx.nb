@@ -1,0 +1,103 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2430,         67]*)
+(*NotebookOutlinePosition[      3080,         90]*)
+(*  CellTagsIndexPosition[      3036,         86]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(x = 0.5;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[\[IndentingNewLine]Graphics[{\[IndentingNewLine]Line[{{0, 
+                  0}, {1, 0}, {1, x}, {0, 0}}], \[IndentingNewLine]Text[
+              1, {0.5, 0}, {0, 1.5}], \[IndentingNewLine]Text["\<x\>", {1, 
+                x/2}, {\(-1\), 
+                0}], \[IndentingNewLine]Text[\*"\"\<\!\(\@\(1 + \
+x\^2\)\)\>\"", {1/2, 
+                x/2}, {0.5, \(-1\)}]\[IndentingNewLine]}], \
+\[IndentingNewLine]AspectRatio \[Rule] 
+          Automatic, \[IndentingNewLine]PlotRange \[Rule] {{0, 
+              1.1}, {\(-0.1\), x}}, \[IndentingNewLine]ImageSize \[Rule] 
+          120];\)\)], "Input"]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1920}, {0, 1200}},
+WindowSize->{1012, 1120},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 45, 1, 39, "Input"],
+Cell[1802, 54, 624, 11, 282, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

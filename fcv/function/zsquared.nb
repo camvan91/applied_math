@@ -1,0 +1,181 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5443,        134]*)
+(*NotebookOutlinePosition[      6076,        157]*)
+(*  CellTagsIndexPosition[      6032,        153]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          Plot3D[x\^2 - y\^2, {x, \(-2\), 2}, {y, \(-2\), 2}, 
+            PlotRange -> All, AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}], 
+          Plot3D[2  x\ y, {x, \(-2\), 2}, {y, \(-2\), 2}, PlotRange -> All, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}]}]]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          Plot3D[x\^2 + y\^2, {x, \(-2\), 2}, {y, \(-2\), 2}, 
+            PlotRange -> All, AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}], 
+          ParametricPlot3D[{r\ Cos[\[Theta]], r\ Sin[\[Theta]], 
+              2  \[Theta]}, {r, 0, 2}, {\[Theta], \(-\[Pi]\), \[Pi]}, 
+            BoxRatios \[Rule] {1, 1, 0.4}, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}]}]]; \)\)], "Input"],
+
+Cell["end", "Text"],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          Plot[{0, 1, 2, 3}, {x, \(-3\), 3}, AspectRatio -> Automatic, 
+            PlotStyle -> Thickness[0.01], PlotRange -> {\(-3\), 3}], \n
+          ParametricPlot[{{x\^2, 0}, {x\^2 - 1, 2  x}, {x\^2 - 4, 4  x}, {
+                x\^2 - 9, 6  x}}, {x, \(-5\), 5}, AspectRatio -> Automatic, 
+            PlotStyle -> Thickness[0.01], 
+            PlotRange -> {{\(-12\), 12}, {\(-12\), 12}}]}]]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          ParametricPlot[{{0, y}, {1, y}, {2, y}, {3, y}}, {y, \(-3\), 3}, 
+            AspectRatio -> Automatic, PlotStyle -> Thickness[0.01], 
+            PlotRange -> {{\(-3\), 3}, {\(-3\), 3}}], \n
+          ParametricPlot[{{\(-y\^2\), 0}, {1 - y\^2, 2  y}, {4 - y\^2, 
+                4  y}, {9 - y\^2, 6  y}}, {y, \(-5\), 5}, 
+            AspectRatio -> Automatic, PlotStyle -> Thickness[0.01], 
+            PlotRange -> {{\(-12\), 12}, {\(-12\), 12}}]}]]; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\((x + I\ y)\)\^2 // Expand\)], "Input"],
+
+Cell[BoxData[
+    \(x\^2 + 2\ I\ x\ y - y\^2\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          ParametricPlot[{{\(-1\), y}, {\(-1\)/2, y}, {0, y}, {1/2, y}, {1, 
+                y}}, {y, \(-1\), 1}, AspectRatio -> Automatic, 
+            PlotStyle -> Thickness[0.01]], \n
+          ParametricPlot[{{Exp[\(-1\)]\ Cos[y], Exp[\(-1\)]\ Sin[y]}, {
+                Exp[\(-1\)/2]\ Cos[y], Exp[\(-1\)/2]\ Sin[y]}, {
+                Exp[0]\ Cos[y], Exp[0]\ Sin[y]}, {Exp[1/2]\ Cos[y], 
+                Exp[1/2]\ Sin[y]}, {Exp[1]\ Cos[y], Exp[1]\ Sin[y]}}, {y, 
+              \(-\[Pi]\), \[Pi]}, AspectRatio -> Automatic, 
+            PlotStyle -> Thickness[0.01]]}]]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          ParametricPlot[{{x, 0}, {x, x\ Tan[\[Pi]/8]}, {x, 
+                x\ Tan[\(-\[Pi]\)/8]}, {x, x\ Tan[3  \[Pi]/8]}, {x, 
+                x\ Tan[\(-3\) \[Pi]/8]}, {x, x}, {0, x}, {x, \(-x\)}}, {x, 
+              \(-1\), 1}, PlotRange -> {\(-1\), 1}, AspectRatio -> Automatic, 
+            PlotStyle -> Thickness[0.01]], \n
+          ParametricPlot[{{Exp[x], 0}, {Exp[x]\ Cos[x\ Tan[\[Pi]/8]], 
+                Exp[x]\ Sin[x\ Tan[\[Pi]/8]]}, {
+                Exp[x]\ Cos[x\ Tan[\(-\[Pi]\)/8]], 
+                Exp[x]\ Sin[x\ Tan[\(-\[Pi]\)/8]]}, {
+                Exp[x]\ Cos[x\ Tan[3  \[Pi]/8]], 
+                Exp[x]\ Sin[x\ Tan[3  \[Pi]/8]]}, {
+                Exp[x]\ Cos[x\ Tan[\(-3\) \[Pi]/8]], 
+                Exp[x]\ Sin[x\ Tan[\(-3\) \[Pi]/8]]}, {Exp[x]\ Cos[x], 
+                Exp[x]\ Sin[x]}, {Cos[x], Sin[x]}, {Exp[\(-x\)]\ Cos[x], 
+                Exp[\(-x\)]\ Sin[x]}}, {x, \(-10\), 10}, 
+            PlotRange -> {{\(-E^2.2\), E^2.2}, {\(-E^2.2\), E^2.2}}, 
+            AspectRatio -> Automatic, PlotStyle -> Thickness[0.01]]}]]; 
+    \)\)], "Input"]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 800}, {0, 600}},
+WindowSize->{520, 455},
+WindowMargins->{{42, Automatic}, {4, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 335, 6, 190, "Input"],
+Cell[2047, 57, 438, 8, 210, "Input"],
+Cell[2488, 67, 19, 0, 45, "Text"],
+Cell[2510, 69, 465, 8, 281, "Input"],
+Cell[2978, 79, 528, 9, 301, "Input"],
+
+Cell[CellGroupData[{
+Cell[3531, 92, 60, 1, 44, "Input"],
+Cell[3594, 95, 58, 1, 43, "Output"]
+}, Open  ]],
+Cell[3667, 99, 640, 11, 337, "Input"],
+Cell[4310, 112, 1129, 20, 537, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

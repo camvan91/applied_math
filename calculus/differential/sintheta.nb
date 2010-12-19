@@ -1,0 +1,110 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2873,         74]*)
+(*NotebookOutlinePosition[      3522,         97]*)
+(*  CellTagsIndexPosition[      3478,         93]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(t = \[Pi]/4;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+        Graphics[{\[IndentingNewLine]Line[{{0, 0}, {Cos[t], 0}, {Cos[t], 
+                  Sin[t]}, {0, 0}}], \[IndentingNewLine]Circle[{0, 0}, 
+              Cos[t], {0, t}], \[IndentingNewLine]Circle[{0, 0}, 
+              1, {0, t}], \[IndentingNewLine]Text[
+              A, {0, 0}, {1, 0}], \[IndentingNewLine]Text[
+              B, {Cos[t], Sin[t]}, {0, \(-1\)}], \[IndentingNewLine]Text[
+              C, {Cos[t], 0}, {\(-1\), 
+                0}], \[IndentingNewLine]Text[\[Theta], {0, 
+                0}, {\(-3\), \(-1\)}], \[IndentingNewLine]Text[\[Theta], {Cos[
+                  t/2], Sin[t/2]}, {\(-1\), 
+                0}], \[IndentingNewLine]Text["\<\[Theta] cos \[Theta]\>", \
+{Cos[t] Cos[t/2], Cos[t] Sin[t/2]}, {1, 
+                1}], \[IndentingNewLine]Text["\<sin \[Theta]\>", {Cos[t], 
+                Sin[t]/4}, {\(-1\), 0}]\[IndentingNewLine]}], 
+        AspectRatio \[Rule] Automatic, 
+        PlotRange \[Rule] {{\(-0.1\), 1.05}, {\(-0.05\), Sin[t] + 0.1}}, 
+        ImageSize \[Rule] 200];\)\)], "Input"]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1920}, {0, 1200}},
+WindowSize->{724, 1120},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 49, 1, 39, "Input"],
+Cell[1806, 54, 1063, 18, 384, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

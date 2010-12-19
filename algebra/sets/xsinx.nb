@@ -1,0 +1,175 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5177,        129]*)
+(*NotebookOutlinePosition[      5836,        153]*)
+(*  CellTagsIndexPosition[      5792,        149]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(f[x_] := x + Sin[\[Pi]\ x/4]\)], "Input"],
+
+Cell[BoxData[
+    \(fi[x_] := y /. FindRoot[f[y] \[Equal] x, {y, x}]\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[
+        f[x], {x, \(-8\), 
+          8}, \[IndentingNewLine]PlotRange \[Rule] {{\(-8\), 8}, {\(-8\), 
+              8}}, PlotStyle \[Rule] {Thickness[
+              0.01]}, \[IndentingNewLine]AxesStyle \[Rule] {Thickness[0.01]}, 
+        AspectRatio \[Rule] Automatic, 
+        GridLines \[Rule] {Table[i, {i, \(-8\), 8}], 
+            Table[i, {i, \(-8\), 8}]}, Ticks \[Rule] False, 
+        ImageSize \[Rule] 200];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(blank := 
+        Plot[f[x], {x, \(-8\), 
+            8}, \[IndentingNewLine]PlotRange \[Rule] {{\(-8\), 8}, {\(-8\), 
+                8}}, \[IndentingNewLine]PlotStyle \[Rule] {Thickness[
+                0.005]}, \[IndentingNewLine]AxesStyle \[Rule] {Thickness[
+                0.01]}, AspectRatio \[Rule] Automatic, 
+          GridLines \[Rule] {Table[i, {i, \(-8\), 8}], 
+              Table[i, {i, \(-8\), 8}]}, Ticks \[Rule] False, 
+          ImageSize \[Rule] 200];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{{blank, blank}, {blank, blank}}], 
+        ImageSize \[Rule] 300];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p1 := 
+        Plot[{f[x], f[\(-x\)]}, {x, \(-8\), 
+            8}, \[IndentingNewLine]PlotRange \[Rule] {{\(-8\), 8}, {\(-8\), 
+                8}}, PlotStyle \[Rule] {{Thickness[0.005]}, {Thickness[
+                  0.01]}}, \[IndentingNewLine]AxesStyle \[Rule] {Thickness[
+                0.01]}, AspectRatio \[Rule] Automatic, 
+          GridLines \[Rule] {Table[i, {i, \(-8\), 8}], 
+              Table[i, {i, \(-8\), 8}]}, Ticks \[Rule] False, 
+          ImageSize \[Rule] 200];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p2 := 
+        Plot[{f[x], f[3 + x]}, {x, \(-8\), 
+            8}, \[IndentingNewLine]PlotRange \[Rule] {{\(-8\), 8}, {\(-8\), 
+                8}}, PlotStyle \[Rule] {{Thickness[0.005]}, {Thickness[
+                  0.01]}}, \[IndentingNewLine]AxesStyle \[Rule] {Thickness[
+                0.01]}, AspectRatio \[Rule] Automatic, 
+          GridLines \[Rule] {Table[i, {i, \(-8\), 8}], 
+              Table[i, {i, \(-8\), 8}]}, Ticks \[Rule] False, 
+          ImageSize \[Rule] 200];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p3 := 
+        Plot[{f[x], f[3 - x] + 2}, {x, \(-8\), 
+            8}, \[IndentingNewLine]PlotRange \[Rule] {{\(-8\), 8}, {\(-8\), 
+                8}}, PlotStyle \[Rule] {{Thickness[0.005]}, {Thickness[
+                  0.01]}}, \[IndentingNewLine]AxesStyle \[Rule] {Thickness[
+                0.01]}, AspectRatio \[Rule] Automatic, 
+          GridLines \[Rule] {Table[i, {i, \(-8\), 8}], 
+              Table[i, {i, \(-8\), 8}]}, Ticks \[Rule] False, 
+          ImageSize \[Rule] 200];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p4 := 
+        Plot[{f[x], fi[x]}, {x, \(-8\), 
+            8}, \[IndentingNewLine]PlotRange \[Rule] {{\(-8\), 8}, {\(-8\), 
+                8}}, PlotStyle \[Rule] {{Thickness[0.005]}, {Thickness[
+                  0.01]}}, \[IndentingNewLine]AxesStyle \[Rule] {Thickness[
+                0.01]}, AspectRatio \[Rule] Automatic, 
+          GridLines \[Rule] {Table[i, {i, \(-8\), 8}], 
+              Table[i, {i, \(-8\), 8}]}, Ticks \[Rule] False, 
+          ImageSize \[Rule] 200];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{{p1, p2}, {p3, p4}}], 
+        ImageSize \[Rule] 300];\)\)], "Input"]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{637, 940},
+WindowMargins->{{83, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 61, 1, 39, "Input"],
+Cell[1781, 52, 81, 1, 39, "Input"],
+Cell[1865, 55, 459, 9, 200, "Input"],
+Cell[2327, 66, 508, 9, 200, "Input"],
+Cell[2838, 77, 123, 2, 85, "Input"],
+Cell[2964, 81, 522, 9, 223, "Input"],
+Cell[3489, 92, 521, 9, 223, "Input"],
+Cell[4013, 103, 525, 9, 223, "Input"],
+Cell[4541, 114, 518, 9, 223, "Input"],
+Cell[5062, 125, 111, 2, 62, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

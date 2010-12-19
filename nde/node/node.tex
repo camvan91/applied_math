@@ -1,0 +1,1123 @@
+\flushbottom
+
+
+%% CONTINUE
+
+
+
+
+%%=============================================================================
+%%=============================================================================
+\chapter{Nonlinear Ordinary Differential Equations}
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+%%============================================================================
+\pagebreak
+\flushbottom
+\section{Exercises}
+
+
+
+%%-----------------------------------------------------------------------------
+%%\begin{large}
+%%\noindent
+%%\textbf{}
+%%\end{large}
+
+%%A model set of equations to describe an epidemic, in which 
+\begin{Exercise}
+  A model set of equations to describe an epidemic, in which 
+  $x(t)$ is the
+  number infected, $y(t)$ is the number susceptible, is
+  \[ 
+  \frac{\dd x}{\dd t} = r x y - \gamma x, 
+  \qquad \frac{\dd y}{\dd t} = - r x y + \beta, 
+  \]
+  where $r > 0$, $\beta \geq 0$, 
+  $\gamma \geq 0$.  Initially $x = x_0$, 
+  $y = y_0$ at $t = 0$.
+  Directly from the equations, without using the phase plane:
+  \begin{enumerate}
+  \item
+    Find the solution, $x(t)$, $y(t)$, in the case 
+    $\beta = \gamma = 0$.
+    %%
+  \item
+    Show for the case $\beta = 0$, $\gamma \neq 0$ 
+    that $x(t)$ first decreases
+    or increases according as $r y_0 < \gamma$ or 
+    $r y_0 > \gamma$.
+    Show that $x(t) \to 0$ as $t \to \infty$ in both cases.
+    Find $x$ as a function of $y$.
+    %%
+  \item
+    In the phase plane:
+    Find the position of the singular point and its type when
+    $\beta > 0$, $\gamma > 0$.
+  \end{enumerate}
+\end{Exercise}
+
+
+%%\frac{\dd u}{\dd x} &= r u + v (1-v)(p-v), \qquad r > 0, \ 0 < p < 1, \\
+\begin{Exercise}
+  Find the singular points and their types for the system
+  \begin{align*}
+    \frac{\dd u}{\dd x} &= r u + v (1-v)(p-v), \qquad r > 0, \ 0 < p < 1, \\
+    \frac{\dd v}{\dd x} &= u,
+  \end{align*}
+  which comes from one of our nonlinear diffusion problems.  
+  Note that there is a solution with
+  \[ 
+  u = \alpha (1-v) 
+  \]
+  for special values of $\alpha$ and $r$.  
+  Find $v(x)$ for this special case.
+\end{Exercise}
+
+
+
+%%Check that $r=1$ is a limit cycle for
+\begin{Exercise}
+  Check that $r=1$ is a limit cycle for
+  \begin{align*}
+    \frac{\dd x}{\dd t} &= -y + x(1-r^2) \\
+    \frac{\dd y}{\dd t} &= x + y(1-r^2)
+  \end{align*}
+  ($r=x^2+y^2$), and that all solution curves spiral into it.
+\end{Exercise}
+
+
+
+%%\epsilon \dot{y} &= f(y) - x \\
+\begin{Exercise}
+  Consider
+  \begin{align*}
+    \epsilon \dot{y} &= f(y) - x \\
+    \dot{x} &= y
+  \end{align*}
+  Introduce new coordinates, $R$, $\theta$ given by
+  \begin{align*}
+    x &= R \cos \theta \\
+    y &= \frac{1}{\sqrt{\epsilon}} R \sin \theta
+  \end{align*}
+  and obtain the exact differential equations for $R(t)$, $\theta(t)$.
+  Show that $R(t)$ continually increases with $t$ when $R \neq 0$.
+  Show that $\theta(t)$ continually decreases when $R > 1$.
+\end{Exercise}
+
+
+
+%%One choice of the Lorenz equations is
+\begin{Exercise}
+  One choice of the Lorenz equations is
+  \begin{align*}
+    \dot{x} &= -10x+10y \\
+    \dot{y} &= R x-y-x z \\
+    \dot{z} &= -\frac{8}{3} z + x y
+  \end{align*}
+  Where $R$ is a positive parameter.
+  \begin{enumerate}
+    %%
+  \item
+    Invistigate the nature of the sigular point at $(0,0,0)$ by finding the
+    eigenvalues and their behavior for all $0 < R < \infty$.
+    %%
+  \item
+    Find the other singular points when $R > 1$.
+    %%
+  \item
+    Show that the appropriate eigenvalues for these other singular points
+    satisfy the cubic
+    \[ 
+    3\lambda^3 + 41 \lambda^2 + 8(10+R)\lambda + 160 (R-1) = 0.
+    \]
+    %%
+  \item
+    There is a special value of $R$, call it $R_c$, for which the cubic has
+    two pure imaginary roots, $\pm \imath \mu$ say.  Find $R_c$ and $\mu$; then
+    find the third root.
+  \end{enumerate}
+\end{Exercise}
+
+
+
+%%In polar coordinates $(r,\phi)$, Einstein's equations lead to the 
+\begin{Exercise}
+  In polar coordinates $(r,\phi)$, Einstein's equations lead to the 
+  equation
+  \[ 
+  \frac{\dd^2 v}{\dd \phi^2} + v = 1 + \epsilon v^2, \quad v = \frac{1}{r}, 
+  \]
+  for planetary orbits.  For Mercury, $\epsilon=8 \times 10^{-8}$.
+  When $\epsilon=0$ (Newtonian theory) the orbit is given by
+  \[ v=1+A\cos\phi, \ \mathrm{period}\ 2\pi.\]
+  Introduce $\theta=\omega\phi$ and use perturbation expansions for $v(\theta)$
+  and $\omega$ in powers of $\epsilon$ to find the corrections proportional
+  to $\epsilon$.
+
+  [$A$ is not small; $\epsilon$ is the small parameter].
+\end{Exercise}
+
+
+
+%%\ddot{x} +\omega_0^2 x+\alpha x^2=0, \quad x=a, \dot{x}=0\ \mathrm{at}\ t=0
+\begin{Exercise}
+  Consider the problem
+  \[ 
+  \ddot{x} +\omega_0^2 x+\alpha x^2=0, \quad x=a, \dot{x}=0\ \mathrm{at}\ t=0
+  \]
+  Use expansions
+  \begin{align*}
+    x&=a\cos\theta+a^2 x_2(\theta)+a^3x_3(\theta)+\cdots,\ \theta=\omega t \\
+    \omega &=\omega_0+a^2\omega_2+\cdots,
+  \end{align*}
+  to find a periodic solution and its natural frequency $\omega$.
+
+  Note that, with the expansions given, there are no ``secular term'' troubles
+  in the determination of $x_2(\theta)$, but $x_2(\theta)$ is needed in the
+  subsequent determination of $x_3(\theta)$ and $\omega$.
+
+  Show that a term $a\omega_1$ in the expansion for $\omega$ would have 
+  caused trouble, so $\omega_1$ would have to be taken equal to zero.
+\end{Exercise}
+
+
+
+
+
+%%Consider the linearized traffic problem
+\begin{Exercise}
+  Consider the linearized traffic problem
+  \begin{gather*}
+    \frac{\dd p_n(t)}{\dd t} = \alpha \left[ p_{n-1}(t) - p_n(t)\right], \quad n \geq 1,\\
+    p_n(0) = 0, \quad n \geq 1, \\
+    p_0(t) = a e^{\imath \omega t}, \quad t > 0.
+  \end{gather*}
+  (We take the imaginary part of $p_n(t)$ in the final answers.)
+  \begin{enumerate}
+    %%
+  \item
+    Find $p_1(t)$ directly from the equation for $n=1$ and note the behavior as
+    $t \to \infty$.
+    %%
+  \item
+    Find the generating function
+    \[ G(s,t) = \sum_{n = 1}^\infty p_n(t) s^n. \]
+    %%
+  \item
+    Deduce that 
+    \[ p_n(t) \sim A_n e^{\imath \omega t}, \quad \mathrm{as}\ t \to \infty, \]
+    and find the expression for $A_n$.  Find the imaginary part of this $p_n(t)$.
+  \end{enumerate}
+\end{Exercise}
+
+
+
+%%\frac{\dd}{\dd t} p_n(t+\tau) = \alpha [p_{n-1}(t) - p_n(t) ] \quad n\geq 1,
+\begin{Exercise}
+  \begin{enumerate}
+    %%
+  \item
+    For the equation modified with a reaction time, namely
+    \[ 
+    \frac{\dd}{\dd t} p_n(t+\tau) = \alpha [p_{n-1}(t) - p_n(t) ] \quad n\geq 1,
+    \]
+    find a solution of the form in 1(c) by direct substitution in the 
+    equation.  Again take its imaginary part.
+    %%
+  \item
+    Find a condition that the disturbance is stable, i.e. $p_n(t)$ remains
+    bounded as $n \to \infty$.
+    %%
+  \item
+    In the stable case show that the disturbance is wave-like and find 
+    the wave velocity.
+  \end{enumerate}
+\end{Exercise}
+
+
+
+
+
+
+\raggedbottom
+%%============================================================================
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+%%-----------------------------------------------------------------------------
+%%\begin{large}
+%%\noindent
+%%\textbf{}
+%%\end{large}
+
+%%A model set of equations to describe an epidemic, in which 
+\begin{Hint}
+\end{Hint}
+
+
+%%\frac{\dd u}{\dd x} &= r u + v (1-v)(p-v), \qquad r > 0, \ 0 < p < 1, \\
+\begin{Hint}
+\end{Hint}
+
+
+
+%%Check that $r=1$ is a limit cycle for
+\begin{Hint}
+\end{Hint}
+
+
+
+%%\epsilon \dot{y} &= f(y) - x \\
+\begin{Hint}
+\end{Hint}
+
+
+
+%%One choice of the Lorenz equations is
+\begin{Hint}
+\end{Hint}
+
+
+
+%%In polar coordinates $(r,\phi)$, Einstein's equations lead to the 
+\begin{Hint}
+\end{Hint}
+
+
+
+%%\ddot{x} +\omega_0^2 x+\alpha x^2=0, \quad x=a, \dot{x}=0\ \mathrm{at}\ t=0
+\begin{Hint}
+\end{Hint}
+
+
+
+%%Consider the linearized traffic problem
+\begin{Hint}
+\end{Hint}
+
+
+
+%%\frac{\dd}{\dd t} p_n(t+\tau) = \alpha [p_{n-1}(t) - p_n(t) ] \quad n\geq 1,
+\begin{Hint}
+\end{Hint}
+
+
+
+
+
+
+
+
+\raggedbottom
+%%============================================================================
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+%%-----------------------------------------------------------------------------
+%%\begin{large}
+%%\noindent
+%%\textbf{}
+%%\end{large}
+
+
+
+%%A model set of equations to describe an epidemic, in which 
+\begin{Solution}
+  \begin{enumerate}
+  \item 
+    When $\beta = \gamma = 0$ the equations are
+    \[ \frac{\dd x}{\dd t} = r x y, \qquad \frac{\dd y}{\dd t} = - r x y. \]
+    Adding these two equations we see that
+    \begin{gather*}
+      \frac{\dd x}{\dd t} = - \frac{\dd y}{\dd t}. \\
+      \intertext{Integrating and applying the initial conditions $x(0)=x_0$ and
+        $y(0)=y_0$ we obtain}
+      x = x_0 + y_0 - y \\
+      \intertext{Substituting this into the differential equation for $y$,}
+      \frac{\dd y}{\dd t} = -r (x_0 + y_0 - y) y \\
+      \frac{\dd y}{\dd t} = -r (x_0 + y_0) y + r y^2. \\
+      \intertext{We recognize this as a Bernoulli equation and make the substitution
+        $u = y^{-1}$.}
+      - y^{-2} \frac{\dd y}{\dd t} = r (x_0 + y_0) y^{-1} - r \\
+      \frac{\dd u}{\dd t} = r (x_0 + y_0) u - r \\
+      \frac{\dd}{\dd t} \left( e^{-r(x_0+y_0) t} u \right) = -r e^{-r(x_0+y_0)t} \\
+      u = e^{r(x_0+y_0)t} \int^t -r e^{-r(x_0+y_0)t}\,d t
+      + c e^{r(x_0+y_0)t} \\
+      u = \frac{1}{x_0+y_0} + c e^{r(x_0+y_0)t} \\
+      y = \left(\frac{1}{x_0+y_0} + c e^{r(x_0+y_0)t} \right)^{-1} \\
+      \intertext{Applying the initial condition for $y$,}
+      \left( \frac{1}{x_0+y_0} + c \right)^{-1} = y_0 \\
+      c = \frac{1}{y_0} - \frac{1}{x_0+y_0}. \\
+      \intertext{The solution for $y$ is then}
+      y = \left[ \frac{1}{x_0+y_0} + \left( \frac{1}{y_0} - \frac{1}{x_0+y_0} \right)
+        e^{r(x_0+y_0)t} \right]^{-1}
+    \end{gather*}
+    Since $x = x_0 + y_0 - y$, the solution to the system of differential 
+    equations is
+    \[ \boxed{ x = x_0 + y_0 - \left[ \frac{1}{y_0} + \frac{1}{x_0+y_0}
+        \left(1 - e^{r(x_0+y_0)t} \right) \right]^{-1}, \quad
+      y = \left[ \frac{1}{y_0} + \frac{1}{x_0+y_0} \left(1 - 
+          e^{r(x_0+y_0)t} \right) \right]^{-1}. } \]
+    %%
+    %%
+  \item
+    For $\beta = 0$, $\gamma \neq 0$, the equation for $x$ is
+    \[ \dot{x} = r x y - \gamma x. \]
+    At $t = 0$, 
+    \[ \dot{x}(0) = x_0 (r y_0 - \gamma). \]
+    Thus we see that if $ry_0 < \gamma$, $x$ is initially decreasing.
+    If $r y_0 > \gamma$, $x$ is initially increasing.
+
+
+
+
+
+    Now to show that $x(t) \to 0$ as $t \to \infty$.  First note that if the 
+    initial conditions satisfy $x_0, y_0 > 0$ then $x(t), y(t) > 0$ for all
+    $t \geq 0$ because the axes are a seqaratrix.  
+    $y(t)$ is is a strictly decreasing function of time.  Thus we
+    see that at some time the quantity $x(r y - \gamma)$ will become negative.
+    Since $y$ is decreasing, this quantity will remain negative.  Thus after
+    some time, $x$ will become a strictly decreasing quantity.  Finally
+    we see that regardless of the initial conditions,
+    (as long as they are positive), $x(t) \to 0$ as $t \to \infty$.
+
+
+
+
+
+
+
+
+
+    Taking the ratio of the two differential equations,
+    \begin{align*}
+      \frac{\dd x}{\dd y} &= -1 + \frac{\gamma}{r y}. \\
+      x &= -y + \frac{\gamma}{r} \ln y + c \\
+      \intertext{Applying the intial condition,}
+      x_0 &= -y_0 + \frac{\gamma}{r} \ln y_0 + c \\
+      c &= x_0 + y_0 - \frac{\gamma}{r} \ln y_0.
+    \end{align*}
+    Thus the solution for $x$ is
+    \[ \boxed{ x = x_0 + (y_0 - y) + \frac{\gamma}{r} \ln \left( \frac{y}{y_0}
+      \right) . } \]
+    %%
+    %%
+  \item
+    When $\beta > 0$ and $\gamma > 0$ the system of equations is
+    \begin{align*}
+      \dot{x} &= r x y - \gamma x \\
+      \dot{y} &= -r x y + \beta.
+    \end{align*}
+    The equilibrium solutions occur when
+    \begin{align*}
+      x (r y - \gamma) &= 0 \\
+      \beta - r x y &= 0.
+    \end{align*}
+    Thus the singular point is
+    \[ \boxed{ x = \frac{\beta}{\gamma}, \qquad y = \frac{\gamma}{r}. } \]
+    Now to classify the point.  We make the substitution 
+    $u = (x-\frac{\beta}{\gamma})$, $v = (y - \frac{\gamma}{r})$.
+    \begin{align*}
+      \dot{u} &= r \left( u + \frac{\beta}{\gamma} \right) \left( v + 
+        \frac{\gamma}{r} \right) - \gamma \left( u + \frac{\beta}{\gamma}
+      \right) \\
+      \dot{v} &= -r \left(u + \frac{\beta}{\gamma} \right) \left( v + 
+        \frac{\gamma}{r} \right) + \beta
+    \end{align*}
+    \begin{align*}
+      \dot{u} &= \frac{r \beta}{\gamma} v + r u v \\
+      \dot{v} &= -\gamma u - \frac{r \beta}{\gamma} v - r u v
+    \end{align*}
+    The linearized system is
+    \begin{align*}
+      \dot{u} &= \frac{r \beta}{\gamma} v \\
+      \dot{v} &= -\gamma u - \frac{r \beta}{\gamma} v
+    \end{align*}
+    Finding the eigenvalues of the linearized system,
+    \[
+    \begin{vmatrix}
+      \lambda      &       -\frac{r \beta}{\gamma} \\
+      \gamma      &       \lambda + \frac{r \beta}{\gamma}
+    \end{vmatrix}
+    = \lambda^2 + \frac{r \beta}{\gamma} \lambda + r \beta = 0
+    \]
+    \[ \lambda = \frac{ -\frac{r \beta}{\gamma} \pm 
+      \sqrt{ (\frac{r \beta}{\gamma})^2 - 4 r \beta}}{2} \]
+    Since both eigenvalues have negative real part, we see that the singular
+    point is asymptotically stable.
+    A plot of the vector field for $r = \gamma = \beta = 1$ is attached.
+    We note that there appears to be a stable singular point at $x = y = 1$
+    which corroborates the previous results.
+  \end{enumerate}
+\end{Solution}
+
+
+
+%%\frac{\dd u}{\dd x} &= r u + v (1-v)(p-v), \qquad r > 0, \ 0 < p < 1, \\
+\begin{Solution}
+  The singular points are
+  \[ u=0, v=0, \qquad u=0, v=1, \qquad u=0, v=p. \]
+
+  \textbf{The point $\mathbf{u = 0, v = 0}$.}
+  The linearized system about $u=0$, $v=0$ is 
+  \begin{align*}
+    \frac{\dd u}{\dd x} &= r u \\
+    \frac{\dd v}{\dd x} &= u.
+  \end{align*}
+  The eigenvalues are
+  \[
+  \begin{vmatrix}
+    \lambda-r    &       0       \\
+    -1              &       \lambda
+  \end{vmatrix}
+  = \lambda^2 - r \lambda = 0.
+  \]
+  \[ \lambda = 0, r. \]
+  Since there are positive eigenvalues, this point is a source.  The critical 
+  point is unstable.
+
+  \textbf{The point $\mathbf{u = 0, v = 1}$.}
+  Linearizing the system about $u=0$, $v = 1$, we make the substitution
+  $w = v-1$.
+  \begin{align*}
+    \frac{\dd u}{\dd x} &= r u + (w+1)(-w)(p-1-w) \\
+    \frac{\dd w}{\dd x} &= u
+  \end{align*}
+  \begin{align*}
+    \frac{\dd u}{\dd x} &= r u + (1-p) w \\
+    \frac{\dd w}{\dd x} &= u
+  \end{align*}
+  \[ 
+  \begin{vmatrix}
+    \lambda-r    &       (p-1)   \\
+    -1              &       \lambda
+  \end{vmatrix}
+  = \lambda^2 - r \lambda + p -1 = 0 \]
+  \[ \lambda = \frac{r \pm \sqrt{r^2 - 4 (p-1)}}{2} \]
+  Thus we see that this point is a saddle point.
+  The critical point is unstable.
+
+
+  \textbf{The point $\mathbf{u = 0, v = p}$.}
+  Linearizing the system about $u=0$, $v=p$, we make the substitution
+  $w=v-p$.
+  \begin{align*}
+    \frac{\dd u}{\dd x} &= r u + (w+p)(1-p-w)(-w) \\
+    \frac{\dd w}{\dd x} &= u
+  \end{align*}
+  \begin{align*}
+    \frac{\dd u}{\dd x} &= r u + p(p-1)w \\
+    \frac{\dd w}{\dd x} &= u
+  \end{align*}
+  \[
+  \begin{vmatrix}
+    \lambda-r    &       p(1-p)  \\
+    -1              &       \lambda
+  \end{vmatrix}
+  = \lambda^2 - r \lambda + p(1-p) = 0 \]
+  \[ \lambda = \frac{r \pm \sqrt{r^2 - 4p(1-p)}}{2} \]
+  Thus we see that this point is a source.
+  The critical point is unstable.
+
+
+
+
+  \textbf{The solution of for special values of $\boldsymbol{\alpha}$ 
+  and $\mathbf{r}$.}
+  Differentiating $u = \alpha v (1-v)$,
+  \[ \frac{\dd u}{\dd v} = \alpha - 2 \alpha v. \]
+
+  Taking the ratio of the two differential equations,
+  \begin{align*}
+    \frac{\dd u}{\dd v}   
+    &= r + \frac{v(1-v)(p-v)}{u} \\
+    &= r + \frac{v(1-v)(p-v)}{\alpha v (1-v)} \\
+    &= r + \frac{(p-v)}{\alpha}
+  \end{align*}
+  Equating these two expressions,
+  \[ \alpha - 2 \alpha v = r + \frac{p}{\alpha} - \frac{v}{\alpha}. \]
+  Equating coefficients of $v$, we see that $\alpha = \frac{1}{\sqrt{2}}$.
+  \[\frac{1}{\sqrt{2}} = r + \sqrt{2} p \]
+  Thus we have the solution $u = \frac{1}{\sqrt{2}} v (1-v)$ when 
+  $r = \frac{1}{\sqrt{2}} - \sqrt{2} p$.
+  In this case, the differential equation for $v$ is
+  \begin{gather*}
+    \frac{\dd v}{\dd x} = \frac{1}{\sqrt{2}} v (1-v) \\
+    -v^{-2} \frac{\dd v}{\dd x} = - \frac{1}{\sqrt{2}} v^{-1} + \frac{1}{\sqrt{2}} \\
+    \intertext{We make the change of variablles $y = v^{-1}$.}
+    \frac{\dd y}{\dd x} = -\frac{1}{\sqrt{2}} y + \frac{1}{\sqrt{2}} \\
+    \frac{\dd}{\dd x} \left( e^{x / \sqrt{2}} y \right) 
+    = \frac{e^{x / \sqrt{2}}}{\sqrt{2}} \\
+    y = e^{-x / \sqrt{2}} \int^x \frac{e^{x / \sqrt{2}}}{\sqrt{2}} \,d x 
+    + c e^{-x / \sqrt{2}} \\
+    y = 1 + c e^{-x / \sqrt{2}} \\
+    \intertext{The solution for $v$ is}
+    \boxed{ v(x) = \frac{1}{1 + c e^{-x / \sqrt{2}}}. }
+  \end{gather*}
+\end{Solution}
+
+
+
+%%Check that $r=1$ is a limit cycle for
+\begin{Solution}
+  We make the change of variables
+  \begin{align*}
+    x       &= r \cos \theta \\
+    y       &= r \sin \theta.
+  \end{align*}
+  Differentiating these expressions with respect to time,
+  \begin{align*}
+    \dot{x} &= \dot{r} \cos \theta - r \dot{\theta} \sin \theta \\
+    \dot{y} &= \dot{r} \sin \theta + r \dot{\theta} \cos \theta.
+  \end{align*}
+  Substituting the new variables into the pair of differential equations,
+  \begin{align*}
+    \dot{r} \cos \theta - r \dot{\theta} \sin \theta 
+    &= -r \sin \theta + r \cos \theta (1-r^2) \\
+    \dot{r} \sin \theta + r \dot{\theta} \cos \theta
+    &= r \cos \theta + r \sin \theta(1-r^2).
+  \end{align*}
+  Multiplying the equations by $\cos \theta$ and $\sin \theta$ and taking their
+  sum and difference yields
+  \begin{align*}
+    \dot{r} &= r(1-r^2) \\
+    r \dot{\theta} &= r.
+  \end{align*}
+  We can integrate the second equation.
+  \begin{align*}
+    \dot{r} &= r(1-r^2) \\
+    \theta      &= t + \theta_0
+  \end{align*}
+  At this point we could note that $\dot{r} > 0$ in $(0,1)$ and $\dot{r} < 0$
+  in $(1,\infty)$.  Thus if $r$ is not initially zero, then the solution tends
+  to $r=1$.
+
+  Alternatively, we can solve the equation for $r$ exactly.
+  \begin{gather*}
+    \dot{r} = r - r^3 \\
+    \frac{\dot{r}}{r^3} = \frac{1}{r^2} - 1 \\
+    \intertext{We make the change of variables $u = 1/r^2$.}
+    -\frac{1}{2} \dot{u} = u - 1 \\
+    \dot{u} + 2 u = 2 \\
+    u = e^{-2t} \int^t 2 e^{2t} \,d t + c e^{-2t} \\
+    u = 1 + c e^{-2t} \\
+    r = \frac{1}{\sqrt{1 + c e^{-2t}}}
+  \end{gather*}
+  Thus we see that if $r$ is initiall nonzero, the solution tends to 1 as 
+  $t \to \infty$.
+\end{Solution}
+
+
+
+%%\epsilon \dot{y} &= f(y) - x \\
+\begin{Solution}
+  The set of differential equations is
+  \begin{align*}
+    \epsilon \dot{y} &= f(y) - x \\
+    \dot{x} &= y.
+  \end{align*}
+  We make the change of variables
+  \begin{align*}
+    x &= R \cos \theta \\
+    y &= \frac{1}{\sqrt{\epsilon}} R \sin \theta
+  \end{align*}
+  Differentiating $x$ and $y$,
+  \begin{align*}
+    \dot{x} &= \dot{R} \cos \theta - R \dot{\theta} \sin \theta \\
+    \dot{y} &= \frac{1}{\sqrt{\epsilon}} \dot{R} \sin \theta + 
+    \frac{1}{\sqrt{\epsilon}} R \dot{\theta} \cos \theta.
+  \end{align*}
+  The pair of differential equations become
+  \begin{align*}
+    \sqrt{\epsilon} \dot{R} \sin \theta +
+    \sqrt{\epsilon} R \dot{\theta} \cos \theta &= 
+    f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta \right) -R \cos \theta \\
+    \dot{R} \cos \theta - R \dot{\theta} \sin \theta &= \frac{1}{\sqrt{\epsilon}}
+    R \sin \theta.
+  \end{align*}
+  \begin{align*}
+    \dot{R} \sin \theta + R \dot{\theta} \cos \theta &= 
+    - \frac{1}{\sqrt{\epsilon}} R \cos \theta 
+    \frac{1}{\sqrt{\epsilon}}
+    f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta \right)\\ 
+    \dot{R} \cos \theta - R \dot{\theta} \sin \theta &= \frac{1}{\sqrt{\epsilon}}
+    R \sin \theta.
+  \end{align*}
+  Multiplying by $\cos\theta$ and $\sin\theta$ and taking the sum and difference
+  of these differential equations yields
+  \begin{align*}
+    \dot{R} &= \frac{1}{\sqrt{\epsilon}} \sin\theta 
+    f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta \right) \\
+    R \dot{\theta} &= - \frac{1}{\sqrt{\epsilon}}R + \frac{1}{\sqrt{\epsilon}}
+    \cos\theta f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta \right).
+  \end{align*}
+  Dividing by $R$ in the second equation,
+  \begin{align*}
+    \dot{R} &= \frac{1}{\sqrt{\epsilon}} \sin\theta 
+    f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta \right) \\
+    \dot{\theta} &= - \frac{1}{\sqrt{\epsilon}} + \frac{1}{\sqrt{\epsilon}}
+    \frac{\cos\theta}{R} 
+    f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta \right).
+  \end{align*}
+
+  We make the assumptions that $0 < \epsilon < 1$ and that $f(y)$ 
+  is an odd function that is nonnegative for positive $y$ and 
+  satisfies $|f(y)| \leq 1$ for all $y$.
+
+  Since $\sin\theta$ is odd,
+  \[ \sin\theta f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta \right) \]
+  is nonnegative.  Thus $R(t)$ continually increases with $t$ when $R \neq 0$.
+
+  If $R > 1$ then
+  \begin{align*}
+    \left|\frac{\cos\theta}{R} f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta 
+      \right)\right|
+    &\leq \left|f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta 
+      \right)\right| \\
+    &\leq 1.
+  \end{align*}
+  Thus the value of $\dot{\theta}$,
+  \[ - \frac{1}{\sqrt{\epsilon}} + \frac{1}{\sqrt{\epsilon}}\frac{\cos\theta}{R}
+  f\left(\frac{1}{\sqrt{\epsilon}} R \sin\theta \right), \]
+  is always nonpositive.  Thus $\theta(t)$ continually decreases with $t$.
+\end{Solution}
+
+
+
+%%One choice of the Lorenz equations is
+\begin{Solution}
+  \begin{enumerate}
+    %%
+    %%
+    %%
+  \item
+    Linearizing the Lorentz equations about $(0,0,0)$ yields 
+    \[ 
+    \begin{pmatrix}
+      \dot{x} \\
+      \dot{y} \\
+      \dot{z}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      -10     & 10    & 0     \\
+      R       & -1    & 0     \\
+      0       & 0     & -8/3
+    \end{pmatrix}
+    \begin{pmatrix}
+      x \\
+      y \\
+      z
+    \end{pmatrix}
+    \]
+    The eigenvalues of the matrix are
+    \begin{align*}
+      \lambda_1 &= -\frac{8}{3}, \\
+      \lambda_2 &= \frac{-11-\sqrt{81+40R}}{2} \\
+      \lambda_3 &= \frac{-11+\sqrt{81+40R}}{2} .
+    \end{align*}
+
+    There are three cases for the eigenvalues of the linearized system.
+    \begin{description}
+    \item{$\mathbf{R < 1}$.}
+      There are three negative, real eigenvalues.  In the linearized and also the
+      nonlinear system, the origin is a stable, sink.
+    \item{$\mathbf{R=1}$.}
+      There are two negative, real eigenvalues and one zero eigenvalue.  In the
+      linearized system the origin is stable and has a center manifold plane.
+      The linearized system does not tell us if the nonlinear system is 
+      stable or unstable.
+    \item{$\mathbf{R>1}$.}
+      There are two negative, real eigenvalues, and one positive, real eigenvalue.
+      The origin is a saddle point.
+    \end{description}
+    %%
+    %%
+    %%
+  \item
+    The other singular points when $R>1$ are
+    \[
+    \left(\pm\sqrt{\frac{8}{3}(R-1)},\ \pm\sqrt{\frac{8}{3}(R-1)},\ R-1\right).
+    \]
+    %%
+    %%
+    %%
+  \item
+    Linearizing about the point
+    \[\left(\sqrt{\frac{8}{3}(R-1)},\ \sqrt{\frac{8}{3}(R-1)},\ R-1\right)\]
+    yields
+    \[
+    \begin{pmatrix}
+      \dot{X} \\
+      \dot{Y} \\
+      \dot{Z}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      -10     & 10    & 0     \\
+      1       & -1    & -\sqrt{\frac{8}{3}(R-1)} \\
+      \sqrt{\frac{8}{3}(R-1)} & \sqrt{\frac{8}{3}(R-1)} & -\frac{8}{3}
+    \end{pmatrix}
+    \begin{pmatrix}
+      X \\
+      Y \\
+      Z
+    \end{pmatrix}
+    \]
+    The characteristic polynomial of the matrix is
+    \[ \lambda^3 + \frac{41}{3} \lambda^2 + \frac{8(10+R)}{3} \lambda
+    + \frac{160}{3}(R-1). \]
+    Thus the eigenvalues of the matrix satisfy the polynomial,
+    \[ 3 \lambda^3 + 41 \lambda^2 + 8(10+R) \lambda + 160(R-1) = 0. \]
+
+    Linearizing about the point
+    \[\left(-\sqrt{\frac{8}{3}(R-1)},\ -\sqrt{\frac{8}{3}(R-1)},\ R-1\right)\]
+    yields
+    \[
+    \begin{pmatrix}
+      \dot{X} \\
+      \dot{Y} \\
+      \dot{Z}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      -10     & 10    & 0     \\
+      1       & -1    & \sqrt{\frac{8}{3}(R-1)} \\
+      -\sqrt{\frac{8}{3}(R-1)} & -\sqrt{\frac{8}{3}(R-1)} & -\frac{8}{3}
+    \end{pmatrix}
+    \begin{pmatrix}
+      X \\
+      Y \\
+      Z
+    \end{pmatrix}
+    \]
+    The characteristic polynomial of the matrix is
+    \[ \lambda^3 + \frac{41}{3} \lambda^2 + \frac{8(10+R)}{3} \lambda
+    + \frac{160}{3}(R-1). \]
+    Thus the eigenvalues of the matrix satisfy the polynomial,
+    \[ 
+    3 \lambda^3 + 41 \lambda^2 + 8(10+R) \lambda + 160(R-1) = 0. 
+    \]
+    %%
+    %%
+    %%
+  \item
+    If the characteristic polynomial has two pure imaginary roots $\pm \imath \mu$
+    and one real root, then it has the form
+    \[ (\lambda-r)(\lambda^2+\mu^2) = \lambda^3 - r \lambda^2 + \mu^2 \lambda
+    - r \mu^2. \]
+    Equating the $\lambda^2$ and the $\lambda$ term with the characteristic
+    polynomial yields
+    \[ r = -\frac{41}{3}, \qquad \mu = \sqrt{\frac{8}{3}(10+R)}. \]
+    Equating the constant term gives us the equation
+    \[ \frac{41}{3} \frac{8}{3} (10+R_c) = \frac{160}{3} (R_c-1) \]
+    which has the solution
+    \[ R_c = \frac{470}{19}. \]
+    For this critical value of $R$ the characteristic polynomial has the
+    roots
+    \begin{align*}
+      \lambda_1 &= -\frac{41}{3} \\
+      \lambda_2 &= \frac{4}{19} \sqrt{2090} \\
+      \lambda_3 &= - \frac{4}{19} \sqrt{2090} .
+    \end{align*}
+  \end{enumerate}
+\end{Solution}
+
+
+
+%%In polar coordinates $(r,\phi)$, Einstein's equations lead to the 
+\begin{Solution}
+  The form of the perturbation expansion is 
+  \begin{align*}
+    v(\theta) &= 1 + A\cos\theta + \epsilon u(\theta) + \mathcal{O}(\epsilon^2) \\
+    \theta &= (1+\epsilon\omega_1 + \mathcal{O}(\epsilon^2))\phi.
+  \end{align*}
+  Writing the derivatives in terms of $\theta$,
+  \begin{align*}
+    \frac{\dd}{\dd \phi} &= (1 + \epsilon \omega_1 + \cdots)\frac{\dd}{\dd \theta} \\
+    \frac{\dd^2}{\dd \phi^2} &= (1 + 2 \epsilon \omega_1 + \cdots) \frac{\dd^2}{\dd \theta^2}.
+  \end{align*}
+  Substituting these expressions into the differential equation for $v(\phi)$,
+  \begin{align*}
+    &\left[1+2\epsilon\omega_1+\mathcal{O}(\epsilon^2)\right]\left[-A\cos\theta
+      +\epsilon u'' +\mathcal{O}(\epsilon^2)\right] + 1+A\cos\theta
+    +\epsilon u(\theta) +\mathcal{O}(\epsilon^2) \\
+    &\qquad\qquad
+    =1+\epsilon\left[1+2A\cos\theta+A^2\cos^2\theta+\mathcal{O}(\epsilon)
+    \right] 
+  \end{align*}
+  \begin{gather*}
+    \epsilon u'' + \epsilon u - 2\epsilon\omega_1 A\cos\theta = \epsilon
+    + 2\epsilon A\cos\theta +\epsilon A^2\cos^2\theta 
+    +\mathcal{O}(\epsilon^2). \\
+    \intertext{Equating the coefficient of $\epsilon$,}
+    u''+u=1+2\epsilon(1+\omega_1)A\cos\theta+\frac{1}{2}A^2(\cos 2\theta+1) \\
+    u''+u=(1+\frac{1}{2}A^2) + 2\epsilon(1+\omega_1)A\cos\theta
+    +\frac{1}{2}A^2\cos 2\theta.
+  \end{gather*}
+  To avoid secular terms, we must have $\omega_1=-1$.  A particular solution
+  for $u$ is
+  \[ u=1+\frac{1}{2}A^2-\frac{1}{6}A^2\cos 2\theta. \]
+  The the solution for $v$ is
+  \[ 
+  \boxed{ 
+    v(\phi)=1+A\cos((1-\epsilon)\phi)+\epsilon\left[1+\frac{1}{2}A^2
+      -\frac{1}{6}A^2\cos(2(1-\epsilon)\phi)\right] +\mathcal{O}(\epsilon^2).
+    }
+  \]
+\end{Solution}
+
+
+
+%%\ddot{x} +\omega_0^2 x+\alpha x^2=0, \quad x=a, \dot{x}=0\ \mathrm{at}\ t=0
+\begin{Solution}
+  Substituting the expressions for $x$ and $\omega$ into the differential 
+  equations yields
+  \[ a^2\left[\omega_0^2\left(\frac{\dd^2 x_2}{\dd \theta^2}+x_2\right) 
+    + \alpha \cos^2\theta \right] 
+  + a^3\left[\omega_0^2\left(\frac{\dd^2 x_3}{\dd \theta^2} + x_3\right) 
+    -2\omega_0 \omega_2 \cos\theta + 2\alpha x_2 \cos\theta\right]
+  + \mathcal{O}(a^4) = 0 \]
+  Equating the coefficient of $a^2$ gives us the differential equation
+  \[ \frac{\dd^2 x_2}{\dd \theta^2} + x2 = -\frac{\alpha}{2\omega_0^2}(1+\cos 2\theta). \]
+  The solution subject to the initial conditions $x_2(0)=x_2'(0)=0$ is
+  \[ x_2 = \frac{\alpha}{6\omega_0^2}(-3+2\cos\theta+\cos 2\theta). \]
+
+  Equating the coefficent of $a^3$ gives us the differential equation
+  \[ \omega_0^2\left(\frac{\dd^2 x_3}{\dd \theta^2} + x_3 \right) 
+  + \frac{\alpha^2}{3\omega_0^2}
+  -\left(2\omega_0\omega_2+\frac{5\alpha^2}{6\omega_0^2}\right)\cos\theta
+  +\frac{\alpha^2}{3\omega_0^2}\cos 2\theta
+  +\frac{\alpha^2}{6\omega_0^2}\cos 3\theta = 0. \]
+  To avoid secular terms we must have
+  \[ \omega_2 = -\frac{5\alpha^2}{12\omega_0}. \]
+  Solving the differential equation for $x_3$ subject to the intial conditions
+  $x_3(0) = x_3'(0) = 0$,
+  \[ x_3 = \frac{\alpha^2}{144\omega_0^4}(-48+29\cos\theta+16\cos 2\theta
+  + 3\cos 3\theta). \]
+  Thus our solution for $x(t)$ is
+  \[ \boxed{ x(t) = a \cos\theta 
+    +a^2\left[\frac{\alpha}{6\omega_0^2}
+      (-3+2\cos\theta+\cos 2\theta)\right]
+    + a^3\left[\frac{\alpha^2}{144\omega_0^4}
+      (-48+29\cos\theta+16\cos 2\theta + 3\cos 3\theta)\right]
+    +\mathcal{O}(a^4) } \]
+  where $\theta = \left(\omega_0 - a^2 \frac{5\alpha^2}{12\omega_0} \right)t$.
+
+
+  Now to see why we didn't need an $a\omega_1$ term.
+  Assume that
+  \begin{align*}
+    x &= a\cos\theta + a^2 x_2(\theta) + \mathcal{O}(a^3);\quad \theta=\omega t \\
+    \omega &= \omega_0 + a \omega_1 + \mathcal{O}(a^2).
+  \end{align*}
+  Substituting these expressions into the differential equation for $x$ yields
+  \[ a^2 \left[ \omega_0^2(x_2''+x_2) - 2\omega_0 \omega_1 \cos\theta
+    +\alpha\cos^2\theta \right] = \mathcal{O}(a^3) \]
+  \[ x_2'' + x_2 = 2\frac{\omega_1}{\omega_0}\cos\theta 
+  - \frac{\alpha}{2 \omega_0^2} (1+\cos 2\theta). \]
+  In order to eliminate secular terms, we need $\omega_1=0$.
+\end{Solution}
+
+
+
+
+
+%%Consider the linearized traffic problem
+\begin{Solution}
+  \begin{enumerate}
+    %%
+    %%
+    %%
+  \item
+    The equation for $p_1(t)$ is
+    \begin{gather*}
+      \frac{\dd p_1(t)}{\dd t} = \alpha [p_0(t) - p_1(t)].  \\
+      \frac{\dd p_1(t)}{\dd t} = \alpha [a e^{\imath \omega t} - p_1(t)] \\
+      \frac{\dd}{\dd t}\left(e^{\alpha t} p_1(t) \right) = \alpha a e^{\alpha t} 
+      e^{\imath \omega t} \\
+      p_1(t) = \frac{\alpha a}{\alpha + \imath \omega} e^{\imath \omega t} 
+      + c e^{-\alpha t} \\
+      \intertext{Applying the initial condition, $p_1(0) = 0$,}
+      \boxed{p_1(t) = \frac{\alpha a}{\alpha + \imath \omega} \left(e^{\imath \omega t} 
+          - e^{-\alpha t} \right) }
+    \end{gather*}
+    %%
+    %%
+    %%
+  \item
+    We start with the differential equation for $p_n(t)$.
+    \[ \frac{\dd p_n(t)}{\dd t} = \alpha [p_{n-1}(t) - p_n(t)] \]
+    Multiply by $s^n$ and sum from $n=1$ to $\infty$.
+    \begin{gather*}
+      \sum_{n = 1}^\infty p_n'(t) s^n = \sum_{n = 1}^\infty \alpha [p_{n-1}(t) - p_n(t)] s^n \\
+      \frac{\partial G(s,t)}{\partial t} = \alpha \sum_{n = 0}^\infty p_n s^{n+1} 
+      - \alpha G(s,t) \\
+      \frac{\partial G(s,t)}{\partial t} = \alpha s p_0 + \alpha \sum_{n = 1}^\infty p_n s^{n+1} 
+      - \alpha G(s,t) \\
+      \frac{\partial G(s,t)}{\partial t} = \alpha a s e^{\imath \omega t} 
+      + \alpha s G(s,t) - \alpha G(s,t) \\
+      \frac{\partial G(s,t)}{\partial t} = \alpha a s e^{\imath \omega t} 
+      + \alpha (s-1) G(s,t)  \\
+      \frac{\partial}{\partial t} \left( e^{\alpha(1-s)t} G(s,t) \right) = \alpha a s 
+      e^{\alpha(1-s)t} e^{\imath \omega t} \\
+      G(s,t) = \frac{\alpha a s}{\alpha(1-s) + \imath \omega} e^{\imath \omega t}
+      + C(s) e^{\alpha(s-1) t} 
+    \end{gather*}
+    The initial condition is
+    \[ G(s,0) = \sum_{n = 1}^\infty p_n(0) s^n = 0. \]
+    The generating function is then
+    \[ \boxed{G(s,t)=\frac{\alpha a s}{\alpha(1-s) + \imath \omega} 
+      \left(\alpha e^{\imath \omega t} - e^{\alpha(s-1) t} \right).} \]
+    %%
+    %%
+    %%
+  \item
+    Assume that $|s| < 1$. In the limit $t \to \infty$ we have
+    \begin{gather*}
+      G(s,t) \sim \frac{\alpha a s}{\alpha(1-s) + \imath \omega} e^{\imath \omega t} \\
+      G(s,t) \sim \frac{a s}{1 + \imath \omega/\alpha - s} e^{\imath \omega t} \\
+      G(s,t) \sim \frac{a s/(1+ \imath \omega/\alpha)}{1 - s/(1 + \imath \omega/\alpha)} 
+      e^{\imath \omega t} \\
+      G(s,t) \sim \frac{a s e^{\imath \omega t}}{1+ \imath \omega/\alpha} 
+      \sum_{n = 0}^\infty \left(\frac{s} {1+\imath \omega/\alpha} \right)^n \\
+      G(s,t) \sim a e^{\imath \omega t} \sum_{n = 1}^\infty \frac{s^n}
+      {(1 + \imath \omega/\alpha)^n}  
+    \end{gather*}
+    Thus we have 
+    \[ 
+    \boxed{p_n(t) \sim \frac{a}{(1 + \imath \omega/\alpha)^n} e^{\imath \omega t} \quad
+      \mathrm{as}\ t \to \infty.} 
+    \]
+
+
+    \begin{align*}
+      \Im(p_n(t))
+      &\sim \Im \left[\frac{a}{(1 + \imath \omega/\alpha)^n} e^{\imath \omega t}
+      \right] \\
+      &= a \left(\frac{1 - \imath \omega/\alpha}{1 + (\omega/\alpha)^2} 
+      \right)^n [ \cos(\omega t) + \imath \sin(\omega t) ] \\
+      &= \frac{a}{(1+(\omega/\alpha)^2)^n} \left[ \cos(\omega t)
+        \Im[(1 - \imath \omega/\alpha)^n] + \sin(\omega t)
+        \Re[(1 - \imath \omega/\alpha)^n] \right] \\
+      &= \frac{a}{(1+(\omega/\alpha)^2)^n} \left[ \cos(\omega t)
+        \sum_{\substack{j = 1 \\ \mathrm{odd}\ j}}^n
+        (-1)^{(j+1)/2} \left(\frac{\omega}{\alpha}\right)^j 
+        + \sin(\omega t) 
+        \sum_{ \substack{j = 0 \\ \mathrm{even}\ j}}^n
+        (-1)^{j/2} \left(\frac{\omega}{\alpha}\right)^j \right] 
+    \end{align*}
+  \end{enumerate}
+\end{Solution}
+
+
+
+%%\frac{\dd}{\dd t} p_n(t+\tau) = \alpha [p_{n-1}(t) - p_n(t) ] \quad n\geq 1,
+\begin{Solution}
+  \begin{enumerate}
+    %%
+    %%
+    %%
+  \item
+    Substituting $p_n = A_n e^{\imath \omega t}$ into the differential equation
+    yields
+    \begin{gather*}
+      A_n \imath \omega e^{\imath \omega(t+\tau)} = \alpha[ A_{n-1} e^{\imath \omega t} - 
+      A_n e^{\imath \omega t} ] \\
+      A_n (\alpha + \imath \omega e^{\imath \omega \tau}) = \alpha A_{n-1} \\
+      \intertext{We make the substitution $A_n = r^n$.}
+      r^n (\alpha + \imath \omega e^{\imath \omega \tau}) = \alpha r^{n-1} \\
+      r = \frac{\alpha}{\alpha + \imath \omega e^{\imath \omega \tau}}
+    \end{gather*}
+    Thus we have
+    \[ \boxed{p_n(t)=\left(\frac{1}{1+\imath \omega e^{\imath \omega \tau} / \alpha}\right)^n
+      e^{\imath \omega t}. } \]
+    Taking the imaginary part,
+    \begin{align*}
+      \Im(p_n(t))
+      &= \Im\left[ \left(\frac{1}{1+\imath \frac{\omega }{\alpha}
+            e^{\imath \omega \tau}}\right)^n e^{\imath \omega t} \right] \\
+      &= \Im\left[ \left( 
+          \frac{1-\imath \frac{\omega}{\alpha} e^{-\imath \omega \tau}}
+          {1 + \imath \frac{\omega}{\alpha}(e^{\imath \omega \tau}
+            - e^{-\imath \omega \tau}) + (\frac{\omega}{\alpha})^2} \right)^n
+        \big( \cos(\omega t) + \imath \sin(\omega t) \big) \right] \\
+      &= \Im\left[ \left( 
+          \frac{1 - \frac{\omega}{\alpha} \sin(\omega \tau)
+            - \imath \frac{\omega}{\alpha} \cos(\omega \tau) }
+          {1 - 2 \frac{\omega}{\alpha} \sin(\omega \tau) 
+            +(\frac{\omega}{\alpha})^2} \right)^n
+        \big( \cos(\omega t) + \imath \sin(\omega t) \big) \right] \\
+      &= \left(\frac{1}{1 - 2 \frac{\omega}{\alpha} \sin(\omega \tau)
+          +(\frac{\omega}{\alpha})^2} \right)^n
+      \Big[ \cos(\omega t) \Im\left[\left(1 
+          - \frac{\omega}{\alpha} \sin(\omega \tau)
+          - \imath \frac{\omega}{\alpha} \cos(\omega \tau)\right)^n \right] \\
+      &\qquad + \sin(\omega t) \Re\left[ \left(1 
+          - \frac{\omega}{\alpha} \sin(\omega \tau)
+          - \imath \frac{\omega}{\alpha} \cos(\omega \tau)\right)^n \right] 
+      \Big] \\
+      &= \left(\frac{1}{1 - 2 \frac{\omega}{\alpha} \sin(\omega \tau)
+          +(\frac{\omega}{\alpha})^2} \right)^n \\
+      &\qquad \Big[ \cos(\omega t) 
+      \sum_{\substack{j=1 \\ \mathrm{odd}\ j}}^n
+      (-1)^{(j+1)/2} \left[\frac{\omega}{\alpha} \cos(\omega \tau)
+      \right]^j \left[1-\frac{\omega}{\alpha}\sin(\omega\tau)
+      \right]^{n-j} \\
+      &\qquad + \sin(\omega t) 
+      \sum_{\substack{j=0 \\ \mathrm{even}\ j}}^n
+      (-1)^{j/2} \left[\frac{\omega}{\alpha} \cos(\omega \tau)
+      \right]^j \left[1-\frac{\omega}{\alpha}\sin(\omega\tau)
+      \right]^{n-j} \Big] 
+    \end{align*}
+    %%
+    %%
+    %%
+  \item
+    $p_n(t)$ will remain bounded in time as $n \to \infty$ if 
+    \begin{gather*}
+      \left| \frac{1}{1 + \imath \frac{\omega}{\alpha} e^{\imath \omega \tau}} \right| 
+      \leq 1 \\
+      \left| 1 + \imath \frac{\omega}{\alpha} e^{\imath \omega \tau} \right|^2 \geq 1 \\
+      1 - 2 \frac{\omega}{\alpha} \sin(\omega \tau) + \left(\frac{\omega}{\alpha}
+      \right)^2 \geq 1 \\
+      \boxed{ \frac{\omega}{\alpha} \geq 2 \sin(\omega \tau) }
+    \end{gather*}
+    %%
+    %%
+    %%
+  \item
+    %% CONTINUE
+  \end{enumerate}
+\end{Solution}
+
+
+
+
+\raggedbottom
+
+
+
+
+
+
+

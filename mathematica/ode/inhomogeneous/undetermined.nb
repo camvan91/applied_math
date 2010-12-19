@@ -1,0 +1,653 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     12470,        472]*)
+(*NotebookOutlinePosition[     13129,        496]*)
+(*  CellTagsIndexPosition[     13085,        492]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ODE/ Inhomogeneous Differential Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Undetermined Coefficients", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n01/13/2001\nAnti-Copyright @ 2000 by Mauch Publishing Company, \
+un-Incorporated"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' + 2  y' + 5  y = 3\ \(sin(2  t)\)\)]]], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the general solution of", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y'' + 2  y' + 5  y = 
+      3\ \(\(sin(2  t)\)\(.\)\)\)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["First we solve the problem directly.", "Text"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[\(y''\)[t] + 2 \( y'\)[t] + 5  y[t] \[Equal] 3  Sin[2  t], \n\t
+      y[t], t]\)], "Input"],
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"],
+
+Cell["The solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = 
+      c\_1\ \[ExponentialE]\^\(-t\)\ \(cos(2  t)\) + 
+        c\_2\ \[ExponentialE]\^\(-t\)\ \(sin(
+            2  t)\) + \(3\/17\) \(\((sin(2  t) - 
+                4 \( cos(2  t)\))\)\(.\)\)\)], "DisplayFormula"],
+
+Cell["\<\
+Now we solve the problem with the method of undetermined \
+coefficients.  We first solve the homogeneous equation.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(DSolve[\(y''\)[t] + 2 \( y'\)[t] + 5  y[t] \[Equal] 0, \n\ty[t], 
+      t]\)], "Input"],
+
+Cell["We guess a particular solution of the form", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = 
+      a\ \(sin(2  t)\) + b\ \(\(cos(2  t)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell["\<\
+We substitute this into the differential equation to determine the \
+coefficients.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(yp[t_] := a\ Cos[2  t] + b\ Sin[2  t]\)], "Input"],
+
+Cell[BoxData[
+    \(\(yp''\)[t] + 2 \( yp'\)[t] + 5  yp[t] - 3  Sin[2  t]\)], "Input"],
+
+Cell[BoxData[
+    \(Collect[%, {Cos[2  t], Sin[2  t]}]\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[{a + 4  b \[Equal] 0, \(-3\) - 4  a + b \[Equal] 0}, {a, 
+        b}]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[yp]\)], "Input"],
+
+Cell["Again we seee that the solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = 
+      c\_1\ \[ExponentialE]\^\(-t\)\ \(cos(2  t)\) + 
+        c\_2\ \[ExponentialE]\^\(-t\)\ \(sin(
+            2  t)\) + \(3\/17\) \(\((sin(2  t) - 
+                4 \( cos(2  t)\))\)\(.\)\)\)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`2  y'' + 3  y' + y = 
+      t\^2 + 3\ \(sin(t)\)\)]]], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the general solution of", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`2  y'' + 3  y' + y = 
+      t\^2 + 3\ \(\(sin(t)\)\(.\)\)\)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["First we solve the problem directly.", "Text"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[
+      2 \( y''\)[t] + 3 \( y'\)[t] + y[t] \[Equal] t\^2 + 3  Sin[t], \n\t
+      y[t], t]\)], "Input"],
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"],
+
+Cell["The solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = 
+      c\_1\ \[ExponentialE]\^\(-t\) + c\_2\ \[ExponentialE]\^\(\(-t\)/2\) + 
+        t\^2 - 6  t + 
+        14 - \(3\/10\) \((sin(t) + 3 \( cos(t)\))\)\)], "DisplayFormula"],
+
+Cell["\<\
+Now we solve the problem with the method of undetermined \
+coefficients.  We first solve the homogeneous equation.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(DSolve[2 \( y''\)[t] + 3 \( y'\)[t] + y[t] \[Equal] 0, \n\ty[t], 
+      t]\)], "Input"],
+
+Cell["We guess a particular solution of the form", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = 
+      a\ t\^2 + b\ t + c + d\ \(sin(t)\) + 
+        e\ \(\(cos(t)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell["\<\
+We substitute this into the differential equation to determine the \
+coefficients.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(yp[t_] := a\ t\^2 + b\ t + c + d\ Cos[t] + e\ Sin[t]\)], "Input"],
+
+Cell[BoxData[
+    \(2 \( yp''\)[t] + 3 \( yp'\)[t] + yp[t] - t\^2 - 3  Sin[t]\)], "Input"],
+
+Cell[BoxData[
+    \(Collect[%, {t, Cos[t], Sin[t]}]\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[{4  a + 3  b + c \[Equal] 0, 
+        6  a + b \[Equal] 0, \(-1\) + a \[Equal] 0, \(-d\) + 3  e \[Equal] 
+          0, \(-3\) - 3  d - e \[Equal] 0}, {a, b, c, d, e}]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[yp]\)], "Input"],
+
+Cell["Again we seee that the solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = 
+      c\_1\ \[ExponentialE]\^\(-t\) + c\_2\ \[ExponentialE]\^\(\(-t\)/2\) + 
+        t\^2 - 6  t + 
+        14 - \(3\/10\) \((sin(t) + 3 \( cos(t)\))\)\)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`y'' - 2  y' + y = t\ \[ExponentialE]\^t + 4\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(0) = 1\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((0)\) = 1\)]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the solution of the following initial value problem.", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y'' - 2  y' + y = 
+      t\ \[ExponentialE]\^t + 4, \ \ \ \ y(0) = 1, \ \ \ \ y' \((0)\) = 
+      1\)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["First we solve the problem directly.", "Text"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[t] - 2 \( y'\)[t] + y[t] \[Equal] t\ Exp[t] + 4, 
+        y[0] \[Equal] 1, \(y'\)[0] \[Equal] 1}, y[t], t]\)], "Input"],
+
+Cell["The solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = 
+      4 + \((t\^3\/6 + 4  t - 
+              3)\) \(\(\[ExponentialE]\^t\)\(.\)\)\)], "DisplayFormula"],
+
+Cell["\<\
+Now we solve the problem with the method of undetermined \
+coefficients.  We first solve the homogeneous equation.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(DSolve[\(y''\)[t] - 2 \( y'\)[t] + y[t] \[Equal] 0, \n\ty[t], 
+      t]\)], "Input"],
+
+Cell["We guess a particular solution of the form", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = 
+      a\ t\^3\ \[ExponentialE]\^t + b\ t\^2\ \[ExponentialE]\^t + 
+        4\)], "DisplayFormula"],
+
+Cell["\<\
+We substitute this into the differential equation to determine the \
+coefficients.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(yp[t_] := a\ \(t\^3\) Exp[t] + b\ \(t\^2\) Exp[t] + 4\)], "Input"],
+
+Cell[BoxData[
+    \(\(yp''\)[t] - 2 \( yp'\)[t] + yp[t] - t\ Exp[t] - 4\)], "Input"],
+
+Cell[BoxData[
+    \(%/Exp[t] // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[{2  b \[Equal] 0, 6  a - 1 \[Equal] 0}, {a, b}]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[yp]\)], "Input"],
+
+Cell["The general solution is", "Text"],
+
+Cell[BoxData[
+    \(y[t_] := 
+      c1\ Exp[t] + c2\ t\ Exp[t] + \(1\/6\) \(t\^3\) Exp[t] + 4\)], "Input"],
+
+Cell["\<\
+We use the initial conditions to determine the constants of \
+integration.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(Solve[{y[0] \[Equal] 1, \(y'\)[0] \[Equal] 1}, {c1, c2}]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[y]\)], "Input"],
+
+Cell["The solution of the initial value problem is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = 
+      4 + \((t\^3\/6 + 4  t - 
+              3)\) \(\(\[ExponentialE]\^t\)\(.\)\)\)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`y'' + 2  y' + 5  y = 
+        4  \[ExponentialE]\^\(-t\)\ \(cos(2  t)\)\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(0) = 1\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((0)\) = 0\)]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the solution of the following initial value problem.", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y'' + 2  y' + 5  y = 
+      4  \[ExponentialE]\^\(-t\)\ \(cos(2  t)\), \ \ \ \ y(0) = 
+      1, \ \ \ \ y' \((0)\) = 0\)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["First we solve the problem directly.", "Text"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[t] + 2 \( y'\)[t] + 5  y[t] \[Equal] 
+          4  Exp[\(-t\)] Cos[2  t], y[0] \[Equal] 1, \(y'\)[0] \[Equal] 0}, 
+      y[t], t]\)], "Input"],
+
+Cell["The solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = \(1\/2\) \(\(\[ExponentialE]\^\(-t\)\)(
+          2 \( cos(2  t)\) + sin(2  t) + 
+            2  t\ \(sin(2  t)\))\)\)], "DisplayFormula"],
+
+Cell["\<\
+Now we solve the problem with the method of undetermined \
+coefficients.  We first solve the homogeneous equation.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(DSolve[\(y''\)[t] + 2 \( y'\)[t] + 5  y[t] \[Equal] 0, \n\ty[t], 
+      t]\)], "Input"],
+
+Cell["We guess a particular solution of the form", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = 
+      a\ t\ \[ExponentialE]\^\(-t\)\ \(cos(2  t)\) + 
+        b\ t\ \[ExponentialE]\^\(-t\)\ \(\(sin(
+              2  t)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell["\<\
+We substitute this into the differential equation to determine the \
+coefficients.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(yp[t_] := t\ Exp[\(-t\)] \((a\ Cos[2  t] + b\ Sin[2  t])\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(yp'\)[t] // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(yp''\)[t] + 2 \( yp'\)[t] + 5  yp[t] - 
+      4  Exp[\(-t\)] Cos[2  t]\)], "Input"],
+
+Cell[BoxData[
+    \(%*Exp[t] // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[{4 \((\(-1\) + b)\) \[Equal] 0, \(-4\) a \[Equal] 0}, {a, 
+        b}]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[yp]\)], "Input"],
+
+Cell["The general solution is", "Text"],
+
+Cell[BoxData[
+    \(y[t_] := 
+      c1\ Exp[\(-t\)] Cos[2  t] + c2\ Exp[\(-t\)] Sin[2  t] + 
+        t\ Exp[\(-t\)] Sin[2  t]\)], "Input"],
+
+Cell["\<\
+We use the initial conditions to determine the constants of \
+integration.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(Solve[{y[0] \[Equal] 1, \(y'\)[0] \[Equal] 0}, {c1, c2}]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[y]\)], "Input"],
+
+Cell["The solution of the initial value problem is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = \(1\/2\) \(\(\[ExponentialE]\^\(-t\)\)(
+          2 \( cos(2  t)\) + sin(2  t) + 
+            2  t\ \(sin(2  t)\))\)\)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, -5}, {Automatic, 0}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 131, 3, 307, "Title",
+  Evaluatable->False],
+Cell[1873, 56, 45, 0, 82, "Subtitle"],
+Cell[1921, 58, 350, 10, 143, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2296, 72, 105, 1, 65, "Section"],
+
+Cell[CellGroupData[{
+Cell[2426, 77, 30, 0, 56, "Subsection"],
+Cell[2459, 79, 44, 0, 38, "Text"],
+Cell[2506, 81, 112, 2, 30, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2655, 88, 30, 0, 56, "Subsection"],
+Cell[2688, 90, 52, 0, 38, "Text"],
+Cell[2743, 92, 44, 1, 35, "Input"],
+Cell[2790, 95, 118, 2, 56, "Input"],
+Cell[2911, 99, 50, 1, 35, "Input"],
+Cell[2964, 102, 31, 0, 38, "Text"],
+Cell[2998, 104, 256, 5, 47, "DisplayFormula"],
+Cell[3257, 111, 138, 3, 59, "Text"],
+Cell[3398, 116, 107, 2, 56, "Input"],
+Cell[3508, 120, 58, 0, 38, "Text"],
+Cell[3569, 122, 117, 2, 32, "DisplayFormula"],
+Cell[3689, 126, 106, 3, 59, "Text"],
+Cell[3798, 131, 70, 1, 35, "Input"],
+Cell[3871, 134, 86, 1, 35, "Input"],
+Cell[3960, 137, 67, 1, 35, "Input"],
+Cell[4030, 140, 108, 2, 35, "Input"],
+Cell[4141, 144, 42, 1, 35, "Input"],
+Cell[4186, 147, 50, 0, 38, "Text"],
+Cell[4239, 149, 256, 5, 47, "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4544, 160, 116, 2, 39, "Section"],
+
+Cell[CellGroupData[{
+Cell[4685, 166, 30, 0, 56, "Subsection"],
+Cell[4718, 168, 44, 0, 38, "Text"],
+Cell[4765, 170, 116, 2, 31, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4918, 177, 30, 0, 56, "Subsection"],
+Cell[4951, 179, 52, 0, 38, "Text"],
+Cell[5006, 181, 44, 1, 35, "Input"],
+Cell[5053, 184, 129, 3, 78, "Input"],
+Cell[5185, 189, 50, 1, 35, "Input"],
+Cell[5238, 192, 31, 0, 38, "Text"],
+Cell[5272, 194, 215, 4, 47, "DisplayFormula"],
+Cell[5490, 200, 138, 3, 59, "Text"],
+Cell[5631, 205, 107, 2, 56, "Input"],
+Cell[5741, 209, 58, 0, 38, "Text"],
+Cell[5802, 211, 141, 3, 33, "DisplayFormula"],
+Cell[5946, 216, 106, 3, 59, "Text"],
+Cell[6055, 221, 85, 1, 36, "Input"],
+Cell[6143, 224, 90, 1, 36, "Input"],
+Cell[6236, 227, 64, 1, 35, "Input"],
+Cell[6303, 230, 205, 3, 56, "Input"],
+Cell[6511, 235, 42, 1, 35, "Input"],
+Cell[6556, 238, 50, 0, 38, "Text"],
+Cell[6609, 240, 215, 4, 47, "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6873, 250, 257, 9, 41, "Section"],
+
+Cell[CellGroupData[{
+Cell[7155, 263, 30, 0, 56, "Subsection"],
+Cell[7188, 265, 73, 0, 38, "Text"],
+Cell[7264, 267, 158, 3, 30, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7459, 275, 30, 0, 56, "Subsection"],
+Cell[7492, 277, 52, 0, 38, "Text"],
+Cell[7547, 279, 44, 1, 35, "Input"],
+Cell[7594, 282, 155, 2, 56, "Input"],
+Cell[7752, 286, 31, 0, 38, "Text"],
+Cell[7786, 288, 145, 3, 51, "DisplayFormula"],
+Cell[7934, 293, 138, 3, 59, "Text"],
+Cell[8075, 298, 104, 2, 56, "Input"],
+Cell[8182, 302, 58, 0, 38, "Text"],
+Cell[8243, 304, 143, 3, 33, "DisplayFormula"],
+Cell[8389, 309, 106, 3, 59, "Text"],
+Cell[8498, 314, 86, 1, 36, "Input"],
+Cell[8587, 317, 84, 1, 35, "Input"],
+Cell[8674, 320, 53, 1, 35, "Input"],
+Cell[8730, 323, 86, 1, 35, "Input"],
+Cell[8819, 326, 42, 1, 35, "Input"],
+Cell[8864, 329, 39, 0, 38, "Text"],
+Cell[8906, 331, 106, 2, 57, "Input"],
+Cell[9015, 335, 98, 3, 38, "Text"],
+Cell[9116, 340, 89, 1, 35, "Input"],
+Cell[9208, 343, 41, 1, 35, "Input"],
+Cell[9252, 346, 60, 0, 38, "Text"],
+Cell[9315, 348, 145, 3, 51, "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9509, 357, 285, 10, 66, "Section"],
+
+Cell[CellGroupData[{
+Cell[9819, 371, 30, 0, 56, "Subsection"],
+Cell[9852, 373, 73, 0, 38, "Text"],
+Cell[9928, 375, 177, 3, 30, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10142, 383, 30, 0, 56, "Subsection"],
+Cell[10175, 385, 52, 0, 38, "Text"],
+Cell[10230, 387, 44, 1, 35, "Input"],
+Cell[10277, 390, 178, 3, 77, "Input"],
+Cell[10458, 395, 31, 0, 38, "Text"],
+Cell[10492, 397, 179, 3, 47, "DisplayFormula"],
+Cell[10674, 402, 138, 3, 59, "Text"],
+Cell[10815, 407, 107, 2, 56, "Input"],
+Cell[10925, 411, 58, 0, 38, "Text"],
+Cell[10986, 413, 197, 4, 32, "DisplayFormula"],
+Cell[11186, 419, 106, 3, 59, "Text"],
+Cell[11295, 424, 91, 1, 35, "Input"],
+Cell[11389, 427, 55, 1, 35, "Input"],
+Cell[11447, 430, 105, 2, 35, "Input"],
+Cell[11555, 434, 53, 1, 35, "Input"],
+Cell[11611, 437, 109, 2, 35, "Input"],
+Cell[11723, 441, 42, 1, 35, "Input"],
+Cell[11768, 444, 39, 0, 38, "Text"],
+Cell[11810, 446, 138, 3, 56, "Input"],
+Cell[11951, 451, 98, 3, 38, "Text"],
+Cell[12052, 456, 89, 1, 35, "Input"],
+Cell[12144, 459, 41, 1, 35, "Input"],
+Cell[12188, 462, 60, 0, 38, "Text"],
+Cell[12251, 464, 179, 3, 47, "DisplayFormula"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

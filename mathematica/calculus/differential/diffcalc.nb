@@ -1,0 +1,1395 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     26548,       1104]*)
+(*NotebookOutlinePosition[     27620,       1140]*)
+(*  CellTagsIndexPosition[     27576,       1136]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Differential Calculus", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Sean Mauch
+sean@its.caltech.edu
+http://www.its.caltech.edu/~sean
+4/18/99\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Partial Derivatives"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Clear[x, y, f]\)], "Input"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " can find partial derivatives of symbolic expressions.  If you haven't \
+heard the term partial derivative before, it's just a derivative where all \
+the formal variables in an expression except the one that your \
+differentiating with respect to are assumed to be constant.  The mathematical \
+form that you'll see in books for partial derivatives is ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[PartialD]\ f\/\[PartialD]\ x\)]],
+  ".  Partial derivatives in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " are written:"
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(D[x\^2 + y\^2 + a\ Sin[x], x]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "To do the typeset version of the above,\n\t \[EscapeKey]pd\[EscapeKey] \
+\[ControlKey]\[LeftModified]-\[RightModified] x \[ControlKey]\[LeftModified]\
+\[SpaceKey]\[RightModified]\t\tto get   ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[PartialD]\_x\)]],
+  "\nand enclose the function to be differentiated in parentheses if it has \
+more than one term."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((x\^2 + y\^2 + a\ Sin[x])\)\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Above, ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " assumed the variables ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`a\)]],
+  " were constant.  You can take second and third, etc. derivatives as \
+follows:"
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(D[x\^2 + Sin[x], {x, 2}]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[PartialD]\_\(x, x\)\((x\^2 + Sin[x])\)\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[PartialD]\_{x, 2}\((x\^2 + Sin[x])\)\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(D[x\^2 + Sin[x], {x, 3}]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[PartialD]\_{x, 3}\((x\^2 + Sin[x])\)\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  " ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " also allows you to take partial derivatives with respect to several \
+variables."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(D[x\^2\ y, x, y]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[PartialD]\_\(x, y\)\((x\^2\ y)\)\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(D[Sin[x\ y], {x, 2}, y]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[PartialD]\_\({x, 2}, y\)Sin[x\ y]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " can take derivatives of formal functions."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[PartialD]\_x f[x]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[PartialD]\_{x, 3}\((f[x]\ g[x])\)\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Note that the first and second derivatives are denoted ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(f'\)[x]\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(f'\)'\)[x]\)]],
+  ".  Higher derivatives are denoted ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(f\^\((n)\)\)[x]\)]],
+  "."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "You can specify that a formal variable depends on ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " by either explicitly writing it as a function of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " or by using the ",
+  StyleBox["NonConstants", "Input"],
+  " option."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((x\^2\ y[x])\)\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(D[x\^2\ y, x, NonConstants \[Rule] y]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(D[x\ y\ z, x, NonConstants \[Rule] {y, z}]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["Exercise 1", "Subsubsection"],
+
+Cell[TextData[{
+  "Verify that ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " knows the rules:"
+}], "Text"],
+
+Cell[BoxData[
+    FormBox[GridBox[{
+          {\(\(\[PartialD]\/\[PartialD]x\) \((u\ v)\) = u'\ v + u\ v', \), 
+            \(Product\ rule\)},
+          {
+            \(\(\[PartialD]\/\[PartialD]x\) \((u\/v)\) = 
+              \(u'\ v - u\ v'\)\/v\^2, \), \(Quotient\ rule\)},
+          {\(\(\[PartialD]\/\[PartialD]x\) \((u\^a)\) = a\ u\^\(a - 1\)\ u', 
+            \), \(Power\ rule\)},
+          {\(\(\[PartialD]\/\[PartialD]x\) \((u(v(x)))\) = u' \((v)\)\ v', 
+            \), \(Chain\ rule\)}
+          }], TraditionalForm]], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise 2", "Subsubsection"],
+
+Cell["Find the local maxima and minima of the polynomial:", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm
+    \`\((x - 1)\) \((x - 2)\) \((x - 3)\) \((x - 4)\) \((x - 5)\)\)], 
+  "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise 3", "Subsubsection"],
+
+Cell["Find the general solution of the differential equation", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\(y'\)' - 3  y' + 2  y = 0\)], "DisplayFormula"],
+
+Cell[TextData[{
+  "by substituting ",
+  Cell[BoxData[
+      \(TraditionalForm\`y = \[ExponentialE]\^\(\[Alpha]\ x\)\)]],
+  " into the differential equation."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise 4", "Subsubsection"],
+
+Cell["Solve the differential equation,", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\(\(y'\)'\)' - 6 \( y'\)' + 11  y' - 6  y = 0, \ \ \ \ 
+    y(0) = 1, \ \ \ \ y' \((0)\) = 2, \ \ \ \ \(y'\)' \((0)\) = 3. \)], 
+  "DisplayFormula",
+  TextAlignment->Center]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise 5", "Subsubsection"],
+
+Cell[TextData[{
+  "Plot the function ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(x)\)]],
+  " defined by,"
+}], "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`x\^2 - x\ y + y\^2 = 3. \)], "DisplayFormula",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "Use implicit differentiation to find ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " in terms of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  ".  (That is, differentiate the equation with respect to ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and solve for ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  ".)  Differentiate ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " to determine ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(y'\)' \((x)\)\)]],
+  " in terms of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  "."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise 6", "Subsubsection"],
+
+Cell["\<\
+Find the radius and height of a cylindrical cup of minimal surface \
+whose volume is 64.\
+\>", "Text",
+  TextJustification->1]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Total Derivatives"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Dt[]", "Input"],
+  " is the total derivative function.  It takes the derivative of an \
+expression assuming that all formal variables in the expression depend on the \
+diferentiation variable."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Dt[x\^2 + y\^2, x]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Dt[x\^2 + a\ y\^2, x]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "You can take second and higher derivatives with the same syntax as ",
+  StyleBox["D[]",
+    FontWeight->"Bold"],
+  "."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Dt[x\^2 + y\^2, {x, 2}]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "There are two ways of specifying that a formal variable does not depend on \
+the differentiation variable.  By using the ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox["Constants",
+          FontWeight->"Bold"], TraditionalForm]]],
+  " option you can specify that a certain variable is constant in one input."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Dt[x\^2 + y\^2 + z\^2, x, Constants \[Rule] y]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Another approach is to globally declare that a formal variable is a \
+constant with the ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox[\(SetAttributes[]\),
+          "Input"], TraditionalForm]]],
+  " function."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(SetAttributes[c, Constant]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Now if we use ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " help to get information on ",
+  Cell[BoxData[
+      \(TraditionalForm\`c\)]],
+  "  it tells us that ",
+  Cell[BoxData[
+      \(TraditionalForm\`c\)]],
+  " is a global formal variable with the attribute that it is constant."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(?c\)\)], "Input"],
+
+Cell[TextData[{
+  "Now whenever we use ",
+  Cell[BoxData[
+      \(TraditionalForm\`c\)]],
+  " it will be regarded as a constant."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Dt[x\^2 + c\ y\^2, x]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "To remove the constant attribute we use the ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox[\(ClearAttributes[]\),
+          "Input"], TraditionalForm]]],
+  " function."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(ClearAttributes[c, Constant]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Now ",
+  Cell[BoxData[
+      \(TraditionalForm\`c\)]],
+  " is a global formal variable with no attributes."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(?c\)\)], "Input"],
+
+Cell[BoxData[
+    \(Dt[x\^2 + c\ y\^2, x]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell["\<\
+You can take the total derivative of an expression involving formal \
+functions.\
+\>", "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Dt[f[x] + g[y], x]\)], "Input",
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Non-Cartesian Coordinate Systems", "Section"],
+
+Cell[TextData[{
+  "Suppose we want to know the Laplacian, ",
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\[PartialD]\^2\/\[PartialD]x\^2 + 
+        \[PartialD]\^2\/\[PartialD]y\^2\)]],
+  ", in circular coordinates.  First we define ",
+  Cell[BoxData[
+      \(TraditionalForm\`r\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Theta]\)]],
+  " in terms of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  "."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(r := \@\(x\^2 + y\^2\); \n\[Theta] := ArcTan[y, x]\)], "Input"],
+
+Cell[TextData[{
+  "Cosider a function ",
+  Cell[BoxData[
+      \(TraditionalForm\`g(r, \[Theta])\)]],
+  ".   With the definition of ",
+  Cell[BoxData[
+      \(TraditionalForm\`r\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Theta]\)]],
+  " above, we compute ",
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\(\[PartialD]\^2\/\[PartialD]x\^2\) g + 
+        \(\[PartialD]\^2\/\[PartialD]y\^2\) g\)]],
+  "."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(\[PartialD]\_{x, 2}g[r, \[Theta]] + 
+        \[PartialD]\_{y, 2}g[r, \[Theta]] // Simplify\)], "Input"],
+
+Cell[TextData[{
+  "Now we remove the definition of ",
+  Cell[BoxData[
+      \(TraditionalForm\`r\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Theta]\)]],
+  " because we want to write ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  " in terms of ",
+  Cell[BoxData[
+      \(TraditionalForm\`r\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Theta]\)]],
+  "."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(\(Clear[r, \[Theta]]; \)\)], "Input"],
+
+Cell[TextData[{
+  "We apply the definition of ",
+  Cell[BoxData[
+      \(TraditionalForm\`r\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Theta]\)]],
+  " and simplify the result."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(%% /. {x -> r\ Cos[\[Theta]], y -> r\ Sin[\[Theta]]} // Simplify\)], 
+  "Input"],
+
+Cell[TextData[{
+  "We have to explicitly tell ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " to replace ",
+  Cell[BoxData[
+      \(TraditionalForm\`arctan(r\ sin\ \[Theta], r\ cos\ \[Theta])\)]],
+  " with ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Theta]\)]],
+  ".  We use the ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox[\(PowerExpand[]\),
+          "Input"], TraditionalForm]]],
+  " function to replace ",
+  Cell[BoxData[
+      \(TraditionalForm\`\@r\^2\)]],
+  " with ",
+  Cell[BoxData[
+      \(TraditionalForm\`r\)]],
+  "."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(% /. ArcTan[r\ Sin[\[Theta]], r\ Cos[\[Theta]]] -> \[Theta] // 
+      PowerExpand\)], "Input"],
+
+Cell["Thus we see that the Laplacian in circular coordinates is", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\[CapitalDelta] = 
+        \[PartialD]\^2\/\[PartialD]r\^2 + 
+          \(1\/r\) \[PartialD]\/\[PartialD]r + 
+          \(1\/r\^2\) \[PartialD]\^2\/\[PartialD]\[Theta]\^2\)]],
+  "."
+}], "Text",
+  TextAlignment->Center]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Solutions"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["Solution 1", "Subsubsection"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((u[x] v[x])\)\)], "Input"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((u[x]\/v[x])\)\)], "Input"],
+
+Cell[BoxData[
+    \(% // Together\)], "Input"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x u[x]\^a\)], "Input"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x u[v[x]]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution 2", "Subsubsection"],
+
+Cell[TextData[{
+  "From the plot and what we know about polynomials, we know that there will \
+be two local maxima and two local minima for the polynomial:\n\t",
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\((x - 1)\) \((x - 2)\) \((x - 3)\) \((x - 4)\) \((x - 5)\)\)]],
+  "."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "First we define a function, ",
+  Cell[BoxData[
+      \(TraditionalForm\`f\)]],
+  ", to be the above polynomial."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(f[x_] := 
+      \((x - 1)\)\ \((x - 2)\)\ \((x - 3)\)\ \((x - 4)\)\ \((x - 5)\)\)], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(Plot[f[x], {x, 0, 6}]; \)\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Here are the values of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " where the local extrema occur."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(solns = Simplify[Solve[\[PartialD]\_x f[x] == 0, x]]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell["Here is the numerical approximation.", "Text"],
+
+Cell[BoxData[
+    \(N[solns]\)], "Input"],
+
+Cell["We sort the solutions in increasing numerical order.", "Text"],
+
+Cell[BoxData[
+    \(solns = Sort[solns, \((N[x /. #1] < N[x /. #2])\)&]\)], "Input"],
+
+Cell[BoxData[
+    \(N[solns]\)], "Input"],
+
+Cell["Here are the values of the function at the local extrema.", "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Simplify[f[x] /. solns]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell["\<\
+Here are the values of the second derivative of the function at the \
+local extrema.\
+\>", "Text",
+  Evaluatable->False,
+  TextAlignment->Left,
+  TextJustification->1,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Simplify[\(\(f'\)'\)[x] /. solns]\)], "Input",
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell["\<\
+Recalling that if the second derivative is (positive/negative) at a \
+local extrema, it is a (minima/maxima), we see that the first and third \
+extrema are maxima and the second and fourth extrema are minima.\
+\>", "Text",\
+
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(Clear[f, solns]\)], "Input",
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution 3", "Subsubsection"],
+
+Cell["First we define the substitution.", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(y[x_] := Exp[\[Alpha]\ x]\)], "Input"],
+
+Cell[TextData[{
+  "With this definition of ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(x)\)]],
+  ", the differential equation becomes an algebraic equation for \[Alpha]."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(\(\(y'\)'\)[x] - 3 \( y'\)[x] + 2  y[x]\)], "Input"],
+
+Cell[TextData[
+"Equating the above expression to zero, the exponential factor divides out \
+and we have a quadratic equation for \[Alpha]."], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(Solve[% == 0, \[Alpha]]\)], "Input"],
+
+Cell["\<\
+Two linearly independent solutions of the differential equation are\
+\
+\>", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(y[x] /. %\)], "Input"],
+
+Cell["Thus the general solution of the differential equation is ", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(TraditionalForm
+    \`y(x) = \(c\_1\) \[ExponentialE]\^x + 
+        \(c\_2\) \(\[ExponentialE]\^\(2  x\) . \)\)], "DisplayFormula"],
+
+Cell[BoxData[
+    \(Clear[y]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution 4", "Subsubsection"],
+
+Cell["We consider the problem", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(TraditionalForm\`\(\(y'\)'\)' - 6 \( y'\)' + 11  y' - 6  y = 0, \ \ \ \ 
+    y(0) = 1, \ \ \ \ y' \((0)\) = 2, \ \ \ \ \(y'\)' \((0)\) = 3. \)], 
+  "DisplayFormula"],
+
+Cell[TextData[{
+  "We substitute ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(x) = \[ExponentialE]\^\(\[Alpha]\ x\)\)]],
+  " into the differential equation to obtain a cubic polynomial equation for \
+\[Alpha]."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(y[x_] := Exp[\[Alpha]\ x]\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\(y'\)'\)'\)[x] - 6 \(\( y'\)'\)[x] + 11 \( y'\)[x] - 6  y[x]\)], 
+  "Input"],
+
+Cell["The roots of the cubic are", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(Solve[% == 0, \[Alpha]]\)], "Input"],
+
+Cell["\<\
+Now we have a set of linearly independent solutions of the \
+differential equation.\
+\>", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(y[x] /. %\)], "Input"],
+
+Cell["\<\
+The general solution of the differential equation is a linear \
+combination of the homogeneous solutions.\
+\>", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(y[x_] = % . {c1, c2, c3}\)], "Input"],
+
+Cell["\<\
+We apply the initial conditions to solve for the constants in the \
+linear combination.\
+\>", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(Solve[{y[0] == 1, \(y'\)[0] == 2, \(\(y'\)'\)[0] == 3}, {c1, c2, c3}]
+      \)], "Input"],
+
+Cell["\<\
+The solution of the differential equation subject to the initial \
+conditions is\
+\>", "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(y[x] /. First[%]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[y]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution 5", "Subsubsection"],
+
+Cell[TextData[{
+  "In order to graph ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(x)\)]],
+  " we solve the equation for ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(Clear[x, y]; \nSolve[x\^2 - x\ y + y\^2 == 3, y]\)], "Input"],
+
+Cell[TextData[{
+  "We note that ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  " is real-valued for ",
+  Cell[BoxData[
+      \(TraditionalForm\`x \[Element] \([\(-2\), 2]\)\)]],
+  ".  Here is a plot."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Plot[Evaluate[y /. %], {x, \(-2\), 2}, AspectRatio -> Automatic]; 
+    \)\)], "Input"],
+
+Cell[TextData[{
+  "Differentiating the left-hand-side of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\^2 - x\ y + y\^2 = 3\)]],
+  ","
+}], "Text"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((x\^2 - x\ y[x] + y[x]\^2)\)\)], "Input"],
+
+Cell[TextData[{
+  "Now we set this equal to the derivative of the right side and solve for ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(Solve[% == 0, \(y'\)[x]]\)], "Input"],
+
+Cell[TextData[{
+  "The next statement defines ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(y'\)[x]\)]],
+  " as the above solution."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(y'\)[x_] = \(y'\)[x] /. %[\([1]\)]\)], "Input"],
+
+Cell[TextData[{
+  "Now we differentiate ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " to get ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(y'\)' \((x)\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\ \(y'\)[x]\)], "Input"],
+
+Cell[TextData[{
+  "Note that ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " has automatically substituted in the definition of ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " into the above expression.  Simplifying the expression yields:"
+}], "Text"],
+
+Cell[BoxData[
+    \(Simplify[%]\)], "Input"],
+
+Cell["\<\
+Finally we can simplify the numerator by using the original \
+implicit equation.\
+\>", "Text",
+  TextJustification->1],
+
+Cell[BoxData[
+    \(% /. \((x\^2 - x\ y[x] + y[x]\^2)\) -> 3\)], "Input"],
+
+Cell[TextData[{
+  "This removes the definition of ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " that we made before.  (Using the ",
+  StyleBox["Clear[]",
+    FontWeight->"Bold"],
+  " function wouldn't do the job.)"
+}], "Text",
+  TextJustification->1],
+
+Cell[BoxData[
+    \(Remove[y]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution 6", "Subsubsection"],
+
+Cell[TextData[{
+  "The volume of the cup is ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Pi]\ r\^2\ h = 64\)]],
+  ".  Using this formula we relate the height to the radius.  The surface \
+area of the cup is the sum of the areas of the circular bottom and \
+cylindrical sides."
+}], "Text",
+  TextJustification->1],
+
+Cell[BoxData[
+    \(Clear[area, r, h]; \nh = 64\/\(\[Pi]\ r\^2\); \n
+    area[r_] = \[Pi]\ r\^2 + 2  \[Pi]\ r\ h\)], "Input"],
+
+Cell["Solving for the stationary points,", "Text"],
+
+Cell[BoxData[
+    \(Solve[\(area'\)[r] == 0, r]\)], "Input"],
+
+Cell["\<\
+we see that there are three solutions, however only the second one \
+is real-valued.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell["Thus the radius of the cup is", "Text"],
+
+Cell[BoxData[
+    \(\(r = 4\/\[Pi]\^\(1/3\); \)\)], "Input"],
+
+Cell["and the height is", "Text"],
+
+Cell[BoxData[
+    \(h\)], "Input"],
+
+Cell[BoxData[
+    \(Remove[f, r, h]\)], "Input"]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"Microsoft Windows 3.0",
+ScreenRectangle->{{0, 800}, {0, 572}},
+WindowToolbars->"EditBar",
+CellGrouping->Automatic,
+WindowSize->{772, 476},
+WindowMargins->{{2, Automatic}, {Automatic, 2}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"Magnification"->1},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"XAutomaticEncoding",
+Magnification->1.5
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 111, 3, 155, "Title",
+  Evaluatable->False],
+Cell[1845, 56, 144, 7, 125, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2014, 67, 96, 2, 79, "Section",
+  Evaluatable->False],
+Cell[2113, 71, 47, 1, 42, "Input"],
+Cell[2163, 74, 711, 18, 156, "Text",
+  Evaluatable->False],
+Cell[2877, 94, 88, 2, 42, "Input"],
+Cell[2968, 98, 431, 10, 99, "Text"],
+Cell[3402, 110, 102, 2, 42, "Input"],
+Cell[3507, 114, 406, 16, 73, "Text",
+  Evaluatable->False],
+Cell[3916, 132, 83, 2, 42, "Input"],
+Cell[4002, 136, 99, 2, 42, "Input"],
+Cell[4104, 140, 97, 2, 43, "Input"],
+Cell[4204, 144, 83, 2, 42, "Input"],
+Cell[4290, 148, 97, 2, 43, "Input"],
+Cell[4390, 152, 267, 10, 47, "Text",
+  Evaluatable->False],
+Cell[4660, 164, 75, 2, 42, "Input"],
+Cell[4738, 168, 93, 2, 42, "Input"],
+Cell[4834, 172, 82, 2, 42, "Input"],
+Cell[4919, 176, 94, 2, 43, "Input"],
+Cell[5016, 180, 221, 8, 47, "Text",
+  Evaluatable->False],
+Cell[5240, 190, 78, 2, 42, "Input"],
+Cell[5321, 194, 94, 2, 43, "Input"],
+Cell[5418, 198, 421, 15, 73, "Text",
+  Evaluatable->False],
+Cell[5842, 215, 403, 14, 74, "Text",
+  Evaluatable->False],
+Cell[6248, 231, 89, 2, 42, "Input"],
+Cell[6340, 235, 96, 2, 42, "Input"],
+Cell[6439, 239, 101, 2, 42, "Input"],
+
+Cell[CellGroupData[{
+Cell[6565, 245, 35, 0, 61, "Subsubsection"],
+Cell[6603, 247, 119, 5, 47, "Text"],
+Cell[6725, 254, 549, 11, 155, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7311, 270, 35, 0, 61, "Subsubsection"],
+Cell[7349, 272, 67, 0, 47, "Text"],
+Cell[7419, 274, 126, 3, 35, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7582, 282, 35, 0, 61, "Subsubsection"],
+Cell[7620, 284, 70, 0, 47, "Text"],
+Cell[7693, 286, 85, 1, 35, "DisplayFormula"],
+Cell[7781, 289, 169, 5, 47, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7987, 299, 35, 0, 61, "Subsubsection"],
+Cell[8025, 301, 48, 0, 47, "Text"],
+Cell[8076, 303, 210, 4, 35, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8323, 312, 35, 0, 61, "Subsubsection"],
+Cell[8361, 314, 119, 5, 47, "Text"],
+Cell[8483, 321, 108, 2, 37, "DisplayFormula"],
+Cell[8594, 325, 783, 31, 73, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9414, 361, 35, 0, 61, "Subsubsection"],
+Cell[9452, 363, 136, 4, 47, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9637, 373, 94, 2, 47, "Section",
+  Evaluatable->False],
+Cell[9734, 377, 328, 9, 74, "Text",
+  Evaluatable->False],
+Cell[10065, 388, 77, 2, 42, "Input"],
+Cell[10145, 392, 80, 2, 42, "Input"],
+Cell[10228, 396, 244, 9, 47, "Text",
+  Evaluatable->False],
+Cell[10475, 407, 82, 2, 42, "Input"],
+Cell[10560, 411, 439, 12, 99, "Text",
+  Evaluatable->False],
+Cell[11002, 425, 105, 2, 42, "Input"],
+Cell[11110, 429, 340, 12, 73, "Text",
+  Evaluatable->False],
+Cell[11453, 443, 85, 2, 42, "Input"],
+Cell[11541, 447, 422, 15, 73, "Text",
+  Evaluatable->False],
+Cell[11966, 464, 39, 1, 42, "Input"],
+Cell[12008, 467, 236, 9, 47, "Text",
+  Evaluatable->False],
+Cell[12247, 478, 80, 2, 42, "Input"],
+Cell[12330, 482, 298, 11, 47, "Text",
+  Evaluatable->False],
+Cell[12631, 495, 87, 2, 42, "Input"],
+Cell[12721, 499, 233, 9, 47, "Text",
+  Evaluatable->False],
+Cell[12957, 510, 39, 1, 42, "Input"],
+Cell[12999, 513, 80, 2, 42, "Input"],
+Cell[13082, 517, 199, 7, 47, "Text",
+  Evaluatable->False],
+Cell[13284, 526, 77, 2, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[13398, 533, 51, 0, 47, "Section"],
+Cell[13452, 535, 543, 21, 84, "Text"],
+Cell[13998, 558, 83, 1, 75, "Input"],
+Cell[14084, 561, 478, 18, 58, "Text"],
+Cell[14565, 581, 123, 2, 43, "Input"],
+Cell[14691, 585, 504, 22, 47, "Text"],
+Cell[15198, 609, 57, 1, 42, "Input"],
+Cell[15258, 612, 251, 10, 47, "Text"],
+Cell[15512, 624, 100, 2, 42, "Input"],
+Cell[15615, 628, 606, 24, 73, "Text"],
+Cell[16224, 654, 114, 2, 42, "Input"],
+Cell[16341, 658, 120, 2, 47, "Text"],
+Cell[16464, 662, 282, 9, 55, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[16783, 676, 86, 2, 47, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[16894, 682, 35, 0, 61, "Subsubsection"],
+Cell[16932, 684, 62, 1, 42, "Input"],
+Cell[16997, 687, 63, 1, 65, "Input"],
+Cell[17063, 690, 46, 1, 42, "Input"],
+Cell[17112, 693, 55, 1, 42, "Input"],
+Cell[17170, 696, 55, 1, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[17262, 702, 35, 0, 38, "Subsubsection"],
+Cell[17300, 704, 387, 11, 99, "Text",
+  Evaluatable->False],
+Cell[17690, 717, 238, 9, 47, "Text",
+  Evaluatable->False],
+Cell[17931, 728, 141, 4, 42, "Input"],
+Cell[18075, 734, 86, 2, 42, "Input"],
+Cell[18164, 738, 235, 9, 47, "Text",
+  Evaluatable->False],
+Cell[18402, 749, 111, 2, 42, "Input"],
+Cell[18516, 753, 52, 0, 47, "Text"],
+Cell[18571, 755, 41, 1, 42, "Input"],
+Cell[18615, 758, 68, 0, 47, "Text"],
+Cell[18686, 760, 84, 1, 42, "Input"],
+Cell[18773, 763, 41, 1, 42, "Input"],
+Cell[18817, 766, 168, 4, 47, "Text",
+  Evaluatable->False],
+Cell[18988, 772, 82, 2, 42, "Input"],
+Cell[19073, 776, 37, 1, 42, "Input"],
+Cell[19113, 779, 203, 7, 47, "Text",
+  Evaluatable->False],
+Cell[19319, 788, 92, 2, 42, "Input"],
+Cell[19414, 792, 37, 1, 42, "Input"],
+Cell[19454, 795, 281, 7, 99, "Text"],
+Cell[19738, 804, 74, 2, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[19849, 811, 35, 0, 38, "Subsubsection"],
+Cell[19887, 813, 96, 2, 47, "Text"],
+Cell[19986, 817, 58, 1, 42, "Input"],
+Cell[20047, 820, 231, 7, 47, "Text"],
+Cell[20281, 829, 72, 1, 42, "Input"],
+Cell[20356, 832, 196, 4, 73, "Text"],
+Cell[20555, 838, 56, 1, 42, "Input"],
+Cell[20614, 841, 140, 5, 47, "Text"],
+Cell[20757, 848, 42, 1, 42, "Input"],
+Cell[20802, 851, 121, 2, 47, "Text"],
+Cell[20926, 855, 151, 3, 37, "DisplayFormula"],
+Cell[21080, 860, 41, 1, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[21158, 866, 35, 0, 38, "Subsubsection"],
+Cell[21196, 868, 86, 2, 47, "Text"],
+Cell[21285, 872, 185, 3, 35, "DisplayFormula"],
+Cell[21473, 877, 270, 8, 73, "Text"],
+Cell[21746, 887, 58, 1, 42, "Input"],
+Cell[21807, 890, 101, 2, 42, "Input"],
+Cell[21911, 894, 89, 2, 47, "Text"],
+Cell[22003, 898, 56, 1, 42, "Input"],
+Cell[22062, 901, 154, 5, 47, "Text"],
+Cell[22219, 908, 42, 1, 42, "Input"],
+Cell[22264, 911, 176, 5, 73, "Text"],
+Cell[22443, 918, 57, 1, 42, "Input"],
+Cell[22503, 921, 158, 5, 47, "Text"],
+Cell[22664, 928, 109, 2, 42, "Input"],
+Cell[22776, 932, 151, 5, 47, "Text"],
+Cell[22930, 939, 49, 1, 42, "Input"],
+Cell[22982, 942, 41, 1, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23060, 948, 35, 0, 38, "Subsubsection"],
+Cell[23098, 950, 189, 8, 47, "Text"],
+Cell[23290, 960, 81, 1, 68, "Input"],
+Cell[23374, 963, 218, 8, 47, "Text"],
+Cell[23595, 973, 108, 2, 42, "Input"],
+Cell[23706, 977, 146, 5, 47, "Text"],
+Cell[23855, 984, 77, 1, 42, "Input"],
+Cell[23935, 987, 168, 5, 47, "Text"],
+Cell[24106, 994, 57, 1, 42, "Input"],
+Cell[24166, 997, 144, 5, 47, "Text"],
+Cell[24313, 1004, 69, 1, 42, "Input"],
+Cell[24385, 1007, 193, 8, 47, "Text"],
+Cell[24581, 1017, 58, 1, 42, "Input"],
+Cell[24642, 1020, 278, 8, 73, "Text"],
+Cell[24923, 1030, 44, 1, 42, "Input"],
+Cell[24970, 1033, 128, 4, 47, "Text"],
+Cell[25101, 1039, 73, 1, 42, "Input"],
+Cell[25177, 1042, 268, 9, 73, "Text"],
+Cell[25448, 1053, 42, 1, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[25527, 1059, 35, 0, 38, "Subsubsection"],
+Cell[25565, 1061, 313, 8, 73, "Text"],
+Cell[25881, 1071, 125, 2, 121, "Input"],
+Cell[26009, 1075, 50, 0, 47, "Text"],
+Cell[26062, 1077, 60, 1, 42, "Input"],
+Cell[26125, 1080, 108, 3, 47, "Text"],
+Cell[26236, 1085, 37, 1, 42, "Input"],
+Cell[26276, 1088, 45, 0, 47, "Text"],
+Cell[26324, 1090, 60, 1, 64, "Input"],
+Cell[26387, 1093, 33, 0, 47, "Text"],
+Cell[26423, 1095, 34, 1, 42, "Input"],
+Cell[26460, 1098, 48, 1, 42, "Input"]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

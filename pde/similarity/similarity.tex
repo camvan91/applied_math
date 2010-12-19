@@ -1,0 +1,375 @@
+\flushbottom
+
+
+
+
+%%============================================================================
+%%============================================================================
+\chapter{Similarity Methods}
+\index{similarity transformation}
+
+
+
+
+
+
+
+\paragraph{Introduction.}  
+Consider the partial differential equation (not necessarily linear)
+\[ F \left( \frac{\partial u}{\partial t}, \frac{\partial u}{\partial x}, u, t, x \right) = 0. \]
+Say the solution is
+\[ u(x,t) = \frac{x}{t} \sin \left( \frac{t^{1/2}}{x^{1/2}} \right).\]
+Making the change of variables $\xi = x/t$, $f(\xi) = u(x,t)$, we could
+rewrite this equation as
+\[f(\xi) = \xi \sin \left( \xi^{-1/2} \right). \]
+We see now that if we had guessed that the solution of this partial
+differential equation was only dependent on powers of $x/t$ we could have
+changed variables to $\xi$ and $f$ and instead solved the ordinary differential
+equation
+\[ G \left( \frac{\dd f}{\dd \xi}, f, \xi \right) = 0. \]
+By using similarity methods one can reduce the number of independent
+variables in some PDE's.
+
+
+\begin{Example}
+  Consider the partial differential equation
+  \[ x \frac{\partial u}{\partial t} + t \frac{\partial u}{\partial x} - u = 0. \]
+  One way to find a similarity variable is to introduce a transformation
+  to the temporary variables $u'$, $t'$, $x'$,
+  and the parameter $\lambda$.
+  \begin{align*}
+    u &= u' \lambda \\
+    t &= t' \lambda^m \\
+    x &= x' \lambda^n
+  \end{align*}
+  where $n$ and $m$ are unknown.  Rewriting the partial differential equation in terms of the temporary
+  variables,
+  \begin{gather*}
+    x' \lambda^n \frac{\partial u'}{\partial t'} \lambda^{1-m}
+    + t' \lambda^m \frac{\partial u'}{\partial x'} \lambda^{1-n}
+    - u' \lambda = 0 \\
+    x' \frac{\partial u'}{\partial t'} \lambda^{-m+n} + t' \frac{\partial u'}{\partial x'} \lambda^{m-n}
+    - u' = 0
+  \end{gather*}
+  There is a similarity variable if $\lambda$ can be eliminated from the
+  equation.  Equating the coefficients of the powers of $\lambda$ in each term,
+  \[-m+n = m-n = 0. \]
+  This has the solution $m =n$.  The similarity variable, $\xi$,
+  will be unchanged under the transformation to the temporary variables.
+  One choice is
+  \[ \xi = \frac{t}{x} = \frac{t' \lambda^n}{x' \lambda^m} = \frac{t'}{x'}.\]
+  Writing the two partial derivative in terms of $\xi$,
+  \begin{align*}
+    &\frac{\partial}{\partial t} = \frac{\partial \xi}{\partial t} \frac{\dd}{\dd \xi} = \frac{1}{x} \frac{\dd}{\dd \xi}\\
+    &\frac{\partial}{\partial x} = \frac{\partial \xi}{\partial x} \frac{\dd}{\dd \xi} =
+    - \frac{t}{x^2} \frac{\dd}{\dd \xi}
+  \end{align*}
+  The partial differential equation becomes
+  \begin{gather*}
+    \frac{\dd u}{\dd \xi} - \xi^2 \frac{\dd u}{\dd \xi} - u = 0 \\
+    \frac{\dd u}{\dd \xi} = \frac{u}{1-\xi^2}
+  \end{gather*}
+  Thus we have reduced the partial differential equation to an ordinary differential equation that is
+  much easier to solve.
+  \begin{gather*}
+    u(\xi) = \exp\left(\int^\xi \frac{d\xi}{1-\xi^2} \right) \\
+    u(\xi) = \exp\left(\int^\xi \frac{1/2}{1-\xi} + \frac{1/2}{1+\xi}
+      \,d\xi\right) \\
+    u(\xi) = \exp\left( -\frac{1}{2}\log(1-\xi) + \frac{1}{2}\log(1+\xi)\right) \\
+    u(\xi) = (1-\xi)^{-1/2} (1+\xi)^{1/2} \\
+    u(x,t) = \left( \frac{1+t/x}{1-t/x} \right)^{1/2}
+  \end{gather*}
+  Thus we have found a similarity solution to the partial differential
+  equation.  Note that the existence of a similarity solution does not
+  mean that all solutions of the differential equation are similarity
+  solutions.
+
+
+  \paragraph{Another Method.}  Another method
+  is to substitute $\xi = x^\alpha t$ and determine if there is an $\alpha$ that
+  makes $\xi$ a similarity variable.  The partial derivatives become
+  \begin{align*}
+    &\frac{\partial}{\partial t} = \frac{\partial \xi}{\partial t} \frac{\dd}{\dd \xi} = x^\alpha \frac{\dd}{\dd \xi} \\
+    &\frac{\partial}{\partial x} = \frac{\partial \xi}{\partial x} \frac{\dd}{\dd \xi}
+    = \alpha x^{\alpha-1} t \frac{\dd}{\dd \xi}
+  \end{align*}
+  The partial differential equation becomes
+  \[ x^{\alpha+1} \frac{\dd u}{\dd \xi} + \alpha x^{\alpha-1} t^2 \frac{\dd u}{\dd \xi}
+  - u = 0.\]
+  If there is a value of $\alpha$ such that we can write this equation in terms
+  of $\xi$, then $\xi = x^\alpha t$ is a similarity variable.  If $\alpha = -1$
+  then the coefficient of the first term is trivially in terms of $\xi$.
+  The coefficient of the second term then becomes $-x^{-2} t^2$.  Thus we see
+  $\xi = x^{-1}t$ is a similarity variable.
+\end{Example}
+
+
+
+
+
+\begin{Example}
+  To see another application of similarity variables, any
+  partial differential equation of the form
+  \[F \left( tx, u, \frac{u_t}{x}, \frac{u_x}{t} \right) = 0 \]
+  is equivalent to the ODE
+  \[ F \left( \xi, u, \frac{\dd u}{\dd \xi}, \frac{\dd u}{\dd \xi} \right) = 0\]
+  where $\xi = tx$.  Performing the change of variables,
+  \begin{gather*}
+    \frac{1}{x} \frac{\partial u}{\partial t} = \frac{1}{x} \frac{\partial \xi}{\partial t} \frac{\dd u}{\dd \xi} =
+    \frac{1}{x} x \frac{\dd u}{\dd \xi} = \frac{\dd u}{\dd \xi} \\
+    \frac{1}{t} \frac{\partial u}{\partial x} = \frac{1}{t} \frac{\partial \xi}{\partial x} \frac{\dd u}{\dd \xi} =
+    \frac{1}{t} t \frac{\dd u}{\dd \xi} = \frac{\dd u}{\dd \xi}.
+  \end{gather*}
+
+  For example the partial differential equation
+  \[u \frac{\partial u}{\partial t} + \frac{x}{t} \frac{\partial u}{\partial x} + tx^2 u = 0 \]
+  which can be rewritten
+  \[u \frac{1}{x}\frac{\partial u}{\partial t} + \frac{1}{t} \frac{\partial u}{\partial x} + tx u = 0, \]
+  is equivalent to
+  \[ u \frac{\dd u}{\dd \xi} + \frac{\dd u}{\dd \xi} + \xi u = 0 \]
+  where $\xi = t x$.
+\end{Example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+%%=============================================================================
+\exercises{
+\pagebreak
+\flushbottom
+\section{Exercises}
+
+
+
+
+
+
+\begin{Exercise}
+  Consider the 1-D heat equation
+  \[ 
+  u_t = \nu u_{xx} 
+  \]
+  Assume that there exists a function $\eta(x,t)$ such that it is
+  possible to write $u(x,t)=F(\eta(x,t))$. Re-write the PDE in terms
+  of $F(\eta)$, its derivatives and (partial) derivatives of $\eta$. By
+  guessing that this transformation takes the form $\eta=x t^\alpha$, find a
+  value of $\alpha$ so that this reduces to an ODE for $F(\eta)$ (i.e. $x$
+  and $t$ are explicitly removed). Find the general solution and use
+  this to find the corresponding solution $u(x,t)$. Is this the
+  general solution of the PDE?
+\end{Exercise}
+
+
+
+
+
+
+
+
+%% Similarity solution of the heat equation.
+\begin{Exercise}
+  With $\xi = x^\alpha t$, find $\alpha$ such that for some function $f$,
+  $\phi = f(\xi)$ is a solution of 
+  \[
+  \phi_t = a^2 \phi_{x x}.
+  \]
+  Find $f(\xi)$ as well.
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+%%=============================================================================
+\hints{
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+
+%% Similarity solution of the heat equation.
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+{
+}
+%%=============================================================================
+\solutions{
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+
+
+
+
+
+
+
+\begin{Solution}
+  We write the derivatives of $u(x,t)$ in terms of derivatives of $F(\eta)$.
+  \begin{gather*}
+    u_t = \alpha x t^{\alpha-1} F' = \alpha \frac{\eta}{t} F'
+    \\
+    u_x = t^\alpha F'
+    \\
+    u_{x x} = t^{2 \alpha} F'' = \frac{\eta^2}{x^2} F''
+  \end{gather*}
+  We substitite these expressions into the heat equation.
+  \begin{gather*}
+    \alpha \frac{\eta}{t} F' = \nu \frac{\eta^2}{x^2} F''
+    \\
+    F'' = \frac{\alpha}{\nu} \frac{x^2}{t} \frac{1}{\eta} F'
+  \end{gather*}
+  We can write this equation in terms of $F$ and $\eta$ only if $\alpha = - 1 / 2$.
+  We make this substitution and solve the ordinary differential equation for 
+  $F(\eta)$.
+  \begin{gather*}
+    \frac{F''}{F'} = - \frac{\eta}{2 \nu}
+    \\
+    \log(F') = - \frac{\eta^2}{4 \nu} + c
+    \\
+    F' = c \exp \left( - \frac{\eta^2}{4 \nu} \right)
+    \\
+    \boxed{
+      F = c_1 \int \exp \left( - \frac{\eta^2}{4 \nu} \right) \,\dd \eta + c_2
+      }
+  \end{gather*}
+  We can write $F$ in terms of the error function.
+  \[
+  F = c_1 \erf \left( \frac{\eta}{2 \sqrt{\nu}} \right) + c_2
+  \]
+  We write this solution in terms of $x$ and $t$.
+  \[
+  \boxed{
+    u(x,t) = c_1 \erf \left( \frac{x}{2 \sqrt{\nu t}} \right) + c_2
+    }
+  \]
+  This is not the general solution of the heat equation.  There are many other
+  solutions.  Note that since 
+  $x$ and $t$ do not explicitly appear in the heat equation, 
+  \[
+  u(x,t) = c_1 \erf \left( \frac{x - x_0}{2 \sqrt{\nu (t - t_0)}} \right) + c_2
+  \]
+  is a solution.
+\end{Solution}
+
+
+
+
+
+
+
+
+
+
+
+%% Similarity solution of the heat equation.
+\begin{Solution}
+  We write the derivatives of $\phi$ in terms of $f$.
+  \begin{gather*}
+    \phi_t = \frac{\partial \xi}{\partial t} \frac{\partial}{\partial \xi} f = x^\alpha f' = t^{-1} \xi f' \\
+    \phi_x = \frac{\partial \xi}{\partial x} \frac{\partial}{\partial \xi} f = \alpha x^{\alpha-1} t f' \\
+    \phi_{x x} = f' \frac{\partial}{\partial x} \left( \alpha x^{\alpha-1} t \right)
+    + \alpha x^{\alpha-1} t \alpha x^{\alpha-1} t \frac{\partial}{\partial \xi} f' \\
+    \phi_{x x} = \alpha^2 x^{2 \alpha - 2} t^2 f''
+    + \alpha (\alpha-1) x^{\alpha - 2} t f' \\
+    \phi_{x x} = x^{-2} \left( \alpha^2 \xi^2 f'' 
+      + \alpha (\alpha-1) \xi f' \right)
+  \end{gather*}
+  We substitute these expressions into the diffusion equation.
+  \[
+  \xi f' = x^{-2} t \left( \alpha^2 \xi^2 f'' + \alpha (\alpha-1) \xi f' \right)
+  \]
+  In order for this equation to depend only on the variable $\xi$, we must
+  have $\alpha = -2$.  For this choice we obtain an ordinary differential 
+  equation for $f(\xi)$.
+  \begin{gather*}
+    f' = 4 \xi^2 f'' + 6 \xi f' \\
+    \frac{f''}{f'} = \frac{1}{4 \xi^2} - \frac{3}{2 \xi} \\
+    \log(f') = - \frac{1}{4 \xi} - \frac{3}{2} \log \xi + c \\
+    f' = c_1 \xi^{-3/2} \e^{-1/(4 \xi)} \\
+    f(\xi) = c_1 \int^\xi t^{-3/2} \e^{-1/(4 t)} \,d t + c_2 \\
+    f(\xi) = c_1 \int^{1/(2\sqrt{\xi})} \e^{-t^2} \,d t + c_2 \\
+    \boxed{
+      f(\xi) = c_1 \erf \left( \frac{1}{2 \sqrt{\xi} } \right) + c_2 
+      }
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}

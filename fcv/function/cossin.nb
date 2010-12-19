@@ -1,0 +1,157 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3668,        106]*)
+(*NotebookOutlinePosition[      4301,        129]*)
+(*  CellTagsIndexPosition[      4257,        125]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["The real and imaginary parts of the cosine.", "Text"],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          Plot3D[Cos[x]\ Cosh[y], {x, \(-\[Pi]\), \[Pi]}, {y, \(-3\) \[Pi]/4, 
+              3  \[Pi]/4}, PlotRange -> All, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}], 
+          Plot3D[\(-Sin[x]\)\ Sinh[y], {x, \(-\[Pi]\), \[Pi]}, {y, 
+              \(-3\) \[Pi]/4, 3  \[Pi]/4}, PlotRange -> All, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}]}]]; \)\)], "Input"],
+
+Cell["The real and imaginary parts of the sine.", "Text"],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          Plot3D[Sin[x]\ Cosh[y], {x, \(-\[Pi]\), \[Pi]}, {y, \(-3\) \[Pi]/4, 
+              3  \[Pi]/4}, PlotRange -> All, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}], 
+          Plot3D[Cos[x]\ Sinh[y], {x, \(-\[Pi]\), \[Pi]}, {y, \(-3\) \[Pi]/4, 
+              3  \[Pi]/4}, PlotRange -> All, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}]}]]; \)\)], "Input"],
+
+Cell["The modulus of the cosine and sine.", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Cos[x]\^2\) Cosh[y]\^2 + \(Sin[x]\^2\) Sinh[y]\^2 // FullSimplify\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(1\/2\ \((Cos[2\ x] + Cosh[2\ y])\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Sin[x]\^2\) Cosh[y]\^2 + \(Cos[x]\^2\) Sinh[y]\^2 // FullSimplify\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(1\/2\ \((\(-Cos[2\ x]\) + Cosh[2\ y])\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Show[
+      GraphicsArray[{
+          Plot3D[\@\(1\/2\ \((Cos[2\ x] + Cosh[2\ y])\)\), {x, \(-\[Pi]\), 
+              \[Pi]}, {y, \(-3\) \[Pi]/4, 3  \[Pi]/4}, PlotRange -> All, 
+            AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}], 
+          Plot3D[\@\(1\/2\ \((\(-Cos[2\ x]\) + Cosh[2\ y])\)\), {x, 
+              \(-\[Pi]\), \[Pi]}, {y, \(-3\) \[Pi]/4, 3  \[Pi]/4}, 
+            PlotRange -> All, AxesLabel -> {"\<x\>", "\<y\>", "\<\>"}]}]]; 
+    \)\)], "Input"]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 800}, {0, 600}},
+WindowSize->{520, 455},
+WindowMargins->{{4, Automatic}, {11, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 59, 0, 45, "Text"],
+Cell[1771, 51, 432, 8, 197, "Input"],
+Cell[2206, 61, 57, 0, 45, "Text"],
+Cell[2266, 63, 427, 8, 197, "Input"],
+Cell[2696, 73, 51, 0, 45, "Text"],
+
+Cell[CellGroupData[{
+Cell[2772, 77, 103, 2, 65, "Input"],
+Cell[2878, 81, 68, 1, 59, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2983, 87, 103, 2, 65, "Input"],
+Cell[3089, 91, 73, 1, 59, "Output"]
+}, Open  ]],
+Cell[3177, 95, 487, 9, 359, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

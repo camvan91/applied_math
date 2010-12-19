@@ -1,0 +1,160 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3679,        110]*)
+(*NotebookOutlinePosition[      4329,        133]*)
+(*  CellTagsIndexPosition[      4285,        129]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(Show[
+        GraphicsArray[{\[IndentingNewLine]ParametricPlot3D[{r\ Cos[\[Theta]], 
+                r\ Sin[\[Theta]], Log[r] - \[Theta]}, {r, 0.01, 
+                1}, {\[Theta], \(-\[Pi]\), \[Pi]}, 
+              BoxRatios \[Rule] {1, 1, 1}, 
+              Ticks \[Rule] 
+                None], \[IndentingNewLine]ParametricPlot3D[{r\ Cos[\[Theta]], 
+                r\ Sin[\[Theta]], Log[r] + \[Theta]}, {r, 0.01, 
+                1}, {\[Theta], \(-\[Pi]\), \[Pi]}, 
+              BoxRatios \[Rule] {1, 1, 1}, 
+              Ticks \[Rule] None]\[IndentingNewLine]}], 
+        ImageSize \[Rule] 400];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[
+        Evaluate[
+          Table[{Exp[c - \[Theta]] Cos[\[Theta]], 
+              Exp[c - \[Theta]] Sin[\[Theta]]}, {c, 0, 2  \[Pi], 
+              2  \[Pi]/12}]], {\[Theta], 0, 4  \[Pi]}, 
+        AspectRatio \[Rule] Automatic, 
+        PlotRange \[Rule] {{\(-1\), 1}, {\(-1\), 1}}, 
+        Ticks \[Rule] None];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((Log[x\^2 + y\^2]/2 - ArcTan[x, y])\) // 
+      Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(x + y\)\/\(x\^2 + y\^2\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\[PartialD]\_y\((Log[x\^2 + y\^2]/2 - ArcTan[x, y])\) // 
+      Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(-x\) + y\)\/\(x\^2 + y\^2\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(<< Graphics`PlotField`\)], "Input"],
+
+Cell[BoxData[
+    \(\(PlotVectorField[{\(x + y\)\/\(x\^2 + y\^2\), \(\(-x\) + y\)\/\(x\^2 + \
+y\^2\)}, {x, \(-1\), 1}, {y, \(-1\), 1}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(PlotVectorField[{\(x + y\)\/\(x\^2 + y\^2\), \(\(-x\) + y\)\/\(x\^2 + \
+y\^2\)}, {x, \(-1\), 1}, {y, \(-1\), 1}, 
+        ScaleFunction \[Rule] \((1 &)\)];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{\[IndentingNewLine]%%, %\[IndentingNewLine]}], 
+        ImageSize \[Rule] 400];\)\)], "Input"]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{683, 824},
+WindowMargins->{{19, Automatic}, {Automatic, 84}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 640, 12, 200, "Input"],
+Cell[2348, 64, 367, 8, 154, "Input"],
+
+Cell[CellGroupData[{
+Cell[2740, 76, 105, 2, 47, "Input"],
+Cell[2848, 80, 60, 1, 60, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2945, 86, 105, 2, 47, "Input"],
+Cell[3053, 90, 65, 1, 60, "Output"]
+}, Open  ]],
+Cell[3133, 94, 55, 1, 39, "Input"],
+Cell[3191, 97, 150, 2, 99, "Input"],
+Cell[3344, 101, 192, 3, 99, "Input"],
+Cell[3539, 106, 136, 2, 85, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

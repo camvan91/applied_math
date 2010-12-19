@@ -1,0 +1,124 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2760,         82]*)
+(*NotebookOutlinePosition[      3408,        105]*)
+(*  CellTagsIndexPosition[      3364,        101]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(Plot3D[
+        Cos[\[Pi]/6] x + Sin[\[Pi]/6] y, {x, \(-1\), 1}, {y, \(-1\), 1}, 
+        PlotPoints \[Rule] 30];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot3D[\(-Sin[\[Pi]/6]\) x + Cos[\[Pi]/6] y, {x, \(-1\), 
+          1}, {y, \(-1\), 1}, PlotPoints \[Rule] 30];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{\[IndentingNewLine]%%, %\[IndentingNewLine]}], 
+        ImageSize \[Rule] 400];\)\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[v0 \((\(-Sin[\[Theta]0]\) x + Cos[\[Theta]0] y)\) \[Equal] c, y] // 
+      Simplify\)], "Input"],
+
+Cell["Save as streamlines-v0eiqz.eps.", "Text"],
+
+Cell[BoxData[
+    \(\(ContourPlot[\(-Sin[\[Pi]/6]\) x + Cos[\[Pi]/6] y, {x, \(-1\), 
+          1}, {y, \(-1\), 1}, PlotPoints \[Rule] 100, 
+        ContourShading \[Rule] False, Contours \[Rule] 20, 
+        ImageSize \[Rule] 150];\)\)], "Input"],
+
+Cell[BoxData[
+    \(<< Graphics`PlotField`\)], "Input"],
+
+Cell[BoxData[
+    \(\(PlotVectorField[{Cos[\[Pi]/6], Sin[\[Pi]/6]}, {x, \(-1\), 
+          1}, {y, \(-1\), 1}];\)\)], "Input"]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{683, 824},
+WindowMargins->{{8, Automatic}, {Automatic, 8}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 150, 3, 62, "Input"],
+Cell[1858, 55, 148, 2, 62, "Input"],
+Cell[2009, 59, 136, 2, 85, "Input"],
+Cell[2148, 63, 122, 2, 62, "Input"],
+Cell[2273, 67, 47, 0, 46, "Text"],
+Cell[2323, 69, 246, 4, 108, "Input"],
+Cell[2572, 75, 55, 1, 39, "Input"],
+Cell[2630, 78, 126, 2, 62, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

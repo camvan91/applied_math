@@ -1,0 +1,175 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3752,        117]*)
+(*NotebookOutlinePosition[      4389,        140]*)
+(*  CellTagsIndexPosition[      4345,        136]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(\(1\/2\) Integrate[1 - h, {h, x - t, 1}]\)], "Input"],
+
+Cell[BoxData[
+    \(1\/2\ \((1\/2 + t - x + 1\/2\ \((\(-t\) + x)\)\^2)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(% // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(1\/4\ \((1 + t - x)\)\^2\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(1\/2\) Integrate[1 + h, {h, \(-1\), 0}] + \(1\/2\) 
+        Integrate[1 - h, {h, 0, x + t}]\)], "Input"],
+
+Cell[BoxData[
+    \(1\/4 + 1\/2\ \((t + x - 1\/2\ \((t + x)\)\^2)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"],
+
+Cell[BoxData[
+    \(1\/4 - 1\/4\ \((\(-2\) + t + x)\)\ \((t + x)\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(f1[x_, t_] := 
+      If[x + t < \(-1\), 
+        0, \[IndentingNewLine]If[
+          x - t < \(-1\), \((1 + t + x)\)^2/4, \[IndentingNewLine]If[
+            x + t < 0, \((1 + x)\) t, \[IndentingNewLine]If[
+              x - t < 0, \((2  t - t^2 - x^2)\)/2, \[IndentingNewLine]If[
+                x + t < 1, \((1 - x)\) t, \[IndentingNewLine]If[
+                  x - t < 1, \((1 + t - x)\)^2/
+                    4, \[IndentingNewLine]0]]]]]]\)], "Input"],
+
+Cell[BoxData[
+    \(f2[x_, t_] := 
+      If[x + t < \(-1\), 
+        0, \[IndentingNewLine]If[
+          x + t < 0, \((1 + t + x)\)^2/4, \[IndentingNewLine]If[
+            x + t < 1, \((1 - \((t + x - 2)\) \((t + x)\))\)/
+              4, \[IndentingNewLine]If[x - t < \(-1\), 
+              1/2, \[IndentingNewLine]If[
+                x - t < 0, \((1 - \((t - x - 2)\) \((t - x)\))\)/
+                  4, \[IndentingNewLine]If[
+                  x - t < 1, \((1 + t - x)\)^2/
+                    4, \[IndentingNewLine]0]]]]]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+        GraphicsArray[{Plot[f1[x, 1/2], {x, \(-2\), 2}, 
+              PlotRange \[Rule] {0, 0.6}], 
+            Plot[f2[x, 2], {x, \(-4\), 4}, PlotRange \[Rule] {0, 0.6}]}], 
+        ImageSize \[Rule] 400];\)\)], "Input"]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{579, 600},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 73, 1, 44, "Input"],
+Cell[1815, 54, 86, 1, 44, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[1938, 60, 46, 1, 27, "Input"],
+Cell[1987, 63, 58, 1, 44, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2082, 69, 126, 2, 44, "Input"],
+Cell[2211, 73, 81, 1, 44, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2329, 79, 50, 1, 27, "Input"],
+Cell[2382, 82, 80, 1, 44, "Output"]
+}, Open  ]],
+Cell[2477, 86, 475, 9, 123, "Input"],
+Cell[2955, 97, 540, 11, 123, "Input"],
+Cell[3498, 110, 250, 5, 43, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,525 @@
+\flushbottom
+
+
+
+
+%%============================================================================
+%%============================================================================
+\chapter{The Diffusion Equation}
+
+
+
+
+
+
+
+
+
+\raggedbottom
+\exercises{
+%%=============================================================================
+\pagebreak
+\flushbottom
+\section{Exercises}
+
+
+
+
+
+
+\begin{Exercise}
+  Is the solution of the Cauchy problem for the heat equation unique?
+  \begin{gather*}
+    u_t - \kappa u_{x x} = q(x,t), \quad -\infty < x < \infty, \quad t > 0
+    \\
+    u(x,0) = f(x)
+  \end{gather*}
+\end{Exercise}
+
+
+
+
+
+
+\begin{Exercise}
+  Consider the heat equation with a time-independent source term and 
+  inhomogeneous boundary conditions.
+  \begin{gather*}
+    u_t = \kappa u_{x x} + q(x)
+    \\
+    u(0,t) = a, \quad u(h,t) = b, \quad u(x,0) = f(x)
+  \end{gather*}
+\end{Exercise}
+
+
+
+
+
+
+
+\begin{Exercise}
+  Is the Cauchy problem for the backward heat equation
+  \begin{equation}
+    \label{eqn ut+kuxx=0 ux0=f}
+    u_t + \kappa u_{x x} = 0, \quad u(x,0) = f(x)
+  \end{equation}
+  well posed?
+\end{Exercise}
+
+
+
+
+
+
+
+
+%% heat equation in 3D
+\begin{Exercise}
+  Derive the heat equation for a general
+  3 dimensional body, with non-uniform density $\rho(\mathbf{x})$, specific
+  heat $c(\mathbf{x})$, and conductivity $k(\mathbf{x})$. Show that
+  \[  
+  \frac{ \partial u(\mathbf{x},t)}{\partial t} = \frac{1}{c \rho} \nabla \cdot (k \nabla u(\mathbf{x},t)) 
+  \]
+  where $u$ is the temperature, and you may assume there are no internal 
+  sources or sinks. 
+\end{Exercise}
+
+
+
+
+
+
+
+%% Verify Duhamel's Principal
+\begin{Exercise}
+  Verify Duhamel's Principal:  If $u(x,t,\tau)$ is the solution of the initial
+  value problem:
+  \[
+  u_t = \kappa u_{x x}, \quad u(x,0,\tau) = f(x,\tau),
+  \]
+  then the solution of
+  \[
+  w_t = \kappa w_{x x} + f(x,t), \quad w(x,0) = 0
+  \]
+  is
+  \[
+  w(x,t) = \int_0^t u(x,t-\tau,\tau) \,\dd \tau.
+  \]
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+%% Modify the derivation of the diffusion equation
+\begin{Exercise}
+  Modify the derivation of the diffusion equation
+  \begin{equation}
+    \label{eqn_diffusion}
+    \phi_t = a^2 \phi_{x x}, \quad a^2 = \frac{k}{c \rho},
+  \end{equation}
+  so that it is valid for diffusion in a 
+  non-homogeneous medium for which $c$ and $k$ are functions of $x$ and $\phi$
+  and so that it is valid for a geometry in which $A$ is a function of $x$.
+  Show that Equation~(\ref{eqn_diffusion}) above is in this case replaced
+  by
+  \[
+  c \rho A \phi_t = \left( k A \phi_x \right)_x.
+  \]
+  Recall that $c$ is the specific heat, $k$ is the thermal conductivity,
+  $\rho$ is the density, $\phi$ is the temperature and $A$ is the 
+  cross-sectional area.
+\end{Exercise}
+
+
+
+
+
+
+
+\raggedbottom
+}
+%%=============================================================================
+\hints{
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+
+
+
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+%% heat equation in 3D
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+%% Verify Duhamel's Principal
+\begin{Hint}
+  Check that the expression for $w(x,t)$ satisfies the partial differential 
+  equation and initial condition.  Recall that
+  \[
+  \frac{\partial}{\partial x} \int_a^x h(x,\xi) \,\dd \xi 
+  = \int_a^x h_x(x,\xi) \,\dd \xi + h(x,x).
+  \]
+\end{Hint}
+
+
+
+
+
+
+
+
+%% Modify the derivation of the diffusion equation
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+%%=============================================================================
+\solutions{
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+
+
+
+
+
+
+\begin{Solution}
+  Let $u$ and $v$ both be solutions of the Cauchy problem for the heat equation.
+  Let $w$ be the difference of these solutions.  $w$ satisfies the problem
+  \begin{gather*}
+    w_t - \kappa w_{x x} = 0, \quad -\infty < x < \infty, \quad t > 0,
+    \\
+    w(x,0) = 0.
+  \end{gather*}
+  We can solve this problem with the Fourier transform.
+  \begin{gather*}
+    \hat{w}_t + \kappa \omega^2 \hat{w} = 0, \quad \hat{w}(\omega,0) = 0
+    \\
+    \hat{w} = 0
+    \\
+    w = 0
+  \end{gather*}
+  Since $u - v = 0$, we conclude that the solution of the Cauchy problem for 
+  the heat equation is unique.
+\end{Solution}
+
+
+
+
+
+
+
+
+
+\begin{Solution}
+  Let $\mu(x)$ be the equilibrium temperature.  It satisfies an ordinary
+  differential equation boundary value problem.
+  \[
+  \mu'' = - \frac{q(x)}{\kappa}, \quad \mu(0) = a, \quad \mu(h) = b
+  \]
+  To solve this boundary value problem we find a particular solution
+  $\mu_p$ that satisfies homogeneous boundary conditions
+  and then add on a homogeneous solution $\mu_h$ 
+  that satisfies the inhomogeneous boundary conditions.
+  \begin{gather*}
+    \mu_p'' = - \frac{q(x)}{\kappa}, \quad \mu_p(0) = \mu_p(h) = 0
+    \\
+    \mu_h'' = 0, \quad \mu_h(0) = a, \quad \mu_h(h) = b
+  \end{gather*}
+
+  We find the particular solution $\mu_p$ with the method of Green functions.
+  \[
+  G'' = \delta(x-\xi), \quad G(0|\xi) = G(h|\xi) = 0.
+  \]
+  We find homogeneous solutions which respectively satisfy the left and right 
+  homogeneous boundary conditions.
+  \[
+  y_1 = x, \quad y_2 = h - x
+  \]
+  Then we compute the Wronskian of these solutions and write down the 
+  Green function.
+  \begin{gather*}
+    W = 
+    \begin{vmatrix}
+      x & h - x \\
+      1 & -1
+    \end{vmatrix}
+    = -h
+    \\
+    G(x|\xi) = - \frac{1}{h} x_< \left( h - x_> \right)
+  \end{gather*}
+
+  The homogeneous solution that satisfies the inhomogeneous boundary
+  conditions is
+  \[
+  \mu_h = a + \frac{b - a}{h} x
+  \]
+
+  Now we have the equilibrium temperature.
+  \begin{gather*}
+    \mu = a + \frac{b - a}{h} x
+    + \int_0^h - \frac{1}{h} x_< \left( h - x_> \right) \left( - \frac{q(\xi)}{\kappa} \right)
+    \,\dd \xi
+    \\
+    \mu = a + \frac{b - a}{h} x
+    + \frac{h-x}{h \kappa} \int_0^x \xi q(\xi) \,\dd \xi
+    + \frac{x}{h \kappa} \int_x^h (h-\xi) q(\xi) \,\dd \xi
+  \end{gather*}
+
+
+  Let $v$ denote the deviation from the equilibrium temperature.
+  \[
+  u = \mu + v
+  \]
+  $v$ satisfies a heat equation with homogeneous boundary conditions and no 
+  source term.
+  \[
+  v_t = \kappa v_{x x}, \quad
+  v(0,t) = v(h,t) = 0, \quad
+  v(x,0) = f(x) - \mu(x)
+  \]
+  We solve the problem for $v$ with separation of variables.
+  \begin{gather*}
+    v = X(x) T(t)
+    \\
+    X T' = \kappa X'' T
+    \\
+    \frac{T'}{\kappa T} = \frac{X''}{X} = - \lambda
+  \end{gather*}
+  We have a regular Sturm-Liouville problem for $X$ and a differential equation
+  for $T$.
+  \begin{gather*}
+    X'' + \lambda X = 0, \quad X(0) = X(\lambda) = 0
+    \\
+    \lambda_n = \left( \frac{n \pi}{h} \right)^2, \quad
+    X_n = \sin \left( \frac{n \pi x}{h} \right), \quad
+    n \in \mathbb{Z}^+
+    \\
+    T' = - \lambda \kappa T
+    \\
+    T_n = \exp \left( - \kappa \left( \frac{n \pi}{h} \right)^2 t \right)
+  \end{gather*}
+  $v$ is a linear combination of the eigensolutions.
+  \[
+  v = \sum_{n = 1}^\infty v_n \sin \left( \frac{n \pi x}{h} \right)
+  \exp \left( - \kappa \left( \frac{n \pi}{h} \right)^2 t \right)
+  \]
+  The coefficients are determined from the initial condition, 
+  $v(x,0) = f(x) - \mu(x)$.
+  \[
+  v_n = \frac{2}{h} \int_0^h (f(x) - \mu(x)) \sin \left( \frac{n \pi x}{h} \right) \,\dd x
+  \]
+
+  We have determined the solution of the original problem in terms of the
+  equilibrium temperature and the deviation from the equilibrium.
+  $u = \mu + v$.
+\end{Solution}
+
+
+
+
+
+
+\begin{Solution}
+  A problem is well posed if there exists a unique solution that depends 
+  continiously on the nonhomogeneous data.
+
+  First we find some solutions of the differential equation with the separation
+  of variables $u = X(x) T(t)$.
+  \begin{gather*}
+    u_t + \kappa u_{x x} = 0, \quad \kappa > 0
+    \\
+    X T' + \kappa X'' T = 0
+    \\
+    \frac{T'}{\kappa T} = - \frac{X''}{X} = \lambda
+    \\
+    X'' + \lambda X = 0, \quad T' = \lambda \kappa T
+    \\
+    u = \cos\left( \sqrt{\lambda} x \right) \e^{\lambda \kappa t}, \quad
+    u = \sin\left( \sqrt{\lambda} x \right) \e^{\lambda \kappa t}
+  \end{gather*}
+  Note that 
+  \[
+  u = \epsilon \cos\left( \sqrt{\lambda} x \right) \e^{\lambda \kappa t}
+  \]
+  satisfies the Cauchy problem
+  \[
+  u_t + \kappa u_{x x} = 0, \quad u(x,0) = \epsilon \cos\left( \sqrt{\lambda} x \right)
+  \]
+  Consider $\epsilon \ll 1$.  The initial condition is small, it satisfies 
+  $|u(x,0)| < \epsilon$.  However the solution for any positive time can be made 
+  arbitrarily large by choosing a sufficiently large, positive value of $\lambda$.
+  We can make the solution exceed the value $M$ at time $t$ by choosing 
+  a value of $\lambda$ such that
+  \begin{gather*}
+    \epsilon \e^{\lambda \kappa t} > M
+    \\
+    \lambda > \frac{1}{\kappa t} \ln \left( \frac{M}{\epsilon} \right).
+  \end{gather*}
+  Thus we see that Equation~\ref{eqn ut+kuxx=0 ux0=f} is ill posed because 
+  the solution does not depend continuously on the initial data.  A small 
+  change in the initial condition can produce an arbitrarily large change 
+  in the solution for any fixed time.
+\end{Solution}
+
+
+
+
+
+
+
+
+
+%% heat equation in 3D
+\begin{Solution}
+  Consider a Region of material, $R$.  Let $u$ be the temperature and 
+  $\boldsymbol{\phi}$ be the heat flux.  The amount of heat energy in the region
+  is
+  \[
+  \int_R c \rho u \,\dd \mathbf{x}.
+  \]
+  We equate the rate of change of heat energy in the region with the 
+  heat flux across the boundary of the region.
+  \[
+  \frac{\dd}{\dd t} \int_R c \rho u \,\dd \mathbf{x}
+  = - \int_{\partial R} \boldsymbol{\phi} \cdot \mathbf{n} \,\dd s
+  \]
+  We apply the divergence theorem to change the surface integral to a volume 
+  integral.
+  \begin{gather*}
+    \frac{\dd}{\dd t} \int_R c \rho u \,\dd \mathbf{x}
+    = - \int_R \nabla \cdot \boldsymbol{\phi} \,\dd \mathbf{x}
+    \\
+    \int_R \left( c \rho \frac{\partial u}{\partial t} + \nabla \cdot \boldsymbol{\phi} \right) \,\dd \mathbf{x}
+    = 0
+  \end{gather*}
+  Since the region is arbitrary, the integral must vanish identically.
+  \[
+  c \rho \frac{\partial u}{\partial t} = - \nabla \cdot \boldsymbol{\phi}
+  \]
+  We apply Fourier's law of heat conduction, $\boldsymbol{\phi} = - k \nabla u$,
+  to obtain the heat equation.
+  \[
+  \frac{\partial u}{\partial t} = \frac{1}{c \rho} \nabla \cdot (k \nabla u)
+  \]
+\end{Solution}
+
+
+
+
+
+
+
+
+
+%% Verify Duhamel's Principal
+\begin{Solution}
+  We verify Duhamel's principal by showing that the integral expression for 
+  $w(x,t)$ satisfies the partial differential equation and the initial 
+  condition.  Clearly the initial condition is satisfied.
+  \[
+  w(x,0) = \int_0^0 u(x,0-\tau, \tau) \,\dd \tau = 0
+  \]
+  Now we substitute the expression for $w(x,t)$ into the partial differential
+  equation.
+  \begin{gather*}
+    \frac{\partial}{\partial t} \int_0^t u(x,t-\tau,\tau) \,\dd \tau 
+    = \kappa \frac{\partial^2}{\partial x^2} \int_0^t u(x,t-\tau,\tau) \,\dd \tau + f(x,t) \\
+    u(x,t-t,t) + \int_0^t u_t(x,t-\tau,\tau)\,\dd \tau
+    = \kappa \int_0^t u_{x x}(x,t-\tau,\tau)\,\dd \tau + f(x,t) \\
+    f(x,t) + \int_0^t u_t(x,t-\tau,\tau)\,\dd \tau
+    = \kappa \int_0^t u_{x x}(x,t-\tau,\tau)\,\dd \tau + f(x,t) \\
+    \int_0^t \left( u_t(x,t-\tau,\tau)\,\dd \tau - \kappa u_{x x}(x,t-\tau,\tau)
+    \right) \,\dd \tau 
+  \end{gather*}
+  Since $u_t(x,t-\tau,\tau)\,\dd \tau - \kappa u_{x x}(x,t-\tau,\tau) = 0$, this
+  equation is an identity.  
+\end{Solution}
+
+
+
+
+
+
+
+%% Modify the derivation of the diffusion equation
+\begin{Solution}
+  We equate the rate of change of thermal energy in the segment 
+  $(\alpha \ldots \beta)$ with the heat entering the segment through
+  the endpoints.
+  \begin{gather*}
+    \int_\alpha^\beta \phi_t c \rho A \,\dd x 
+    = k(\beta, \phi(\beta)) A(\beta) \phi_x(\beta, t)
+    - k(\alpha, \phi(\alpha)) A(\alpha) \phi_x(\alpha, t) \\
+    \int_\alpha^\beta \phi_t c \rho A \,\dd x 
+    = \left[ k A \phi_x \right]_\alpha^\beta \\
+    \int_\alpha^\beta \phi_t c \rho A \,\dd x 
+    = \int_\alpha^\beta \left( k A \phi_x \right)_x \,\dd x \\
+    \int_\alpha^\beta c \rho A \phi_t - \left( k A \phi_x \right)_x \,\dd x = 0 \\
+    \intertext{Since the domain is arbitrary, we conclude that}
+    \boxed{
+      c \rho A \phi_t = \left( k A \phi_x \right)_x.
+      }
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}

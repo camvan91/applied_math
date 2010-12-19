@@ -1,0 +1,5 @@
+Get rid of ifthen.  It's still lurking somewhere.
+Get rid of \text{} in math mode.  It makes latex2html break up the equations.
+
+Change first order to first-order.
+Ditto for second.

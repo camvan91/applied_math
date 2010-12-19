@@ -1,0 +1,108 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2555,         70]*)
+(*NotebookOutlinePosition[      3193,         93]*)
+(*  CellTagsIndexPosition[      3149,         89]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(p1 = 
+        Show[\[IndentingNewLine]Plot[x \((\[Pi] - x)\), {x, 0, \[Pi]}, 
+            Ticks \[Rule] {{0, 1, 2, 3}, {0, 1, 
+                  2}}], \[IndentingNewLine]Plot[\(8\/\[Pi]\) Sin[x], {x, 
+              0, \[Pi]}, 
+            PlotStyle \[Rule] 
+              Dashing[{0.02, 0.02}]]\[IndentingNewLine]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p2 = 
+        Show[\[IndentingNewLine]Plot[x \((\[Pi] - x)\), {x, 0, \[Pi]}, 
+            Ticks \[Rule] {{0, 1, 2, 3}, {0, 1, 
+                  2}}], \[IndentingNewLine]Plot[\(8\/\[Pi]\) \((Sin[
+                    x] + \(1\/27\) Sin[3  x])\), {x, 0, \[Pi]}, 
+            PlotStyle \[Rule] 
+              Dashing[{0.02, 0.02}]]\[IndentingNewLine]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{p1, p2}], ImageSize \[Rule] 400];\)\)], "Input"]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{0, Automatic}, {Automatic, 42}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 352, 7, 120, "Input"],
+Cell[2072, 58, 386, 7, 121, "Input"],
+Cell[2461, 67, 90, 1, 27, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

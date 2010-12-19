@@ -1,0 +1,170 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3689,        115]*)
+(*NotebookOutlinePosition[      4360,        139]*)
+(*  CellTagsIndexPosition[      4316,        135]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Volume of Intersecting Cylinders", "Section"],
+
+Cell[BoxData[
+    \(<< Graphics`Shapes`\)], "Input"],
+
+Cell[BoxData[
+    \(\(topCylinder = 
+        TranslateShape[
+          Polygon[Table[{Cos[\[Theta]], Sin[\[Theta]], 0}, {\[Theta], 0, 
+                2  \[Pi] \((1 - 1/100)\), 2  \[Pi]/50}]], {0, 0, 
+            1}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(bottomCylinder = 
+        TranslateShape[
+          Polygon[Table[{Cos[\[Theta]], Sin[\[Theta]], 0}, {\[Theta], 0, 
+                2  \[Pi] \((1 - 1/100)\), 2  \[Pi]/50}]], {0, 
+            0, \(-1\)}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(sideCylinder = Cylinder[1, 1, 50];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(unitCylinder = 
+        Join[{topCylinder}, {bottomCylinder}, sideCylinder];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[Graphics3D[unitCylinder]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+        Graphics3D[{RotateShape[unitCylinder, 0, \[Pi]/2, 0], 
+            RotateShape[unitCylinder, 0, \[Pi]/2, \[Pi]/2]}]];\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Intersection", "Section"],
+
+Cell[BoxData[
+    \(\(ParametricPlot3D[{t\ \@\(1 - Cos[\[Theta]]\^2\), \@\(1 - \
+Cos[\[Theta]]\^2\), Cos[\[Theta]]}, {\[Theta], 0, \[Pi]}, {t, \(-1\), 
+          1}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot3D[{t\ \@\(1 - Cos[\[Theta]]\^2\), \(-\@\(1 - Cos[\
+\[Theta]]\^2\)\), Cos[\[Theta]]}, {\[Theta], 0, \[Pi]}, {t, \(-1\), 
+          1}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot3D[{\ \@\(1 - Cos[\[Theta]]\^2\), 
+          t \@\( 1 - Cos[\[Theta]]\^2\), Cos[\[Theta]]}, {\[Theta], 
+          0, \[Pi]}, {t, \(-1\), 1}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot3D[{\ \(-\@\(1 - Cos[\[Theta]]\^2\)\), 
+          t \@\( 1 - Cos[\[Theta]]\^2\), Cos[\[Theta]]}, {\[Theta], 
+          0, \[Pi]}, {t, \(-1\), 1}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[%%%%, %%%, %%, %, AspectRatio \[Rule] Automatic];\)\)], "Input"]
+}, Open  ]]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{661, 697},
+WindowMargins->{{Automatic, 72}, {Automatic, 20}},
+ShowSelection->True,
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1727, 52, 51, 0, 87, "Section"],
+Cell[1781, 54, 52, 1, 39, "Input"],
+Cell[1836, 57, 232, 5, 85, "Input"],
+Cell[2071, 64, 240, 5, 108, "Input"],
+Cell[2314, 71, 71, 1, 39, "Input"],
+Cell[2388, 74, 113, 2, 62, "Input"],
+Cell[2504, 78, 68, 1, 39, "Input"],
+Cell[2575, 81, 168, 3, 85, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2780, 89, 31, 0, 87, "Section"],
+Cell[2814, 91, 181, 3, 113, "Input"],
+Cell[2998, 96, 186, 3, 113, "Input"],
+Cell[3187, 101, 192, 3, 113, "Input"],
+Cell[3382, 106, 197, 3, 113, "Input"],
+Cell[3582, 111, 91, 1, 39, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

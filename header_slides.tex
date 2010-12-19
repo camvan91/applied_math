@@ -1,0 +1,117 @@
+% HEADER FILE FOR THE SLIDES
+
+
+\usepackage{amsmath}
+\usepackage{theorem}
+% Maybe I can get rid of the following three.
+\usepackage{epic}
+\usepackage{curves}
+\usepackage{eepic}
+\usepackage{amssymb}
+\usepackage{makeidx}
+
+\usepackage[pdftex]{graphicx}
+\pdfcompresslevel=9
+\usepackage{color}
+
+%  \pagestyle{plain}
+%  \topmargin=-0.75in
+%  \headsep=0in
+%  \headheight=0in
+%  \footskip=.5in
+%  \textheight=6in
+%  \textwidth=8in
+%  \oddsidemargin=-0.75in
+%  \evensidemargin=-0.75in
+%  \newcommand{\theoremfamily}{\sffamily}
+
+
+% CONTINUE: FIX
+%----------------------------------------------------------------------------
+\theoremstyle{plain}
+\theoremheaderfont{\theoremfamily\normalsize\bfseries}
+\theorembodyfont{\theoremfamily\slshape\normalsize}
+\newtheorem{Example}{Example}
+
+
+\theoremstyle{break}
+\theorembodyfont{\theoremfamily\normalsize}
+\newtheorem{Exercise}{Exercise}
+
+
+\theoremstyle{break}
+\theorembodyfont{\theoremfamily\normalsize}
+\newtheorem{Hint}{Hint}
+
+
+\theoremstyle{break}
+\theorembodyfont{\theoremfamily\normalsize}
+\newtheorem{Solution}{Solution}
+
+
+\theoremstyle{break}
+\theorembodyfont{\theoremfamily\normalsize}
+\newtheorem{QuizProblem}{Problem}
+
+
+\theoremstyle{break}
+\theorembodyfont{\theoremfamily\normalsize}
+\newtheorem{QuizSolution}{Solution}
+
+
+\theoremstyle{plain}
+\theorembodyfont{\theoremfamily\large}
+\newtheorem{Theorem}{\large Theorem}
+
+
+\theoremstyle{plain}
+\theorembodyfont{\theoremfamily\large}
+\newtheorem{Result}{\large Result}
+
+\setlength{\theorempreskipamount}{12pt}
+\setlength{\theorempostskipamount}{12pt}
+
+\newcommand{\resultwidth}{\textwidth}
+\newcommand{\resultskip}{\vspace{.1in}}
+\newenvironment{ResultBox}{\begin{minipage}{\resultwidth}\begin{Result}}
+                                {\end{Result}\end{minipage}}
+
+%-----------------------------------------------------------------------------
+
+\newcommand{\dd}{\mathrm{d}}
+
+\newcommand{\e}{\mathop{\mathrm{e}}\nolimits}
+\newcommand{\erf}{\mathop{\mathrm{erf}}\nolimits}
+\newcommand{\erfc}{\mathop{\mathrm{erfc}}\nolimits}
+\newcommand{\berfc}{\mathop{\mathbf{erfc}}\nolimits}
+\newcommand{\bsin}{\mathop{\mathbf{sin}}\nolimits}
+\newcommand{\bcos}{\mathop{\mathbf{cos}}\nolimits}
+\newcommand{\sign}{\mathop{\mathrm{sign}}\nolimits}
+\newcommand{\rank}{\mathop{\mathrm{rank}}\nolimits}
+\newcommand{\nullspace}{\mathop{\mathrm{nullspace}}\nolimits}
+\newcommand{\thespan}{\mathop{\mathrm{span}}\nolimits}
+\newcommand{\Res}{\mathop{\mathrm{Res}}\nolimits}
+\newcommand{\Ei}{\mathop{\mathrm{Ei}}\nolimits}
+\newcommand{\PV}{\mathop{\mathrm{PV}}\nolimits}
+\newcommand{\pvint}{- \negthickspace \negthickspace \negthickspace
+                        \negmedspace \int}
+\newcommand{\pv}{- \negthickspace \negthickspace \negthickspace \negmedspace}
+\newcommand{\textpv}{- \negthickspace \negthickspace \negthickspace}
+\newcommand{\Log}{\mathop{\mathrm{Log}}\nolimits}
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
+\newcommand{\sech}{\mathop{\mathrm{sech}}\nolimits}
+\newcommand{\csch}{\mathop{\mathrm{csch}}\nolimits}
+\newcommand{\arcsinh}{\mathop{\mathrm{arcsinh}}\nolimits}
+\newcommand{\arccosh}{\mathop{\mathrm{arccosh}}\nolimits}
+\newcommand{\arctanh}{\mathop{\mathrm{arctanh}}\nolimits}
+\newcommand{\Arcsin}{\mathop{\mathrm{Arcsin}}\nolimits}
+\newcommand{\Arccos}{\mathop{\mathrm{Arccos}}\nolimits}
+\newcommand{\Arctan}{\mathop{\mathrm{Arctan}}\nolimits}
+
+%% I don't know the package that would define these.
+%% Hopefully I can find it and remove these definitions.
+\newcommand{\setN}{\mathbb{N}}
+\newcommand{\setZ}{\mathbb{Z}}
+\newcommand{\setR}{\mathbb{R}}
+\newcommand{\setC}{\mathbb{C}}
+

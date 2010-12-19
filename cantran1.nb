@@ -1,0 +1,265 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5590,        201]*)
+(*NotebookOutlinePosition[      6258,        225]*)
+(*  CellTagsIndexPosition[      6214,        221]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Add to the Problems section of Transformations Chapter", "Title"],
+
+Cell[CellGroupData[{
+
+Cell["Problem", "Section"],
+
+Cell[TextData[{
+  "For a plane curve parametrized by arclength ",
+  Cell[BoxData[
+      \(TraditionalForm\`s\)]],
+  ", the tangent vector, ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          RowBox[{
+            FormBox[\(t(s) = \((\(t\_1\)(s)\)\),
+              "TraditionalForm"], ",", \(\(t\_2\)(s)\)}], ")"}], 
+        TraditionalForm]]],
+  ", and the normal vector, ",
+  Cell[BoxData[
+      \(TraditionalForm\`n(s) = \((\(n\_1\)(s), \(n\_2\)(s))\)\)]],
+  ", satisfy the differential equations"
+}], "Text"],
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`t' \((s)\) = \(k(s)\) \(n(s)\)\)]],
+  "\n",
+  Cell[BoxData[
+      \(TraditionalForm\`n' \((s)\) = \(-\(k(s)\)\) \(t(s)\)\)]],
+  ","
+}], "Text",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "where ",
+  Cell[BoxData[
+      \(TraditionalForm\`k(s)\)]],
+  " is the curvature, (a scalar).  Solve for ",
+  Cell[BoxData[
+      \(TraditionalForm\`t(s)\)]],
+  ".  Then solve for the position of the curve, ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Alpha](s)\)]],
+  ", using ",
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\[Alpha](s) = 
+        \[Alpha](0) + \[Integral]\_0\%s\ \(t(s)\) \[DifferentialD]s\)]],
+  ".  Let the initial position and tangent be ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Alpha](0) = \((a, b)\)\)]],
+  ", ",
+  Cell[BoxData[
+      \(TraditionalForm\`t(0) = \((cos\ \[Theta], sin\ \[Theta])\)\)]],
+  "."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section"],
+
+Cell[TextData[{
+  "By differentiating the equation for ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\)]],
+  " and substutiting from the original two equations, we obtain the second \
+order differential equation,"
+}], "Text"],
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm
+    \`\(t'\)' - \(\(k' \((s)\)\)\/\(k(s)\)\) t' + k\^2\ t = 0\)]]], "Text",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "Note that since ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(q' + 2  p\ q\)\/q\^\(3/2\) = 0\)]],
+  ", we can transform this into a constant coefficient differential equation \
+with the change of variables"
+}], "Text"],
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\[Xi] = 
+        c\ \(\[Integral]\ \(\@\(\(k\^2\)(s)\)\) \[DifferentialD]s\)\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`u(\[Xi]) = t(s)\)]],
+  "."
+}], "Text",
+  TextAlignment->Center],
+
+Cell["We will choose", "Text"],
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\[Xi] = 
+        \[Integral]\_0\%s\ \(k(\[Sigma])\) \[DifferentialD]\[Sigma]\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`u(\[Xi]) = t(s)\)]],
+  "."
+}], "Text",
+  TextAlignment->Center],
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`t' \((s)\) = \(k(s)\)\ u' \((\[Xi])\)\)]]], "Text",
+  TextAlignment->Center],
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm
+    \`\(t'\)' \((s)\) = 
+      k' \((s)\)\ u' \((\[Xi])\) + \(\(k\^2\)(s)\) \(u'\)' \((\[Xi])\)\)]]], 
+  "Text",
+  TextAlignment->Center],
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\(u'\)' \((\[Xi])\) + u(\[Xi]) = 0\)]]], "Text",
+  TextAlignment->Center],
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`u(\[Xi]) = c\_1\ cos\ \[Xi] + c\_2\ sin\ \[Xi]\)]]], 
+  "Text",
+  TextAlignment->Center],
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm
+    \`t(s) = c\_1\ cos\ 
+          \((\[Integral]\_0\%s\ \(k(\[Sigma])\) \[DifferentialD]\[Sigma])\) + 
+        c\_2\ sin\ 
+          \((\[Integral]\_0\%s\ \(k(\[Sigma])\) \[DifferentialD]\[Sigma])
+            \)\)]]], "Text",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "From here, you can solve for ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Alpha]\)]],
+  "."
+}], "Text"],
+
+Cell["end", "Text"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"Microsoft Windows 3.0",
+ScreenRectangle->{{0, 800}, {0, 572}},
+WindowSize->{772, 506},
+WindowMargins->{{2, Automatic}, {0, Automatic}},
+Magnification->1.5
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 71, 0, 285, "Title"],
+
+Cell[CellGroupData[{
+Cell[1827, 55, 26, 0, 79, "Section"],
+Cell[1856, 57, 519, 16, 73, "Text"],
+Cell[2378, 75, 225, 8, 67, "Text"],
+Cell[2606, 85, 670, 22, 100, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3313, 112, 27, 0, 79, "Section"],
+Cell[3343, 114, 224, 6, 73, "Text"],
+Cell[3570, 122, 150, 3, 55, "Text"],
+Cell[3723, 127, 237, 6, 81, "Text"],
+Cell[3963, 135, 261, 10, 47, "Text"],
+Cell[4227, 147, 30, 0, 47, "Text"],
+Cell[4260, 149, 261, 10, 48, "Text"],
+Cell[4524, 161, 127, 2, 41, "Text"],
+Cell[4654, 165, 187, 5, 42, "Text"],
+Cell[4844, 172, 124, 2, 41, "Text"],
+Cell[4971, 176, 139, 3, 41, "Text"],
+Cell[5113, 181, 301, 7, 45, "Text"],
+Cell[5417, 190, 123, 5, 47, "Text"],
+Cell[5543, 197, 19, 0, 47, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

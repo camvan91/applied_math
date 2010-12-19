@@ -1,0 +1,522 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      9423,        382]*)
+(*NotebookOutlinePosition[     10100,        406]*)
+(*  CellTagsIndexPosition[     10056,        402]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Calculus/Differential", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["The Derivative", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\nApril 3, 2004"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Clear[\[CapitalDelta], f, g, n, x]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Power Rule", "Section"],
+
+Cell["We use the definition of differentiation to prove that", "Text"],
+
+Cell[BoxData[
+    \(\(d\/\(d\ x\)\) \((x\^n)\) = 
+      n\ \(\(x\^\(n - 1\)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell[BoxData[
+    \(Limit[\(\((x + \[CapitalDelta])\)\^n - x\^n\)\/\[CapitalDelta], \
+\[CapitalDelta] \[Rule] 0]\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Product Rule", "Section"],
+
+Cell["Consider the product rule of differentiation:", "Text"],
+
+Cell[BoxData[
+    \(\(d\/\(d\ x\)\) \((f \((x)\) g \((x)\))\) = 
+      f\ \(d\ g\)\/\(d\ x\) + 
+        g\ \(\(\(d\ f\)\/\(d\ x\)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell[TextData[{
+  "Note that ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " will not prove the product rule for you."
+}], "Text"],
+
+Cell[BoxData[
+    \(Limit[\(f[x + \[CapitalDelta]] g[x + \[CapitalDelta]] - f[x] g[x]\)\/\
+\[CapitalDelta], \[CapitalDelta] \[Rule] 0]\)], "Input"],
+
+Cell[TextData[{
+  "This is because ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " does not assume that ",
+  Cell[BoxData[
+      \(TraditionalForm\`f(x)\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`g(x)\)]],
+  " are differentiable."
+}], "Text"],
+
+Cell[BoxData[
+    \(Limit[\(f[x + \[CapitalDelta]] - f[x]\)\/\[CapitalDelta], \
+\[CapitalDelta] \[Rule] 0]\)], "Input"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " can however, directly take the derivative."
+}], "Text"],
+
+Cell[BoxData[
+    \(D[f[x] g[x], x]\)], "Input"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((f[x] g[x])\)\)], "Input"],
+
+Cell[TextData[{
+  "Also if instead of ",
+  Cell[BoxData[
+      \(TraditionalForm\`f(x)\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`g(x)\)]],
+  " you give ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " two functions which it knows are differentiable, it would give you the \
+desired result."
+}], "Text"],
+
+Cell[BoxData[
+    \(Limit[\(Sin[x + \[CapitalDelta]] Cos[x + \[CapitalDelta]] - Sin[x] \
+Cos[x]\)\/\[CapitalDelta], \[CapitalDelta] \[Rule] 0]\)], "Input"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((Sin[x] Cos[x])\) // Simplify\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Derivative of Sin[x]", "Section"],
+
+Cell[BoxData[
+    \(Limit[\(Sin[x + \[CapitalDelta]] - Sin[x]\)\/\[CapitalDelta], \
+\[CapitalDelta] \[Rule] 0]\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Chain Rule", "Section"],
+
+Cell[TextData[{
+  "As with the product rule, ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " will not prove the chain rule for you."
+}], "Text"],
+
+Cell[BoxData[
+    \(Limit[\(f[g[x + \[CapitalDelta]]] - f[g[x]]\)\/\[CapitalDelta], \
+\[CapitalDelta] \[Rule] 0]\)], "Input"],
+
+Cell[TextData[{
+  "However, you can verify the rule by differentiating ",
+  Cell[BoxData[
+      \(TraditionalForm\`f(g(x))\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((f[g[x]])\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["x |x|", "Section"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " will not evaluate the derivative of ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(|\)\(x\)\(|\)\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(D[Abs[x], x]\)], "Input"],
+
+Cell[TextData[{
+  "It just ",
+  StyleBox["denotes",
+    FontSlant->"Italic"],
+  " the derivative.  We cannot for instance evaluate the derivative of ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(|\)\(x\)\(|\)\)\)]],
+  " at ",
+  Cell[BoxData[
+      \(TraditionalForm\`x = 1\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Abs'\)[1]\)], "Input"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " will do this for other functions."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Sin'\)[1]\)], "Input"],
+
+Cell[TextData[{
+  "Thus evaluating the derivative of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\  | x | \)]],
+  " will not help us determine if the function is differentiable at ",
+  Cell[BoxData[
+      \(TraditionalForm\`x = 0\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(D[x\ Abs[x], x]\)], "Input"],
+
+Cell[TextData[{
+  "However, we can plot the function.  It certainly looks differentiable at \
+",
+  Cell[BoxData[
+      \(TraditionalForm\`x = 0\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Plot[x\ Abs[x], {x, \(-1\), 1}];\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\@\(\(\(1\)\(+\)\) | x | \)\)], "Section"],
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`\@\(\(\(1\)\(+\)\) | x | \)\)]],
+  " does not look differentiable at ",
+  Cell[BoxData[
+      \(TraditionalForm\`x = 0\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Plot[\@\(1 + Abs[x]\), {x, \(-1\), 1}];\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[PartialD]\_x\((x\ \(sin(cos(x))\))\)\)]]], "Section"],
+
+Cell["Here is the plain-text way to differentiate a function.", "Text"],
+
+Cell[BoxData[
+    \(D[x\ Sin[Cos[x]], x]\)], "Input"],
+
+Cell["\<\
+Here is the typeset way.  Type \[EscapeKey]pd\[EscapeKey]\
+\[ControlKey]\[LeftModified]-\[RightModified]x\[ControlKey]\[LeftModified]\
+\[SpaceKey]\[RightModified] to get the partial derivative.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((x\ Sin[Cos[x]])\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[PartialD]\_x\((f(cos(g(x))))\)\)]]], "Section"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((f[Cos[g[x]]])\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[PartialD]\_x\((1/\(f(log(x))\))\)\)]]], "Section"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((1\/f[Log[x]])\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[PartialD]\_x\((x\^\(x\^x\))\)\)]]], "Section"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((x\^\(x\^x\))\)\)], "Input"],
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[PartialD]\_x\((\(|\)\(x\)\(|\)\(sin\)\(|\)\(x\)\(|\))\
+\)\)]]], "Section"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " writes the derivative in terms of ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[PartialD]\_x\((\(|\)\(x\)\(|\))\)\)]],
+  ", which is correct for ",
+  Cell[BoxData[
+      \(TraditionalForm\`x \[NotEqual] 0\)]],
+  ", but not a nice form."
+}], "Text"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((Abs[x] Sin[Abs[x]])\)\)], "Input"],
+
+Cell[TextData[{
+  "The key to this problem is realizing that ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(|\)\(x\)\(|\)\(sin\)\(|\)\(x\)\(|\)\) = 
+        x\ \(sin(x)\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Plot[Abs[x] Sin[Abs[x]], {x, \(-\[Pi]\), \[Pi]}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[x\ Sin[x], {x, \(-\[Pi]\), \[Pi]}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((x\ Sin[x])\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Inverse sine and inverse tangent", "Section"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((ArcSin[x])\)\)], "Input"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((ArcTan[x])\)\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1920}, {0, 1200}},
+WindowToolbars->"EditBar",
+WindowSize->{1010, 1120},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 111, 3, 136, "Title",
+  Evaluatable->False],
+Cell[1890, 58, 34, 0, 77, "Subtitle"],
+Cell[1927, 60, 283, 9, 121, "Text",
+  Evaluatable->False],
+Cell[2213, 71, 67, 1, 39, "Input"],
+
+Cell[CellGroupData[{
+Cell[2305, 76, 29, 0, 107, "Section"],
+Cell[2337, 78, 70, 0, 46, "Text"],
+Cell[2410, 80, 106, 2, 55, "DisplayFormula"],
+Cell[2519, 84, 125, 2, 71, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2681, 91, 31, 0, 107, "Section"],
+Cell[2715, 93, 61, 0, 46, "Text"],
+Cell[2779, 95, 160, 3, 55, "DisplayFormula"],
+Cell[2942, 100, 141, 5, 46, "Text"],
+Cell[3086, 107, 147, 2, 69, "Input"],
+Cell[3236, 111, 267, 11, 46, "Text"],
+Cell[3506, 124, 119, 2, 69, "Input"],
+Cell[3628, 128, 127, 4, 46, "Text"],
+Cell[3758, 134, 48, 1, 39, "Input"],
+Cell[3809, 137, 62, 1, 39, "Input"],
+Cell[3874, 140, 327, 12, 71, "Text"],
+Cell[4204, 154, 155, 2, 69, "Input"],
+Cell[4362, 158, 78, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4477, 164, 39, 0, 107, "Section"],
+Cell[4519, 166, 123, 2, 69, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4679, 173, 29, 0, 107, "Section"],
+Cell[4711, 175, 155, 5, 46, "Text"],
+Cell[4869, 182, 125, 2, 69, "Input"],
+Cell[4997, 186, 145, 5, 46, "Text"],
+Cell[5145, 193, 60, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5242, 199, 24, 0, 107, "Section"],
+Cell[5269, 201, 194, 7, 46, "Text"],
+Cell[5466, 210, 45, 1, 39, "Input"],
+Cell[5514, 213, 297, 11, 46, "Text"],
+Cell[5814, 226, 44, 1, 39, "Input"],
+Cell[5861, 229, 118, 4, 46, "Text"],
+Cell[5982, 235, 44, 1, 39, "Input"],
+Cell[6029, 238, 253, 8, 46, "Text"],
+Cell[6285, 248, 48, 1, 39, "Input"],
+Cell[6336, 251, 166, 6, 46, "Text"],
+Cell[6505, 259, 69, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6611, 265, 62, 1, 117, "Section"],
+Cell[6676, 268, 198, 7, 46, "Text"],
+Cell[6877, 277, 76, 1, 54, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6990, 283, 106, 1, 103, "Section"],
+Cell[7099, 286, 71, 0, 46, "Text"],
+Cell[7173, 288, 53, 1, 39, "Input"],
+Cell[7229, 291, 217, 4, 46, "Text"],
+Cell[7449, 297, 67, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7553, 303, 100, 1, 104, "Section"],
+Cell[7656, 306, 65, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7758, 312, 103, 1, 104, "Section"],
+Cell[7864, 315, 65, 1, 73, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7966, 321, 99, 1, 113, "Section"],
+Cell[8068, 324, 64, 1, 49, "Input"],
+Cell[8135, 327, 50, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8222, 333, 127, 2, 103, "Section"],
+Cell[8352, 337, 320, 10, 46, "Text"],
+Cell[8675, 349, 71, 1, 39, "Input"],
+Cell[8749, 352, 194, 6, 46, "Text"],
+Cell[8946, 360, 86, 1, 39, "Input"],
+Cell[9035, 363, 77, 1, 39, "Input"],
+Cell[9115, 366, 62, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9214, 372, 51, 0, 107, "Section"],
+Cell[9268, 374, 62, 1, 39, "Input"],
+Cell[9333, 377, 62, 1, 39, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

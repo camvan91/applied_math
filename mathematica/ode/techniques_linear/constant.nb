@@ -1,0 +1,424 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8550,        315]*)
+(*NotebookOutlinePosition[      9208,        339]*)
+(*  CellTagsIndexPosition[      9164,        335]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ODE/Techniques for Linear Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Constant Coefficient Equations", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n01/13/2001\nAnti-Copyright @ 2000 by Mauch Publishing Company, \
+un-Incorporated"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`6  y'' - 5  y' + y = 0\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(0) = 4\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((0)\) = 0\)]]
+}], "Section"],
+
+Cell[TextData[{
+  "Find the solution of the following initial value problem.  Sketch the \
+graph of the solution and describe its behavior as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\)]],
+  " increases."
+}], "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`6  y'' - 5  y' + y = 0, \ \ \ \ y(0) = 
+      4, \ \ \ \ y' \((0)\) = 0\)], "DisplayFormula"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[{6 \( y''\)[t] - 5 \( y'\)[t] + y[t] \[Equal] 0, 
+        y[0] \[Equal] 4, \(y'\)[0] \[Equal] 0}, y[t], t]\)], "Input"],
+
+Cell[BoxData[
+    \(\[ExponentialE]\^\(t/3\)\ \((12 - 8\ \[ExponentialE]\^\(t/6\))\) // 
+      Expand\)], "Input"],
+
+Cell["The solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = 
+      12\ \[ExponentialE]\^\(t/3\) - 
+        8\ \(\(\[ExponentialE]\^\(t/2\)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell[BoxData[
+    \(\(Plot[
+        12\ \[ExponentialE]\^\(t/3\) - 8\ \[ExponentialE]\^\(t/2\), {t, 0, 
+          5}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[12\ \[ExponentialE]\^\(t/3\) - 8\ \[ExponentialE]\^\(t/2\), 
+      t \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[TextData[{
+  "The solution tends to ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(-\[Infinity]\)\)]],
+  " as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`y'' - 2  y' + 5  y = 0\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(\[Pi]/2) = 0\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((\[Pi]/2)\) = 2\)]]
+}], "Section"],
+
+Cell[TextData[{
+  "Find the solution of the following initial value problem.  Sketch the \
+graph of the solution and describe its behavior as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\)]],
+  " increases."
+}], "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y'' - 2  y' + 5  y = 0, \ \ \ \ y(\[Pi]/2) = 
+      0, \ \ \ \ y' \((\[Pi]/2)\) = 2\)], "DisplayFormula"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[t] - 2 \( y'\)[t] + 5  y[t] \[Equal] 0, 
+        y[\[Pi]/2] \[Equal] 0, \(y'\)[\[Pi]/2] \[Equal] 2}, y[t], 
+      t]\)], "Input"],
+
+Cell["The solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = \(-\[ExponentialE]\^\(\(-\(\[Pi]\/2\)\) + t\)\)\ \
+\(\(sin(2  t)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell[BoxData[
+    \(\(Plot[\(-\[ExponentialE]\^\(\(-\(\[Pi]\/2\)\) + t\)\)\ Sin[
+            2\ t], {t, \[Pi]/2, 2  \[Pi]}, 
+        PlotRange \[Rule] All];\)\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[\(-\[ExponentialE]\^\(\(-\(\[Pi]\/2\)\) + t\)\)\ Sin[2\ t], 
+      t \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[TextData[{
+  "The solution oscillates with an amplitude that tends to ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Infinity]\)]],
+  " as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`y'' + 4  y' + 4  y = 0\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(\(-1\)) = 2\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((\(-1\))\) = 1\)]]
+}], "Section"],
+
+Cell[TextData[{
+  "Find the solution of the following initial value problem.  Sketch the \
+graph of the solution and describe its behavior as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\)]],
+  " increases."
+}], "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y'' + 4  y' + 4  y = 0, \ \ \ \ y(\(-1\)) = 
+      2, \ \ \ \ y' \((\(-1\))\) = 1\)], "DisplayFormula"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[t] + 4 \( y'\)[t] + 4  y[t] \[Equal] 0, 
+        y[\(-1\)] \[Equal] 2, \(y'\)[\(-1\)] \[Equal] 1}, y[t], t]\)], "Input"],
+
+Cell[BoxData[
+    \(\[ExponentialE]\^\(\(-2\)\ t\)\ \((7\/\[ExponentialE]\^2 + \(5\ t\)\/\
+\[ExponentialE]\^2)\) // Simplify\)], "Input"],
+
+Cell["The solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = \[ExponentialE]\^\(\(-2\)\ \((1 + t)\)\)\ \((7 + 
+            5\ t)\)\)], "DisplayFormula"],
+
+Cell[BoxData[
+    \(\(Plot[\[ExponentialE]\^\(\(-2\)\ \((1 + t)\)\)\ \((7 + 
+              5\ t)\), {t, \(-1\), 5}, PlotRange \[Rule] All];\)\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[\[ExponentialE]\^\(\(-2\)\ \((1 + t)\)\)\ \((7 + 5\ t)\), 
+      t \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[TextData[{
+  "The solution tends to ",
+  Cell[BoxData[
+      \(TraditionalForm\`0\)]],
+  " as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' - 4  y' + 13  y = 0\)]]], "Section"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[\(\(y'\)'\)[x] - 4 \( y'\)[x] + 13  y[x] == 0, y[x], 
+      x]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["y'''-y''+y'-y=0", "Section"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[\(\(\(y'\)'\)'\)[x] - \(\(y'\)'\)[x] + \(y'\)[x] - y[x] == 0, 
+      y[x], x]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' + 5  y' + 6  y = 0\)]]], "Section"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[t] + 5 \( y'\)[t] + 6  y[t] \[Equal] 0, 
+        y[0] \[Equal] 1, \(y'\)[0] \[Equal] V}, y[t], t]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' + \(sign(x)\)\ y = 0\)]]], "Section"],
+
+Cell[TextData[{
+  "Suppose we want a solution that satisfies ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(0) = 1\)]],
+  ", ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((0)\) = 0\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[x] - y[x] \[Equal] 0, 
+          y[0] \[Equal] 1, \(y'\)[0] \[Equal] 0}, y[x], x] // 
+      FullSimplify\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[x] + y[x] \[Equal] 0, 
+          y[0] \[Equal] 1, \(y'\)[0] \[Equal] 0}, y[x], x] // 
+      FullSimplify\)], "Input"]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 125, 3, 191, "Title",
+  Evaluatable->False],
+Cell[1867, 56, 50, 0, 82, "Subtitle"],
+Cell[1920, 58, 350, 10, 143, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2295, 72, 236, 9, 67, "Section"],
+Cell[2534, 83, 220, 6, 59, "Text"],
+Cell[2757, 91, 130, 2, 30, "DisplayFormula"],
+Cell[2890, 95, 44, 1, 35, "Input"],
+Cell[2937, 98, 146, 2, 56, "Input"],
+Cell[3086, 102, 114, 2, 36, "Input"],
+Cell[3203, 106, 31, 0, 38, "Text"],
+Cell[3237, 108, 150, 3, 31, "DisplayFormula"],
+Cell[3390, 113, 133, 3, 36, "Input"],
+Cell[3526, 118, 128, 2, 36, "Input"],
+Cell[3657, 122, 202, 8, 38, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3896, 135, 248, 9, 41, "Section"],
+Cell[4147, 146, 220, 6, 59, "Text"],
+Cell[4370, 154, 142, 2, 30, "DisplayFormula"],
+Cell[4515, 158, 44, 1, 35, "Input"],
+Cell[4562, 161, 165, 3, 56, "Input"],
+Cell[4730, 166, 31, 0, 38, "Text"],
+Cell[4764, 168, 136, 2, 37, "DisplayFormula"],
+Cell[4903, 172, 171, 3, 67, "Input"],
+Cell[5077, 177, 128, 2, 43, "Input"],
+Cell[5208, 181, 231, 8, 38, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5476, 194, 246, 9, 41, "Section"],
+Cell[5725, 205, 220, 6, 59, "Text"],
+Cell[5948, 213, 140, 2, 30, "DisplayFormula"],
+Cell[6091, 217, 44, 1, 35, "Input"],
+Cell[6138, 220, 156, 2, 56, "Input"],
+Cell[6297, 224, 137, 2, 57, "Input"],
+Cell[6437, 228, 31, 0, 38, "Text"],
+Cell[6471, 230, 132, 2, 31, "DisplayFormula"],
+Cell[6606, 234, 154, 2, 57, "Input"],
+Cell[6763, 238, 126, 2, 36, "Input"],
+Cell[6892, 242, 187, 8, 38, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7116, 255, 91, 1, 39, "Section"],
+Cell[7210, 258, 44, 1, 35, "Input"],
+Cell[7257, 261, 102, 2, 56, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7396, 268, 34, 0, 41, "Section"],
+Cell[7433, 270, 44, 1, 35, "Input"],
+Cell[7480, 273, 117, 2, 56, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7634, 280, 90, 1, 39, "Section"],
+Cell[7727, 283, 146, 2, 56, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7910, 290, 92, 1, 39, "Section"],
+Cell[8005, 293, 205, 8, 38, "Text"],
+Cell[8213, 303, 153, 3, 56, "Input"],
+Cell[8369, 308, 153, 3, 56, "Input"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

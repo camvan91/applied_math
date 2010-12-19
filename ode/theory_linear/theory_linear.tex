@@ -1,0 +1,1818 @@
+\flushbottom
+
+%%
+%% LOOK AT PAGE 97 IN ZWILLINGER.
+%%
+
+%% CONTINUE: n parameter family of functions.
+
+
+
+
+
+%%=============================================================================
+%%=============================================================================
+\chapter{Theory of Linear Ordinary Differential Equations}
+\label{chapter_tolo}
+
+
+A little partyin' is good for the soul.
+
+\begin{flushright}
+  -Matt Metz
+\end{flushright}
+
+
+
+
+
+
+
+
+
+%%=============================================================================
+\section{Exact Equations}
+
+
+%% CONTINUE Write me.
+
+
+%Any first order differential equation of the first degree can be written
+%in the form
+%\[
+%P(x, y) + Q(x, y) \frac{\dd y}{\dd x} = 0.
+%\]
+%This equation is exact if and only if
+%\[
+%P_y = Q_x.
+%\]
+%In this case the solution of the differential equation is given by
+%\[
+%\int_{x_0}^x P(\xi, y) \,\dd \xi 
+%+ \int_{y_0}^y Q(x_0, \psi) \,\dd \psi = c.
+%\]
+
+
+
+
+
+
+%% second order exact
+\begin{Exercise}
+  \label{exercise second order exact}
+  Consider a second order, linear, homogeneous differential equation:
+  \begin{equation}
+    \label{equation Py''+Qy'+Ry=0}
+    P(x) y'' + Q(x) y' + R(x) y = 0.
+  \end{equation}
+  Show that $P'' - Q' + R = 0$ is a necessary and sufficient condition 
+  for this equation to be exact.
+
+  \hintsolution{second order exact}
+\end{Exercise}
+
+
+
+%% second order integrating factor
+\begin{Exercise}
+  \label{exercise second order integrating factor}
+  Determine an equation for the integrating factor $\mu(x)$ for 
+  Equation~\ref{equation Py''+Qy'+Ry=0}.
+
+  \hintsolution{second order integrating factor}
+\end{Exercise}
+
+
+
+
+%% y'' + x y' + y = 0.
+\begin{Exercise}
+  \label{exercise yxyy=0}
+  Show that
+  \[
+  y'' + x y' + y = 0
+  \]
+  is exact.  Find the solution.
+
+  \hintsolution{yxyy=0}
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+%%=============================================================================
+\section{Nature of Solutions}
+
+
+
+
+
+\begin{Result}
+  Consider the $n^{t h}$ order ordinary differential equation of the form
+  \begin{equation}
+    \label{Ly=yn+pn-1yn-1++p0y=f}
+    L[y] = \frac{\dd^n y}{\dd x^n} + p_{n-1}(x) \frac{\dd^{n-1} y}{\dd x^{n-1}} + \cdots
+    + p_1(x) \frac{\dd y}{\dd x} + p_0(x) y = f(x). 
+  \end{equation}
+  If the coefficient functions $p_{n-1}(x), \ldots, p_0(x)$ and the 
+  inhomogeneity $f(x)$ are continuous on some interval $a <x < b$ then
+  the differential equation subject to the conditions,
+  \[ 
+  y(x_0) = v_0, \quad y'(x_0) = v_1, \quad \ldots \quad 
+  y^{(n-1)}(x_0) = v_{n-1}, \qquad a < x_0 < b,
+  \]
+  has a unique solution on the interval.
+\end{Result}
+
+
+
+
+%% x y'' + 3 y = x
+\begin{Exercise}
+  \label{exercise xy3y=x}
+  On what intervals do the following problems have unique solutions?
+  \begin{enumerate}
+  \item
+    $ \displaystyle
+    x y'' + 3 y = x
+    $
+  \item
+    $ \displaystyle
+    x (x-1) y'' + 3 x y' + 4 y = 2
+    $
+  \item
+    $ \displaystyle
+    \e^x y'' + x^2 y' + y = \tan x
+    $
+  \end{enumerate}
+
+  \hintsolution{xy3y=x}
+\end{Exercise}
+
+
+
+
+
+
+
+
+\paragraph{Linearity of the Operator.}
+\index{linear differential operator}
+\index{differential operator!linear}
+The differential operator $L$ is linear.  To verify this,
+\begin{align*}
+  L[c y]  
+  &= \frac{\dd^n}{\dd x^n}(c y) + p_{n-1}(x)\frac{\dd^{n-1}}{\dd x^{n-1}}(c y) + 
+  \cdots + p_1(x) \frac{\dd}{\dd x}(c y) + p_0(x)(c y) \\
+  &= c\frac{\dd^n}{\dd x^n}y + c p_{n-1}(x)\frac{\dd^{n-1}}{\dd x^{n-1}}y + 
+  \cdots + c p_1(x) \frac{\dd}{\dd x}y + c p_0(x)y \\
+  &= c L[y] \\
+  L[y_1 + y_2]
+  &= \frac{\dd^n}{\dd x^n}(y_1 + y_2) + p_{n-1}(x)\frac{\dd^{n-1}}{\dd x^{n-1}}(y_1 + y_2) + 
+  \cdots + p_1(x) \frac{\dd}{\dd x}(y_1 + y_2) + p_0(x)(y_1 + y_2) \\
+  &= \frac{\dd^n}{\dd x^n}(y_1) + p_{n-1}(x)\frac{\dd^{n-1}}{\dd x^{n-1}}(y_1) + 
+  \cdots + p_1(x) \frac{\dd}{\dd x}(y_1) + p_0(x)(y_1) \\
+  &\qquad  + \frac{\dd^n}{\dd x^n}(y_2) + p_{n-1}(x)\frac{\dd^{n-1}}{\dd x^{n-1}}(y_2) + 
+  \cdots + p_1(x) \frac{\dd}{\dd x}(y_2) + p_0(x)(y_2) \\
+  &= L[y_1] + L[y_2].
+\end{align*}
+
+
+\paragraph{Homogeneous Solutions.}
+\index{homogeneous solutions!of differential equations}
+The general homogeneous equation has the form
+\[
+L[y] = \frac{\dd^n y}{\dd x^n} + p_{n-1}(x) \frac{\dd^{n-1} y}{\dd x^{n-1}} + \cdots
++ p_1(x) \frac{\dd y}{\dd x} + p_0(x) y = 0.
+\]
+From the linearity of $L$, we see that if $y_1$ and $y_2$ are solutions
+to the homogeneous equation then $c_1 y_1 + c_2 y_2$ is also a solution, 
+($L[c_1 y_1 + c_2 y_2] = 0$).
+
+On any interval where the coefficient functions are continuous, the
+$n^{t h}$ order linear homogeneous equation has $n$ linearly independent
+solutions, $y_1, y_2, \ldots, y_n$.  (We will study linear independence
+in Section~\ref{sec_wronskian}.)  The general solution to the homogeneous
+problem is then
+\[ y_h = c_1 y_1 + c_2 y_2 + \cdots + c_n y_n.\]
+
+
+
+\paragraph{Particular Solutions.}
+\index{particular solutions!of differential equations}
+Any function, $y_p$, that satisfies the inhomogeneous equation, 
+$L[y_p] = f(x)$, is called a particular solution or particular integral
+of the equation.  Note that for linear differential equations the
+particular solution is not unique.  If $y_p$ is a particular solution 
+then $y_p + y_h$ is also a particular solution where $y_h$ is any
+homogeneous solution.
+
+The general solution to the problem $L[y] = f(x)$ is the sum of a particular solution and a 
+linear combination of the homogeneous solutions
+\[ y = y_p + c_1 y_1 + \cdots + c_n y_n. \]
+
+
+
+\begin{Example}
+  Consider the differential equation
+  \[ 
+  y'' - y' = 1. 
+  \]
+  You can verify that two homogeneous solutions are $\e^x$ and $1$.  A particular
+  solution is $-x$.  Thus the general solution is
+  \[ 
+  y = -x + c_1 \e^x + c_2. 
+  \]
+\end{Example}
+
+
+
+
+%% Three particular solutions.
+\begin{Exercise}
+  \label{exercise 3 particular soln}
+  Suppose you are able to find three linearly independent 
+  particular solutions $u_1(x)$, $u_2(x)$ and $u_3(x)$ of the second order
+  linear differential equation $L[y] = f(x)$.  What is the general solution?
+
+  \hintsolution{3 particular soln}
+\end{Exercise}
+
+
+
+
+\paragraph{Real-Valued Solutions.}
+If the coefficient function and the inhomogeneity in 
+Equation~\ref{Ly=yn+pn-1yn-1++p0y=f} are real-valued, then the general 
+solution can be written in terms of real-valued functions.  Let $y$ be any,
+homogeneous solution, (perhaps complex-valued).  By taking the complex 
+conjugate of the equation $L[y] = 0$ we show that $\bar{y}$ is a homogeneous
+solution as well.
+\begin{gather*}
+  L[y] = 0 \\
+  \overline{L[y]} = 0 \\
+  \overline{y^{(n)} + p_{n-1} y^{(n-1)} + \cdots + p_0 y} = 0 \\
+  \bar{y}^{(n)} + p_{n-1} \bar{y}^{(n-1)} + \cdots + p_0 \bar{y} = 0 \\
+  L \left[ \bar{y} \right] = 0
+\end{gather*}
+For the same reason, if $y_p$ is a particular solution, then $\overline{y_p}$
+is a particular solution as well.
+
+Since the real and imaginary parts of a function $y$ are linear combinations
+of $y$ and $\bar{y}$,
+\[
+\Re(y) = \frac{y + \bar{y}}{2}, \quad
+\Im(y) = \frac{y - \bar{y}}{\imath 2},
+\]
+if $y$ is a homogeneous solution then both $\Re{y}$ and $\Im(y)$ are homogeneous
+solutions.  Likewise, if $y_p$ is a particular solution then
+$\Re(y_p)$ is a particular solution.
+\[
+L \left[ \Re(y_p) \right]
+= L \left[ \frac{y_p + \overline{y_p}}{2} \right]
+= \frac{f}{2} + \frac{f}{2}
+= f
+\]
+Thus we see that the homogeneous solution, the particular solution and the
+general solution of a linear differential equation with real-valued 
+coefficients and inhomogeneity can be written in terms of real-valued
+functions.
+
+
+
+\begin{Result}
+  \label{result nth order linear ode, nature of solutions}
+  The differential equation
+  \[
+  L[y] = \frac{\dd^n y}{\dd x^n} + p_{n-1}(x) \frac{\dd^{n-1} y}{\dd x^{n-1}} + \cdots
+  + p_1(x) \frac{\dd y}{\dd x} + p_0(x) y = f(x)
+  \]
+  with continuous coefficients and inhomogeneity has a general solution of the
+  form
+  \[ 
+  y = y_p + c_1 y_1 + \cdots + c_n y_n
+  \]
+  where $y_p$ is a particular solution, $L[y_p] = f$, and the $y_k$ are linearly
+  independent homogeneous solutions, $L[y_k] = 0$.  If the coefficient functions
+  and inhomogeneity are real-valued, then the general solution can be written
+  in terms of real-valued functions.
+\end{Result}
+
+
+
+
+
+
+
+
+%%=============================================================================
+\section{Transformation to a First Order System}
+
+
+
+Any linear differential equation can be put in the form of a system of 
+first order differential equations.  Consider 
+\[ y^{(n)} + p_{n-1} y^{(n-1)} + \cdots + p_0 y = f(x). \]
+We introduce the functions,
+\[ y_1 = y, \quad y_2 = y', \quad, \ldots, \quad y_n = y^{(n-1)}. \]
+The differential equation is equivalent to the system
+\begin{align*}
+  y_1'    &= y_2 \\
+  y_2'    &= y_3 \\
+  \vdots      &= \vdots \\
+  y_n'    &= f(x) - p_{n-1} y_n - \cdots - p_0 y_1.
+\end{align*}
+
+The first order system is more useful when numerically solving the 
+differential equation.
+
+
+\begin{Example}
+  Consider the differential equation
+  \[ y'' + x^2 y' + \cos x\ y = \sin x. \]
+  The corresponding system of first order equations is
+  \begin{align*}
+    y_1'    &= y_2 \\
+    y_2'    &= \sin x - x^2 y_2 - \cos x\ y_1.
+  \end{align*}
+\end{Example}
+
+
+
+
+%%=============================================================================
+\section{The Wronskian}
+\label{sec_wronskian}
+
+
+
+
+%%-----------------------------------------------------------------------------
+\subsection{Derivative of a Determinant.}
+\index{determinant!derivative of}
+Before investigating the Wronskian, we will need a preliminary result from
+matrix theory.  Consider an $n \times n$ matrix $A$ whose elements 
+$a_{i j}(x)$
+are functions of $x$.  We will denote the determinant by 
+$\Delta[A(x)]$.  We then
+have the following theorem.
+
+\begin{Result}
+  Let $a_{i j}(x)$, the elements of the matrix $A$, be differentiable 
+  functions of $x$.  Then
+  \[ 
+  \frac{\dd}{\dd x} \Delta[A(x)] = \sum_{k=1}^n \Delta_k[A(x)] 
+  \]
+  where $\Delta_k[A(x)]$ is the determinant of the matrix $A$ with the $k^{t h}$
+  row replaced by the derivative of the $k^{t h}$ row.
+\end{Result}
+
+
+
+
+
+
+\begin{Example}
+  Consider the the matrix
+  \[ A(x) = 
+  \begin{pmatrix}
+    x       &       x^2     \\
+    x^2     &       x^4
+  \end{pmatrix}
+  \]
+  The determinant is $x^5 - x^4$ thus the derivative of the determinant is
+  $5x^4 - 4x^3$.  To check the theorem,
+  \begin{align*}
+    \frac{\dd}{\dd x} \Delta[A(x)] &= \frac{\dd}{\dd x}\ 
+    \begin{vmatrix}
+      x       &       x^2     \\
+      x^2     &       x^4
+    \end{vmatrix} \\
+    &=      \begin{vmatrix}
+      1       &       2x      \\
+      x^2     &       x^4
+    \end{vmatrix}  + 
+    \begin{vmatrix}
+      x       &       x^2     \\
+      2x      &       4x^3
+    \end{vmatrix} \\
+    &= x^4-2x^3+ 4x^4 - 2x^3 \\
+    &= 5x^4 - 4x^3.
+  \end{align*}
+\end{Example}
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\subsection{The Wronskian of a Set of Functions.}
+\index{Wronskian}
+A set of functions $\{y_1, y_2, \ldots, y_n\}$ is linearly dependent
+on an interval if  there are constants $c_1, \ldots, c_n$ not all zero
+such that
+\begin{equation}  \label{cy_equals_zero}
+  c_1 y_1 + c_2 y_2 + \cdots + c_n y_n = 0
+\end{equation}
+identically on the interval.  The set is linearly independent if all of the 
+constants must be zero to satisfy $c_1 y_1 + \cdots c_n y_n = 0$ on the 
+interval.
+
+Consider a set of functions $\{y_1, y_2, \ldots, y_n\}$ that are linearly
+dependent on a given interval and $n-1$ times differentiable.  
+There are a set of constants, not all zero, that satisfy 
+equation~\ref{cy_equals_zero}
+
+Differentiating equation~\ref{cy_equals_zero} $n-1$ times gives the equations,
+\begin{gather*}
+  c_1 y_1' + c_2 y_2' + \cdots + c_n y_n' = 0 \\
+  c_1 y_1'' + c_2 y_2'' + \cdots + c_n y_n'' = 0 \\
+  \cdots \\
+  c_1 y_1^{(n-1)} + c_2 y_2^{(n-1)} + \cdots + c_n y_n^{(n-1)} = 0. 
+\end{gather*}
+We could write the problem to find the constants as
+\[
+\begin{pmatrix}
+  y_1             & y_2           & \ldots        &y_n \\
+  y_1'            & y_2'          & \ldots        &y_n' \\
+  y_1''           & y_2''         & \ldots        &y_n'' \\
+  \vdots          & \vdots        & \ddots        & \ldots \\
+  y_1^{(n-1)}     & y_2^{(n-1)}   & \ldots        &y_n^{(n-1)} 
+\end{pmatrix}
+\begin{pmatrix}
+  c_1 \\  c_2 \\  c_3 \\ \vdots \\        c_n
+\end{pmatrix}
+= 0
+\]
+From linear algebra, we know that this equation has a solution for 
+a nonzero constant vector only if the determinant of the matrix is zero.
+Here we define the \textbf{Wronskian} \index{Wronskian} ,$W(x)$, of a set of functions.
+\[
+W(x) = 
+\begin{vmatrix}
+  y_1             & y_2           & \ldots        &y_n \\
+  y_1'            & y_2'          & \ldots        &y_n' \\
+  \vdots          & \vdots        & \ddots        & \ldots \\
+  y_1^{(n-1)}     & y_2^{(n-1)}   & \ldots        &y_n^{(n-1)} 
+\end{vmatrix}
+\]
+Thus if a set of functions is linearly dependent on an interval, then
+the Wronskian is identically zero on that interval.  
+Alternatively, if the Wronskian is identically zero, 
+then the above matrix equation
+has a solution for a nonzero constant vector.  This implies that the 
+the set of functions is linearly dependent.
+
+\begin{Result}
+  The Wronskian of a set of functions vanishes identically over an interval
+  if and only if the set of functions is linearly dependent on that interval.
+  The Wronskian of a set of linearly independent functions does not vanish
+  except possibly at isolated points.
+\end{Result}
+
+
+
+
+
+\begin{Example}
+  Consider the set, $\{x, x^2\}$.  The Wronskian is
+  \begin{align*}
+    W(x)    &=      \begin{vmatrix}
+      x       &       x^2     \\
+      1       &       2x
+    \end{vmatrix} \\
+    &= 2x^2 - x^2 \\
+    &= x^2.
+  \end{align*}
+  Thus the functions are independent.
+\end{Example}
+
+
+
+
+\begin{Example}
+  Consider the set $\{\sin x, \cos x, \e^{\imath x} \}$.  The Wronskian is
+  \[ W(x)    =      \begin{vmatrix}
+    \sin x  &       \cos x  &       \e^{\imath x}         \\
+    \cos x  &       -\sin x &       \imath \e^{\imath x}       \\
+    -\sin x &       -\cos x &       -\e^{\imath x}        
+  \end{vmatrix}.\]
+  Since the last row is a constant multiple of the first row, the determinant
+  is zero.  The functions are dependent.  We could also see this with the
+  identity $\e^{\imath x} = \cos x + \imath \sin x$.
+\end{Example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%--------------------------------------------------------------------------
+\subsection{The Wronskian of the Solutions to a Differential Equation}
+Consider the $n^{t h}$ order linear homogeneous differential equation
+\[ y^{(n)} + p_{n-1}(x) y^{(n-1)} + \cdots + p_0(x) y = 0. \]
+Let $\{y_1, y_2, \ldots, y_n\}$ be any set of $n$ linearly independent 
+solutions.  
+Let $Y(x)$ be the matrix such that $W(x) = \Delta[Y(x)]$.  Now let's 
+differentiate $W(x)$.
+\begin{align*}
+  W'(x)   
+  &= \frac{\dd}{\dd x} \Delta[Y(x)] \\
+  &= \sum_{k=1}^n \Delta_k[Y(x)]
+\end{align*}
+We note that the all but the last term in this sum is zero.  To see this, 
+let's take a look at the first term.
+
+\[ \Delta_1[Y(x)] = 
+\begin{vmatrix}
+  y_1' &          y_2' &          \cdots &        y_n' \\
+  y_1' &          y_2' &          \cdots &        y_n' \\
+  \vdots &        \vdots &        \ddots &        \vdots \\
+  y_1^{(n-1)} &   y_2^{(n-1)} &   \cdots &        y_n^{(n-1)}
+\end{vmatrix}
+\]
+The first two rows in the matrix are identical.  Since the rows are  
+dependent, the determinant is zero.  
+
+The last term in the sum is
+\[ \Delta_n[Y(x)] = 
+\begin{vmatrix}
+  y_1 &           y_2 &           \cdots &        y_n \\
+  \vdots &        \vdots &        \ddots &        \vdots \\
+  y_1^{(n-2)} &   y_2^{(n-2)} &   \cdots &        y_n^{(n-2)} \\
+  y_1^{(n)} &     y_2^{(n)} &     \cdots &        y_n^{(n)}
+\end{vmatrix} .
+\]
+
+In the last row of this matrix we make the substitution $y_i^{(n)} = 
+-p_{n-1}(x) y_i^{(n-1)} - \cdots - p_0(x) y_i$.  Recalling that we can 
+add a multiple of a row to another without changing the determinant, we add
+$p_0(x)$ times the first row, and $p_1(x)$ times the second row, etc., to 
+the last row.  Thus we have the determinant,
+\begin{align*} 
+  W'(x)   &= 
+  \begin{vmatrix}
+    y_1 &           y_2 &           \cdots &        y_n \\
+    \vdots &        \vdots &        \ddots &        \vdots \\
+    y_1^{(n-2)} &   y_2^{(n-2)} &   \cdots &        y_n^{(n-2)} \\
+    -p_{n-1}(x)y_1^{(n-1)} & -p_{n-1}(x)y_2^{(n-1)} & \cdots & 
+    -p_{n-1}(x)y_n^{(n-1)}
+  \end{vmatrix} 
+  \\
+  &= -p_{n-1}(x)\  
+  \begin{vmatrix}
+    y_1 &           y_2 &           \cdots &        y_n \\
+    \vdots &        \vdots &        \ddots &        \vdots \\
+    y_1^{(n-2)} &   y_2^{(n-2)} &   \cdots &        y_n^{(n-2)} \\
+    y_1^{(n-1)} &   y_2^{(n-1)} &   \cdots &        y_n^{(n-1)}
+  \end{vmatrix}
+  \\
+  &= -p_{n-1}(x)W(x)
+\end{align*}
+Thus the Wronskian satisfies the first order differential equation,
+\[ 
+W'(x) = -p_{n-1}(x) W(x). 
+\]
+Solving this equation we get a result known as \textbf{Abel's formula}.
+\index{Abel's formula}
+\[
+W(x) = c\,\exp \left( -\int p_{n-1}(x)\,\dd x \right) 
+\]
+Thus regardless of the particular set of solutions that we choose, we can
+compute their Wronskian up to a constant factor.
+
+
+\begin{Result}
+  The Wronskian of any linearly independent set of solutions to the equation
+  \[ 
+  y^{(n)} + p_{n-1}(x) y^{(n-1)} + \cdots + p_0(x) y = 0 
+  \]
+  is, (up to a multiplicative constant), given by
+  \[
+  W(x) = \exp \left( -\int p_{n-1}(x)\,\dd x \right). 
+  \]
+\end{Result}
+
+
+
+
+\begin{Example}
+  Consider the differential equation
+  \[
+  y'' -3y' + 2y = 0. 
+  \]
+  The Wronskian of the two independent solutions is
+  \begin{align*}
+    W(x)    &= c \exp \left( - \int -3\,\dd x \right) \\
+    &= c \e^{3 x}.
+  \end{align*}
+  For the choice of solutions $\{\e^x, \e^{2x}\}$, the Wronskian is
+  \[ W(x) = 
+  \begin{vmatrix}
+    \e^x     &       \e^{2x}  \\
+    \e^x     &       2\e^{2x}
+  \end{vmatrix}
+  = 2\e^{3x} - \e^{3x} = \e^{3x}.
+  \]
+\end{Example}
+
+
+
+
+
+
+
+
+
+%%=============================================================================
+\section{Well-Posed Problems}
+\index{well-posed problems!linear differential equations}
+\index{ill-posed problems!linear differential equations}
+Consider the initial value problem for an $n^{t h}$ order linear 
+differential equation.
+\begin{gather*}
+  \frac{\dd^n y}{\dd x^n} + p_{n-1}(x) \frac{\dd^{n-1}y}{\dd x^{n-1}} + \cdots
+  + p_1(x) \frac{\dd y}{\dd x} + p_0(x) y = f(x) \\
+  y(x_0) = v_1, \quad y'(x_0) = v_2, \quad \ldots, \quad y^{(n-1)}(x_0) = v_n
+\end{gather*}
+Since the general solution to the differential equation is a linear combination
+of the $n$ homogeneous solutions plus the particular solution
+\[ y = y_p + c_1y_1 + c_2 y_2 + \cdots + c_n y_n, \]
+the problem to find the constants $c_i$ can be written
+\[
+\begin{pmatrix}
+  y_1(x_0)                &y_2(x_0)         &\ldots       &y_n(x_0) \\
+  y_1'(x_0)               &y_2'(x_0)        &\ldots       &y_n'(x_0) \\
+  \vdots                  &\vdots           &\ddots       &\ldots  \\
+  y_1^{(n-1)}(x_0)        &y_2^{(n-1)}(x_0) &\ldots       &y_n^{(n-1)}(x_0) 
+\end{pmatrix}
+\begin{pmatrix}
+  c_1 \\  c_2 \\  \vdots \\       c_n
+\end{pmatrix}
++
+\begin{pmatrix}
+  y_p(x_0) \\     y_p'(x_0) \\    \vdots \\       y_p^{(n-1)}(x_0)
+\end{pmatrix}
+=
+\begin{pmatrix}
+  v_1 \\  v_2 \\  \vdots \\       v_n
+\end{pmatrix} .
+\]
+From linear algebra we know that this system of equations has a unique solution
+only if the determinant of the matrix is nonzero.  Note that the determinant
+of the matrix is just the Wronskian evaluated at $x_0$.  Thus if the Wronskian
+vanishes at $x_0$, the initial value problem for the differential equation 
+either has no solutions or infinitely many solutions.  Such problems are
+said to be ill-posed.  From Abel's formula for the Wronskian
+\[ 
+W(x) = \exp \left( - \int p_{n-1}(x)\,\dd x \right),
+\]
+we see that the only way the Wronskian can vanish is if the value
+of the integral goes to $\infty$. 
+
+
+
+\begin{Example}
+  Consider the initial value problem
+  \[ y'' - \frac{2}{x} y' + \frac{2}{x^2}y = 0, \qquad y(0) = y'(0) = 1.\]
+  The Wronskian 
+  \[ W(x) = \exp\left(-\int -\frac{2}{x}\,\dd x \right)
+  = \exp\left(2 \log x \right)
+  = x^2 \]
+  vanishes at $x = 0$.  Thus this problem is not well-posed.  
+
+  The general solution of the differential equation is
+  \[ y = c_1 x + c_2 x^2.\]
+  We see that the general solution cannot satisfy the initial conditions.
+  If instead we had the initial conditions $y(0) = 0$, $y'(0) = 1$,
+  then there would be an infinite number of solutions.
+\end{Example}
+
+
+
+
+
+\begin{Example}
+  Consider the initial value problem
+  \[ y'' - \frac{2}{x^2}y = 0, \qquad y(0) = y'(0) = 1.\]
+  The Wronskian
+  \[W(x) = \exp \left(- \int 0\,\dd x \right) = 1\]
+  does not vanish anywhere.  However, this problem is not well-posed.
+
+  The general solution,
+  \[ y = c_1 x^{-1} + c_2 x^2,\]
+  cannot satisfy the initial conditions.  Thus we see that a non-vanishing
+  Wronskian does not imply that the problem is well-posed.
+\end{Example}
+
+
+
+
+
+
+
+
+\begin{Result}
+  Consider the initial value problem
+  \begin{gather*}
+    \frac{\dd^n y}{\dd x^n} + p_{n-1}(x) \frac{\dd^{n-1}y}{\dd x^{n-1}} + \cdots
+    + p_1(x) \frac{\dd y}{\dd x} + p_0(x) y = 0 \\
+    y(x_0) = v_1, \quad y'(x_0) = v_2, \quad \ldots, \quad y^{(n-1)}(x_0) = v_n.
+  \end{gather*}
+  If the Wronskian 
+  \[ 
+  W(x) = \exp \left( - \int p_{n-1}(x)\,d x \right)
+  \]
+  vanishes at $x=x_0$ then the problem is ill-posed.  
+  The problem may be ill-posed even if the Wronskian does not vanish.
+\end{Result}
+
+
+
+
+
+
+
+
+
+
+
+
+%%=============================================================================
+\section{The Fundamental Set of Solutions}
+\label{section The Fundamental Set of Solutions}
+\index{fundamental set of solutions!of a differential equation}
+
+Consider a set of linearly independent solutions $\{u_1, u_2, \ldots, u_n\}$  
+to an $n^{t h}$ order linear 
+homogeneous differential equation. 
+This is called the 
+\textbf{fundamental set of solutions at} $\mathbf{x_0}$ 
+if they satisfy the relations
+\[
+\begin{matrix}
+  u_1(x_0) = 1    &u_2(x_0) = 0           &\ldots         &u_n(x_0)=0 \\
+  u_1'(x_0) = 0   &u_2'(x_0) = 1          &\ldots         &u_n'(x_0)=0 \\
+  \vdots          &\vdots                 &\ddots         &\vdots \\
+  u_1^{(n-1)}(x_0) = 0    &u_2^{(n-1)}(x_0) = 0   &\ldots &u_n^{(n-1)}(x_0)=1 
+\end{matrix}
+\]
+
+Knowing the fundamental set of solutions is handy because it makes 
+the task of solving an initial value problem trivial.  Say we are given the
+initial conditions,
+\[ y(x_0) = v_1, \quad y'(x_0) = v_2, \quad \ldots, \quad
+y^{(n-1)}(x_0) = v_n.\]
+If the $u_i$'s are a fundamental set then the solution that satisfies 
+these constraints  is just
+\[ y = v_1 u_1(x) + v_2 u_2(x) + \cdots + v_n u_n(x).\]
+
+Of course in general, a set of solutions is not the fundamental set.
+If the Wronskian of the solutions is nonzero and finite we can
+generate a fundamental set of solutions that are linear combinations
+of our original set.  Consider the case of a second order equation
+Let $\{y_1, y_2\}$ be two linearly independent solutions.  We will
+generate the fundamental set of solutions, $\{u_1, u_2\}$.
+
+\[
+\begin{pmatrix}
+  u_1 \\ u_2 
+\end{pmatrix}
+=
+\begin{pmatrix}
+  c_{11}  &c_{12} \\
+  c_{21}  &c_{22} 
+\end{pmatrix}
+\begin{pmatrix}
+  y_1 \\  y_2 
+\end{pmatrix}
+\]
+For $\{u_1, u_2\}$ to satisfy the relations that define a
+fundamental set, it must satisfy the matrix equation
+\[
+\begin{pmatrix}
+  u_1(x_0)        &u_1'(x_0) \\
+  u_2(x_0)       &u_2'(x_0)
+\end{pmatrix}
+=
+\begin{pmatrix}
+  c_{11}  &c_{12} \\
+  c_{21}  &c_{22} 
+\end{pmatrix}
+\begin{pmatrix}
+  y_1(x_0)                &y_1'(x_0) \\
+  y_2(x_0)               &y_2'(x_0) 
+\end{pmatrix}
+=
+\begin{pmatrix}
+  1       &0 \\
+  0       &1
+\end{pmatrix}
+\]
+\[
+\begin{pmatrix}
+  c_{11}  &c_{12} \\
+  c_{21}  &c_{22} 
+\end{pmatrix}
+=
+\begin{pmatrix}
+  y_1(x_0)                &y_1'(x_0) \\
+  y_2(x_0)               &y_2'(x_0) 
+\end{pmatrix}^{-1}
+\]
+If the Wronskian is non-zero and finite, we can solve for the constants,
+$c_{i j}$, and thus find the fundamental set of solutions.
+To generalize this result to an equation of order $n$, simply 
+replace all the $2 \times 2$ matrices and vectors of length 2 with  
+$n \times n$
+matrices and vectors of length $n$.  I presented the case of $n=2$ simply
+to save having to write out all the ellipses involved in the general case.
+(It also makes for easier reading.)
+
+
+
+
+
+\begin{Example}
+  Two linearly independent solutions to the differential equation $y'' + y = 0$
+  are $y_1 = \e^{\imath x}$ and $y_2 = \e^{-\imath x}$.
+  \[
+  \begin{pmatrix}
+    y_1(0)                &y_1'(0) \\
+    y_2(0)               &y_2'(0) 
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    1 & \imath \\
+    1 & -i
+  \end{pmatrix}
+  \]
+  To find the fundamental set of solutions, $\{u_1, u_2\}$, at $x=0$ we solve the
+  equation
+  \[
+  \begin{pmatrix}
+    c_{11}  &c_{12} \\
+    c_{21}  &c_{22} 
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    1 & \imath \\
+    1 & -\imath
+  \end{pmatrix}^{-1}
+  \]
+  \[
+  \begin{pmatrix}
+    c_{11}  &c_{12} \\
+    c_{21}  &c_{22} 
+  \end{pmatrix}
+  =
+  \frac{1}{\imath 2}
+  \begin{pmatrix}
+    \imath & \imath \\
+    1 & -1
+  \end{pmatrix}
+  \]
+  The fundamental set is
+  \[ u_1 = \frac{\e^{\imath x} + \e^{-\imath x}}{2}, \qquad u_2 = \frac{\e^{\imath x}
+    -\e^{-\imath x}}{\imath 2}.\]
+  Using trigonometric identities we can rewrite these as
+  \[ u_1 = \cos x, \qquad u_2 = \sin x. \]
+\end{Example}
+
+
+
+\begin{Result}
+  The fundamental set of solutions at $x=x_0$, $\{u_1, u_2, \ldots, u_n\}$,
+  to an $n^{t h}$ order linear differential equation, satisfy the relations
+  \[
+  \begin{matrix}
+    u_1(x_0) = 1    &u_2(x_0) = 0           &\ldots         &u_n(x_0)=0 \\
+    u_1'(x_0) = 0   &u_2'(x_0) = 1          &\ldots         &u_n'(x_0)=0 \\
+    \vdots          &\vdots                 &\ddots         &\vdots \\
+    u_1^{(n-1)}(x_0) = 0    &u_2^{(n-1)}(x_0) = 0   &\ldots &u_n^{(n-1)}(x_0)=1. 
+  \end{matrix}
+  \]
+  If the Wronskian of the solutions is nonzero and finite at the point
+  $x_0$ then you can generate the fundamental set of solutions
+  from any linearly independent set of solutions.
+\end{Result}
+
+
+
+
+
+
+
+%% Fundamental set of solutions of $y''-y=0$.
+\begin{Exercise}
+  \label{exercise fundamental set y-y=0}
+  Two solutions of $y'' - y = 0$ are $\e^x$ and $\e^{-x}$.  Show that the 
+  solutions are independent.  Find the fundamental set of solutions at
+  $x = 0$.
+
+  \hintsolution{fundamental set y-y=0}
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+%%=============================================================================
+\section{Adjoint Equations}
+\label{sec_adj_eqn}
+\index{adjoint!of a differential operator}
+
+For the $n^{t h}$ order linear differential operator
+\[ 
+L[y] = p_n \frac{\dd^n y}{\dd x^n} + p_{n-1} \frac{\dd^{n-1} y}{\dd x^{n-1}} + \cdots + p_0 y
+\]
+(where the $p_j$ are complex-valued functions) we define the adjoint of L
+\[ 
+L^*[y] = (-1)^n \frac{\dd^n}{\dd x^n} (\overline{p_n} y) + (-1)^{n-1} 
+\frac{\dd^{n-1}}{\dd x^{n-1}}(\overline{p_{n-1}} y) + \cdots + \overline{p_0} y. 
+\]
+Here $\overline{f}$ denotes the complex conjugate of $f$.
+
+
+
+
+\begin{Example}
+  \[ L[y] = x y'' + \frac{1}{x} y' + y \]
+  has the adjoint
+  \begin{align*} 
+    L^*[y] &= \frac{\dd^2}{\dd x^2}[x y] 
+    - \frac{\dd}{\dd x} \left[ \frac{1}{x} y\right] + y \\
+    &= x y'' + 2y' - \frac{1}{x} y' + \frac{1}{x^2} y + y \\
+    &= x y'' + \left(2 - \frac{1}{x} \right) y' + \left( 1 + \frac{1}{x^2}
+    \right) y.
+  \end{align*}
+  Taking the adjoint of $L^*$ yields
+  \begin{align*}
+    L^{**}[y] &= \frac{\dd^2}{\dd x^2}[x y] 
+    - \frac{\dd}{\dd x} \left[ \left(2 - \frac{1}{x}
+      \right) y \right] + \left( 1 + \frac{1}{x^2} \right) y \\
+    &= x y'' + 2y' - \left(2 - \frac{1}{x} \right) y' - \left(
+      \frac{1}{x^2} \right) y + \left(1 + \frac{1}{x^2} 
+    \right) y \\
+    &= x y'' + \frac{1}{x} y' + y.
+  \end{align*}
+  Thus by taking the adjoint of $L^*$, we obtain the original operator.
+\end{Example}
+
+
+
+
+In general, $L^{**} = L$.
+
+
+
+Consider $L[y] = p_n y^{(n)} + \cdots + p_0 y$.  If each of the
+$p_k$ is $k$ times continuously differentiable and $u$ and $v$ are 
+$n$ times continuously differentiable on some interval, then on that
+interval
+\[ \overline{v}L[u] - u \overline{L^*[v]} = \frac{\dd}{\dd x} B[u,v] \]
+where $B[u,v]$, the \textbf{bilinear concomitant},  is the bilinear form
+\index{bilinear concomitant}
+\[ B[u,v] = \sum_{m=1}^n \ \sum_{\substack{ j+k=m-1 \\ j\geq 0, k \geq 0 }}
+(-1)^j u^{(k)} (p_m \overline{v})^{(j)}.\]
+This equation is known as \textbf{Lagrange's identity}.
+\index{Lagrange's identity}
+If $L$ is a second order operator then
+\begin{align*}
+  \overline{v} L[u] - u \overline{L^*[v]} &= \frac{\dd}{\dd x} \big[ u p_1 \overline{v} + u' p_2 \overline{v} 
+  - u (p_2 \overline{v})' \big] \\
+  &= u'' p_2 \overline{v} + u' p_1 \overline{v} + u \big[ -p_2 \overline{v}'' + (-2 p_2' 
+  + p_1) \overline{v}' + (-p_2'' + p_1')\overline{v} \big].
+\end{align*}
+
+
+
+
+\begin{Example}
+  Verify Lagrange's identity for the second order operator, $L[y] = p_2 y''
+  + p_1 y' + p_0 y$.
+  \begin{align*}
+    \overline{v} L[u] - u \overline{L^*[v]}
+    &= \overline{v} (p_2 u'' + p_1 u' + p_0 u) - u \overline{\left( \frac{\dd^2}{\dd x^2}
+        (\overline{p_2} v) - \frac{\dd}{\dd x}(\overline{p_1} v) + \overline{p_0} v\right)}\\
+    &= \overline{v} (p_2 u'' + p_1 u' + p_0 u) - u \overline{( \overline{p_2} v'' + 
+      (2\overline{p_2}' - \overline{p_1}) v' + (\overline{p_2}'' - \overline{p_1}' + \overline{p_0}
+      ) v )} \\
+    &= u'' p_2 \overline{v} + u' p_1 \overline{v} + u \big[ -p_2 \overline{v}'' 
+    + (-2 p_2' + p_1)
+    \overline{v}' + (-p_2'' + p_1')\overline{v}\big].
+  \end{align*}
+\end{Example}
+
+
+We will not verify Lagrange's identity for the general case.
+
+Integrating Lagrange's identity on its interval of validity
+gives us \textbf{Green's formula}.
+\index{Green's formula}
+\[ \int_a^b \left( \overline{v} L[u] - u \overline{L^*[v]} \right)\,\dd x = 
+B[u,v] \big|_{x=b} - B[u,v] \big|_{x=a} \]
+
+
+
+
+\begin{Result}
+  The adjoint of the operator
+  \[ 
+  L[y] = p_n \frac{\dd^n y}{\dd x^n} + p_{n-1} \frac{\dd^{n-1} y}{\dd x^{n-1}} + \cdots + p_0 y
+  \]
+  is defined
+  \[ 
+  L^*[y] = (-1)^n \frac{\dd^n}{\dd x^n} (\overline{p_n} y) + (-1)^{n-1}
+  \frac{\dd^{n-1}}{\dd x^{n-1}}(\overline{p_{n-1}} y) + \cdots + \overline{p_0} y. 
+  \]
+  If each of the $p_k$ is $k$ times continuously differentiable and $u$ and
+  $v$ are $n$ times continuously differentiable, then Lagrange's identity states
+  \[ 
+  \overline{v}L[y] - u \overline{L^*[v]} = \frac{\dd}{\dd x} B[u,v]
+  = \frac{\dd}{\dd x} \sum_{m=1}^n \ \sum_{\substack{ j+k=m-1 \\ j\geq 0, 
+      k \geq 0 }} (-1)^j u^{(k)} (p_m \overline{v})^{(j)}.
+  \]
+  Integrating Lagrange's identity on its domain of validity yields
+  Green's formula,
+  \[ 
+  \int_a^b \left( \overline{v} L[u] - u \overline{L^*[v]} \right)\,\dd x =
+  B[u,v] \big|_{x=b} - B[u,v] \big|_{x=a}. 
+  \]
+\end{Result}
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+%%=============================================================================
+\exercises{
+\pagebreak
+\flushbottom
+\section{Additional Exercises}
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Exact Equations}
+\end{large}
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Nature of Solutions}
+\end{large}
+
+
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Transformation to a First Order System}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Wronskian}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Well-Posed Problems}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Fundamental Set of Solutions}
+\end{large}
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Adjoint Equations}
+\end{large}
+
+
+
+
+
+%% adjoint x^2 y'' + x y' + (x^2 - \nu^2) y = 0.
+\begin{Exercise}
+  \label{exercise adjoint x2yxyx2nu2y=0}
+  Find the adjoint of the Bessel equation of order $\nu$,
+  \[
+  x^2 y'' + x y' + (x^2 - \nu^2) y = 0,
+  \]
+  and the Legendre equation of order $\alpha$,
+  \[
+  (1-x^2) y'' - 2 x y' + \alpha (\alpha+1) y = 0.
+  \]
+
+  \hintsolution{adjoint x2yxyx2nu2y=0}
+\end{Exercise}
+
+
+
+
+
+
+%% Find the adjoint of \[ x^2 y'' - x y' + 3 y = 0. \]
+\begin{Exercise}
+  \label{exercise adjoint x2yxy3y=0}
+  Find the adjoint of 
+  \[ 
+  x^2 y'' - x y' + 3 y = 0. 
+  \]
+
+  \hintsolution{adjoint x2yxy3y=0}
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+{
+}
+%%=============================================================================
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+
+%% second order exact
+\begin{Hint}
+  \label{hint second order exact}
+  %% CONTINUE
+\end{Hint}
+
+
+%% second order integrating factor
+\begin{Hint}
+  \label{hint second order integrating factor}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+%% y'' + x y' + y = 0.
+\begin{Hint}
+  \label{hint yxyy=0}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+%% x y'' + 3 y = x
+\begin{Hint}
+  \label{hint xy3y=x}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+%% Three particular solutions.
+\begin{Hint}
+  \label{hint 3 particular soln}
+  The difference of any two of the $u_i$'s is a homogeneous solution.
+\end{Hint}
+
+
+
+
+%% Fundamental set of solutions of $y''-y=0$.
+\begin{Hint}
+  \label{hint fundamental set y-y=0}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+\hints{
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Exact Equations}
+\end{large}
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Nature of Solutions}
+\end{large}
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Transformation to a First Order System}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Wronskian}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Well-Posed Problems}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Fundamental Set of Solutions}
+\end{large}
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Adjoint Equations}
+\end{large}
+
+
+
+
+
+%% adjoint x^2 y'' + x y' + (x^2 - \nu^2) y = 0.
+\begin{Hint}
+  \label{hint adjoint x2yxyx2nu2y=0}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+%% Find the adjoint of \[ x^2 y'' - x y' + 3 y = 0. \]
+\begin{Hint}
+  \label{hint adjoint x2yxy3y=0}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+\raggedbottom
+%%=============================================================================
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+
+
+
+%% second order exact
+\begin{Solution}
+  \label{solution second order exact}
+  The second order, linear, homogeneous differential equation is
+  \begin{equation}
+    \label{2nd_lin_hom_de}
+    P(x) y'' + Q(x) y' + R(x) y = 0.
+  \end{equation}
+  An exact equation can be written in the form:
+  \[
+  \frac{\dd}{\dd x} \left[ a(x) y' + b(x) y \right] = 0.
+  \]
+  If Equation~\ref{2nd_lin_hom_de} is exact, then we can write it in
+  the form:
+  \[
+  \frac{\dd}{\dd x} \left[ P(x) y' + f(x) y \right] = 0
+  \]
+  for some function $f(x)$.  We carry out the differentiation to 
+  write the equation in standard form:
+  \begin{equation}
+    \label{2nd_lin_hom_ex_de}
+    P(x) y'' + \left( P'(x) + f(x) \right) y' + f'(x) y = 0
+  \end{equation}
+  We equate the coefficients of Equations~\ref{2nd_lin_hom_de} and 
+  ~\ref{2nd_lin_hom_ex_de} to obtain a set of equations.
+  \[
+  P'(x) + f(x) = Q(x), \quad f'(x) = R(x).
+  \]
+  In order to eliminate $f(x)$, 
+  we differentiate the first equation and substitute in the expression for
+  $f'(x)$ from the second equation.  This gives us a \textit{necessary}
+  condition for Equation~\ref{2nd_lin_hom_de} to be exact:
+  \begin{equation}
+    \label{equation P''-Q'+R=0}
+    \boxed{
+      P''(x) - Q'(x) + R(x) = 0
+      }
+  \end{equation}
+  Now we demonstrate that Equation~\ref{equation P''-Q'+R=0} is a 
+  \textit{sufficient} condition for exactness. Suppose that
+  Equation~\ref{equation P''-Q'+R=0} holds.  Then we can replace
+  $R$ by $Q' - P''$ in the differential equation.
+  \[
+  P y'' + Q y' + (Q' - P'') y = 0
+  \]
+  We recognize the right side as an exact differential.
+  \[
+  (P y' + (Q - P') y)' = 0
+  \]
+  Thus Equation~\ref{equation P''-Q'+R=0} is a sufficient condition 
+  for exactness.  We can integrate to reduce the problem to a first 
+  order differential equation.
+  \[
+  P y' + (Q - P') y = c
+  \]
+\end{Solution}
+
+
+  
+
+%% second order integrating factor
+\begin{Solution}
+  \label{solution second order integrating factor}
+  Suppose that there is an integrating factor $\mu(x)$ that will make 
+  \[
+  P(x) y'' + Q(x) y' + R(x) y = 0
+  \]
+  exact.  We multiply by this integrating factor.
+  \begin{equation}
+    \label{2nd_lin_hom_de_int_fac}
+    \mu(x) P(x) y'' + \mu(x) Q(x) y' + \mu(x) R(x) y = 0.
+  \end{equation}
+  We apply the exactness condition from 
+  Exercise~\ref{exercise second order exact} to obtain a differential
+  equation for the integrating factor.
+  \begin{gather*}
+    (\mu P)'' - (\mu Q)' + \mu R = 0
+    \\
+    \mu'' P + 2 \mu' P' + \mu P'' - \mu' Q - \mu Q' + \mu R = 0
+    \\
+    \boxed{
+      P \mu'' + (2 P' - Q) \mu' + (P'' - Q' + R) \mu = 0
+      }
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+%% y'' + x y' + y = 0.
+\begin{Solution}
+  \label{solution yxyy=0}
+  We consider the differential equation,
+  \[
+  y'' + x y' + y = 0.
+  \]
+  Since
+  \[
+  (1)'' - (x)' + 1 = 0
+  \]
+  we see that this is an exact equation.  We rearrange terms to form 
+  exact derivatives and then integrate.
+  \begin{gather*}
+    (y')' + (x y)' = 0 \\
+    y' + x y = c \\
+    \frac{\dd}{\dd x} \left[ \e^{x^2 / 2} y \right] = c \e^{x^2 / 2} \\
+    \boxed{
+      y = c \e^{-x^2 / 2} \int \e^{x^2 / 2}\,\dd x + d \e^{-x^2 / 2}
+      }
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+%% x y'' + 3 y = x
+\begin{Solution}
+  \label{solution xy3y=x}
+  Consider the initial value problem,
+  \begin{gather*}
+    y'' + p(x) y' + q(x) y = f(x), \\
+    y(x_0) = y_0, \quad y'(x_0) = y_1.
+  \end{gather*}
+  If $p(x)$, $q(x)$ and $f(x)$ are continuous on an interval $(a \ldots b)$ with
+  $x_0 \in (a \ldots b)$, then the problem has a unique solution on that interval.
+
+  \begin{enumerate}
+    %%
+    %%
+  \item
+    \begin{gather*}
+      x y'' + 3 y = x \\
+      y'' + \frac{3}{x} y = 1
+    \end{gather*}
+    Unique solutions exist on the intervals $(-\infty \ldots 0)$ and 
+    $(0 \ldots \infty)$.
+    %%
+    %%
+  \item
+    \begin{gather*}
+      x (x-1) y'' + 3 x y' + 4 y = 2 \\
+      y'' + \frac{3}{x-1} y' + \frac{4}{x(x-1)} y = \frac{2}{x(x-1)}
+    \end{gather*}
+    Unique solutions exist on the intervals $(-\infty \ldots 0)$, $(0 \ldots 1)$ and 
+    $(1 \ldots \infty)$.
+    %%
+    %%
+  \item
+    \begin{gather*}
+      \e^x y'' + x^2 y' + y = \tan x \\
+      y'' + x^2 \e^{-x} y' + \e^{-x} y = \e^{-x} \tan x
+    \end{gather*}
+    Unique solutions exist on the intervals 
+    $\left( \frac{(2n-1) \pi}{2} \ldots \frac{(2n+1)\pi}{2} \right)$ for
+    $n \in \mathbb{Z}$.
+  \end{enumerate}
+\end{Solution}
+
+
+
+
+
+
+%% Three particular solutions.
+\begin{Solution}
+  \label{solution 3 particular soln}
+  We know that the general solution is 
+  \[
+  y = y_p + c_1 y_1 + c_2 y_2,
+  \]
+  where $y_p$ is a particular solution and $y_1$ and $y_2$ are linearly 
+  independent homogeneous solutions.  Since $y_p$ can be any particular solution,
+  we choose $y_p$ = $u_1$.  Now we need to find two homogeneous solutions.
+  Since $L[u_i] = f(x)$, $L[u_1 - u_2] = L[u_2-u_3] = 0$.  Finally, we note that 
+  since the $u_i$'s are linearly independent, $y_1 = u_1 - u_2$ and 
+  $y_2 = u_2 - u_3$ are linearly independent.  Thus the general solution is
+  \[ 
+  \boxed{ 
+    y = u_1 + c_1(u_1-u_2) + c_2(u_2-u_3).
+    } 
+  \]
+\end{Solution}
+
+
+
+
+%% Fundamental set of solutions of $y''-y=0$.
+\begin{Solution}
+  \label{solution fundamental set y-y=0}
+  The Wronskian of the solutions is
+  \[ 
+  W(x) =       \begin{vmatrix}
+    \e^x     &       \e^{-x}  \\
+    \e^x     &       -\e^{-x}
+  \end{vmatrix}
+  = -2. 
+  \]
+  Since the Wronskian is nonzero, the solutions are independent.
+
+  The fundamental set of solutions, $\{u_1, u_2\}$, is a linear combination
+  of $\e^x$ and $\e^{-x}$.
+  \[
+  \begin{pmatrix}
+    u_1 \\
+    u_2
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    c_{11} & c_{12} \\
+    c_{21} & c_{22}
+  \end{pmatrix}
+  \begin{pmatrix}
+    \e^x \\
+    \e^{-x}
+  \end{pmatrix}
+  \]
+  The coefficients are
+  \begin{align*}
+    \begin{pmatrix}
+      c_{11} & c_{12} \\
+      c_{21} & c_{22}
+    \end{pmatrix}
+    &=
+    \begin{pmatrix}
+      \e^0 & \e^0 \\
+      \e^{-0} & - \e^{-0}
+    \end{pmatrix}^{-1} \\
+    &=
+    \begin{pmatrix}
+      1 & 1 \\
+      1 & -1
+    \end{pmatrix}^{-1} \\
+    &=
+    \frac{1}{-2}
+    \begin{pmatrix}
+      -1 & -1 \\
+      -1 & 1
+    \end{pmatrix} \\
+    &=
+    \frac{1}{2}
+    \begin{pmatrix}
+      1 & 1 \\
+      1 & -1
+    \end{pmatrix} 
+  \end{align*}
+  \[ 
+  u_1 = \frac{1}{2} (\e^x + \e^{-x}), \qquad u_2 = \frac{1}{2}(\e^x-\e^{-x}).
+  \]
+  The fundamental set of solutions at $x = 0$ is 
+  \[ 
+  \boxed{ 
+    \{\cosh x, \sinh x\}.
+    } 
+  \]
+\end{Solution}
+
+
+
+
+
+
+
+
+\solutions{
+
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Exact Equations}
+\end{large}
+
+
+
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Nature of Solutions}
+\end{large}
+
+
+
+
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Transformation to a First Order System}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Wronskian}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Well-Posed Problems}
+\end{large}
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Fundamental Set of Solutions}
+\end{large}
+
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Adjoint Equations}
+\end{large}
+
+
+
+
+%% adjoint x^2 y'' + x y' + (x^2 - \nu^2) y = 0.
+\begin{Solution}
+  \label{solution adjoint x2yxyx2nu2y=0}
+  \begin{enumerate}
+    %%
+    %%
+  \item
+    The Bessel equation of order $\nu$ is
+    \[
+    x^2 y'' + x y' + (x^2 - \nu^2) y = 0.
+    \]
+    The adjoint equation is
+    \begin{gather*}
+      x^2 \mu'' + (4 x - x) \mu' + (2 - 1 + x^2 - \nu^2) \mu = 0 \\
+      \boxed{
+        x^2 \mu'' + 3 x \mu' + (1 + x^2 - \nu^2) \mu = 0.
+        }
+    \end{gather*}
+    %%
+    %%
+  \item
+    The Legendre equation of order $\alpha$ is
+    \[
+    (1-x^2) y'' - 2 x y' + \alpha (\alpha+1) y = 0
+    \]
+    The adjoint equation is
+    \begin{gather*}
+      (1-x^2) \mu'' + (-4x + 2 x) \mu' + (-2 + 2 + \alpha (\alpha+1) ) \mu = 0 \\
+      \boxed{
+        (1-x^2) \mu''  - 2 x \mu' + \alpha (\alpha+1) \mu = 0 
+        }
+    \end{gather*}
+  \end{enumerate}
+\end{Solution}
+
+
+
+
+
+
+
+%% Find the adjoint of \[ x^2 y'' - x y' + 3 y = 0. \]
+\begin{Solution}
+  \label{solution adjoint x2yxy3y=0}
+  The adjoint of 
+  \[ 
+  x^2 y'' - x y' + 3 y = 0 
+  \]
+  is
+  \begin{gather*}
+    \frac{\dd^2}{\dd x^2}(x^2 y) + \frac{\dd}{\dd x}(x y) + 3 y = 0 \\
+    (x^2 y'' + 4x y' + 2y) + (x y' + y) + 3y = 0 \\
+    \boxed{ 
+      x^2 y'' + 5x y' + 6 y = 0. 
+      }
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+}
+
+
+\raggedbottom
+%%=============================================================================
+\pagebreak
+\flushbottom
+\section{Quiz}
+
+
+\begin{QuizProblem}
+  \label{quiz problem y = c1 sin( 2 x + c2 )}
+  What is the differential equation whose solution is the two parameter 
+  family of curves $y = c_1 \sin( 2 x + c_2 )$?
+
+  \quizsolution{y = c1 sin( 2 x + c2 )}
+\end{QuizProblem}
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+%%=============================================================================
+\pagebreak
+\flushbottom
+\section{Quiz Solutions}
+
+
+\begin{QuizSolution}
+  \label{quiz solution y = c1 sin( 2 x + c2 )}
+  We take the first and second derivative of $y = c_1 \sin( 2 x + c_2 )$.
+  \begin{gather*}
+    y' = 2 c_1 \cos( 2 x + c_2 ) 
+    \\
+    y'' = -4 c_1 \sin( 2 x + c_2 ) 
+  \end{gather*}
+  This gives us three equations involving $x$, $y$, $y'$, $y''$ and the 
+  parameters $c_1$ and $c_2$.  We eliminate the the parameters to 
+  obtain the differential equation.  Clearly we have,
+  \[
+  y'' + 4 y = 0.
+  \]
+\end{QuizSolution}
+
+
+
+
+
+\raggedbottom

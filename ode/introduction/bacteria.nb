@@ -1,0 +1,189 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4633,        137]*)
+(*NotebookOutlinePosition[      5281,        160]*)
+(*  CellTagsIndexPosition[      5237,        156]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(axis = 
+        Plot[{}, {t, 0, 4}, PlotRange \[Rule] {{0, 4}, {0, 16}}, 
+          Ticks \[Rule] {{1, 2, 3, 4}, {4, 8, 12, 16}}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(s1 = 
+        Show[Graphics[{\[IndentingNewLine]Line[{{0, 1}, {1, 1}, {1, 2}, {2, 
+                    2}, {2, 4}, {3, 4}, {3, 8}, {4, 8}, {4, 
+                    16}}]\[IndentingNewLine]}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p1 = Show[axis, s1];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(s2 = 
+        Show[Graphics[{\[IndentingNewLine]Line[{{0, 1}, {1/2, 1}, {1/2, 
+                    2}, {3/2, 2}, {3/2, 4}, {5/2, 4}, {5/2, 8}, {7/2, 
+                    8}, {7/2, 16}, {4, 
+                    16}}]\[IndentingNewLine]}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p2 = Show[axis, s2];\)\)], "Input"],
+
+Cell["Save as bacteria1.eps.", "Text"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{p1, p2}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(16*8\)], "Input"],
+
+Cell[BoxData[
+    \(128/4\)], "Input"],
+
+Cell[BoxData[
+    \(\(axis = 
+        Plot[{}, {t, 0, 4}, PlotRange \[Rule] {{0, 4}, {0, 128}}, 
+          Ticks \[Rule] {{1, 2, 3, 4}, {32, 64, 96, 128}}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(s = 
+        Show[Graphics[{\[IndentingNewLine]Line[{{0, 8}, {0 + 1/8, 
+                    8 + 1}, {0 + 2/8, 
+                    8 + 2}, {\(0 + \(\(/\)\(8\)\)\)\(,\)}, {\(0 + \
+\(\(/\)\(8\)\)\)\(,\)}, {\(0 + \(\(/\)\(8\)\)\)\(,\)}, {\(0 + \
+\(\(/\)\(8\)\)\)\(,\)}, {\(0 + \(\(/\)\(8\)\)\)\(,\)}, {\(0 + \
+\(\(/\)\(8\)\)\)\(,\)}, {\(0 + \(\(/\)\(8\)\)\)\(,\)}, {\(0 + \
+\(\(/\)\(8\)\)\)\(,\)}, {1/2, 1}, {1/2, 2}, {1, 2}, {2, 2}, {2, 4}, {3, 
+                    4}, {3, 8}, {4, 8}, {4, 
+                    16}}]\[IndentingNewLine]}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(Flatten[Table[{{n/8, 8 + n}, {\((n + 1)\)/8, 8 + n}}, {n, 0, 7}], 
+      1]\)], "Input"],
+
+Cell[BoxData[
+    \(\(s = 
+        Show[Graphics[{\[IndentingNewLine]Line[
+                Flatten[
+                  Table[{{n/8, 8 + n}, {\((n + 1)\)/8, 8 + n}}, {n, 0, 8}], 
+                  1]], \[IndentingNewLine]Line[
+                Flatten[
+                  Table[{{1 + n/8, 16 + 2  n}, {1 + \((n + 1)\)/8, 
+                        16 + 2  n}}, {n, 0, 8}], 1]], \[IndentingNewLine]Line[
+                Flatten[
+                  Table[{{2 + n/8, 32 + 4  n}, {2 + \((n + 1)\)/8, 
+                        32 + 4  n}}, {n, 0, 8}], 1]], \[IndentingNewLine]Line[
+                Flatten[
+                  Table[{{3 + n/8, 64 + 8  n}, {3 + \((n + 1)\)/8, 
+                        64 + 8  n}}, {n, 0, 8}], 
+                  1]]\[IndentingNewLine]}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p1 = Show[axis, s];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(x = Plot[8*2^t, {t, 0, 4}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p2 = Show[axis, s, x];\)\)], "Input"],
+
+Cell["Save as bacteria8.eps.", "Text"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{p1, p2}]];\)\)], "Input"]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{673, 942},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 167, 3, 85, "Input"],
+Cell[1875, 55, 229, 4, 108, "Input"],
+Cell[2107, 61, 57, 1, 39, "Input"],
+Cell[2167, 64, 275, 5, 131, "Input"],
+Cell[2445, 71, 57, 1, 39, "Input"],
+Cell[2505, 74, 38, 0, 46, "Text"],
+Cell[2546, 76, 67, 1, 39, "Input"],
+Cell[2616, 79, 37, 1, 39, "Input"],
+Cell[2656, 82, 38, 1, 39, "Input"],
+Cell[2697, 85, 171, 3, 85, "Input"],
+Cell[2871, 90, 574, 10, 200, "Input"],
+Cell[3448, 102, 108, 2, 62, "Input"],
+Cell[3559, 106, 771, 15, 407, "Input"],
+Cell[4333, 123, 56, 1, 39, "Input"],
+Cell[4392, 126, 64, 1, 39, "Input"],
+Cell[4459, 129, 59, 1, 39, "Input"],
+Cell[4521, 132, 38, 0, 46, "Text"],
+Cell[4562, 134, 67, 1, 39, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

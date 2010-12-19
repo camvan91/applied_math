@@ -1,0 +1,157 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2796,         99]*)
+(*NotebookOutlinePosition[      3454,        123]*)
+(*  CellTagsIndexPosition[      3410,        119]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\[Xi][x_, t_] := 
+      xi /. First[
+          FindRoot[
+            x \[Equal] xi + \((1 - Exp[\(-xi\^2\)])\) t, {xi, x}]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+        GraphicsArray[
+          Table[Plot[
+              1 - Exp[\(-\[Xi][x, tt[\([2*i + j + 1]\)]]\^2\)], {x, \(-3\), 
+                3}], {i, 0, 1}, {j, 0, 1}]\[IndentingNewLine]]];\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[1 - Exp[\(-x^2\)], x]\)], "Input"],
+
+Cell[BoxData[
+    \(2\ \[ExponentialE]\^\(-x\^2\)\ x\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[1 - Exp[\(-x^2\)], {x, 2}]\)], "Input"],
+
+Cell[BoxData[
+    \(2\ \[ExponentialE]\^\(-x\^2\) - 
+      4\ \[ExponentialE]\^\(-x\^2\)\ x\^2\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[% \[Equal] 0, x]\)], "Input"],
+
+Cell[BoxData[
+    \({{x \[Rule] \(-\(1\/\@2\)\)}, {x \[Rule] 1\/\@2}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Exp[0.5]/\@2\)], "Input"],
+
+Cell[BoxData[
+    \(1.1658219907985623`\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{628, 783},
+WindowMargins->{{-4, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 156, 4, 97, "Input"],
+Cell[1876, 55, 229, 5, 130, "Input"],
+
+Cell[CellGroupData[{
+Cell[2130, 64, 56, 1, 39, "Input"],
+Cell[2189, 67, 66, 1, 48, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2292, 73, 61, 1, 39, "Input"],
+Cell[2356, 76, 108, 2, 48, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2501, 83, 55, 1, 39, "Input"],
+Cell[2559, 86, 83, 1, 66, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2679, 92, 45, 1, 58, "Input"],
+Cell[2727, 95, 53, 1, 39, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

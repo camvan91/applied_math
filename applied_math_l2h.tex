@@ -1,0 +1,72 @@
+\documentclass{book}
+
+\input{header_l2h}
+
+%% Include the exercises, hints and solutions.
+\newcommand{\exercises}[1]{#1}
+\newcommand{\hints}[1]{#1}
+\newcommand{\solutions}[1]{#1}
+
+%% Have links to the hints and solutions.
+\newcommand{\hintsolution}[1]{
+  \noindent
+  Hint \ref{hint #1},
+  Solution \ref{solution #1}
+}
+\newcommand{\quizsolution}[1]{
+  \noindent
+  Solution \ref{quiz solution #1}
+}
+
+\title{Introduction to Methods of Applied Mathematics\\
+        or\\
+        Advanced Mathematical Methods for Scientists and Engineers}
+\author{Sean Mauch\\
+  \href{http://www.its.caltech.edu/~sean/}
+       {http://www.its.caltech.edu/{\~{}}sean/}
+}
+
+\makeindex
+
+\begin{document}
+
+%\input{book}
+\maketitle
+
+\frontmatter
+
+\tableofcontents
+
+\input{anticopy/anticopy}
+
+\input{preface/preface}
+
+
+\mainmatter
+
+\input{algebra}
+
+\input{calculus}
+
+\input{fcv}
+
+\input{ode}
+
+\input{pde}
+
+\input{cv}
+
+\input{nde}
+
+\part{Appendices}
+
+\input{appendix/app}
+
+\backmatter
+
+\bibliographystyle{plain}
+\bibliography{applied_math}
+
+\printindex
+
+\end{document}

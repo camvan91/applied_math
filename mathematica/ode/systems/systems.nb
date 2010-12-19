@@ -1,0 +1,2108 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     51509,       1801]*)
+(*NotebookOutlinePosition[     52169,       1825]*)
+(*  CellTagsIndexPosition[     52125,       1821]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ODE/First Order Systems", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Systems", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n03/10/2001\nAnti-Copyright @ 2000 by Mauch Publishing Company, \
+un-Incorporated"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FractionBox[
+            RowBox[{
+              StyleBox["\[DifferentialD]",
+                FontWeight->"Plain",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}], 
+              StyleBox["x",
+                FontWeight->"Bold",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}]}], \(\[DifferentialD]t\)], "=", 
+          StyleBox[\(A\ x\),
+            FontWeight->"Bold"]}], TraditionalForm]],
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[",    ",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          RowBox[{
+            StyleBox["x",
+              FontWeight->"Bold",
+              FontSlant->"Plain",
+              FontTracking->"Plain",
+              FontVariations->{"Underline"->False,
+              "Outline"->False,
+              "Shadow"->False,
+              "StrikeThrough"->False,
+              "Masked"->False,
+              "CompatibilityType"->0,
+              "RotationAngle"->0}], 
+            StyleBox["(",
+              FontWeight->"Plain",
+              FontSlant->"Plain",
+              FontTracking->"Plain",
+              FontVariations->{"Underline"->False,
+              "Outline"->False,
+              "Shadow"->False,
+              "StrikeThrough"->False,
+              "Masked"->False,
+              "CompatibilityType"->0,
+              "RotationAngle"->0}], 
+            StyleBox["0",
+              FontWeight->"Plain",
+              FontSlant->"Plain",
+              FontTracking->"Plain",
+              FontVariations->{"Underline"->False,
+              "Outline"->False,
+              "Shadow"->False,
+              "StrikeThrough"->False,
+              "Masked"->False,
+              "CompatibilityType"->0,
+              "RotationAngle"->0}], 
+            StyleBox[")",
+              FontWeight->"Plain",
+              FontSlant->"Plain",
+              FontTracking->"Plain",
+              FontVariations->{"Underline"->False,
+              "Outline"->False,
+              "Shadow"->False,
+              "StrikeThrough"->False,
+              "Masked"->False,
+              "CompatibilityType"->0,
+              "RotationAngle"->0}]}], 
+          StyleBox["=",
+            FontWeight->"Plain",
+            FontSlant->"Plain",
+            FontTracking->"Plain",
+            FontVariations->{"Underline"->False,
+            "Outline"->False,
+            "Shadow"->False,
+            "StrikeThrough"->False,
+            "Masked"->False,
+            "CompatibilityType"->0,
+            "RotationAngle"->0}], 
+          SubscriptBox[
+            StyleBox["x",
+              FontSlant->"Plain",
+              FontTracking->"Plain",
+              FontVariations->{"Underline"->False,
+              "Outline"->False,
+              "Shadow"->False,
+              "StrikeThrough"->False,
+              "Masked"->False,
+              "CompatibilityType"->0,
+              "RotationAngle"->0}], "0"]}], TraditionalForm]]],
+  ",    ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{"A", "=", 
+          RowBox[{"(", GridBox[{
+                {"1", "1", "1"},
+                {"2", "1", \(-1\)},
+                {\(-8\), \(-5\), \(-3\)}
+                }], ")"}]}], TraditionalForm]]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Consider the system of ODE's", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]x\/\[DifferentialD]t = 
+      A\ x, \ \ \ \ x(0) = x\_0\)], "DisplayFormula"],
+
+Cell[TextData[{
+  "where ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\)]],
+  " is the constant 3\[Times]3 matrix"
+}], "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"A", "=", 
+        RowBox[{
+          RowBox[{"(", GridBox[{
+                {"1", "1", "1"},
+                {"2", "1", \(-1\)},
+                {\(-8\), \(-5\), \(-3\)}
+                }], ")"}], "."}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "a)  Find the eigenvalues and associated eigenvectors of ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\)]],
+  ". [HINT: notice that ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Lambda] = \(-1\)\)]],
+  " is a root of the characteristic polynomial of ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\)]],
+  ".]"
+}], "Text"],
+
+Cell[TextData[{
+  "b)  Use the results from part (a) to construct ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[ExponentialE]\^\(A\ t\)\)]],
+  " and therefore the solution to the initial value problem above."
+}], "Text"],
+
+Cell["\<\
+c)  Use the results of part (a) to find the general solution \
+to\
+\>", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]x\/\[DifferentialD]t = \(1\/t\) 
+        A\ x, \ \ \ \ x(0) = x\_0\)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell[CellGroupData[{
+
+Cell["a", "Subsubsection"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {"1", "1", "1"},
+              {"2", "1", \(-1\)},
+              {\(-8\), \(-5\), \(-3\)}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell["We find the eigenvalues and eigenvectors directly.", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Eigenvalues[A]\)], "Input"],
+
+Cell[BoxData[
+    \({\(-2\), \(-1\), 2}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Eigenvectors[A]\)], "Input"],
+
+Cell[BoxData[
+    \({{\(-4\), 5, 7}, {\(-3\), 4, 2}, {0, \(-1\), 1}}\)], "Output"]
+}, Open  ]],
+
+Cell["\<\
+We verify that the eigenvalues are the roots of the characteristic \
+polynomial.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Det[A - \[Lambda]\ IdentityMatrix[3]]\)], "Input"],
+
+Cell[BoxData[
+    \(4 + 4\ \[Lambda] - \[Lambda]\^2 - \[Lambda]\^3\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[% \[Equal] 0, \[Lambda]]\)], "Input"],
+
+Cell[BoxData[
+    \({{\[Lambda] \[Rule] \(-2\)}, {\[Lambda] \[Rule] \(-1\)}, {\[Lambda] \
+\[Rule] 2}}\)], "Output"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["b", "Subsubsection"],
+
+Cell[TextData[{
+  "We can compute the matrix exponential, ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[ExponentialE]\^\(A\ t\)\)]],
+  ", directly."
+}], "Text"],
+
+Cell[BoxData[
+    \(MatrixExp[A\ t]\)], "Input"],
+
+Cell[BoxData[
+    \(% // MatrixForm\)], "Input"],
+
+Cell[TextData[{
+  "The Jordan canonical form, ",
+  Cell[BoxData[
+      \(TraditionalForm\`J\)]],
+  ", of the matrix ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\)]],
+  " is determined by the similarity transformation, ",
+  Cell[BoxData[
+      \(TraditionalForm\`J = \(S\^\(-1\)\) A\ S\)]],
+  ", where ",
+  Cell[BoxData[
+      \(TraditionalForm\`S\)]],
+  " is the matrix with the eigenvectors as columns."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(S = Transpose[Eigenvectors[A]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(S // MatrixForm\)], "Input"],
+
+Cell[TextData[{
+  "Matrix-matrix and matrix-vector vector multiplication is denoted with a \
+period.  Here is the Jordan canonical form of ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(J = Inverse[S] . A . S;\)\)], "Input"],
+
+Cell[BoxData[
+    \(J // MatrixForm\)], "Input"],
+
+Cell["We can also compute the Jordan decomposition directly.", "Text"],
+
+Cell[BoxData[
+    \(jd = JordanDecomposition[A]\)], "Input"],
+
+Cell[TextData[{
+  "The JordanDecomposition computes the similarity matrix, ",
+  Cell[BoxData[
+      \(TraditionalForm\`S\)]],
+  ","
+}], "Text"],
+
+Cell[BoxData[
+    \(jd[\([1]\)] // MatrixForm\)], "Input"],
+
+Cell[TextData[{
+  "and the Jordan canonical form, ",
+  Cell[BoxData[
+      \(TraditionalForm\`J\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(jd[\([2]\)] // MatrixForm\)], "Input"],
+
+Cell["\<\
+The matrix exponential of a diagonal matrix has a simple \
+form.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(MatrixExp[J\ t] // MatrixForm\)], "Input"],
+
+Cell[TextData[{
+  "The matrix exponential of ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\)]],
+  " is ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[ExponentialE]\^\(A\ t\) = 
+        S\ \(\[ExponentialE]\^\(J\ t\)\) S\^\(-1\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(S . MatrixExp[J\ t] . Inverse[S] // MatrixForm\)], "Input"]
+}, Open  ]],
+
+Cell["c", "Subsubsection"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FractionBox[
+            RowBox[{
+              StyleBox["\[DifferentialD]",
+                FontWeight->"Plain",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}], 
+              StyleBox["x",
+                FontWeight->"Bold",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}]}], \(\[DifferentialD]t\)], "=", 
+          StyleBox[\(A\ x\),
+            FontWeight->"Bold"]}], TraditionalForm]],
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[",    ",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      FormBox[
+        RowBox[{"A", 
+          StyleBox["=",
+            FontWeight->"Plain",
+            FontSlant->"Plain",
+            FontTracking->"Plain",
+            FontVariations->{"Underline"->False,
+            "Outline"->False,
+            "Shadow"->False,
+            "StrikeThrough"->False,
+            "Masked"->False,
+            "CompatibilityType"->0,
+            "RotationAngle"->0}], 
+          StyleBox[
+            RowBox[{"(", GridBox[{
+                  {"2", "0", "1"},
+                  {"0", "2", "0"},
+                  {"0", "1", "3"}
+                  }], ")"}],
+            FontWeight->"Plain",
+            FontSlant->"Plain",
+            FontTracking->"Plain",
+            FontVariations->{"Underline"->False,
+            "Outline"->False,
+            "Shadow"->False,
+            "StrikeThrough"->False,
+            "Masked"->False,
+            "CompatibilityType"->0,
+            "RotationAngle"->0}]}], TraditionalForm]]]
+}], "Section"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {"2", "0", "1"},
+              {"0", "2", "0"},
+              {"0", "1", "3"}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+    \(MatrixExp[A\ t] // MatrixForm\)], "Input"],
+
+Cell[BoxData[
+    \(jd = JordanDecomposition[A]\)], "Input"],
+
+Cell[BoxData[{
+    \(\(S = jd[\([1]\)];\)\), "\[IndentingNewLine]", 
+    \(S // MatrixForm\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(J = jd[\([2]\)];\)\), "\[IndentingNewLine]", 
+    \(J // MatrixForm\)}], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FractionBox[
+            RowBox[{
+              StyleBox["\[DifferentialD]",
+                FontWeight->"Plain",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}], 
+              StyleBox["x",
+                FontWeight->"Bold",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}]}], \(\[DifferentialD]t\)], "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-2\), "1"},
+                  {\(-5\), "4"}
+                  }], ")"}], Cell[""], 
+            StyleBox[" ",
+              FontWeight->"Bold"], 
+            StyleBox["x",
+              FontWeight->"Bold"]}]}], TraditionalForm]],
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[",    ",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      FormBox[
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{"(", GridBox[{
+                {"1"},
+                {"3"}
+                }], ")"}]}], TraditionalForm]]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the solution of the initial value problem,", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{\(x'\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-2\), "1"},
+                  {\(-5\), "4"}
+                  }], ")"}], "x"}]}], ",", "    ", 
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"3"}
+                  }], ")"}], "."}]}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "Describe the behavior of the solution at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  ".\nPlot the homogeneous solutions in the phase plane."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["We compute the eigenvalues and eigenvectors of the matrix.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {\(-2\), "1"},
+              {\(-5\), "4"}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+    \(Eigensystem[A]\)], "Input"],
+
+Cell["\<\
+The general solution of the system of differential equations \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{\(c\_1\), "(", GridBox[{
+                  {"1"},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}], "+", 
+          RowBox[{Cell[""], 
+            RowBox[{\(c\_2\), "(", GridBox[{
+                  {"1"},
+                  {"5"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(3  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["We apply the initial condition to determine the constants.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"Solve", "[", 
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              RowBox[{"(", GridBox[{
+                    {"1", "1"},
+                    {"1", "5"}
+                    }], ")"}], ".", \({c1, c2}\)}], "\[Equal]", \({1, 3}\)}], 
+          ",", \({c1, c2}\)}], "]"}], Cell[""]}]], "Input"],
+
+Cell["The solution subject to the initial condition is", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{\(1\/2\), 
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}], "+", 
+          RowBox[{Cell[""], \(1\/2\), 
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"5"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(3  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["\<\
+We can calculate the solution subject to the initial condition \
+directly.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(MatrixExp[A\ t] . {1, 3} // Simplify\) // MatrixForm\)], "Input"],
+
+Cell["\<\
+Again we see that the solution subject to the initial condition \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{\(1\/2\), 
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}], "+", 
+          RowBox[{Cell[""], \(1\/2\), 
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"5"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(3  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "For large ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\)]],
+  ", the solution looks like"
+}], "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "\[TildeEqual]", 
+        RowBox[{Cell[""], \(1\/2\), 
+          RowBox[{"(", GridBox[{
+                {"1"},
+                {"5"}
+                }], ")"}], \(\(\[ExponentialE]\^\(3  t\)\)\(.\)\)}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["\<\
+Here is a plot of the homogeneous solutions in the phase \
+plane.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[
+        Evaluate[
+          Flatten[Table[
+              c1\^2\ Sign[c1]\ {1, 1}/\@2  Exp[\(-t\)] + 
+                c2\^2\ Sign[c2] {1, 5}/\@26  Exp[3  t], {c1, \(-8\), 8, 
+                2}, {c2, \(-8\), 8, 2}], 1]], {t, \(-6\), 6}, 
+        PlotRange \[Rule] {{\(-10\), 10}, {\(-10\), 10}}, 
+        AspectRatio \[Rule] Automatic, PlotPoints \[Rule] 100];\)\)], "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FractionBox[
+            RowBox[{
+              StyleBox["\[DifferentialD]",
+                FontWeight->"Plain",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}], 
+              StyleBox["x",
+                FontWeight->"Bold",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}]}], \(\[DifferentialD]t\)], "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1", "1", "2"},
+                  {"0", "2", "2"},
+                  {\(-1\), "1", "3"}
+                  }], ")"}], Cell[""], 
+            StyleBox[" ",
+              FontWeight->"Bold"], 
+            StyleBox["x",
+              FontWeight->"Bold"]}]}], TraditionalForm]],
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[",    ",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      FormBox[
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{"(", GridBox[{
+                {"2"},
+                {"0"},
+                {"1"}
+                }], ")"}]}], TraditionalForm]]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the solution of the initial value problem,", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{\(x'\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1", "1", "2"},
+                  {"0", "2", "2"},
+                  {\(-1\), "1", "3"}
+                  }], ")"}], "x"}]}], ",", "    ", 
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"2"},
+                  {"0"},
+                  {"1"}
+                  }], ")"}], "."}]}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "Describe the behavior of the solution at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["We compute the eigenvalues and eigenvectors of the matrix.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {"1", "1", "2"},
+              {"0", "2", "2"},
+              {\(-1\), "1", "3"}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+    \(Eigensystem[A]\)], "Input"],
+
+Cell["\<\
+The general solution of the system of differential equations \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{\(c\_1\), "(", GridBox[{
+                  {"0"},
+                  {\(-2\)},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^t\)}], "+", 
+          RowBox[{Cell[""], 
+            RowBox[{\(c\_2\), "(", GridBox[{
+                  {"1"},
+                  {"1"},
+                  {"0"}
+                  }], ")"}], \(\[ExponentialE]\^\(2  t\)\)}], "+", 
+          RowBox[{
+            RowBox[{\(c\_3\), "(", GridBox[{
+                  {"2"},
+                  {"2"},
+                  {"1"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(3  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["We apply the initial condition to determine the constants.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"Solve", "[", 
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{GridBox[{
+                      {"0", "1", "2"},
+                      {\(-2\), "1", "2"},
+                      {"1", "0", "1"}
+                      }], Cell[""]}], ")"}], ".", \({c1, c2, c3}\)}], 
+            "\[Equal]", \({2, 0, 1}\)}], ",", \({c1, c2, c3}\)}], "]"}], Cell[
+      ""]}]], "Input"],
+
+Cell["The solution subject to the initial condition is", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"0"},
+                  {\(-2\)},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^t\)}], "+", 
+          RowBox[{Cell[""], "2", 
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"1"},
+                  {"0"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(2  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["\<\
+We can calculate the solution subject to the initial condition \
+directly.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(MatrixExp[A\ t] . {2, 0, 1} // Simplify\) // MatrixForm\)], "Input"],
+
+Cell["\<\
+Again we see that the solution subject to the initial condition \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"0"},
+                  {\(-2\)},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^t\)}], "+", 
+          RowBox[{Cell[""], "2", 
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"1"},
+                  {"0"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(2  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "The solution tends to infinity as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FractionBox[
+            RowBox[{
+              StyleBox["\[DifferentialD]",
+                FontWeight->"Plain",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}], 
+              StyleBox["x",
+                FontWeight->"Bold",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}]}], \(\[DifferentialD]t\)], "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1", \(-5\)},
+                  {"1", \(-3\)}
+                  }], ")"}], Cell[""], 
+            StyleBox[" ",
+              FontWeight->"Bold"], 
+            StyleBox["x",
+              FontWeight->"Bold"]}]}], TraditionalForm]],
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[",    ",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      FormBox[
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{"(", GridBox[{
+                {"1"},
+                {"1"}
+                }], ")"}]}], TraditionalForm]]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the solution of the initial value problem,", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{\(x'\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1", \(-5\)},
+                  {"1", \(-3\)}
+                  }], ")"}], "x"}]}], ",", "    ", 
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"1"}
+                  }], ")"}], "."}]}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "Describe the behavior of the solution at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["We compute the eigenvalues and eigenvectors of the matrix.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {"1", \(-5\)},
+              {"1", \(-3\)}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+    \(Eigensystem[A]\)], "Input"],
+
+Cell["\<\
+The general solution of the system of differential equations \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{\(c\_1\), "(", GridBox[{
+                  {\(2 - \[ImaginaryI]\)},
+                  {"1"}
+                  }], 
+              ")"}], \(\[ExponentialE]\^\(\((\(-1\) - \[ImaginaryI])\) 
+                  t\)\)}], "+", 
+          RowBox[{Cell[""], 
+            RowBox[{\(c\_2\), "(", GridBox[{
+                  {\(2 + \[ImaginaryI]\)},
+                  {"1"}
+                  }], 
+              ")"}], \(\[ExponentialE]\^\(\((\(-1\) + \[ImaginaryI])\) 
+                  t\)\)}]}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell["\<\
+We can take the real and imaginary parts of either of these \
+solution to obtain real-valued solutions.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(ComplexExpand[\((2 + I)\) Exp[\((\(-1\) + I)\) t]]\)], "Input"],
+
+Cell[BoxData[
+    \(ComplexExpand[Exp[\((\(-1\) + I)\) t]]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{\(c\_1\), "(", GridBox[{
+                  {\(2 \( cos(t)\) - sin(t)\)},
+                  {\(cos(t)\)}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}], "+", 
+          RowBox[{Cell[""], 
+            RowBox[{\(c\_2\), "(", GridBox[{
+                  {\(cos(t) + 2 \( sin(t)\)\)},
+                  {\(sin(t)\)}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["We apply the initial condition to determine the constants.", "Text"],
+
+Cell[BoxData[
+    RowBox[{"Solve", "[", 
+      RowBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"2", "1"},
+                  {"1", "0"}
+                  }], ")"}], ".", \({c1, c2}\)}], "\[Equal]", \({1, 1}\)}], 
+        ",", \({c1, c2}\)}], "]"}]], "Input"],
+
+Cell["The solution subject to the initial condition is", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{"(", GridBox[{
+                {\(cos(t) - 3 \( sin(t)\)\)},
+                {\(cos(t) - sin(t)\)}
+                }], ")"}], \(\(\[ExponentialE]\^\(-t\)\)\(.\)\)}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["\<\
+We can calculate the solution subject to the initial condition \
+directly.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(MatrixExp[A\ t] . {1, 1} // FullSimplify\) // MatrixForm\)], "Input"],
+
+Cell["\<\
+Again we see that the solution subject to the initial condition \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{"(", GridBox[{
+                {\(cos(t) - 3 \( sin(t)\)\)},
+                {\(cos(t) - sin(t)\)}
+                }], ")"}], \(\(\[ExponentialE]\^\(-t\)\)\(.\)\)}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "Plotted in the phase plane, the solution spirals in to the origin at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\)]],
+  " increases.  The solution vanishes as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[{\((Cos[t] - 3  Sin[t])\) 
+            Exp[\(-t\)], \((Cos[t] - Sin[t])\) Exp[\(-t\)]}, {t, 0, 10}, 
+        PlotRange \[Rule] All];\)\)], "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FractionBox[
+            RowBox[{
+              StyleBox["\[DifferentialD]",
+                FontWeight->"Plain",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}], 
+              StyleBox["x",
+                FontWeight->"Bold",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}]}], \(\[DifferentialD]t\)], "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-3\), "0", "2"},
+                  {"1", \(-1\), "0"},
+                  {\(-2\), \(-1\), "0"}
+                  }], ")"}], Cell[""], 
+            StyleBox[" ",
+              FontWeight->"Bold"], 
+            StyleBox["x",
+              FontWeight->"Bold"]}]}], TraditionalForm]],
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[",    ",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      FormBox[
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{"(", GridBox[{
+                {"1"},
+                {"0"},
+                {"0"}
+                }], ")"}]}], TraditionalForm]]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the solution of the initial value problem,", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{\(x'\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-3\), "0", "2"},
+                  {"1", \(-1\), "0"},
+                  {\(-2\), \(-1\), "0"}
+                  }], ")"}], "x"}]}], ",", "    ", 
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1"},
+                  {"0"},
+                  {"0"}
+                  }], ")"}], "."}]}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "Describe the behavior of the solution at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["We compute the eigenvalues and eigenvectors of the matrix.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {\(-3\), "0", "2"},
+              {"1", \(-1\), "0"},
+              {\(-2\), \(-1\), "0"}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+    \(Eigensystem[A]\)], "Input"],
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"],
+
+Cell["\<\
+The general solution of the system of differential equations \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{\(c\_1\), "(", GridBox[{
+                  {"2"},
+                  {\(-2\)},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^\(\(-2\) t\)\)}], "+", 
+          RowBox[{Cell[""], 
+            RowBox[{\(c\_2\), "(", GridBox[{
+                  {\(2 + \[ImaginaryI] \@ 2\)},
+                  {\(\(-1\) + \[ImaginaryI] \@ 2\)},
+                  {"3"}
+                  }], 
+              ")"}], \(\[ExponentialE]\^\(\((\(-1\) - \[ImaginaryI] \@ 2)\) 
+                  t\)\)}], "+", 
+          RowBox[{
+            RowBox[{\(c\_3\), "(", GridBox[{
+                  {\(2 - \[ImaginaryI] \@ 2\)},
+                  {\(\(-1\) - \[ImaginaryI] \@ 2\)},
+                  {"3"}
+                  }], 
+              ")"}], \(\(\[ExponentialE]\^\(\((\(-1\) + \[ImaginaryI] \@ 2)\) 
+                    t\)\)\(.\)\)}]}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell["\<\
+We can take the real and imaginary parts of either of these \
+solution to obtain real-valued solutions.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(ComplexExpand[\((2 + I \@ 2)\) Exp[\((\(-1\) - I \@ 2)\) t]]\)], "Input"],
+
+Cell[BoxData[
+    \(ComplexExpand[\((\(-1\) + I \@ 2)\) 
+        Exp[\((\(-1\) - I \@ 2)\) t]]\)], "Input"],
+
+Cell[BoxData[
+    \(ComplexExpand[3  Exp[\((\(-1\) - I \@ 2)\) t]]\)], "Input"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{\(c\_1\), 
+            RowBox[{"(", GridBox[{
+                  {"2"},
+                  {\(-2\)},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^\(\(-2\) t\)\)}], "+", 
+          RowBox[{Cell[""], 
+            RowBox[{\(c\_2\), "(", GridBox[{
+                  {\(2 \( cos(\(\@2\) t)\) + \(\@2\) \(sin(\(\@2\) t)\)\)},
+                  {\(\(-\(cos(\(\@2\) t)\)\) + \(\@2\) \(sin(\(\@2\) t)\)\)},
+                  {\(3 \( cos(\(\@2\) t)\)\)}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}], "+", 
+          RowBox[{Cell[""], 
+            RowBox[{\(c\_3\), "(", GridBox[{
+                  {\(\(\@2\) \(cos(\(\@2\) t)\) - 2 \( sin(\(\@2\) t)\)\)},
+                  {\(\(\@2\) \(cos(\(\@2\) t)\) + sin(\(\@2\) t)\)},
+                  {\(\(-3\) \(sin(\(\@2\) t)\)\)}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["We apply the initial condition to determine the constants.", "Text"],
+
+Cell[BoxData[
+    RowBox[{"Solve", "[", 
+      RowBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{GridBox[{
+                    {"2", "2", \(\@2\)},
+                    {\(-2\), \(-1\), \(\@2\)},
+                    {"1", "3", "0"}
+                    }], Cell[""]}], ")"}], ".", \({c1, c2, c3}\)}], 
+          "\[Equal]", \({1, 0, 0}\)}], ",", \({c1, c2, c3}\)}], 
+      "]"}]], "Input"],
+
+Cell["The solution subject to the initial condition is", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{\(1\/3\), 
+            RowBox[{"(", GridBox[{
+                  {"2"},
+                  {\(-2\)},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^\(\(-2\) t\)\)}], "-", 
+          RowBox[{\(1\/9\), Cell[""], 
+            RowBox[{"(", GridBox[{
+                  {\(2 \( cos(\(\@2\) t)\) + \(\@2\) \(sin(\(\@2\) t)\)\)},
+                  {\(\(-\(cos(\(\@2\) t)\)\) + \(\@2\) \(sin(\(\@2\) t)\)\)},
+                  {\(3 \( cos(\(\@2\) t)\)\)}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}], "+", 
+          RowBox[{Cell[""], \(5\/\(9 \@ 2\)\), 
+            RowBox[{"(", GridBox[{
+                  {\(\(\@2\) \(cos(\(\@2\) t)\) - 2 \( sin(\(\@2\) t)\)\)},
+                  {\(\(\@2\) \(cos(\(\@2\) t)\) + sin(\(\@2\) t)\)},
+                  {\(\(-3\) \(sin(\(\@2\) t)\)\)}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{\(1\/3\), 
+            RowBox[{"(", GridBox[{
+                  {"2"},
+                  {\(-2\)},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^\(\(-2\) t\)\)}], "+", 
+          RowBox[{Cell[""], \(1\/6\), 
+            RowBox[{"(", GridBox[{
+                  {\(2 \( cos(\(\@2\) t)\) - 
+                      4 \(\@ 2\) \(sin(\(\@2\) t)\)\)},
+                  {\(4 \( cos(\(\@2\) t)\) + \(\@2\) \(sin(\(\@2\) t)\)\)},
+                  {\(\(-2\) \(cos(\(\@2\) t)\) - 
+                      5 \(\@ 2\) \(sin(\(\@2\) t)\)\)}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["\<\
+We can calculate the solution subject to the initial condition \
+directly.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(MatrixExp[A\ t] . {1, 0, 0} // FullSimplify\) // 
+      MatrixForm\)], "Input"],
+
+Cell["\<\
+Again we see that the solution subject to the initial condition \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{\(1\/3\), 
+            RowBox[{"(", GridBox[{
+                  {"2"},
+                  {\(-2\)},
+                  {"1"}
+                  }], ")"}], \(\[ExponentialE]\^\(\(-2\) t\)\)}], "+", 
+          RowBox[{Cell[""], \(1\/6\), 
+            RowBox[{"(", GridBox[{
+                  {\(2 \( cos(\(\@2\) t)\) - 
+                      4 \(\@ 2\) \(sin(\(\@2\) t)\)\)},
+                  {\(4 \( cos(\(\@2\) t)\) + \(\@2\) \(sin(\(\@2\) t)\)\)},
+                  {\(\(-2\) \(cos(\(\@2\) t)\) - 
+                      5 \(\@ 2\) \(sin(\(\@2\) t)\)\)}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "The solution vanishes as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FractionBox[
+            RowBox[{
+              StyleBox["\[DifferentialD]",
+                FontWeight->"Plain",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}], 
+              StyleBox["x",
+                FontWeight->"Bold",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}]}], \(\[DifferentialD]t\)], "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1", \(-4\)},
+                  {"4", \(-7\)}
+                  }], ")"}], Cell[""], 
+            StyleBox[" ",
+              FontWeight->"Bold"], 
+            StyleBox["x",
+              FontWeight->"Bold"]}]}], TraditionalForm]],
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[",    ",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      FormBox[
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{"(", GridBox[{
+                {"3"},
+                {"2"}
+                }], ")"}]}], TraditionalForm]]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the solution of the initial value problem,", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{\(x'\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"1", \(-4\)},
+                  {"4", \(-7\)}
+                  }], ")"}], "x"}]}], ",", "    ", 
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {"3"},
+                  {"2"}
+                  }], ")"}], "."}]}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "Describe the behavior of the solution at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {"1", \(-4\)},
+              {"4", \(-7\)}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+    \(Eigensystem[A]\)], "Input"],
+
+Cell["\<\
+We calculate the solution subject to the initial condition \
+directly.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(MatrixExp[A\ t] . {3, 2} // FullSimplify\) // MatrixForm\)], "Input"],
+
+Cell["The solution subject to the initial condition is", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{"(", GridBox[{
+                {\(3 + 4  t\)},
+                {\(2 + 4  t\)}
+                }], ")"}], \(\(\[ExponentialE]\^\(\(-3\) t\)\)\(.\)\)}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "The solution vanishes as ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FractionBox[
+            RowBox[{
+              StyleBox["\[DifferentialD]",
+                FontWeight->"Plain",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}], 
+              StyleBox["x",
+                FontWeight->"Bold",
+                FontSlant->"Plain",
+                FontTracking->"Plain",
+                FontVariations->{"Underline"->False,
+                "Outline"->False,
+                "Shadow"->False,
+                "StrikeThrough"->False,
+                "Masked"->False,
+                "CompatibilityType"->0,
+                "RotationAngle"->0}]}], \(\[DifferentialD]t\)], "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-1\), "0", "0"},
+                  {\(-4\), "1", "0"},
+                  {"3", "6", "2"}
+                  }], ")"}], Cell[""], 
+            StyleBox[" ",
+              FontWeight->"Bold"], 
+            StyleBox["x",
+              FontWeight->"Bold"]}]}], TraditionalForm]],
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[",    ",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      FormBox[
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{"(", GridBox[{
+                {\(-1\)},
+                {"2"},
+                {\(-30\)}
+                }], ")"}]}], TraditionalForm]]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the solution of the initial value problem,", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{\(x'\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-1\), "0", "0"},
+                  {\(-4\), "1", "0"},
+                  {"3", "6", "2"}
+                  }], ")"}], "x"}]}], ",", "    ", 
+        RowBox[{\(x(0)\), "=", 
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-1\)},
+                  {"2"},
+                  {\(-30\)}
+                  }], ")"}], "."}]}]}], TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "Describe the behavior of the solution at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[Rule] \[Infinity]\)]],
+  "."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["We compute the eigenvalues and eigenvectors of the matrix.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {\(-1\), "0", "0"},
+              {\(-4\), "1", "0"},
+              {"3", "6", "2"}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+    \(Eigensystem[A]\)], "Input"],
+
+Cell["\<\
+The general solution of the system of differential equations \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{\(c\_1\), "(", GridBox[{
+                  {\(-1\)},
+                  {\(-2\)},
+                  {"5"}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\)}], "+", 
+          RowBox[{Cell[""], 
+            RowBox[{\(c\_2\), "(", GridBox[{
+                  {"0"},
+                  {\(-1\)},
+                  {"6"}
+                  }], ")"}], \(\[ExponentialE]\^t\)}], "+", 
+          RowBox[{
+            RowBox[{\(c\_3\), "(", GridBox[{
+                  {"0"},
+                  {"0"},
+                  {"1"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(2  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["We apply the initial condition to determine the constants.", "Text"],
+
+Cell[BoxData[
+    RowBox[{"Solve", "[", 
+      RowBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{GridBox[{
+                    {\(-1\), "0", "0"},
+                    {\(-2\), \(-1\), "0"},
+                    {"5", "6", "1"}
+                    }], Cell[""]}], ")"}], ".", \({c1, c2, c3}\)}], 
+          "\[Equal]", \({\(-1\), 2, \(-30\)}\)}], ",", \({c1, c2, c3}\)}], 
+      "]"}]], "Input"],
+
+Cell["The solution subject to the initial condition is", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-1\)},
+                  {\(-2\)},
+                  {"5"}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\), Cell[""]}], "-", 
+          RowBox[{"4", 
+            RowBox[{"(", GridBox[{
+                  {"0"},
+                  {\(-1\)},
+                  {"6"}
+                  }], ")"}], \(\[ExponentialE]\^t\)}], "-", 
+          RowBox[{"11", 
+            RowBox[{"(", GridBox[{
+                  {"0"},
+                  {"0"},
+                  {"1"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(2  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell["\<\
+We can calculate the solution subject to the initial condition \
+directly.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(MatrixExp[A\ t] . {\(-1\), 2, \(-30\)} // Simplify\) // 
+      MatrixForm\)], "Input"],
+
+Cell["\<\
+Again we see that the solution subject to the initial condition \
+is\
+\>", "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{"(", GridBox[{
+                  {\(-1\)},
+                  {\(-2\)},
+                  {"5"}
+                  }], ")"}], \(\[ExponentialE]\^\(-t\)\), Cell[""]}], "-", 
+          RowBox[{"4", 
+            RowBox[{"(", GridBox[{
+                  {"0"},
+                  {\(-1\)},
+                  {"6"}
+                  }], ")"}], \(\[ExponentialE]\^t\)}], "-", 
+          RowBox[{"11", 
+            RowBox[{"(", GridBox[{
+                  {"0"},
+                  {"0"},
+                  {"1"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(2  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+  "For large ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\)]],
+  ", the solution looks like"
+}], "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"x", "=", 
+        RowBox[{Cell[""], "-", 
+          RowBox[{"4", 
+            RowBox[{"(", GridBox[{
+                  {"0"},
+                  {\(-1\)},
+                  {"6"}
+                  }], ")"}], \(\[ExponentialE]\^t\)}], "-", 
+          RowBox[{"11", 
+            RowBox[{"(", GridBox[{
+                  {"0"},
+                  {"0"},
+                  {"1"}
+                  }], ")"}], \(\(\[ExponentialE]\^\(2  t\)\)\(.\)\)}]}]}], 
+      TraditionalForm]], "DisplayFormula"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{610, 600},
+WindowMargins->{{25, Automatic}, {Automatic, 82}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 113, 3, 191, "Title",
+  Evaluatable->False],
+Cell[1855, 56, 27, 0, 82, "Subtitle"],
+Cell[1885, 58, 350, 10, 122, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2260, 72, 3900, 114, 118, "Section"],
+
+Cell[CellGroupData[{
+Cell[6185, 190, 30, 0, 56, "Subsection"],
+Cell[6218, 192, 44, 0, 38, "Text"],
+Cell[6265, 194, 130, 2, 47, "DisplayFormula"],
+Cell[6398, 198, 126, 5, 38, "Text"],
+Cell[6527, 205, 284, 8, 70, "DisplayFormula"],
+Cell[6814, 215, 337, 11, 59, "Text"],
+Cell[7154, 228, 220, 5, 59, "Text"],
+Cell[7377, 235, 89, 3, 38, "Text"],
+Cell[7469, 240, 141, 2, 47, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7647, 247, 30, 0, 56, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[7702, 251, 26, 0, 52, "Subsubsection"],
+Cell[7731, 253, 230, 7, 68, "Input"],
+Cell[7964, 262, 66, 0, 38, "Text"],
+
+Cell[CellGroupData[{
+Cell[8055, 266, 47, 1, 35, "Input"],
+Cell[8105, 269, 53, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8195, 275, 48, 1, 35, "Input"],
+Cell[8246, 278, 82, 1, 35, "Output"]
+}, Open  ]],
+Cell[8343, 282, 104, 3, 59, "Text"],
+
+Cell[CellGroupData[{
+Cell[8472, 289, 70, 1, 35, "Input"],
+Cell[8545, 292, 80, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8662, 298, 63, 1, 35, "Input"],
+Cell[8728, 301, 115, 2, 35, "Output"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8892, 309, 26, 0, 52, "Subsubsection"],
+Cell[8921, 311, 160, 5, 38, "Text"],
+Cell[9084, 318, 48, 1, 35, "Input"],
+Cell[9135, 321, 48, 1, 35, "Input"],
+Cell[9186, 324, 417, 14, 80, "Text"],
+Cell[9606, 340, 68, 1, 35, "Input"],
+Cell[9677, 343, 48, 1, 35, "Input"],
+Cell[9728, 346, 207, 6, 59, "Text"],
+Cell[9938, 354, 60, 1, 35, "Input"],
+Cell[10001, 357, 48, 1, 35, "Input"],
+Cell[10052, 360, 70, 0, 38, "Text"],
+Cell[10125, 362, 60, 1, 35, "Input"],
+Cell[10188, 365, 143, 5, 38, "Text"],
+Cell[10334, 372, 58, 1, 35, "Input"],
+Cell[10395, 375, 118, 5, 38, "Text"],
+Cell[10516, 382, 58, 1, 35, "Input"],
+Cell[10577, 385, 88, 3, 38, "Text"],
+Cell[10668, 390, 62, 1, 35, "Input"],
+Cell[10733, 393, 249, 9, 38, "Text"],
+Cell[10985, 404, 79, 1, 35, "Input"]
+}, Open  ]],
+Cell[11079, 408, 26, 0, 52, "Subsubsection"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[11154, 414, 2211, 65, 89, "Section"],
+Cell[13368, 481, 218, 7, 68, "Input"],
+Cell[13589, 490, 62, 1, 35, "Input"],
+Cell[13654, 493, 60, 1, 35, "Input"],
+Cell[13717, 496, 104, 2, 56, "Input"],
+Cell[13824, 500, 104, 2, 56, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[13965, 507, 1649, 49, 62, "Section"],
+
+Cell[CellGroupData[{
+Cell[15639, 560, 30, 0, 56, "Subsection"],
+Cell[15672, 562, 63, 0, 38, "Text"],
+Cell[15738, 564, 454, 14, 48, "DisplayFormula"],
+Cell[16195, 580, 200, 5, 59, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16432, 590, 30, 0, 56, "Subsection"],
+Cell[16465, 592, 74, 0, 38, "Text"],
+Cell[16542, 594, 183, 6, 50, "Input"],
+Cell[16728, 602, 47, 1, 35, "Input"],
+Cell[16778, 605, 89, 3, 38, "Text"],
+Cell[16870, 610, 489, 14, 48, "DisplayFormula"],
+Cell[17362, 626, 74, 0, 38, "Text"],
+Cell[17439, 628, 351, 10, 50, "Input"],
+Cell[17793, 640, 64, 0, 38, "Text"],
+Cell[17860, 642, 489, 14, 48, "DisplayFormula"],
+Cell[18352, 658, 98, 3, 38, "Text"],
+Cell[18453, 663, 87, 1, 35, "Input"],
+Cell[18543, 666, 92, 3, 38, "Text"],
+Cell[18638, 671, 489, 14, 48, "DisplayFormula"],
+Cell[19130, 687, 121, 5, 38, "Text"],
+Cell[19254, 694, 293, 8, 48, "DisplayFormula"],
+Cell[19550, 704, 89, 3, 38, "Text"],
+Cell[19642, 709, 412, 8, 212, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[20103, 723, 1714, 51, 92, "Section"],
+
+Cell[CellGroupData[{
+Cell[21842, 778, 30, 0, 56, "Subsection"],
+Cell[21875, 780, 63, 0, 38, "Text"],
+Cell[21941, 782, 521, 16, 70, "DisplayFormula"],
+Cell[22465, 800, 148, 5, 38, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[22650, 810, 30, 0, 56, "Subsection"],
+Cell[22683, 812, 74, 0, 38, "Text"],
+Cell[22760, 814, 221, 7, 68, "Input"],
+Cell[22984, 823, 47, 1, 35, "Input"],
+Cell[23034, 826, 89, 3, 38, "Text"],
+Cell[23126, 831, 743, 22, 70, "DisplayFormula"],
+Cell[23872, 855, 74, 0, 38, "Text"],
+Cell[23949, 857, 466, 13, 100, "Input"],
+Cell[24418, 872, 64, 0, 38, "Text"],
+Cell[24485, 874, 522, 16, 70, "DisplayFormula"],
+Cell[25010, 892, 98, 3, 38, "Text"],
+Cell[25111, 897, 90, 1, 35, "Input"],
+Cell[25204, 900, 92, 3, 38, "Text"],
+Cell[25299, 905, 522, 16, 70, "DisplayFormula"],
+Cell[25824, 923, 141, 5, 38, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[26014, 934, 1649, 49, 62, "Section"],
+
+Cell[CellGroupData[{
+Cell[27688, 987, 30, 0, 56, "Subsection"],
+Cell[27721, 989, 63, 0, 38, "Text"],
+Cell[27787, 991, 454, 14, 48, "DisplayFormula"],
+Cell[28244, 1007, 148, 5, 38, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[28429, 1017, 30, 0, 56, "Subsection"],
+Cell[28462, 1019, 74, 0, 38, "Text"],
+Cell[28539, 1021, 183, 6, 50, "Input"],
+Cell[28725, 1029, 47, 1, 35, "Input"],
+Cell[28775, 1032, 89, 3, 38, "Text"],
+Cell[28867, 1037, 631, 17, 48, "DisplayFormula"],
+Cell[29501, 1056, 127, 3, 59, "Text"],
+Cell[29631, 1061, 83, 1, 35, "Input"],
+Cell[29717, 1064, 71, 1, 35, "Input"],
+Cell[29791, 1067, 538, 14, 48, "DisplayFormula"],
+Cell[30332, 1083, 74, 0, 38, "Text"],
+Cell[30409, 1085, 308, 9, 50, "Input"],
+Cell[30720, 1096, 64, 0, 38, "Text"],
+Cell[30787, 1098, 298, 8, 48, "DisplayFormula"],
+Cell[31088, 1108, 98, 3, 38, "Text"],
+Cell[31189, 1113, 91, 1, 35, "Input"],
+Cell[31283, 1116, 92, 3, 38, "Text"],
+Cell[31378, 1121, 298, 8, 48, "DisplayFormula"],
+Cell[31679, 1131, 268, 8, 59, "Text"],
+Cell[31950, 1141, 184, 3, 77, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[32183, 1150, 1723, 51, 92, "Section"],
+
+Cell[CellGroupData[{
+Cell[33931, 1205, 30, 0, 56, "Subsection"],
+Cell[33964, 1207, 63, 0, 38, "Text"],
+Cell[34030, 1209, 530, 16, 70, "DisplayFormula"],
+Cell[34563, 1227, 148, 5, 38, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[34748, 1237, 30, 0, 56, "Subsection"],
+Cell[34781, 1239, 74, 0, 38, "Text"],
+Cell[34858, 1241, 230, 7, 68, "Input"],
+Cell[35091, 1250, 47, 1, 35, "Input"],
+Cell[35141, 1253, 50, 1, 35, "Input"],
+Cell[35194, 1256, 89, 3, 38, "Text"],
+Cell[35286, 1261, 981, 25, 105, "DisplayFormula"],
+Cell[36270, 1288, 127, 3, 59, "Text"],
+Cell[36400, 1293, 93, 1, 41, "Input"],
+Cell[36496, 1296, 107, 2, 41, "Input"],
+Cell[36606, 1300, 79, 1, 41, "Input"],
+Cell[36688, 1303, 998, 22, 186, "DisplayFormula"],
+Cell[37689, 1327, 74, 0, 38, "Text"],
+Cell[37766, 1329, 430, 12, 111, "Input"],
+Cell[38199, 1343, 64, 0, 38, "Text"],
+Cell[38266, 1345, 1007, 22, 186, "DisplayFormula"],
+Cell[39276, 1369, 746, 18, 90, "DisplayFormula"],
+Cell[40025, 1389, 98, 3, 38, "Text"],
+Cell[40126, 1394, 101, 2, 35, "Input"],
+Cell[40230, 1398, 92, 3, 38, "Text"],
+Cell[40325, 1403, 746, 18, 90, "DisplayFormula"],
+Cell[41074, 1423, 132, 5, 38, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[41255, 1434, 1649, 49, 62, "Section"],
+
+Cell[CellGroupData[{
+Cell[42929, 1487, 30, 0, 56, "Subsection"],
+Cell[42962, 1489, 63, 0, 38, "Text"],
+Cell[43028, 1491, 454, 14, 48, "DisplayFormula"],
+Cell[43485, 1507, 148, 5, 38, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[43670, 1517, 30, 0, 56, "Subsection"],
+Cell[43703, 1519, 183, 6, 50, "Input"],
+Cell[43889, 1527, 47, 1, 35, "Input"],
+Cell[43939, 1530, 94, 3, 38, "Text"],
+Cell[44036, 1535, 91, 1, 35, "Input"],
+Cell[44130, 1538, 64, 0, 38, "Text"],
+Cell[44197, 1540, 283, 8, 48, "DisplayFormula"],
+Cell[44483, 1550, 132, 5, 38, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[44664, 1561, 1724, 51, 92, "Section"],
+
+Cell[CellGroupData[{
+Cell[46413, 1616, 30, 0, 56, "Subsection"],
+Cell[46446, 1618, 63, 0, 38, "Text"],
+Cell[46512, 1620, 531, 16, 70, "DisplayFormula"],
+Cell[47046, 1638, 148, 5, 38, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[47231, 1648, 30, 0, 56, "Subsection"],
+Cell[47264, 1650, 74, 0, 38, "Text"],
+Cell[47341, 1652, 224, 7, 68, "Input"],
+Cell[47568, 1661, 47, 1, 35, "Input"],
+Cell[47618, 1664, 89, 3, 38, "Text"],
+Cell[47710, 1669, 747, 22, 70, "DisplayFormula"],
+Cell[48460, 1693, 74, 0, 38, "Text"],
+Cell[48537, 1695, 436, 12, 96, "Input"],
+Cell[48976, 1709, 64, 0, 38, "Text"],
+Cell[49043, 1711, 728, 22, 70, "DisplayFormula"],
+Cell[49774, 1735, 98, 3, 38, "Text"],
+Cell[49875, 1740, 108, 2, 35, "Input"],
+Cell[49986, 1744, 92, 3, 38, "Text"],
+Cell[50081, 1749, 728, 22, 70, "DisplayFormula"],
+Cell[50812, 1773, 121, 5, 38, "Text"],
+Cell[50936, 1780, 533, 16, 70, "DisplayFormula"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

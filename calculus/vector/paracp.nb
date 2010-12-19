@@ -1,0 +1,125 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3087,         86]*)
+(*NotebookOutlinePosition[      3720,        109]*)
+(*  CellTagsIndexPosition[      3676,        105]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(para = 
+      Plot3D[x\^2 + y\^2, {x, \(-1\), 1}, {y, \(-1\), 1}, 
+        PlotRange -> {0, 2}, BoxRatios -> Automatic, 
+        LightSources 
+          \[Rule] {{{1.`, 0.`, 1.`}, 
+              RGBColor[1.`, 0, 0]}, {{1.`, \(-1.`\), 1.`}, 
+              RGBColor[0, 1.`, 0]}, {{0.`, \(-1.`\), 1.`}, 
+              RGBColor[0, 0, 1.`]}}]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(tp = 
+      Show[Graphics3D[
+          Join[Table[
+              Line[Table[{x, y, 
+                    \(-0.347810384779930892\) + 1.17950902460291651\ x}, {y, 
+                    \(-1\), 1, 2/15}]], {x, \(-1\), 1, 2/15}], 
+            Table[Line[
+                Table[{x, y, 
+                    \(-0.347810384779930892\) + 1.17950902460291651\ x}, {x, 
+                    \(-1\), 1, 2/15}]], {y, \(-1\), 1, 2/15}]]]]; \)\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(\(cp = 
+      Show[Graphics3D[{Thickness[0.01], 
+            Line[{{1, 0, 0}, {0.589754512301458255, 0, 
+                  0.347810384779930892}}]}]]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[para, tp, cp, ViewPoint -> {2.480, \ \(-2.293\), \ \(-0.199\)}, 
+      LightSources 
+        \[Rule] {{{1.`, 0.`, 1.`}, 
+            RGBColor[1.`, 0, 0]}, {{1.`, \(-1.`\), 1.`}, 
+            RGBColor[0, 1.`, 0]}, {{0.`, \(-1.`\), 1.`}, 
+            RGBColor[0, 0, 1.`]}}, BoxRatios -> Automatic]; \)\)], "Input"]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 800}, {0, 600}},
+WindowSize->{520, 455},
+WindowMargins->{{7, Automatic}, {Automatic, 13}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 376, 8, 215, "Input"],
+Cell[2088, 59, 464, 11, 237, "Input"],
+Cell[2555, 72, 186, 4, 97, "Input"],
+Cell[2744, 78, 339, 6, 197, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

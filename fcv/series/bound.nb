@@ -1,0 +1,113 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2517,         73]*)
+(*NotebookOutlinePosition[      3156,         96]*)
+(*  CellTagsIndexPosition[      3112,         92]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(axes = 
+        Plot[{}, {x, 0, 4}, PlotRange \[Rule] {{0, 4}, {0, 1}}, 
+          Ticks \[Rule] {{0, 1, 2, 3, 4}, {0, 1}}, 
+          AspectRatio \[Rule] Automatic];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(fn = Plot[x\^\(-2\), {x, 1, 4}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(upper = 
+        Graphics[{\[IndentingNewLine]Line[{{0, 1}, {1, 1}, {1, 1/4}, {2, 
+                  1/4}, {2, 1/9}, {3, 1/9}, {3, 1/16}, {4, 
+                  1/16}}]}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(lower = 
+        Graphics[{\[IndentingNewLine]Line[{{1, 1}, {2, 1}, {2, 1/4}, {3, 
+                  1/4}, {3, 1/9}, {4, 1/9}}]}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{Show[axes, fn, upper], Show[axes, fn, lower]}], 
+        ImageSize \[Rule] 500];\)\)], "Input"]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{56, Automatic}, {65, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 203, 4, 43, "Input"],
+Cell[1923, 55, 69, 1, 31, "Input"],
+Cell[1995, 58, 208, 4, 59, "Input"],
+Cell[2206, 64, 167, 3, 59, "Input"],
+Cell[2376, 69, 137, 2, 43, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

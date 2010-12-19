@@ -1,0 +1,1266 @@
+\flushbottom
+
+
+%%
+%% Present the canonical forms in Zwillinger.
+%%
+
+
+%%============================================================================
+%%============================================================================
+\chapter{Transformations and Canonical Forms}
+\index{transformations!of differential equations}
+\index{canonical forms!of differential equations}
+
+
+
+Prize intensity more than extent.  Excellence resides in quality not in 
+quantity.  The best is always few and rare - abundance lowers value.
+Even among men, the giants are usually really dwarfs.  Some reckon books
+by the thickness, as if they were written to exercise the brawn more
+than the brain.  Extent alone never rises above mediocrity; it is the 
+misfortune of universal geniuses that in attempting to be at home
+everywhere are so nowhere.  Intensity gives eminence and rises to the heroic 
+in matters sublime.
+
+\begin{flushright}
+  -Balthasar Gracian
+\end{flushright}
+
+
+
+
+
+
+%%=============================================================================
+\section{The Constant Coefficient Equation}
+\index{canonical forms!constant coefficient equation}
+
+
+The solution of any second order linear homogeneous differential equation
+can be written in terms of the solutions to either
+\[
+y'' = 0, \quad \mathrm{or} \quad y'' - y = 0
+\]
+
+Consider the general equation
+\[
+y'' + a y' + b y = 0.
+\]
+We can solve this differential equation by making the substitution
+$y = \e^{\lambda x}$.  This yields the algebraic equation
+\[
+\lambda^2 + a \lambda + b = 0.
+\]
+\[
+\lambda = \frac{1}{2}\left( -a \pm \sqrt{a^2 - 4b} \right)
+\]
+There are two cases to consider.  If $a^2 \neq 4b$ then the solutions are
+\[
+y_1 = \e^{(-a + \sqrt{a^2 - 4b}) x / 2}, \qquad
+y_2 = \e^{(-a - \sqrt{a^2 - 4b}) x / 2}
+\]
+If $a^2 = 4b$ then we have
+\[
+y_1 = \e^{-a x / 2}, \qquad y_2 = x \e^{-a x / 2}
+\]
+Note that regardless of the values of $a$ and $b$ the solutions are of the 
+form
+\[
+y = \e^{-a x / 2} u(x)
+\]
+
+
+
+We would like to write the solutions to the general differential equation
+in terms of the solutions to simpler differential equations.
+We make the substitution
+\[
+y = \e^{\lambda x} u
+\]
+The derivatives of $y$ are
+\begin{align*}
+  y'      &= \e^{\lambda x} (u' + \lambda u) \\
+  y''     &= \e^{\lambda x} (u'' + 2 \lambda u' + \lambda^2 u)
+\end{align*}
+Substituting these into the differential equation yields
+\[
+u'' + (2 \lambda + a) u' + (\lambda^2 + a \lambda + b) u = 0
+\]
+In order to get rid of the $u'$ term we choose
+\[
+\lambda = - \frac{a}{2}.
+\]
+The equation is then
+\[
+u'' + \left( b - \frac{a^2}{4} \right) u = 0.
+\]
+There are now two cases to consider.
+
+\paragraph{Case 1.}
+If $b = a^2 / 4$ then the differential equation is
+\[
+u'' = 0
+\]
+which has solutions $1$ and $x$.  The general solution for $y$ is then
+\[
+y = \e^{-ax / 2} (c_1 + c_2 x).
+\]
+
+
+\paragraph{Case 2.}
+If $b \neq a^2 / 4$ then the differential equation is
+\[
+u'' - \left( \frac{a^2}{4} - b\right) u = 0.
+\]
+We make the change variables
+\[
+u(x) = v(\xi), \qquad x = \mu \xi.
+\]
+The derivatives in terms of $\xi$ are
+\begin{align*}
+  \frac{\dd}{\dd x} &= \frac{\dd \xi}{\dd x} \frac{\dd}{\dd \xi} = \frac{1}{\mu}\frac{\dd}{\dd \xi} \\
+  \frac{\dd^2}{\dd x^2} &=  \frac{1}{\mu}\frac{\dd}{\dd \xi}  \frac{1}{\mu}\frac{\dd}{\dd \xi}
+  = \frac{1}{\mu^2} \frac{\dd^2}{\dd \xi^2}.
+\end{align*}
+The differential equation for $v$ is
+\[
+\frac{1}{\mu^2} v'' - \left( \frac{a^2}{4} - b\right) v = 0
+\]
+\[
+v'' - \mu^2 \left( \frac{a^2}{4} - b\right) v = 0
+\]
+We choose
+\[
+\mu = \left( \frac{a^2}{4} - b\right)^{-1/2}
+\]
+to obtain
+\[
+v'' - v = 0
+\]
+which has solutions $\e^{\pm \xi}$.
+The solution for $y$ is
+\[
+y = \e^{\lambda x} \left( c_1 \e^{x/\mu} + c_2 \e^{-x / \mu}\right)
+\]
+\[
+y = \e^{-ax/2} \left( c_1 \e^{\sqrt{a^2 /4 - b}\ x}
+  + c_2 \e^{-\sqrt{a^2 / 4 - b}\ x} \right)
+\]
+
+
+
+
+
+
+
+
+%%==============================================================================
+\section{Normal Form}
+\index{normal form!of differential equations}
+
+%%-----------------------------------------------------------------------------
+\subsection{Second Order Equations}
+
+Consider the second order equation
+\begin{equation}
+  \label{can_nf_soe}
+  y'' + p(x) y' + q(x) y = 0.
+\end{equation}
+Through a change of dependent variable, this equation can be transformed
+to 
+\[
+u'' + I(x) y = 0.
+\]
+This is known as the \textbf{normal form} of (\ref{can_nf_soe}).
+The function $I(x)$ is known as the \textbf{invariant} of the equation.
+
+Now to find the change of variables that will accomplish this transformation.
+We make the substitution $y(x) = a(x) u(x)$ in (\ref{can_nf_soe}).
+\[
+a u'' + 2 a' u' + a'' u + p (a u' + a' u) + q a u = 0
+\]
+\[
+u'' + \left( 2 \frac{a'}{a} + p \right) u' + \left( \frac{a''}{a} 
+  + \frac{p a'}{a} + q \right) u = 0
+\]
+To eliminate the $u'$ term, $a(x)$ must satisfy
+\[
+2 \frac{a'}{a} + p = 0
+\]
+\[
+a' + \frac{1}{2} p a = 0
+\]
+\[
+a = c \exp\left( - \frac{1}{2} \int p(x) \,\dd x \right).
+\]
+For this choice of $a$, our differential equation for $u$ becomes
+\[
+u'' + \left( q - \frac{p^2}{4} - \frac{p'}{2} \right) u = 0.
+\]
+
+Two differential equations having the same normal form are called
+\textbf{equivalent}.  
+
+\begin{Result}
+  The change of variables
+  \[
+  y(x) = \exp\left( - \frac{1}{2} \int p(x) \,\dd x \right) u(x)
+  \]
+  transforms the differential equation
+  \[
+  y'' + p(x) y' + q(x) y = 0
+  \]
+  into its normal form
+  \[
+  u'' + I(x) u = 0
+  \]
+  where the invariant of the equation, $I(x)$, is
+  \[
+  I(x) =  q - \frac{p^2}{4} - \frac{p'}{2}.
+  \]
+\end{Result}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\subsection{Higher Order Differential Equations}
+
+Consider the third order differential equation
+\[
+y''' + p(x) y'' + q(x) y' + r(x) y = 0.
+\]
+We can eliminate the $y''$ term.
+Making the change of dependent variable 
+\begin{align*}
+  y &= u \exp\left( - \frac{1}{3} \int p(x)\,\dd x \right) \\
+  y' &= \left[u' -\frac{1}{3} p u \right] 
+  \exp\left( - \frac{1}{3} \int p(x)\,\dd x \right) \\
+  y'' &= \left[u'' -\frac{2}{3} p u' +\frac{1}{9} (p^2 - 3 p') u \right] 
+  \exp\left( - \frac{1}{3} \int p(x)\,\dd x \right) \\
+  y'' &= \left[u''' - p u'' +\frac{1}{3} (p^2- 3 p') u'
+    +\frac{1}{27} (9p' - 9p'' - p^3 ) u \right] 
+  \exp\left( - \frac{1}{3} \int p(x)\,\dd x \right) 
+\end{align*}
+yields the differential equation
+\[
+u''' + \frac{1}{3} (3 q - 3 p' - p^2) u' + \frac{1}{27} (27 r - 9 p q
+-9 p'' + 2 p^3 ) u = 0.
+\]
+
+
+
+\begin{Result}
+  The change of variables
+  \[
+  y(x) = \exp\left( - \frac{1}{n} \int p_{n-1}(x) \,\dd x \right) u(x)
+  \]
+  transforms the differential equation
+  \[
+  y^{(n)} + p_{n-1}(x) y^{(n-1)} + p_{n-2}(x) y^{(n-2)} + \cdots + p_0(x) y = 0
+  \]
+  into the form
+  \[
+  u^{(n)} + a_{n-2}(x) u^{(n-2)} + a_{n-3}(x) u^{(n-3)} + \cdots + a_0(x) u = 0.
+  \]
+\end{Result}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%==============================================================================
+%%\section{Scale Transformations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%==============================================================================
+\section{Transformations of the Independent Variable}
+\index{transformations!of independent variable}
+
+%%-----------------------------------------------------------------------------
+\subsection{Transformation to the form u'' + a(x) u = 0}
+
+Consider the second order linear differential equation
+\[
+y'' + p(x) y' + q(x) y = 0.
+\]
+We make the change of independent variable
+\[
+\xi = f(x), \qquad u(\xi) = y(x).
+\]
+The derivatives in terms of $\xi$ are
+\begin{align*}
+  \frac{\dd}{\dd x} &= \frac{\dd \xi}{\dd x} \frac{\dd}{\dd \xi} = f' \frac{\dd}{\dd \xi} \\
+  \frac{\dd^2}{\dd x^2} &= f' \frac{\dd}{\dd \xi} f' \frac{\dd}{\dd \xi}
+  = (f')^2 \frac{\dd^2}{\dd \xi^2} + f'' \frac{\dd}{\dd \xi}
+\end{align*}
+The differential equation becomes
+\[
+(f')^2 u'' + f'' u' + p f' u' + q u = 0.
+\]
+In order to eliminate the $u'$ term, $f$ must satisfy
+\[
+f'' + p f' = 0
+\]
+\[
+f' = \exp \left( - \int p(x) \,\dd x \right) 
+\]
+\[
+f = \int \exp \left( - \int p(x) \,\dd x \right) \,\dd x.
+\]
+The differential equation for $u$ is then
+\[
+u'' + \frac{q}{(f')^2} u = 0
+\]
+\[
+u''(\xi) + q(x) \exp \left(2 \int p(x)\,\dd x \right) u(\xi) = 0.
+\]
+
+
+
+\begin{Result}
+  The change of variables
+  \[
+  \xi = \int \exp \left( - \int p(x) \,\dd x \right) \,\dd x,
+  \qquad u(\xi) = y(x)
+  \]
+  transforms the differential equation
+  \[
+  y'' + p(x) y' + q(x) y = 0
+  \]
+  into
+  \[
+  u''(\xi)  + q(x) \exp \left(2 \int p(x)\,\dd x \right) u(\xi) = 0.
+  \]
+\end{Result}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\subsection{Transformation to a Constant Coefficient Equation}
+\index{transformations!to constant coefficient equation}
+
+Consider the second order linear differential equation
+\[
+y'' + p(x) y' + q(x) y = 0.
+\]
+With the change of independent variable
+\[
+\xi = f(x), \qquad u(\xi)=y(x),
+\]
+the differential equation becomes
+\[
+(f')^2 u'' + (f'' + p f') u' + q u = 0.
+\]
+For this to be a constant coefficient equation we must have
+\[
+(f')^2 = c_1 q, \qquad \mathrm{and} \qquad f'' + p f' = c_2 q,
+\]
+for some constants $c_1$ and $c_2$.
+Solving the first condition,
+\[
+f' = c \sqrt{q},
+\]
+\[
+f = c \int \sqrt{q(x)} \,\dd x.
+\]
+The second constraint becomes
+\begin{gather*}
+  \frac{f'' + p f'}{q} = \mathrm{const} \\
+  \frac{\frac{1}{2} c q^{-1/2} q' + p c q^{1/2}}{q} = \mathrm{const} \\
+  \frac{q' + 2 p q}{q^{3/2}} = \mathrm{const}.
+\end{gather*}
+
+
+
+\begin{Result}
+  Consider the differential equation
+  \[
+  y'' + p(x) y' + q(x) y = 0.
+  \]
+  If the expression
+  \[
+  \frac{q' + 2 p q}{q^{3/2}}
+  \]
+  is a constant then the change of variables
+  \[
+  \xi = c \int \sqrt{q(x)} \,\dd x, \quad u(\xi) = y(x),
+  \]
+  will yield a constant coefficient differential equation.  (Here $c$ is
+  an arbitrary constant.)
+\end{Result}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%=============================================================================
+\section{Integral Equations}
+\index{integral equations}
+\index{integral equations!initial value problems}
+\index{integral equations!boundary value problems}
+\index{Volterra equations}
+\index{Fredholm equations}
+\index{transformations!to integral equations}
+
+
+\paragraph{Volterra's Equations.}
+Volterra's integral equation of the first kind has the form
+\[
+\int_a^x N(x,\xi) f(\xi) \,\dd \xi = f(x).
+\]
+The Volterra equation of the second kind is
+\[
+y(x) = f(x) + \lambda \int_a^x N(x,\xi) y(\xi) \,\dd \xi.
+\]
+$N(x,\xi)$ is known as the kernel of the equation.
+
+
+
+\paragraph{Fredholm's Equations.}
+Fredholm's integral equations of the first and second kinds are
+\[
+\int_a^b N(x,\xi) f(\xi) \,\dd \xi = f(x),
+\]
+\[
+y(x) = f(x) + \lambda \int_a^b N(x,\xi) y(\xi) \,\dd \xi.
+\]
+
+
+
+
+%%-----------------------------------------------------------------------------
+\subsection{Initial Value Problems}
+
+Consider the initial value problem
+\[
+y'' + p(x) y' + q(x) y = f(x), \qquad y(a)=\alpha, \quad y'(a)=\beta.
+\]
+Integrating this equation twice yields
+\[
+\int_a^x \int_a^\eta y''(\xi) + p(\xi) y'(\xi) + q(\xi) y(\xi) \,\dd \xi \,\dd \eta
+= \int_a^x \int_a^\eta f(\xi) \,\dd \xi \,\dd \eta
+\]
+\[
+\int_a^x (x-\xi)[y''(\xi) + p(\xi) y'(\xi) + q(\xi) y(\xi)] \,\dd \xi 
+= \int_a^x (x-\xi) f(\xi) \,\dd \xi .
+\]
+Now we use integration by parts.
+\begin{align*}
+  &\big[ (x-\xi) y'(\xi) \big]_a^x - \int_a^x -y'(\xi) \,\dd \xi
+  +\big[ (x-\xi) p(\xi) y(\xi) \big]_a^x 
+  - \int_a^x [(x-\xi)p'(\xi) - p(\xi)]y(\xi) \,\dd \xi \\
+  &\qquad + \int_a^x (x-\xi) q(\xi) y(\xi) \,\dd \xi 
+  = \int_a^x (x-\xi) f(\xi) \,\dd \xi .
+\end{align*}
+\begin{align*}
+  &- (x-a) y'(a) + y(x) - y(a) -(x-a) p(a) y(a) 
+  - \int_a^x [(x-\xi)p'(\xi) - p(\xi)]y(\xi) \,\dd \xi \\
+  & \qquad + \int_a^x (x-\xi) q(\xi) y(\xi) \,\dd \xi 
+  = \int_a^x (x-\xi) f(\xi) \,\dd \xi .
+\end{align*}
+We obtain a Volterra integral equation of the second kind for $y(x)$.
+\[
+\boxed{
+  y(x) = \int_a^x (x-\xi) f(\xi) \,\dd \xi + (x-a) (\alpha p(a) +\beta) + \alpha
+  + \int_a^x \big\{ (x-\xi) [p'(\xi)-q(\xi)]-p(\xi) \big\} y(\xi)\,\dd \xi .
+  }
+\]
+
+Note that the initial conditions for the differential equation are ``built 
+into'' the Volterra equation.  Setting $x=a$ in the Volterra equation 
+yields $y(a)=\alpha$.  Differentiating the Volterra equation,
+\[
+y'(x) = \int_a^x f(\xi) \,\dd \xi + (\alpha p(a) + \beta) - p(x) y(x) 
++ \int_a^x [p'(\xi)-q(\xi)]-p(\xi)y(\xi) \,\dd \xi
+\]
+and setting $x=a$ yields
+\[
+y'(a) = \alpha p(a) + \beta - p(a) \alpha = \beta.
+\]
+
+(Recall from calculus that
+\[
+\frac{\dd}{\dd x} \int^x g(x,\xi) \,\dd \xi = g(x,x) + \int^x \frac{\partial}{\partial x} [g(x,\xi)]
+\,\dd \xi.)
+\]
+
+
+
+
+
+
+\begin{Result}
+  The initial value problem
+  \[
+  y'' + p(x) y' + q(x) y = f(x), \qquad y(a)=\alpha, \quad y'(a)=\beta.
+  \]
+  is equivalent to the Volterra equation of the second kind
+  \[
+  y(x) = F(x) + \int_a^x N(x,\xi) y(\xi) \,\dd \xi
+  \]
+  where
+  \begin{align*}
+    F(x) &= \int_a^x (x-\xi) f(\xi) \,\dd \xi + (x-a) (\alpha p(a) +\beta) +\alpha \\
+    N(x,\xi) &= (x-\xi) [p'(\xi)-q(\xi)]-p(\xi).
+  \end{align*}
+\end{Result}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%-----------------------------------------------------------------------------
+\subsection{Boundary Value Problems}
+
+
+Consider the boundary value problem
+\begin{equation}
+  \label{can_ydpefx}
+  y'' = f(x), \qquad y(a) = \alpha, \quad y(b) = \beta.
+\end{equation}
+To obtain a problem with homogeneous boundary conditions, we make the 
+change of variable
+\[
+y(x) = u(x) + \alpha + \frac{\beta-\alpha}{b-a} (x-a)
+\]
+to obtain the problem
+\[
+u'' = f(x), \qquad u(a) = u(b) = 0.
+\]
+Now we will use Green's functions to write the solution as an integral.  
+First we solve the problem
+\[
+G'' = \delta(x-\xi), \qquad G(a|\xi) = G(b|\xi) = 0.
+\]
+The homogeneous solutions of the differential equation that satisfy the 
+left and right boundary conditions are
+\[
+c_1 (x-a) \quad \mathrm{and} \quad c_2 (x-b).
+\]
+Thus the Green's function has the form
+\[
+G(x|\xi) = 
+\begin{cases}
+  c_1 (x-a), \quad &\mathrm{for}\ x \leq \xi \\
+  c_2 (x-b), \quad &\mathrm{for}\ x \geq \xi
+\end{cases}
+\]
+Imposing continuity of $G(x|\xi)$ at $x=\xi$ and a unit jump of $G(x|\xi)$ 
+at $x=\xi$, we obtain
+\[
+G(x|\xi) = 
+\begin{cases}
+  \frac{(x-a)(\xi-b)}{b-a}, \quad &\mathrm{for}\ x \leq \xi \\
+  \frac{(x-b)(\xi-a)}{b-a}, \quad &\mathrm{for}\ x \geq \xi
+\end{cases}
+\]
+Thus the solution of the (\ref{can_ydpefx}) is
+\[
+y(x) = \alpha + \frac{\beta-\alpha}{b-a} (x-a)
++ \int_a^b G(x|\xi) f(\xi) \,\dd \xi.
+\]
+
+
+
+
+Now consider the boundary value problem
+\[
+y'' + p(x) y' + q(x) y = 0, \qquad y(a) = \alpha, \quad y(b) = \beta.
+\]
+From the above result we can see that the solution satisfies
+\[
+y(x) = \alpha + \frac{\beta-\alpha}{b-a} (x-a)
++ \int_a^b G(x|\xi) [f(\xi)-p(\xi)y'(\xi)-q(\xi) y(\xi)] \,\dd \xi.
+\]
+Using integration by parts, we can write
+\begin{align*}
+  - \int_a^b G(x|\xi) p(\xi)y'(\xi)\,\dd \xi
+  &= -\big[ G(x|\xi) p(\xi) y(\xi) \big]_a^b 
+  + \int_a^b \left[\frac{\partial G(x|\xi)}{\partial \xi} p(\xi) 
+    + G(x|\xi) p'(\xi) \right] y(\xi) \,\dd \xi \\
+  &= \int_a^b \left[\frac{\partial G(x|\xi)}{\partial \xi} p(\xi) 
+    + G(x|\xi) p'(\xi) \right] y(\xi) \,\dd \xi .
+\end{align*}
+Substituting this into our expression for $y(x)$, 
+\[
+y(x) = \alpha + \frac{\beta-\alpha}{b-a} (x-a)
++ \int_a^b G(x|\xi) f(\xi) \,\dd \xi
++ \int_a^b \left[\frac{\partial G(x|\xi)}{\partial \xi} p(\xi)+ G(x|\xi) [p'(\xi) 
+  -q(\xi)] \right] y(\xi) \,\dd \xi,
+\]
+we obtain a Fredholm integral equation of the second kind.
+
+
+
+\begin{Result}
+  The boundary value problem
+  \[
+  y'' + p(x) y' + q(x) y = f(x), \qquad y(a)=\alpha, \quad y(b)=\beta.
+  \]
+  is equivalent to the Fredholm equation of the second kind
+  \[
+  y(x) = F(x) + \int_a^b N(x,\xi) y(\xi) \,\dd \xi
+  \]
+  where
+  \begin{align*}
+    F(x) &= \alpha + \frac{\beta-\alpha}{b-a} (x-a)
+    + \int_a^b G(x|\xi) f(\xi) \,\dd \xi, \\
+    N(x,\xi) &= \int_a^b H(x|\xi) y(\xi) \,\dd \xi, \\
+    G(x|\xi) &= 
+    \begin{cases}
+      \frac{(x-a)(\xi-b)}{b-a}, \quad &\mathrm{for}\ x \leq \xi \\
+      \frac{(x-b)(\xi-a)}{b-a}, \quad &\mathrm{for}\ x \geq \xi,
+    \end{cases} \\
+    H(x|\xi) &= 
+    \begin{cases}
+      \frac{(x-a)}{b-a} p(\xi) + \frac{(x-a)(\xi-b)}{b-a}[p'(\xi)-q(\xi)] 
+      \quad &\mathrm{for}\ x \leq \xi \\
+      \frac{(x-b)}{b-a} p(\xi) + \frac{(x-b)(\xi-a)}{b-a}[p'(\xi)-q(\xi)]
+      \quad &\mathrm{for}\ x \geq \xi.
+    \end{cases}
+  \end{align*}
+\end{Result}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+%%===========================================================================
+\exercises{
+\pagebreak
+\flushbottom
+\section{Exercises}
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Constant Coefficient Equation}
+\end{large}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Normal Form}
+\end{large}
+
+
+
+%% Solve the differential equation... by transforming to normal form.
+\begin{Exercise}
+  \label{exercise y243xy192412x4x2y=0}
+  Solve the differential equation
+  \[
+  y'' + \left( 2 + \frac{4}{3} x \right) y' + \frac{1}{9}
+  \left( 24 + 12 x + 4 x^2 \right) y = 0.
+  \]
+
+  \hintsolution{y243xy192412x4x2y=0}
+\end{Exercise}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Transformations of the Independent Variable}
+\end{large}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Integral Equations}
+\end{large}
+
+
+
+
+
+
+
+
+%% CONTINUE HERE
+
+%%222222222222222222222222222222222222222222222222222222222222222222222222222222
+\begin{Exercise}
+  \label{exercise y2abxycdxex2y=0}
+  Show that the solution of the differential equation
+  \[
+  y'' + 2 (a + b x) y' + (c + d x + e x^2) y = 0
+  \]
+  can be written in terms of one of the following canonical forms:
+  \begin{align*}
+    &v'' + (\xi^2 + A) v = 0 \\
+    &v'' = \xi v \\
+    &v'' + v = 0 \\
+    &v'' = 0.
+  \end{align*}
+
+  \hintsolution{y2abxycdxex2y=0}
+\end{Exercise}
+
+
+
+
+
+%%333333333333333333333333333333333333333333333333333333333333333333333333333333
+\begin{Exercise}
+  \label{exercise canonical y2abxycdxex2y=0}
+  Show that the solution of the differential equation
+  \[
+  y'' + 2\left( a + \frac{b}{x} \right) y' + \left( c + \frac{d}{x}
+    + \frac{e}{x^2} \right) y = 0
+  \]
+  can be written in terms of one of the following canonical forms:
+  \begin{align*}
+    &v'' + \left( 1 + \frac{A}{\xi} + \frac{B}{\xi^2} \right) v = 0 \\
+    &v'' + \left( \frac{1}{\xi} + \frac{A}{\xi^2} \right) v = 0 \\
+    &v'' + \frac{A}{\xi^2} v = 0 
+  \end{align*}
+
+  \hintsolution{canonical y2abxycdxex2y=0}
+\end{Exercise}
+
+
+
+
+
+
+%%44444444444444444444444444444444444444444444444444444444444444444444444444444
+\begin{Exercise} 
+  \label{exercise x2yaxyay=0}
+  Show that the second order Euler equation
+  \[ 
+  x^2 \frac{\dd^2 y}{\dd^2 x} + a_1 x \frac{\dd y}{\dd x} + a_0 y = 0 
+  \]
+  can be transformed to a constant coefficient equation.
+
+  \hintsolution{x2yaxyay=0}
+\end{Exercise}
+
+
+
+
+
+
+%%55555555555555555555555555555555555555555555555555555555555555555555555555555
+\begin{Exercise}
+  \label{exercise y1xy114x2y=0}
+  Solve Bessel's equation of order $1/2$,
+  \[
+  y'' + \frac{1}{x} y' + \left( 1 - \frac{1}{4x^2} \right) y = 0.
+  \]
+
+  \hintsolution{y1xy114x2y=0}
+\end{Exercise}
+
+
+
+
+
+
+\raggedbottom
+}
+%%============================================================================
+\hints{
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Constant Coefficient Equation}
+\end{large}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Normal Form}
+\end{large}
+
+
+
+%% Solve the differential equation... by transforming to normal form.
+\begin{Hint}
+  \label{hint y243xy192412x4x2y=0}
+  Transform the equation to normal form.
+\end{Hint}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Transformations of the Independent Variable}
+\end{large}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Integral Equations}
+\end{large}
+
+
+
+
+
+%%222222222222222222222222222222222222222222222222222222222222222222222222222222
+\begin{Hint}
+  \label{hint y2abxycdxex2y=0}
+  Transform the equation to normal form and then apply the scale transformation
+  $x = \lambda \xi + \mu$.
+\end{Hint}
+
+
+
+%%333333333333333333333333333333333333333333333333333333333333333333333333333333
+\begin{Hint}
+  \label{hint canonical y2abxycdxex2y=0}
+  Transform the equation to normal form and then apply the scale transformation
+  $x = \lambda \xi$.
+\end{Hint}
+
+
+
+
+
+%%44444444444444444444444444444444444444444444444444444444444444444444444444444
+\begin{Hint}
+  \label{hint x2yaxyay=0}
+  Make the change of variables $x = \e^t$, $y(x) = u(t)$.
+  Write the derivatives with respect to $x$ in terms of $t$.
+  \begin{gather*}
+    x = \e^t \\
+    d x = \e^t d t \\
+    \frac{\dd}{\dd x} = \e^{-t} \frac{\dd}{\dd t} \\
+    x \frac{\dd}{\dd x} = \frac{\dd}{\dd t}
+  \end{gather*}
+\end{Hint}
+
+
+
+
+%%55555555555555555555555555555555555555555555555555555555555555555555555555555
+\begin{Hint}
+  \label{hint y1xy114x2y=0}
+  Transform the equation to normal form.
+\end{Hint}
+
+
+
+
+
+
+\raggedbottom
+}
+%%============================================================================
+\solutions{
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{The Constant Coefficient Equation}
+\end{large}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Normal Form}
+\end{large}
+
+
+
+%% Solve the differential equation... by transforming to normal form.
+\begin{Solution}
+  \label{solution y243xy192412x4x2y=0}
+  \[
+  y'' + \left( 2 + \frac{4}{3} x \right) y' + \frac{1}{9}
+  \left( 24 + 12 x + 4 x^2 \right) y = 0
+  \]
+  To transform the equation to normal form we make the substitution
+  \begin{align*}
+    y &= \exp\left( - \frac{1}{2} \int \left( 2 + \frac{4}{3} x \right)\,\dd x 
+    \right) u \\
+    &= \e^{-x - x^2 / 3} u
+  \end{align*}
+  The invariant of the equation is
+  \begin{align*}
+    I(x) &= \frac{1}{9} \left( 24 + 12 x + 4 x^2 \right) 
+    - \frac{1}{4} \left( 2 + \frac{4}{3} x \right)^2
+    - \frac{1}{2} \frac{\dd}{\dd x} \left(2 + \frac{4}{3} x \right) \\
+    &= 1.
+  \end{align*}
+  The normal form of the differential equation is then
+  \[
+  u'' + u = 0
+  \]
+  which has the general solution
+  \[
+  u = c_1 \cos x + c_2 \sin x
+  \]
+  Thus the equation for $y$ has the general solution
+  \[
+  \boxed{
+    y = c_1 \e^{-x-x^2/3} \cos x + c_2 \e^{-x-x^2/3} \sin x.
+    }
+  \]
+\end{Solution}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Transformations of the Independent Variable}
+\end{large}
+
+
+
+%%-----------------------------------------------------------------------------
+\begin{large}
+  \noindent
+  \textbf{Integral Equations}
+\end{large}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%222222222222222222222222222222222222222222222222222222222222222222222222222222
+\begin{Solution}
+  \label{solution y2abxycdxex2y=0}
+  The substitution that will transform the equation to normal form is
+  \begin{align*}
+    y       &= \exp\left( -\frac{1}{2} \int 2(a + b x) \,\dd x \right) u \\
+    &= \e^{-a x - b x^2 / 2} u.
+  \end{align*}
+  The invariant of the equation is
+  \begin{align*}
+    I(x)    &= c + d x + e x^2 - \frac{1}{4} (2(a+b x))^2 - \frac{1}{2}
+    \frac{\dd}{\dd x} (2(a+b x)) \\
+    &= c - b - a^2 + (d - 2 a b) x + (e - b^2) x^2 \\
+    &\equiv \alpha + \beta x + \gamma x^2
+  \end{align*}
+  The normal form of the differential equation is
+  \[
+  u'' + (\alpha + \beta x + \gamma x^2) u = 0
+  \]
+  We consider the following cases:
+  \begin{description}
+  \item{$\gamma = 0$.}
+    \begin{description}
+    \item{$\beta = 0$.}
+      \begin{description}
+      \item{$\alpha = 0$.}
+        We immediately have the equation
+        \[
+        u'' = 0.
+        \]
+      \item{$\alpha \neq 0$.}
+        With the change of variables
+        \[
+        v(\xi) = u(x), \qquad x = \alpha^{-1/2} \xi,
+        \]
+        we obtain
+        \[
+        v'' + v = 0.
+        \]
+      \end{description}
+    \item{$\beta \neq 0$.}
+      We have the equation
+      \[
+      y'' + (\alpha + \beta x) y = 0.
+      \]
+      The scale transformation $x = \lambda  \xi + \mu$ yields
+      \[
+      v'' + \lambda^2 (\alpha + \beta (\lambda \xi + \mu)) y = 0
+      \]
+      \[
+      v'' = [  \beta \lambda^3 \xi + \lambda^2 (\beta \mu + \alpha)]v.
+      \]
+      Choosing
+      \[
+      \lambda = (-\beta)^{-1/3}, \qquad \mu = - \frac{\alpha}{\beta}
+      \]
+      yields the differential equation
+      \[
+      v'' = \xi v.
+      \]
+    \end{description}
+  \item{$\gamma \neq 0$.}
+    The scale transformation $x = \lambda \xi + \mu$ yields
+    \[
+    v'' + \lambda^2 [\alpha + \beta(\lambda \xi + \mu) 
+    + \gamma(\lambda \xi + \mu)^2] v = 0
+    \]
+    \[
+    v'' + \lambda^2 [ \alpha + \beta \mu + \gamma \mu^2
+    + \lambda (\beta + 2 \gamma \mu) \xi + \lambda^2 \gamma \xi^2]v=0.
+    \]
+    Choosing
+    \[
+    \lambda = \gamma^{-1/4}, \qquad \mu = -\frac{\beta}{2 \gamma}
+    \]
+    yields the differential equation
+    \[
+    v'' + (\xi^2 + A) v = 0
+    \]
+    where
+    \[
+    A = \gamma^{-1/2} - \frac{1}{4} \beta \gamma^{-3/2}.
+    \]
+  \end{description}
+\end{Solution}
+
+
+
+
+
+
+
+
+%%333333333333333333333333333333333333333333333333333333333333333333333333333333
+\begin{Solution}
+  \label{solution canonical y2abxycdxex2y=0}
+  The substitution that will transform the equation to normal form is
+  \begin{align*}
+    y &= \exp \left( -\frac{1}{2} \int 2 \left( a + \frac{b}{x} \right) 
+      \,\dd x \right) u \\
+    &= x^{-b} \e^{-ax} u.
+  \end{align*}
+  The invariant of the equation is
+  \begin{align*}
+    I(x) &= c + \frac{d}{x} + \frac{e}{x^2} - \frac{1}{4} \left( 
+      2 \left( a + \frac{b}{x} \right) \right)^2 - \frac{1}{2} 
+    \frac{\dd}{\dd x} \left( 2 \left(a + \frac{b}{x} \right) \right) \\
+    &= c - a^x + \frac{d-2a b}{x} + \frac{e+b-b^2}{x^2} \\
+    &\equiv \alpha + \frac{\beta}{x} + \frac{\gamma}{x^2}.
+  \end{align*}
+  The invariant form of the differential equation is
+  \[
+  u'' + \left( \alpha + \frac{\beta}{x} + \frac{\gamma}{x^2} \right)u = 0.
+  \]
+  We consider the following cases:
+  \begin{description}
+  \item{$\alpha = 0$.}
+    \begin{description}
+    \item{$\beta = 0$.}
+      We immediately have the equation 
+      \[
+      u'' + \frac{\gamma}{x^2} u = 0.
+      \]
+    \item{$\beta \neq 0$.}
+      We have the equation
+      \[
+      u'' + \left( \frac{\beta}{x} + \frac{\gamma}{x^2} \right) u = 0.
+      \]
+      The scale transformation $u(x) = v(\xi)$, $x = \lambda \xi$ yields
+      \[
+      v'' + \left( \frac{\beta \lambda}{\xi} + \frac{\gamma}{\xi^2} \right)u=0.
+      \]
+      Choosing $\lambda = \beta^{-1}$, we obtain
+      \[
+      v'' + \left( \frac{1}{\xi} + \frac{\gamma}{\xi^2} \right)u=0.
+      \]
+    \end{description}
+  \item{$\alpha \neq 0$.}
+    The scale transformation $x = \lambda \xi$ yields
+    \[
+    v'' + \left( \alpha \lambda^2 + \frac{\beta \lambda}{\xi} 
+      + \frac{\gamma}{\xi^2} \right) v = 0.
+    \]
+    Choosing $\lambda = \alpha^{-1/2}$, we obtain
+    \[
+    v'' + \left( 1 + \frac{\alpha^{-1/2} \beta}{\xi} + \frac{\gamma}{\xi^2}
+    \right) v = 0.
+    \]
+  \end{description}
+\end{Solution}
+
+
+
+
+
+
+
+
+
+%%44444444444444444444444444444444444444444444444444444444444444444444444444444
+%% CONTINUE - Derive the change of variable.
+\begin{Solution}
+  \label{solution x2yaxyay=0}
+  We write the derivatives with respect to $x$ in terms of $t$.
+  \begin{gather*}
+    x = \e^t \\
+    d x = \e^t d t \\
+    \frac{\dd}{\dd x} = \e^{-t} \frac{\dd}{\dd t} \\
+    x \frac{\dd}{\dd x} = \frac{\dd}{\dd t}
+  \end{gather*}
+  Now we express $x^2 \frac{\dd^2}{\dd x^2}$ in terms of $t$.
+  \[
+  x^2 \frac{\dd^2}{\dd x^2} 
+  = x \frac{\dd}{\dd x}\left(x \frac{\dd}{\dd x}\right) - x \frac{\dd}{\dd x} 
+  = \frac{\dd^2}{\dd t^2} - \frac{\dd}{\dd t}
+  \]
+  Thus under the change of variables, $x = \e^t$, $y(x) = u(t)$,
+  the Euler equation becomes
+  \begin{gather*}
+    u'' - u' + a_1 u' + a_0 u = 0 \\
+    \boxed{u'' + (a_1-1)u' + a_0 u = 0.}
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+
+
+
+%%55555555555555555555555555555555555555555555555555555555555555555555555555555
+\begin{Solution}
+  \label{solution y1xy114x2y=0}
+  The transformation
+  \[
+  y = \exp\left(-\frac{1}{2} \int \frac{1}{x} \,\dd x \right)
+  = x^{-1/2} u
+  \]
+  will put the equation in normal form.  The invariant is
+  \[
+  I(x) = \left( 1 - \frac{1}{4x^2} \right) - \frac{1}{4} \left( \frac{1}{x^2}
+  \right) - \frac{1}{2} \frac{-1}{x^2} = 1.
+  \]
+  Thus we have the differential equation
+  \[
+  u'' + u = 0,
+  \]
+  with the solution
+  \[
+  u = c_1 \cos x + c_2 \sin x.
+  \]
+  The solution of Bessel's equation of order $1/2$ is
+  \[
+  \boxed{
+    y = c_1 x^{-1/2} \cos x + c_2 x^{-1/2} \sin x.
+    }
+  \]
+\end{Solution}
+
+
+
+\raggedbottom
+}

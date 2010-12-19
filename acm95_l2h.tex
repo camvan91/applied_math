@@ -1,0 +1,63 @@
+\documentclass{book}
+
+\input{header_l2h}
+
+% Include the exercises.
+\newcommand{\exercises}[1]{#1}
+% Don't include the hints or the solutions.
+\newcommand{\hints}[1]{}
+\newcommand{\solutions}[1]{}
+\newcommand{\hintsolution}[1]{}
+
+\title{Introduction to Methods of Applied Mathematics\\
+        or\\
+        Advanced Mathematical Methods for Scientists and Engineers}
+\author{Sean Mauch\\
+  http://www.its.caltech.edu/{\~{}}sean/
+}
+
+
+\makeindex
+
+\begin{document}
+
+%\input{book}
+\maketitle
+
+\frontmatter
+
+\tableofcontents
+
+\input{anticopy/anticopy}
+
+\input{preface/preface}
+
+
+\mainmatter
+
+\input{algebra}
+
+\input{calculus}
+
+\input{fcv}
+
+\input{ode}
+
+\input{pde}
+
+\input{cv}
+
+\input{nde}
+
+\part{Appendices}
+
+\input{appendix/app}
+
+\backmatter
+
+\bibliographystyle{plain}
+\bibliography{applied_math}
+
+\printindex
+
+\end{document}

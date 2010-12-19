@@ -1,0 +1,245 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4956,        168]*)
+(*NotebookOutlinePosition[      5591,        191]*)
+(*  CellTagsIndexPosition[      5547,        187]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(DSolve[{\(\(x'\)'\)[t] == \(\@3\ k\)\/T\^\(3/2\)\ \((T - t)\) - g, 
+        x[0] == 0, \(x'\)[0] == 0}, x[t], t]\)], "Input"],
+
+Cell[BoxData[
+    \({{x[t] \[Rule] 
+          \(-\(\(k\ t\^3\)\/\(2\ \@3\ T\^\(3/2\)\)\)\) - 
+            \(t\^2\ \((\(-\@3\)\ k + g\ \@T)\)\)\/\(2\ \@T\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(% // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \({{x[t] \[Rule] 
+          \(-\(\(t\^2\ \((\@3\ k\ \((t - 3\ T)\) + 3\ g\ T\^\(3/2\))\)\)\/\(6
+                  \ T\^\(3/2\)\)\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"],
+
+Cell[BoxData[
+    \({{x[t] \[Rule] 
+          \(-\(\(t\^2\ \((\@3\ k\ \((t - 3\ T)\) + 3\ g\ T\^\(3/2\))\)\)\/\(6
+                  \ T\^\(3/2\)\)\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(-\(\(k\ t\^2\ \((t - 3\ T)\)\)\/\(2\ \@3\ T\^\(3/2\)\)\)\) /. 
+        t -> T // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(k\ T\^\(3/2\)\)\/\@3\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(p = \(g\^2\ t\^4\)\/4 - k\/3\ t\^3 + g\ h\ t\^2 + h\^2\)], "Input"],
+
+Cell[BoxData[
+    \(h\^2 + g\ h\ t\^2 - \(k\ t\^3\)\/3 + \(g\^2\ t\^4\)\/4\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[p, t]\)], "Input"],
+
+Cell[BoxData[
+    \(2\ g\ h\ t - k\ t\^2 + g\^2\ t\^3\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(Solve[{h\^2 + g\ h\ t\^2 - \(k\ t\^3\)\/3 + \(g\^2\ t\^4\)\/4 == 0, 
+        2\ g\ h\ t - k\ t\^2 + g\^2\ t\^3 == 0}, {t, k}]\)], "Input"],
+
+Cell[BoxData[
+    \(<< Graphics`Arrow`\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[
+      Evaluate[Table[{t\^2\/2 + c, t}, {c, \(-1\), 2/3, 1/3}]], {t, \(-2\), 
+        2}, PlotRange -> {{\(-1\), 1}, {\(-1\), 1}}, Ticks -> False]; \)\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+      Graphics[Join[
+          Table[Arrow[{1\/8 + c, \(-1\)\/2}, {1\/8 + c - 0.0005, 
+                \(-1\)\/2 + 0.001}], {c, \(-1\), 2/3, 1/3}], 
+          Table[Arrow[{1\/8 + c, 1\/2}, {1\/8 + c + 0.0005, 1\/2 + 0.001}], {
+              c, \(-1\), 2/3, 1/3}]]]]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[\(-\@\(2  x\)\), {x, 0, 1}, PlotStyle -> Thickness[0.01]]; 
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p1 = Show[%%%, %%, %]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p2 = 
+      ParametricPlot[
+        Evaluate[Table[{\(-\(t\^2\/2\)\) + c, t}, {c, \(-2\)/3, 1, 1/3}]], {
+          t, \(-2\), 2}, PlotRange -> {{\(-1\), 1}, {\(-1\), 1}}, 
+        Ticks -> False]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+      Graphics[Join[
+          Table[Arrow[{\(-\(1\/8\)\) + c, \(-1\)\/2}, {
+                \(-\(1\/8\)\) + c - 0.0005, \(-1\)\/2 - 0.001}], {c, 
+              \(-2\)/3, 1, 1/3}], 
+          Table[Arrow[{\(-\(1\/8\)\) + c, 1\/2}, {\(-\(1\/8\)\) + c + 0.0005, 
+                1\/2 - 0.001}], {c, \(-2\)/3, 1, 1/3}]]]]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[\@\(\(-2\) x\), {x, \(-1\), 0}, PlotStyle -> Thickness[0.01]]; 
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(p2 = Show[%%%, %%, %]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[GraphicsArray[{p1, p2}]]; \)\)], "Input"]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 800}, {0, 600}},
+WindowSize->{520, 455},
+WindowMargins->{{-59, Automatic}, {Automatic, 20}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 145, 2, 135, "Input"],
+Cell[1879, 55, 170, 3, 105, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2086, 63, 46, 1, 37, "Input"],
+Cell[2135, 66, 166, 3, 68, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2338, 74, 50, 1, 37, "Input"],
+Cell[2391, 77, 166, 3, 68, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2594, 85, 124, 2, 79, "Input"],
+Cell[2721, 89, 56, 1, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2814, 95, 87, 1, 72, "Input"],
+Cell[2904, 98, 88, 1, 64, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3029, 104, 40, 1, 37, "Input"],
+Cell[3072, 107, 67, 1, 43, "Output"]
+}, Open  ]],
+Cell[3154, 111, 158, 2, 135, "Input"],
+Cell[3315, 115, 51, 1, 37, "Input"],
+Cell[3369, 118, 203, 4, 174, "Input"],
+Cell[3575, 124, 310, 6, 327, "Input"],
+Cell[3888, 132, 106, 2, 83, "Input"],
+Cell[3997, 136, 60, 1, 37, "Input"],
+Cell[4060, 139, 42, 1, 37, "Input"],
+Cell[4105, 142, 234, 5, 174, "Input"],
+Cell[4342, 149, 363, 7, 327, "Input"],
+Cell[4708, 158, 110, 2, 83, "Input"],
+Cell[4821, 162, 60, 1, 37, "Input"],
+Cell[4884, 165, 68, 1, 37, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,137 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2656,         89]*)
+(*NotebookOutlinePosition[      3304,        112]*)
+(*  CellTagsIndexPosition[      3260,        108]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Calculus/Integral", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Fundamental Integration Formulas", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n9/12/01"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\[Integral]\(\((2  x + 3)\)\^10\) \[DifferentialD]x\)], "Input"],
+
+Cell[BoxData[
+    \(\[Integral]\(Log[x]\^2\/x\) \[DifferentialD]x\)], "Input"],
+
+Cell[BoxData[
+    \(\[Integral]x \(\@\( x\^2 + 3\)\) \[DifferentialD]x\)], "Input"],
+
+Cell[BoxData[
+    \(Simplify[%]\)], "Input"],
+
+Cell[BoxData[
+    \(\[Integral]\(Cos[x]\/Sin[x]\) \[DifferentialD]x\)], "Input"],
+
+Cell[BoxData[
+    \(\[Integral]\(x\^2\/\(x\^3 - 5\)\) \[DifferentialD]x\)], "Input"]
+}, Open  ]]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{715, 805},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1727, 52, 107, 3, 166, "Title",
+  Evaluatable->False],
+Cell[1837, 57, 52, 0, 98, "Subtitle"],
+Cell[1892, 59, 277, 9, 121, "Text",
+  Evaluatable->False],
+Cell[2172, 70, 84, 1, 61, "Input"],
+Cell[2259, 73, 78, 1, 74, "Input"],
+Cell[2340, 76, 83, 1, 64, "Input"],
+Cell[2426, 79, 44, 1, 39, "Input"],
+Cell[2473, 82, 80, 1, 70, "Input"],
+Cell[2556, 85, 84, 1, 74, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

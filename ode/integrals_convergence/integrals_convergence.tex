@@ -1,0 +1,193 @@
+\flushbottom
+
+%%
+%% Add examples of principle value in the complex plane where you take half the
+%% value of the residue.
+%%
+
+
+
+
+%%============================================================================
+%%============================================================================
+\chapter{Integrals and Convergence}
+
+
+
+Never try to teach a pig to sing.  It wastes your time and annoys the pig.
+
+\begin{flushright}
+  -?
+\end{flushright}
+
+
+
+
+
+%%============================================================================
+\section{Uniform Convergence of Integrals}
+\index{convergence!of integrals}
+\index{uniform convergence!of integrals}
+
+Consider the improper integral
+\[ \int_c^\infty f(x,t)\,\dd t.\]
+The integral is convergent to $S(x)$ if, given any $\epsilon > 0$, there exists
+$T(x, \epsilon)$ such that
+\[ \left| \int_c^\tau f(x,t)\,\dd t - S(x) \right| < \epsilon \quad 
+\mathrm{for all}\ \tau > T(x, \epsilon).\]
+The sum is uniformly convergent if $T$ is independent of $x$.
+
+Similar to the Weierstrass M-test for infinite sums we have a uniform
+convergence test for integrals. 
+If there exists a continuous function $M(t)$ such
+that $|f(x,t)| \leq M(t) $ and $\int_c^\infty M(t)\,\dd t$ is convergent,
+then $\int_c^\infty f(x,t)\,\dd t$ is uniformly convergent.
+
+If $\int_c^\infty f(x,t)\,\dd t$ is uniformly convergent, we have the following properties:
+\begin{itemize}
+\item
+  If $f(x,t)$ is continuous for $x \in [a,b]$ and $t \in [c,\infty)$ then for
+  $a < x_0 < b$,
+  \[ \lim_{x \to x_0} \int_c^\infty f(x,t)\,\dd t = 
+  \int_c^\infty \left(\lim_{x \to x_0} f(x,t) \right)\,\dd t.\]
+\item
+  If $a \leq x_1 < x_2 \leq b$ then we can interchange the order of integration.
+  \[ \int_{x_1}^{x_2} \left( \int_c^\infty f(x,t)\,\dd t \right)\,\dd x = 
+  \int_c^\infty \left(\int_{x_1}^{x_2} f(x,t)\,\dd x\right)\,\dd t\]
+\item
+  If $\frac{\partial f}{\partial x}$ is continuous, then
+  \[ \frac{\dd}{\dd x} \int_c^\infty f(x,t)\,\dd t = \int_c^\infty \frac{\partial}{\partial x}
+  f(x,t)\,\dd t.\]
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+%%============================================================================
+\section{The Riemann-Lebesgue Lemma}
+\index{Riemann-Lebesgue lemma}
+
+\begin{Result}
+  If $\int_a^b |f(x)|\,\dd x$ exists, then
+  \[ \int_a^b f(x) \sin(\lambda x)\,\dd x \to 0\ \mathrm{as}\ \lambda \to \infty.\]
+\end{Result}
+
+
+Before we try to justify the Riemann-Lebesgue lemma, we will need 
+a preliminary result.  Let $\lambda$ be a positive constant.
+\begin{align*}
+  \left| \int_a^b \sin(\lambda x)\,\dd x \right|
+  &= \left| \left[- \frac{1}{\lambda} \cos(\lambda x) \right]_a^b 
+  \right| \\
+  &\leq \frac{2}{\lambda}.
+\end{align*}
+
+
+
+We will prove the Riemann-Lebesgue lemma for the case when $f(x)$ has
+limited total fluctuation on the interval $(a,b)$.  We can express $f(x)$
+as the difference of two functions
+\[ f(x) = \psi_+(x) - \psi_-(x),\]
+where $\psi_+$ and $\psi_-$ are positive, increasing, bounded functions.
+
+From the mean value theorem for positive, increasing functions, there
+exists an $x_0$, $a \leq x_0 \leq b$, such that
+\begin{align*}
+  \left| \int_a^b \psi_+(x) \sin(\lambda x)\,\dd x \right|
+  &= \left| \psi_+(b) \int_{x_0}^b \sin(\lambda x)\,\dd x \right| \\
+  &\leq |\psi_+(b)| \frac{2}{\lambda}.
+\end{align*}
+Similarly,
+\[ \left| \int_a^b \psi_-(x) \sin(\lambda x)\,\dd x \right|
+\leq |\psi_-(b)| \frac{2}{\lambda}.\]
+Thus 
+\begin{align*}
+  \left| \int_a^b f(x) \sin(\lambda x)\,\dd x \right|
+  &\leq \frac{2}{\lambda} (|\psi_+(b)| + |\psi_-(b)|) \\
+  &\to 0 \quad \mathrm{as}\ \lambda \to \infty.
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+%%============================================================================
+\section{Cauchy Principal Value}
+
+\subsection{Integrals on an Infinite Domain}
+The improper integral $\int_{-\infty}^\infty f(x)\,\dd x$ is defined
+\[ \int_{-\infty}^\infty f(x)\,\dd x = \lim_{a \to -\infty} \int_{a}^0 f(x)\,\dd x
++ \lim_{b \to \infty} \int_0^b f(x)\,\dd x,\]
+when these limits exist.  The Cauchy principal value of the integral is
+defined
+\[ \PV \int_{-\infty}^\infty f(x)\,\dd x = \lim_{a \to \infty} \int_{-a}^a f(x)\,\dd x.\]
+The principal value may exist when the integral diverges.
+
+
+\begin{Example}
+  $\int_{-\infty}^\infty x\,\dd x$ diverges, but
+  \[ \PV \int_{-\infty}^\infty x\,\dd x = \lim_{a \to \infty} \int_{-a}^a x\,\dd x
+  = \lim_{a \to \infty} (0) = 0. \]
+\end{Example}
+
+
+If the improper integral converges, then the Cauchy principal value exists
+and is equal to the value of the integral.  The principal value of the
+integral of an odd function is zero.  If the principal value of the integral
+of an even function exists, then the integral converges.
+
+
+\subsection{Singular Functions}
+Let $f(x)$ have a singularity at $x = 0$. Let $a$ and $b$ satisfy
+$a < 0 < b$.  The integral of $f(x)$ is defined
+\[ \int_a^b f(x)\,\dd x = \lim_{\epsilon_1 \to 0^-} \int_a^{\epsilon_1} f(x)\,\dd x
++ \lim_{\epsilon_2 \to 0^+} \int_{\epsilon_2}^b f(x)\,\dd x,\]
+when the limits exist.  The Cauchy principal value of the integral is defined
+\[\PV \int_a^b f(x)\,\dd x = \lim_{\epsilon \to 0^+} \left( \int_a^{-\epsilon}
+  f(x)\,\dd x + \int_\epsilon^b f(x)\,\dd x \right),\]
+when the limit exists.
+
+
+\begin{Example}
+  The integral
+  \[ \int_{-1}^2 \frac{1}{x}\,\dd x \]
+  diverges, but the principal value exists.
+  \begin{align*}
+    \PV \int_{-1}^2 \frac{1}{x}\,\dd x
+    &= \lim_{\epsilon \to 0^+} \left( \int_{-1}^{-\epsilon} \frac{1}{x}\,\dd x
+      + \int_\epsilon^2 \frac{1}{x}\,\dd x \right) \\
+    &= \lim_{\epsilon \to 0^+} \left( -\int_\epsilon^1 \frac{1}{x}\,\dd x
+      + \int_\epsilon^2 \frac{1}{x}\,\dd x \right) \\
+    &= \int_1^2 \frac{1}{x}\,\dd x  \\
+    &= \log 2
+  \end{align*}
+\end{Example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

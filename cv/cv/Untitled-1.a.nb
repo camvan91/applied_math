@@ -1,0 +1,1255 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     32388,       1026]*)
+(*NotebookOutlinePosition[     33023,       1049]*)
+(*  CellTagsIndexPosition[     32979,       1045]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(Solve[y1 == x1\^2\/\(4  a\) + a, a]\)], "Input"],
+
+Cell[BoxData[
+    \({{a \[Rule] 1\/2\ \((y1 - \@\(\(-x1\^2\) + y1\^2\))\)}, {
+        a \[Rule] 1\/2\ \((y1 + \@\(\(-x1\^2\) + y1\^2\))\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\((12\ a\^2 + x1\^2)\)\/\(2\^\(5/2\)\ a\^\(3/2\)\) /. {
+              a \[Rule] 1\/2\ \((y1 - \@\(\(-x1\^2\) + y1\^2\))\)} // 
+          PowerExpand\) // Simplify\) // PowerExpand\)], "Input"],
+
+Cell[BoxData[
+    \(\(x1\^2 + 3\ \((y1 - \@\(\(-x1\^2\) + y1\^2\))\)\^2\)\/\(2\ 
+        \((y1 - \@\(\(-x1\^2\) + y1\^2\))\)\^\(3/2\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(quadint2[x1_, y1_] = %; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\(x1\ \((12\ a\^2 + x1\^2)\)\)\/\(12\ a\^\(3/2\)\) /. {
+              a \[Rule] 
+                1\/2\ \((c\ x1 + \@\(\(-x1\^2\) + \((c\ x1)\)\^2\))\)} // 
+          PowerExpand\) // Simplify\) // PowerExpand\)], "Input"],
+
+Cell[BoxData[
+    \(\(\@2\ x1\^2\ 
+        \((3\ c\ \@\(\(-1\) + c\^2\)\ x1 + \((\(-1\) + 3\ c\^2)\)\ x1)
+          \)\)\/\(3\ \((c\ x1 + \@\(\(-1\) + c\^2\)\ x1)\)\^\(3/2\)\)\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\(x1\ \((12\ a\^2 + x1\^2)\)\)\/\(12\ a\^\(3/2\)\) /. {
+              a \[Rule] 1\/2\ \((y1 + \@\(\(-x1\^2\) + y1\^2\))\)} // 
+          PowerExpand\) // Simplify\) // PowerExpand\)], "Input"],
+
+Cell[BoxData[
+    \(\(x1\ \((x1\^2 + 3\ \((y1 + \@\(\(-x1\^2\) + y1\^2\))\)\^2)\)\)\/\(3\ 
+        \@2\ \((y1 + \@\(\(-x1\^2\) + y1\^2\))\)\^\(3/2\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(quadint[x1_, y1_] = 
+      \(x1\ \((x1\^2 + 3\ \((y1 + \@\(\(-x1\^2\) + y1\^2\))\)\^2)\)\)\/\(3\ 
+          \@2\ \((y1 + \@\(\(-x1\^2\) + y1\^2\))\)\^\(3/2\)\); \)\)], "Input"],
+
+Cell[BoxData[
+    \(horint[x1_, y1_] = x1\ \@y1; \nverint[x1_, y1_] = \(2\/3\) y1\^\(3/2\); 
+    \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(quadint[x, x]\)], "Input"],
+
+Cell[BoxData[
+    \(2\/3\ \@2\ x\^\(3/2\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(horint[x, x]\)], "Input"],
+
+Cell[BoxData[
+    \(x\^\(3/2\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Plot[{quadint[1/2, y], horint[1/2, y], verint[1/2, y]}, {y, 1/2, 5}, 
+      PlotStyle -> {Dashing[{0.01, 0.01}], Dashing[{0.02, 0.02}], 
+          Dashing[{0.03, 0.03}]}]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[{quadint[1, y], horint[1, y], verint[1, y]}, {y, 1, 5}, 
+      PlotStyle -> {Dashing[{0.01, 0.01}], Dashing[{0.02, 0.02}], 
+          Dashing[{0.03, 0.03}]}]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[{quadint[2, y], horint[2, y], verint[2, y]}, {y, 2, 5}, 
+      PlotStyle -> {Dashing[{0.01, 0.01}], Dashing[{0.02, 0.02}], 
+          Dashing[{0.03, 0.03}]}]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[{quadint[3, y], horint[3, y], verint[3, y]}, {y, 3, 7}, 
+      PlotStyle -> {Dashing[{0.01, 0.01}], Dashing[{0.02, 0.02}], 
+          Dashing[{0.03, 0.03}]}]; \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[{quadint[4, y], horint[4, y], verint[4, y]}, {y, 4, 8}, 
+      PlotStyle -> {Dashing[{0.01, 0.01}], Dashing[{0.02, 0.02}], 
+          Dashing[{0.03, 0.03}]}]; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[quadint[x1, y1] == verint[x1, y1], y1]\)], "Input"],
+
+Cell[BoxData[
+    \({{y1 \[Rule] \(-\(\@\(3\ x1\^2 - 2\ \@3\ x1\^2\)\/\@3\)\)}, {
+        y1 \[Rule] \@\(3\ x1\^2 - 2\ \@3\ x1\^2\)\/\@3}, {
+        y1 \[Rule] \(-\(\@\(3\ x1\^2 + 2\ \@3\ x1\^2\)\/\@3\)\)}, {
+        y1 \[Rule] \@\(3\ x1\^2 + 2\ \@3\ x1\^2\)\/\@3}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\@\(3\  + 2\ \@3\ \)\/\@3 // N\)], "Input"],
+
+Cell[BoxData[
+    \(1.46788982501387055`\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[% /. x1 -> 1]\)], "Input"],
+
+Cell[BoxData[
+    \({{c \[Rule] \(-4.10755324987235947`*^-16\) + 0.81286256041977527`\ I}, {
+        c \[Rule] 4.10755324987235947`*^-16 - 0.81286256041977527`\ I}, {
+        c \[Rule] \(-3.16851810048491122`\) + 5.25587825009701248`*^-17\ I}, {
+        c \[Rule] 
+          \(3.16851810048491122`\[InvisibleSpace]\) - 
+            5.25587825009701248`*^-17\ I}, {
+        c \[Rule] 
+          \(-1.27281031213401973`*^-15\) - 0.466955164072564077`\ I}, {
+        c \[Rule] 1.27281031213401973`*^-15 + 0.466955164072564077`\ I}}\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[%%% /. x1 -> 2]\)], "Input"],
+
+Cell[BoxData[
+    \({{c \[Rule] \(-1.56065897716401309`*^-16\) + 2.54883370855085189`\ I}, {
+        c \[Rule] 1.56065897716401309`*^-16 - 2.54883370855085189`\ I}, {
+        c \[Rule] \(-1.56129498667885435`\) + 0.`\ I}, {
+        c \[Rule] \(1.56129498667885435`\[InvisibleSpace]\) + 0.`\ I}, {
+        c \[Rule] \(-8.23437485466877205`*^-16\) - 0.3997984011766858`\ I}, {
+        c \[Rule] 8.23437485466877205`*^-16 + 0.3997984011766858`\ I}}\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[%%%% /. x1 -> 10]\)], "Input"],
+
+Cell[BoxData[
+    \({{c \[Rule] \(-0.315216526556346643`\) + 0.0901356595487554201`\ I}, {
+        c \[Rule] 
+          \(0.315216526556346643`\[InvisibleSpace]\) - 
+            0.0901356595487554201`\ I}, {
+        c \[Rule] 
+          \(-1.31158326006939884`*^-17\) - 0.214204875873057432`\ I}, {
+        c \[Rule] 1.31158326006939884`*^-17 + 0.214204875873057432`\ I}, {
+        c \[Rule] \(-0.315216526556346643`\) - 0.0901356595487554024`\ I}, {
+        c \[Rule] 
+          \(0.315216526556346643`\[InvisibleSpace]\) + 
+            0.0901356595487554024`\ I}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(% // PowerExpand\) // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \($Aborted\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Apart[%] // PowerExpand\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(\(y1\ \@\(\(-x1\^2\) + y1\^2\)\ 
+              \@\(y1 + \@\(\(-x1\^2\) + y1\^2\)\)\)\/x1\^2\)\) + 
+      \(\((x1\^2 + y1\^2)\)\ \@\(y1 + \@\(\(-x1\^2\) + y1\^2\)\)\)\/x1\^2\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(% // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(1\/x1\^2\((
+      \@\(y1 + \@\(\(-x1\^2\) + y1\^2\)\)\ 
+        \((x1\^2 + y1\ \((y1 - \@\(\(-x1\^2\) + y1\^2\))\))\))\)\)\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(y[x_] := x\^2\/\(4\ a\) + a\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Integrate[\@\(y[x] \((1 + \(y'\)[x]\^2)\)\), {x, 0, x1}]\)], "Input"],
+
+Cell[BoxData[
+    \(Integrate::"gener" \( : \ \) "Unable to check convergence"\)], "Message"],
+
+Cell[BoxData[
+    \(\(x1\ \@\(\((4\ a\^2 + x1\^2)\)\^2\/a\^3\)\ 
+        \((12\ a\^2 + x1\^2)\)\)\/\(12\ \((4\ a\^2 + x1\^2)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(% // PowerExpand\) // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(x1\ \((12\ a\^2 + x1\^2)\)\)\/\(12\ a\^\(3/2\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\(\((12\ a\^2 + x1\^2)\)\/\(2\^\(5/2\)\ a\^\(3/2\)\) /. {{
+                  a \[Rule] 1\/2\ \((c\ x1 + x1 \@\( c\^2 - 1\))\)}, {
+                  a \[Rule] 1\/2\ \((c\ x1 - x1 \@\( c\^2 - 1\))\)}} // Expand
+            \) // Simplify\) // PowerExpand\) // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \({\(\((\(-1\) + 3\ c\^2 + 3\ c\ \@\(\(-1\) + c\^2\))\)\ 
+          \@x1\)\/\((c + \@\(\(-1\) + c\^2\))\)\^\(3/2\), 
+      \(-\(\(\((1 - 3\ c\^2 + 3\ c\ \@\(\(-1\) + c\^2\))\)\ 
+              \@x1\)\/\((c - \@\(\(-1\) + c\^2\))\)\^\(3/2\)\)\)}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \({\(\((\(-1\) + 3\ c\^2 + 3\ c\ \@\(\(-1\) + c\^2\))\)\ 
+              \@x1\)\/\((c + \@\(\(-1\) + c\^2\))\)\^\(3/2\), 
+          \(-\(\(\((1 - 3\ c\^2 + 3\ c\ \@\(\(-1\) + c\^2\))\)\ 
+                  \@x1\)\/\((c - \@\(\(-1\) + c\^2\))\)\^\(3/2\)\)\)} /. 
+        c -> 1 // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \({2\ \@x1, 2\ \@x1}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Plot[{
+        \(\((\(-1\) + 3\ c\^2 + 3\ c\ \@\(\(-1\) + c\^2\))\)\ 
+          \)\/\((c + \@\(\(-1\) + c\^2\))\)\^\(3/2\), 
+        \(-\(\(\((1 - 3\ c\^2 + 3\ c\ \@\(\(-1\) + c\^2\))\)\ 
+              \)\/\((c - \@\(\(-1\) + c\^2\))\)\^\(3/2\)\)\)}, {c, 1, 2}, 
+      PlotRange -> All, 
+      PlotStyle -> {Dashing[{0.01, 0.01}], Dashing[{0.02, 0.02}]}]; \)\)], 
+  "Input"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.928572 0.952381 -0.479631 0.247173 [
+[.21429 .00222 -9 -9 ]
+[.21429 .00222 9 0 ]
+[.40476 .00222 -9 -9 ]
+[.40476 .00222 9 0 ]
+[.59524 .00222 -9 -9 ]
+[.59524 .00222 9 0 ]
+[.78571 .00222 -9 -9 ]
+[.78571 .00222 9 0 ]
+[.97619 .00222 -3 -9 ]
+[.97619 .00222 3 0 ]
+[.01131 .1383 -18 -4.5 ]
+[.01131 .1383 0 4.5 ]
+[.01131 .26189 -6 -4.5 ]
+[.01131 .26189 0 4.5 ]
+[.01131 .38547 -18 -4.5 ]
+[.01131 .38547 0 4.5 ]
+[.01131 .50906 -6 -4.5 ]
+[.01131 .50906 0 4.5 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.21429 .01472 m
+.21429 .02097 L
+s
+[(1.2)] .21429 .00222 0 1 Mshowa
+.40476 .01472 m
+.40476 .02097 L
+s
+[(1.4)] .40476 .00222 0 1 Mshowa
+.59524 .01472 m
+.59524 .02097 L
+s
+[(1.6)] .59524 .00222 0 1 Mshowa
+.78571 .01472 m
+.78571 .02097 L
+s
+[(1.8)] .78571 .00222 0 1 Mshowa
+.97619 .01472 m
+.97619 .02097 L
+s
+[(2)] .97619 .00222 0 1 Mshowa
+.125 Mabswid
+.07143 .01472 m
+.07143 .01847 L
+s
+.11905 .01472 m
+.11905 .01847 L
+s
+.16667 .01472 m
+.16667 .01847 L
+s
+.2619 .01472 m
+.2619 .01847 L
+s
+.30952 .01472 m
+.30952 .01847 L
+s
+.35714 .01472 m
+.35714 .01847 L
+s
+.45238 .01472 m
+.45238 .01847 L
+s
+.5 .01472 m
+.5 .01847 L
+s
+.54762 .01472 m
+.54762 .01847 L
+s
+.64286 .01472 m
+.64286 .01847 L
+s
+.69048 .01472 m
+.69048 .01847 L
+s
+.7381 .01472 m
+.7381 .01847 L
+s
+.83333 .01472 m
+.83333 .01847 L
+s
+.88095 .01472 m
+.88095 .01847 L
+s
+.92857 .01472 m
+.92857 .01847 L
+s
+.25 Mabswid
+0 .01472 m
+1 .01472 L
+s
+.02381 .1383 m
+.03006 .1383 L
+s
+[(2.5)] .01131 .1383 1 0 Mshowa
+.02381 .26189 m
+.03006 .26189 L
+s
+[(3)] .01131 .26189 1 0 Mshowa
+.02381 .38547 m
+.03006 .38547 L
+s
+[(3.5)] .01131 .38547 1 0 Mshowa
+.02381 .50906 m
+.03006 .50906 L
+s
+[(4)] .01131 .50906 1 0 Mshowa
+.125 Mabswid
+.02381 .03943 m
+.02756 .03943 L
+s
+.02381 .06415 m
+.02756 .06415 L
+s
+.02381 .08887 m
+.02756 .08887 L
+s
+.02381 .11358 m
+.02756 .11358 L
+s
+.02381 .16302 m
+.02756 .16302 L
+s
+.02381 .18774 m
+.02756 .18774 L
+s
+.02381 .21245 m
+.02756 .21245 L
+s
+.02381 .23717 m
+.02756 .23717 L
+s
+.02381 .28661 m
+.02756 .28661 L
+s
+.02381 .31132 m
+.02756 .31132 L
+s
+.02381 .33604 m
+.02756 .33604 L
+s
+.02381 .36076 m
+.02756 .36076 L
+s
+.02381 .41019 m
+.02756 .41019 L
+s
+.02381 .43491 m
+.02756 .43491 L
+s
+.02381 .45963 m
+.02756 .45963 L
+s
+.02381 .48434 m
+.02756 .48434 L
+s
+.02381 .53378 m
+.02756 .53378 L
+s
+.02381 .5585 m
+.02756 .5585 L
+s
+.02381 .58321 m
+.02756 .58321 L
+s
+.02381 .60793 m
+.02756 .60793 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+.5 Mabswid
+[ .01 .01 ] 0 setdash
+.02381 .01472 m
+.06244 .0284 L
+.10458 .04217 L
+.14415 .05445 L
+.18221 .06579 L
+.22272 .07745 L
+.26171 .08834 L
+.30316 .09959 L
+.34309 .11015 L
+.3815 .12008 L
+.42237 .13041 L
+.46172 .14015 L
+.49955 .14934 L
+.53984 .15894 L
+.57861 .16803 L
+.61984 .17752 L
+.65954 .18651 L
+.69774 .19503 L
+.73838 .20396 L
+.77751 .21243 L
+.81909 .22131 L
+.85916 .22974 L
+.89771 .23776 L
+.93871 .24617 L
+.97619 .25376 L
+s
+[ .02 .02 ] 0 setdash
+.02381 .01472 m
+.06244 .03126 L
+.10458 .05081 L
+.14415 .07015 L
+.18221 .0895 L
+.22272 .11082 L
+.26171 .13198 L
+.30316 .15512 L
+.34309 .178 L
+.3815 .20054 L
+.42237 .22504 L
+.46172 .24914 L
+.49955 .27275 L
+.53984 .29836 L
+.57861 .32344 L
+.61984 .35058 L
+.65954 .37715 L
+.69774 .4031 L
+.73838 .43114 L
+.77751 .45853 L
+.81909 .48805 L
+.85916 .51689 L
+.89771 .54501 L
+.93871 .5753 L
+.97619 .60332 L
+s
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.938},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40006`00012PP10`40000100000?oookjn_UeMGG61
+T@00oh61POl00?oo0<;2`P210=[JfP3o0410@;Jf]P29RF5QHGemOGEeMOXD@8DL:=H`A03ooaQMIBam
+RIVIVLK6aP00<000I@00V@00cP0`0?ooonk^k]kNg/k>c[Zj^ZZZZYVIVHV9RGEeMFEUIEEEEDA4A30`
+<20P810@4000000`<00`I@0`V@0`cP0`o`1U001U<01UI@1UV@1UcP1Uo`2I002I<02II@2IV@2IcP2I
+o`3>003><03>I@3>V@3>cP3>o`3o<03oI@3oV@3ocS000300<300IC00VC00cS00oc0`030`<30`IC0`
+VC0`cS0`oc1U031U<31UIC1UVC1UcS1Uoc2I032I<32IIC2IVC2IcS2Ioc3>033><33>IC3>VC3>cS3>
+oc3o033o<33oIC3oVC3ocS3oofD006D0<6D0IFD0VFD0cVD0ofD`06D`<6D`IFD`VFD`cVD`ofEU06EU
+<6EUIFEUVFEUcVEUofFI06FI<6FIIFFIVFFIcVFIofG>06G><6G>IFG>VFG>cVG>ofGo06Go<6GoIFGo
+VFGocVGooiT009T0<9T0IIT0VIT0cYT0oiT`09T`<9T`IIT`VIT`cYT`oiUU09UU<9UUIIUUVIUUcYUU
+oiVI09VI<9VIIIVIcYVIoiW>09W><9W>IIW>VIW>cYW>oiWo09Wo<9WoIIWoVIWocYWoolh00<h0<<h0
+ILh0VLh0c/h0olh`0<h`<<h`ILh`VLh`c/h`oliU0<iU<<iUILiUVLiUc/iUoljI0<jI<<jIILjIVOoV
+a/jIc/jIolk>0<k><<k>ILk>VLk>c/k>olko0<ko<<koILkoVLkoc/koool0<?l0IOl0VOl0c_l0ool`
+0?l`<?l`IOl`VOl`c_l`oomU0?mU<?mUIOmUVOmUc_mUoonI0?nI<?nIIOnIVOnIc_nIooo>0?o><?o>
+IOo>VOo>c_o>oooo<?ooIOooVOoocYfMWFe]KJZZZZ4Pl_l1/@400?l1/@400?l1/@400?l1/@400?l1
+/@4006411P060@<01@4603@11P060@<02@4303<11P060@<01`4403<11P060@<01`4403d11P090@00
+H`4200P10`050@030041008100<00@40=04200P10`0:0@03004103@10P080@<01P400`010@020@03
+004103810P080@<01P400`010@020@03004103X100<00@400P400`010@070@00H`42010100<00@40
+>@4201011`0e0@8040400`010@030@03004103810P0A0@030041008100<00@40>P400`010@0<0@00
+H`42014100<00@40>042010100<00@400P400`010@0d0@8040400`010@030@03004103810P0A0@03
+0041008100<00@40>`400`010@0;0@00H`42014100<00@40>042010100<00@400P400`010@0d0@80
+40400`010@030@03004103810P0A0@030041008100<00@40>`400`010@0;0@00H`4201810P0h0@80
+40400`010@020@03004103@10P0@0@8010400`010@0b0@804@400`010@020@03004103`10P0;0@00
+H`4201@100<00@40=@42014100D00@41000f0@8040400`01000303D10P0B0@@0@@400`010@080@00
+H`4201D100<00@40=042014100D00@41000f0@8040400`010@0h0@804@400`010@020@03004103l1
+00<00@401`40020100<00@40?P401001000@0@030041008100<00@40<P401001000B0@8000<10040
+<`401001000@0@03004103H100@00@004@400`010@020@03004103X100<00@400P400`010@070@00
+80400`010@0o0@<040400`010@020@03004103<10`0B0@8000<10040=043014100<00@40=P430141
+00<00@400P400`010@0j0@030041008100<00@401`40020100<00@40@0420141100g0@80504203H1
+0P0B0@@0=@420181100n0@@02P40020100<00@40o`6>0@0080400`010@3o0Hh1000P0@0300410?l1
+SP4001H1o`2J0041000P0@04004000l100<00@404@400`010@0@0@030041010100<00@404@400`01
+0@0@0@030041014100<00@4040400`010@0A0@030041010100<00@404@400`010@0@0@0300410141
+00<00@4040400`010@0@0@030041014100<00@4040400`010@0A0@030041010100<00@404@400`01
+0@080@00804010010@4200030@0104@100<00@40B`400`010@1;0@03004104/100<00@40B`400`01
+0@080@0080400`010@030@@0o`670@0080400`010@070@80o`650@0080400`010@0<0@80o`600@00
+80400`010@0<0@D0o`5m0@0080400`010@0>0@80o`5n0@0080400`010@0@0@800P420?l1N0400201
+00<00@404P4200810`3o0GD1000P0@8070420?l1L@40020100<00@407@430?l1KP40020100<00@40
+o`6>0@0080400`010@0J0@801`420?l1J@40020100<00@40704300H10`3o0FH1000P0@03004101l1
+0P0:0@80o`5Q0@0080400`010@0Q0@802P430?l1GP40020100<00@40<`400`010@3o0EP1000P0@03
+004103@10P3o0EP1000P0@03004103H10P3o0EH1000P0@80:P4201010`3o0E01000P0@03004102/1
+0P0A0@80o`5>0@0080400`010@0]0@8050420?l1B@40020100<00@40;`400`010@0C0@<0o`560@00
+80400`010@0`0@03004101L10P3o0D81000P0@03004104`10`3o0Cl1000P0@030041058100<00@40
+o`4i0@0080400`010@0h0@03004101P10P3o0CT1000P0@03004103T10P0J0@80o`4g0@0080400`01
+0@0k0@807@420?l1<P4002010P0n0@03004101`10`3o0Bl1000P0@03004103h10P0R0@80o`4Z0@00
+80400`010@1T0@<0o`4W0@0080400`010@1Z0@80o`4R0@0080400`010@1/0@<0o`4O0@0080400`01
+0@160@03004102T10P3o0AX1000P0@03004104L10P0[0@<0o`4G0@0080400`010@190@80;`420?l1
+4P40020100<00@40B`4202l10`3o0@l1000P0@03004104d100<00@40<P420?l12P4002010P250@<0
+o`470@0080400`010@2:0@80o`420@0080400`010@2<0@<0oP40020100<00@40E@4203X10P3j0@00
+80400`010@1G0@80>P430?L1000P0@03004105T10P0n0@80lP40020100<00@40F`4203h10`3_0@00
+80400`010@2Q0@80jP4000030@0000@01P4300H11@050@0300410:<10`3W0@0000<100400`400`01
+0@040@<01@400`010@030@030041008100<00@40Z@420>8100000`400@0H0@03004100810`1S0@03
+004104D10`3O0@000P400`010@0F0@030041008100<00@40I04204/10P3J0@000P400`010@0F0@03
+0041008100<00@40IP4204/10`3G0@000`4201H100<00@400P400`010@1X0@80C`420=8100050@03
+004100h11@050@03004106X100<00@40CP430<l100060@03004100d100<00@401`400`010@310@80
+bP4000030@0100<100<00@403@400`010@070@0300410<<10`370@0000<100400`400`010@0=0@03
+004100L100<00@40b@420<8100020@@0404600@100<00@40L@400`010@1G0@<0_`40020100<00@40
+LP4205d10P2j0@00804207D100<00@40G0430;L1000P0@03004107D100<00@40H@420;81000P0@03
+004107H10P1S0@<0[`40020100<00@40N0400`010@1V0@80ZP40020100<00@40h`4300<10P2R0@00
+80400`010@3[0@<0W`40020100<00@40l@4209X1000P0@03004107l100<00@40L@4309L1000P0@03
+004108010P1g0@80TP40020100<00@40PP4207L10`2?0@00804208D10P1k0@80RP40020100<00@40
+QP400`010@1j0@<0Q`40020100<00@40o`4:0@80PP40020100<00@40o`4<0@<00`4207X1000P0@03
+00410?l1504307L1000P0@03004108h100<00@40R0420781000P0@03004108l100<00@40R@4306l1
+000P0@03004109010P2?0@80JP40020100<00@40TP4208l10`1W0@0080400`010@2D0@80T`420681
+000P0@80o`4]0@<00`4205X1000P0@0300410?l1=04305L1000P0@0300410?l1>P420581000P0@03
+004109`100<00@40W04304l1000P0@03004109d100<00@40X@4304T1000P0@03004109h100<00@40
+X`4204L1000P0@03004109l10P2X0@D0?`40020100<00@40X@430:d10`0i0@0080400`010@3o0ED1
+0P0g0@0080400`010@3o0EX10P0b0@0080420?l1G@4302l1000P0@0300410?l1HP4502L1000P0@03
+00410:X100<00@40_0420281000P0@0300410:/10P2n0@<07`40020100<00@40[@420<810`0I0@00
+80400`010@2_0@80``4200<10P0B0@0080400`010@2`0@0300410<P10`0?0@0080400`010@3o0H81
+0P0:0@00504500L100<00@40o`6>0@004`400`010@030@03004100@100<00@40o`6>0@006@400`01
+0@040@0300410;L100<00@40d`4001T100<00@4010430;P10P3C0@006@400`010@040@0300410;X1
+00<00@40d04001T100<00@4010400`010@2k0@0300410<l1000G0@801`400`010@2l0@80c`4001T1
+00<00@4010400`010@2n0@0300410<`1000I0@03004100@100<00@40o`6>0@0050400`010@020@03
+004100@100<00@40o`6>0@005@4400L100<00@40o`6>0@0080400`010@350@0300410<D1000P0@03
+00410<H10P350@0080420<T10P330@0080400`010@3:0@80`@40020100<00@40c0400`010@2n0@00
+80400`010@3o0Hh1000P0@0300410?l1SP40020100<00@40o`6>0@0080400`010@3o0Hh1000P0@03
+00410=<100<00@40]`40020100<00@40e0420;L1000P0@0300410=H10P2e0@0080420=T10P2c0@00
+80400`010@3J0@0300410;01000P0@0300410?l1SP40020100<00@40o`6>0@0080400`010@3o0Hh1
+000P0@0300410?l1SP40020100<00@40h@400`010@2Y0@0080400`010@3R0@80Z@40020100<00@40
+i0420:L1000P0@0300410>H10P2U0@0080420>T100<00@40XP40020100<00@40o`6>0@0080400`01
+0@3o0Hh1000P0@0300410?l1SP40020100<00@40o`6>0@0080400`010@3^0@03004109`1000P0@03
+00410>l10P2L0@0080400`010@3a0@80VP40020100<00@40l`4209P1000P0@0300410?D100<00@40
+U@4002010P3o0Hl1000P0@0300410?l1SP40020100<00@40o`6>0@0080400`010@3o0Hh1000P0@03
+00410?`100<00@40SP40020100<00@40o@400`010@2=0@0080400`010@3n0@80S@40020100<00@40
+o`410@80R`4000811@060@<01P4500D100<00@40o`430@80R@4000030@0100@100<00@400`4300D1
+00<00@400`400`010@020@0300410?l1SP4000L100<00@404@400`010@020@<0o`6>0@001`400`01
+0@0A0@030041008100<00@40o`6>0@001`400`010@0A0@030041008100<00@40o`6>0@001`400`01
+0@0A0@030041008100<00@40o`4;0@030041080100050@803`4500D100<00@40o`4<0@80P04000L1
+00<00@4030400`010@070@0300410?l13P400`010@1m0@001`400`010@0<0@03004100L100<00@40
+o`4?0@80O@40008100<00@400P400`010@0<0@03004100L100<00@40o`4A0@03004107X100030@@0
+3`4600@100<00@40o`4A0@03004107X1000P0@0300410?l1SP4002010P3o0Hl1000P0@0300410?l1
+SP40020100<00@40o`4H0@03004107<1000P0@0300410?l16@4207<1000P0@0300410?l16`400`01
+0@1`0@0080400`010@3o0A`100<00@40K`40020100<00@40o`4M0@80K`40020100<00@40o`4O0@03
+004106`1000P0@0300410?l1SP40020100<00@40o`6>0@0080420?l1S`40020100<00@40o`6>0@00
+80400`010@3o0BD100<00@40IP40020100<00@40o`4V0@80IP40020100<00@40o`4X0@80I0400201
+00<00@40o`4Z0@80HP40020100<00@40o`4/0@03004105l1000P0@0300410?l1SP40020100<00@40
+o`6>0@0080400`010@3o0Hh1000P0@80o`6?0@0080400`010@3o0C<100<00@40F040020100<00@40
+o`4d0@03004105L1000P0@0300410?l1=@400`010@1F0@0080400`010@3o0CH10P1F0@0080400`01
+0@3o0CP100<00@40D`40020100<00@40o`4i0@0300410581000P0@0300410?l1SP40020100<00@40
+o`6>0@0080400`010@3o0Hh1000P0@80o`510@03004104/1000P0@0300410?l1@@4204/1000P0@03
+00410?l1@`400`010@180@0080400`010@3o0D@100<00@40A`40020100<00@40o`550@80A`400201
+00<00@40o`570@03004104@1000P0@0300410?l1SP40020100<00@40o`6>0@005`4300H100<00@40
+o`6>0@0060400`010@050@0300410?l1SP4001<11`060@0300410?l1C@400`010@0n0@004`400`01
+0@020@03004100D10`3o0Dh10P0n0@004`400`010@020@03004100D100<00@40o`5@0@03004103/1
+000C0@030041008100<00@401@400`010@3o0E410P0k0@0050401@010@4000L100<00@40o`5C0@03
+004103P1000D0@0500410@001`400`010@3o0E@100<00@40=`4001D10P000`400@060@0300410?l1
+SP4001D10P000`400@060@0300410?l1SP4001L10P070@0300410?l1SP40020100<00@40o`5K0@03
+00410301000P0@0300410?l1G0400`010@0_0@0080420?l1GP400`010@0^0@0080400`010@3o0Eh1
+0P0^0@0080400`010@3o0F0100<00@40:`40020100<00@40o`5Q0@03004102X1000P0@0300410?l1
+SP40020100<00@40o`6>0@0080400`010@3o0Hh1000P0@0300410?l1SP40020100<00@40o`5X0@03
+004102<1000P0@0300410?l1J@400`010@0R0@0080420?l1J`400`010@0Q0@0080400`010@3o0F/1
+0P0Q0@0080400`010@3o0Fd100<00@407P40020100<00@40o`5^0@03004101d1000P0@0300410?l1
+SP40020100<00@40o`6>0@0080400`010@3o0Hh1000P0@0300410?l1SP40020100<00@40o`5e0@03
+004101H1000P0@0300410?l1MP4201H1000P0@80o`5i0@03004101<1000P0@0300410?l1N@400`01
+0@0B0@0080400`010@3o0GX10P0B0@0080400`010@3o0G`100<00@403`40020100<00@40o`6>0@00
+80400`010@3o0Hh1000P0@0300410?l1SP40020100<00@40o`6>0@0080400`010@3o0H810P0:0@00
+80400`010@3o0Hh1000P0@80o`6?0@0080400`010@3o0Hh1000P0@0300410?l1SP40020100<00@40
+o`6>0@0080400`010@3o0Hh10000\
+\>"],
+  ImageRangeCache->{{{0, 431}, {265.875, 0}} -> {0.917491, 1.8121, 
+  0.00385446, 0.0148516}}]
+}, Open  ]],
+
+Cell[BoxData[
+    \(y[x_] := x\^2\/\(4  a\) + \(b\ x\)\/\(2  a\) + b\^2\/\(4  a\) + a\)], 
+  "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[y[x0] == 0, {a, b, x0}]\)], "Input"],
+
+Cell[BoxData[
+    \(Solve::"svars" \( : \ \) 
+      "Equations may not give solutions for all \"solve\" variables."\)], 
+  "Message"],
+
+Cell[BoxData[
+    \({{a \[Rule] \(-\(1\/2\)\)\ \@\(\(-b\^2\) - 2\ b\ x0 - x0\^2\)}, {
+        a \[Rule] 1\/2\ \@\(\(-b\^2\) - 2\ b\ x0 - x0\^2\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[{y[x0] == 0, \(y'\)[x0] == 0, y[x1] == c\ x1}, {a, b, x0}] // 
+      Simplify\)], "Input"],
+
+Cell[BoxData[
+    \({}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[{y[x0] == 0, \(y'\)[x0] == 0}, {a, b, x0}] // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \({}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[{y[0] == 0, \(y'\)[0] == 0}, {a, b}] // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \({}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \({y[0] == 0, \(y'\)[0] == 0} // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \({a + b\^2\/\(4\ a\) == 0, b\/\(2\ a\) == 0}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x]\)], "Input"],
+
+Cell[BoxData[
+    \(a + b\^2\/\(4\ a\) + \(b\ x\)\/\(2\ a\) + x\^2\/\(4\ a\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x] /. % // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \({\((
+          \((x - x0)\)\ 
+            \((x\ \((x0 - x1)\)\ 
+                  \((x0\^2 - 2\ x0\ x1 + \((1 + c\^2)\)\ x1\^2)\) + 
+                x1\ \((\(-x0\^3\) - c\ \@\(-\((x0 - x1)\)\^6\) - 
+                      \((\(-3\) + c\^2)\)\ x0\^2\ x1 + 
+                      \((\(-3\) + c\^2)\)\ x0\ x1\^2 + x1\^3)\))\))\)/
+        \((\((x0 - x1)\)\ 
+            \((\@\(-\((x0 - x1)\)\^6\) + c\ x0\^2\ x1 - 2\ c\ x0\ x1\^2 + 
+                c\ x1\^3)\))\), 
+      \((\((x - x0)\)\ 
+            \((x\ \((x0 - x1)\)\ 
+                  \((x0\^2 - 2\ x0\ x1 + \((1 + c\^2)\)\ x1\^2)\) + 
+                x1\ \((\(-x0\^3\) + c\ \@\(-\((x0 - x1)\)\^6\) - 
+                      \((\(-3\) + c\^2)\)\ x0\^2\ x1 + 
+                      \((\(-3\) + c\^2)\)\ x0\ x1\^2 + x1\^3)\))\))\)/
+        \((\((x0 - x1)\)\ 
+            \((\(-\@\(-\((x0 - x1)\)\^6\)\) + c\ x0\^2\ x1 - 
+                2\ c\ x0\ x1\^2 + c\ x1\^3)\))\)}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\@y[x]\) \(y'\)[x]\/\@\(1 + \(y'\)[x]\^2\) - 
+        \(\@y[x]\) \@\(1 + \(y'\)[x]\^2\) // FullSimplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(\((
+          \@\(\(4\ a\^2 + \((b + x)\)\^2\)\/a\)\ 
+            \((4\ a\^2 - 2\ a\ \((b + x)\) + \((b + x)\)\^2)\))\)/
+        \((4\ a\^2\ \@\(\(4\ a\^2 + \((b + x)\)\^2\)\/a\^2\))\)\)\)\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\@y[x]\/\@\(1 + \(y'\)[x]\^2\) // PowerExpand\) // FullSimplify\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(\@\(\(4\ a\^2 + \((b + x)\)\^2\)\/a
+            \)\/\@\(\(4\ a\^2 + \((b + x)\)\^2\)\/a\^2\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DSolve[u[x] == a \((1 + \((\(u'\)[x]\^2)\))\), u[x], x]\)], "Input"],
+
+Cell[BoxData[
+    \({{u[x] \[Rule] \(4\ a\^2 + x\^2 - 2\ x\ C[1] + C[1]\^2\)\/\(4\ a\)}}
+      \)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[u[x] == a\ \((1 + \(u'\)[x]\^2)\), \(u'\)[x]] // Simplify\)], 
+  "Input"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["u", "\[Prime]",
+                MultilineFunction->None], "[", "x", "]"}], "\[Rule]", 
+            \(-\(\@\(\(-a\) + u[x]\)\/\@a\)\)}], "}"}], ",", 
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["u", "\[Prime]",
+                MultilineFunction->None], "[", "x", "]"}], "\[Rule]", 
+            \(\@\(\(-a\) + u[x]\)\/\@a\)}], "}"}]}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"DSolve", "[", 
+        RowBox[{
+          RowBox[{"{", 
+            RowBox[{
+              RowBox[{
+                RowBox[{
+                  SuperscriptBox["u", "\[Prime]",
+                    MultilineFunction->None], "[", "x", "]"}], "==", 
+                \(\@\(\(-a\) + u[x]\)\/\@a\)}], ",", \(\(u'\)[0] == 0\)}], 
+            "}"}], ",", \(u[x]\), ",", "x"}], "]"}], "//", "Simplify"}]], 
+  "Input"],
+
+Cell[BoxData[
+    \({{u[x] \[Rule] a + x\^2\/\(4\ a\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"DSolve", "[", 
+        RowBox[{
+          RowBox[{"{", 
+            RowBox[{
+              RowBox[{
+                RowBox[{
+                  SuperscriptBox["u", "\[Prime]",
+                    MultilineFunction->None], "[", "x", "]"}], "==", 
+                \(\@\(\(-a\) + u[x]\)\/\@a\)}], ",", \(u[0] == 0\)}], "}"}], 
+          ",", \(u[x]\), ",", "x"}], "]"}], "//", "Simplify"}]], "Input"],
+
+Cell[BoxData[
+    \({{u[x] \[Rule] \(x\ \((\(-4\)\ I\ a + x)\)\)\/\(4\ a\)}, {
+        u[x] \[Rule] \(x\ \((4\ I\ a + x)\)\)\/\(4\ a\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"DSolve", "[", 
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["u", "\[Prime]",
+                MultilineFunction->None], "[", "x", "]"}], "==", 
+            \(-\(\@\(\(-a\) + u[x]\)\/\@a\)\)}], ",", \(u[x]\), ",", "x"}], 
+        "]"}], "//", "Simplify"}]], "Input"],
+
+Cell[BoxData[
+    \({{u[x] \[Rule] \(4\ a\^2 + \((x - C[1])\)\^2\)\/\(4\ a\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(Clear[y]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(f = \(\@y[x]\) \@\(1 + \(y'\)[x]\^2\)\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(\@y[x]\), " ", 
+      SqrtBox[
+        RowBox[{"1", "+", 
+          SuperscriptBox[
+            RowBox[{
+              SuperscriptBox["y", "\[Prime]",
+                MultilineFunction->None], "[", "x", "]"}], "2"]}]]}]], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[D[f, \(y'\)[x]], x] - D[f, y[x]]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      FractionBox[
+        SuperscriptBox[
+          RowBox[{
+            SuperscriptBox["y", "\[Prime]",
+              MultilineFunction->None], "[", "x", "]"}], "2"], 
+        RowBox[{"2", " ", \(\@y[x]\), " ", 
+          SqrtBox[
+            RowBox[{"1", "+", 
+              SuperscriptBox[
+                RowBox[{
+                  SuperscriptBox["y", "\[Prime]",
+                    MultilineFunction->None], "[", "x", "]"}], "2"]}]]}]], 
+      "-", 
+      FractionBox[
+        SqrtBox[
+          RowBox[{"1", "+", 
+            SuperscriptBox[
+              RowBox[{
+                SuperscriptBox["y", "\[Prime]",
+                  MultilineFunction->None], "[", "x", "]"}], "2"]}]], 
+        \(2\ \@y[x]\)], "-", 
+      FractionBox[
+        RowBox[{\(\@y[x]\), " ", 
+          SuperscriptBox[
+            RowBox[{
+              SuperscriptBox["y", "\[Prime]",
+                MultilineFunction->None], "[", "x", "]"}], "2"], " ", 
+          RowBox[{
+            SuperscriptBox["y", "\[DoublePrime]",
+              MultilineFunction->None], "[", "x", "]"}]}], 
+        SuperscriptBox[
+          RowBox[{"(", 
+            RowBox[{"1", "+", 
+              SuperscriptBox[
+                RowBox[{
+                  SuperscriptBox["y", "\[Prime]",
+                    MultilineFunction->None], "[", "x", "]"}], "2"]}], ")"}], 
+          \(3/2\)]], "+", 
+      FractionBox[
+        RowBox[{\(\@y[x]\), " ", 
+          RowBox[{
+            SuperscriptBox["y", "\[DoublePrime]",
+              MultilineFunction->None], "[", "x", "]"}]}], 
+        SqrtBox[
+          RowBox[{"1", "+", 
+            SuperscriptBox[
+              RowBox[{
+                SuperscriptBox["y", "\[Prime]",
+                  MultilineFunction->None], "[", "x", "]"}], "2"]}]]]}]], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(% // Simplify\)], "Input"],
+
+Cell[BoxData[
+    FractionBox[
+      RowBox[{\(-1\), "-", 
+        SuperscriptBox[
+          RowBox[{
+            SuperscriptBox["y", "\[Prime]",
+              MultilineFunction->None], "[", "x", "]"}], "2"], "+", 
+        RowBox[{"2", " ", \(y[x]\), " ", 
+          RowBox[{
+            SuperscriptBox["y", "\[DoublePrime]",
+              MultilineFunction->None], "[", "x", "]"}]}]}], 
+      RowBox[{"2", " ", \(\@y[x]\), " ", 
+        SuperscriptBox[
+          RowBox[{"(", 
+            RowBox[{"1", "+", 
+              SuperscriptBox[
+                RowBox[{
+                  SuperscriptBox["y", "\[Prime]",
+                    MultilineFunction->None], "[", "x", "]"}], "2"]}], ")"}], 
+          \(3/2\)]}]]], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 800}, {0, 600}},
+WindowSize->{520, 455},
+WindowMargins->{{-61, Automatic}, {Automatic, 20}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 68, 1, 72, "Input"],
+Cell[1802, 54, 153, 2, 108, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[1992, 61, 216, 3, 177, "Input"],
+Cell[2211, 66, 149, 2, 83, "Output"]
+}, Open  ]],
+Cell[2375, 71, 61, 1, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[2461, 76, 245, 4, 177, "Input"],
+Cell[2709, 82, 192, 4, 82, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2938, 91, 216, 3, 177, "Input"],
+Cell[3157, 96, 164, 2, 83, "Output"]
+}, Open  ]],
+Cell[3336, 101, 198, 3, 154, "Input"],
+Cell[3537, 106, 110, 2, 109, "Input"],
+
+Cell[CellGroupData[{
+Cell[3672, 112, 46, 1, 37, "Input"],
+Cell[3721, 115, 55, 1, 59, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3813, 121, 45, 1, 37, "Input"],
+Cell[3861, 124, 44, 1, 42, "Output"]
+}, Open  ]],
+Cell[3920, 128, 209, 3, 117, "Input"],
+Cell[4132, 133, 201, 3, 117, "Input"],
+Cell[4336, 138, 201, 3, 117, "Input"],
+Cell[4540, 143, 201, 3, 117, "Input"],
+Cell[4744, 148, 201, 3, 117, "Input"],
+
+Cell[CellGroupData[{
+Cell[4970, 155, 77, 1, 57, "Input"],
+Cell[5050, 158, 279, 4, 292, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5366, 167, 63, 1, 91, "Input"],
+Cell[5432, 170, 54, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5523, 176, 48, 1, 37, "Input"],
+Cell[5574, 179, 545, 10, 196, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6156, 194, 50, 1, 37, "Input"],
+Cell[6209, 197, 462, 7, 174, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6708, 209, 52, 1, 37, "Input"],
+Cell[6763, 212, 579, 11, 169, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7379, 228, 65, 1, 37, "Input"],
+Cell[7447, 231, 42, 1, 37, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7526, 237, 56, 1, 37, "Input"],
+Cell[7585, 240, 214, 4, 140, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7836, 249, 46, 1, 37, "Input"],
+Cell[7885, 252, 161, 4, 162, "Output"]
+}, Open  ]],
+Cell[8061, 259, 60, 1, 72, "Input"],
+
+Cell[CellGroupData[{
+Cell[8146, 264, 89, 1, 84, "Input"],
+Cell[8238, 267, 93, 1, 51, "Message"],
+Cell[8334, 270, 142, 2, 97, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8513, 277, 65, 1, 37, "Input"],
+Cell[8581, 280, 84, 1, 67, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8702, 286, 303, 4, 254, "Input"],
+Cell[9008, 292, 275, 4, 157, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9320, 301, 317, 5, 299, "Input"],
+Cell[9640, 308, 52, 1, 46, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9729, 314, 396, 8, 326, "Input"],
+Cell[10128, 324, 13430, 387, 279, 3764, 263, "GraphicsData", 
+"PostScript", "Graphics"]
+}, Open  ]],
+Cell[23573, 714, 101, 2, 72, "Input"],
+
+Cell[CellGroupData[{
+Cell[23699, 720, 62, 1, 37, "Input"],
+Cell[23764, 723, 133, 3, 69, "Message"],
+Cell[23900, 728, 160, 2, 108, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24097, 735, 116, 2, 77, "Input"],
+Cell[24216, 739, 36, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24289, 745, 93, 1, 77, "Input"],
+Cell[24385, 748, 36, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24458, 754, 87, 1, 57, "Input"],
+Cell[24548, 757, 36, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24621, 763, 72, 1, 37, "Input"],
+Cell[24696, 766, 77, 1, 64, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24810, 772, 37, 1, 37, "Input"],
+Cell[24850, 775, 90, 1, 64, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24977, 781, 54, 1, 37, "Input"],
+Cell[25034, 784, 953, 19, 537, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[26024, 808, 138, 2, 152, "Input"],
+Cell[26165, 812, 230, 5, 220, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[26432, 822, 101, 2, 119, "Input"],
+Cell[26536, 826, 126, 2, 130, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[26699, 833, 88, 1, 47, "Input"],
+Cell[26790, 836, 109, 2, 64, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[26936, 843, 99, 2, 68, "Input"],
+Cell[27038, 847, 537, 14, 135, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27612, 866, 448, 12, 135, "Input"],
+Cell[28063, 880, 69, 1, 64, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[28169, 886, 438, 11, 135, "Input"],
+Cell[28610, 899, 150, 2, 106, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[28797, 906, 347, 9, 139, "Input"],
+Cell[29147, 917, 92, 1, 64, "Output"]
+}, Open  ]],
+Cell[29254, 921, 41, 1, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[29320, 926, 70, 1, 55, "Input"],
+Cell[29393, 929, 262, 8, 50, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[29692, 942, 67, 1, 37, "Input"],
+Cell[29762, 945, 1798, 51, 140, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[31597, 1001, 46, 1, 37, "Input"],
+Cell[31646, 1004, 726, 19, 71, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

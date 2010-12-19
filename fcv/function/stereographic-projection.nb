@@ -1,0 +1,115 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2931,         78]*)
+(*NotebookOutlinePosition[      3563,        100]*)
+(*  CellTagsIndexPosition[      3519,         96]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(ParametricPlot3D[{Cos[\[Theta]] Sin[\[Phi]], 
+          Sin[\[Theta]] Sin[\[Phi]], 1 + Cos[\[Phi]]}, {\[Theta], 0, 
+          2  \[Pi]}, {\[Phi], 0, \[Pi]}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot3D[0, {x, \(-3\), 3}, {y, \(-3\), 3}, 
+        Mesh \[Rule] False];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+        Graphics3D[{\[IndentingNewLine]Thickness[
+              0.005], \[IndentingNewLine]Line[{{\(-3\), 0, 0}, {3, 0, 0}}], 
+            Line[{{0, \(-3\), 0}, {0, 3, 
+                  0}}], \[IndentingNewLine]Text["\<x\>", {3.5, 0, 0}, 
+              TextStyle \[Rule] {FontSize \[Rule] 
+                    18}], \[IndentingNewLine]Text["\<y\>", {0, 3.5, 0}, 
+              TextStyle \[Rule] {FontSize \[Rule] 
+                    18}], \[IndentingNewLine]Line[{{0, 0, 2}, {2, \(-2\), 
+                  0}}], \[IndentingNewLine]PointSize[
+              0.02], \[IndentingNewLine]Point[{2, \(-2\), 
+                0}], \[IndentingNewLine]Point[{2/3, \(-2\)/3, 
+                4/3}]\[IndentingNewLine]}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[%%%, %%, %, AspectRatio \[Rule] Automatic, Axes \[Rule] False, 
+        Boxed \[Rule] False, ImageSize \[Rule] 500];\)\)], "Input"]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 207}, {Automatic, 114}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 194, 3, 43, "Input"],
+Cell[1902, 55, 108, 2, 27, "Input"],
+Cell[2013, 59, 753, 13, 187, "Input"],
+Cell[2769, 74, 158, 2, 43, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

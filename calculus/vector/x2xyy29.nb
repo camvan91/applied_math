@@ -1,0 +1,132 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3131,         89]*)
+(*NotebookOutlinePosition[      3783,        112]*)
+(*  CellTagsIndexPosition[      3739,        108]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(Solve[x\^2 + x\ y + y\^2 \[Equal] 9, x]\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[{1\/2\ \((\(-y\) - \@3\ \@\(12 - y\^2\))\), y}, {y, 
+          0, \@12}, PlotStyle \[Rule] {RGBColor[1, 0, 0]}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[{1\/2\ \((\(-y\) + \@3\ \@\(12 - y\^2\))\), y}, {y, 
+          3, \@12}, PlotStyle \[Rule] {RGBColor[0, 1, 0]}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[%%, %, AspectRatio \[Rule] Automatic];\)\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[x\^2 + x\ y + y\^2 \[Equal] 9, y]\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[{1\/2\ \((\(-x\) - \@3\ \@\(12 - x\^2\))\), 
+          1\/2\ \((\(-x\) + \@3\ \@\(12 - x\^2\))\)}, {x, \(-\@12\), \@12}, 
+        AspectRatio \[Rule] Automatic];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot3D[{1\/2\ \((\(-y\) - \@3\ \@\(12 - y\^2\))\) 
+            Cos[\[Theta]], y, 
+          1\/2\ \((\(-y\) - \@3\ \@\(12 - y\^2\))\) 
+            Sin[\[Theta]]}, {y, \(-\@12\), \@12}, {\[Theta], 0, 2  \[Pi]}, 
+        AspectRatio \[Rule] Automatic];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot3D[{1\/2\ \((\(-y\) + \@3\ \@\(12 - y\^2\))\) 
+            Cos[\[Theta]], y, 
+          1\/2\ \((\(-y\) + \@3\ \@\(12 - y\^2\))\) 
+            Sin[\[Theta]]}, {y, \(-\@12\), \@12}, {\[Theta], 0, 2  \[Pi]}, 
+        AspectRatio \[Rule] Automatic];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[%%, %];\)\)], "Input"]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{688, 744},
+WindowMargins->{{280, Automatic}, {Automatic, 110}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 72, 1, 47, "Input"],
+Cell[1780, 53, 164, 2, 109, "Input"],
+Cell[1947, 57, 164, 2, 109, "Input"],
+Cell[2114, 61, 80, 1, 39, "Input"],
+Cell[2197, 64, 72, 1, 47, "Input"],
+Cell[2272, 67, 203, 3, 109, "Input"],
+Cell[2478, 72, 297, 5, 156, "Input"],
+Cell[2778, 79, 297, 5, 156, "Input"],
+Cell[3078, 86, 49, 1, 39, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

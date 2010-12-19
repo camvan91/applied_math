@@ -1,0 +1,141 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2733,         91]*)
+(*NotebookOutlinePosition[      3371,        114]*)
+(*  CellTagsIndexPosition[      3327,        110]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Calculus/Differential", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["L'Hospitals Rule", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@its.caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n4/7/00"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Limit[\((x - Sin[x])\)\/x\^3, x \[Rule] 0]\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[Csc[x] - 1\/x, x \[Rule] 0]\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[\((1 + 1\/x)\)\^x, x \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[Csc[x]\^2 - 1\/x\^2, x \[Rule] 0]\)], "Input"],
+
+Cell[BoxData[
+    \(Series[Csc[x]\^2 - 1\/x\^2, {x, 0, 1}]\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[x\^\(a/x\), x \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[\((1 + a\/x)\)\^\(b\ x\), x \[Rule] \[Infinity]]\)], "Input"]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 579},
+WindowMargins->{{10, Automatic}, {Automatic, 1}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 111, 3, 107, "Title",
+  Evaluatable->False],
+Cell[1853, 56, 36, 0, 64, "Subtitle"],
+Cell[1892, 58, 280, 9, 86, "Text",
+  Evaluatable->False],
+Cell[2175, 69, 75, 1, 44, "Input"],
+Cell[2253, 72, 66, 1, 44, "Input"],
+Cell[2322, 75, 80, 1, 44, "Input"],
+Cell[2405, 78, 72, 1, 44, "Input"],
+Cell[2480, 81, 71, 1, 44, "Input"],
+Cell[2554, 84, 73, 1, 31, "Input"],
+Cell[2630, 87, 87, 1, 42, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

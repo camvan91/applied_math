@@ -1,0 +1,206 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3806,        138]*)
+(*NotebookOutlinePosition[      4454,        161]*)
+(*  CellTagsIndexPosition[      4410,        157]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Calculus/Integral", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Definite Integrals", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n9/12/01"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\_0\%1 x \[DifferentialD]x\)]]], "Section"],
+
+Cell[BoxData[
+    \(\(\[CapitalDelta] = 1\/n;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\[Sum]\+\(k = 0\)\%\(n - 1\)\((\((k\ \[CapitalDelta])\) \
+\[CapitalDelta])\)\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[%, n \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[\[CapitalDelta]]\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\+0\%\[Pi]\( Sin[
+              x]\^2\) \[DifferentialD]x\)]]], "Section"],
+
+Cell[BoxData[
+    \(\[Integral]\+0\%\[Pi]\( Sin[x]\^2\) \[DifferentialD]x\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[PartialD]\_x\ \(\[Integral]\+\(g[x]\)\%\(f[x]\)h[\
+\[Xi]] \[DifferentialD]\[Xi]\)\)]]], "Section"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\ \(\[Integral]\+\(g[x]\)\%\(f[x]\)h[\[Xi]] \
+\[DifferentialD]\[Xi]\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Area Between ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\^n\)]],
+  "."
+}], "Section"],
+
+Cell[BoxData[
+    \(\[Integral]\_0\%1\((x - x\^n)\) \[DifferentialD]x\)], "Input"],
+
+Cell[BoxData[
+    \(Integrate[x - x\^n, {x, 0, 1}, 
+      Assumptions \[Rule] Re[n] > \(-1\)]\)], "Input"],
+
+Cell[BoxData[
+    \(Limit[%, n \[Rule] \[Infinity]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[Evaluate[Table[x\^\(2\^n\), {n, 0, 10}]], {x, 0, 1}, 
+        AspectRatio \[Rule] Automatic, PlotRange \[Rule] All];\)\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{661, 697},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1727, 52, 107, 3, 166, "Title",
+  Evaluatable->False],
+Cell[1837, 57, 38, 0, 98, "Subtitle"],
+Cell[1878, 59, 277, 9, 121, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2180, 72, 105, 1, 85, "Section"],
+Cell[2288, 75, 60, 1, 68, "Input"],
+Cell[2351, 78, 109, 2, 80, "Input"],
+Cell[2463, 82, 64, 1, 39, "Input"],
+Cell[2530, 85, 55, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2622, 91, 136, 2, 113, "Section"],
+Cell[2761, 95, 86, 1, 87, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2884, 101, 151, 2, 124, "Section"],
+Cell[3038, 105, 116, 2, 95, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3191, 112, 165, 8, 87, "Section"],
+Cell[3359, 122, 82, 1, 63, "Input"],
+Cell[3444, 125, 106, 2, 64, "Input"],
+Cell[3553, 129, 64, 1, 39, "Input"],
+Cell[3620, 132, 158, 2, 100, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

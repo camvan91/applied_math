@@ -1,0 +1,439 @@
+\flushbottom
+
+
+
+
+%%============================================================================
+%%============================================================================
+\chapter{Finite Transforms}
+
+
+
+
+
+\begin{Example}
+  Consider the problem
+  \[
+  \Delta u - \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2} 
+  = \delta(x-\xi)\delta(y-\eta) \e^{-\imath \omega t} \quad \mathrm{on}\  
+  -\infty < x < \infty,\ 0 < y < b,
+  \]
+  with
+  \[
+  u_y(x,0,t) = u_y(x,b,t) = 0.
+  \]
+  Substituting $u(x,y,t) = v(x,y) \e^{-\imath \omega t}$ into the partial differential 
+  equation yields the problem
+  \[
+  \Delta v + k^2 v 
+  = \delta(x-\xi)\delta(y-\eta) \quad \mathrm{on}\  
+  -\infty < x < \infty,\ 0 < y < b,
+  \]
+  with
+  \[
+  v_y(x,0) = v_y(x,b) = 0.
+  \]
+  We assume that the solution has the form
+  \begin{equation}
+    \label{fdevcn}
+    v(x,y) = \frac{1}{2} c_0(x) + \sum_{n = 1}^\infty c_n(x) \cos\left(\frac{n \pi y}{b} 
+    \right),
+  \end{equation}
+  and apply a finite cosine transform in the $y$ direction.
+  Integrating from $0$ to $b$ yields
+  \[
+  \int_0^b v_{x x} + v_{y y} + k^2 v \,d y 
+  = \int_0^b \delta(x-\xi) \delta(y-\eta)\,d y,
+  \]
+  \[
+  \big[ v_y \big]_0^b + \int_0^b v_{x x} + k^2 v \,d y = \delta(x-\xi),
+  \]
+  \[
+  \int_0^b v_{x x} + k^2 v \,d y = \delta(x-\xi).
+  \]
+  Substituting in Equation~\ref{fdevcn} and using the orthogonality of the
+  cosines gives us
+  \[
+  \boxed{
+    c_0''(x) + k^2 c_0(x) = \frac{2}{b} \delta(x-\xi).
+    }
+  \]
+  Multiplying by $\cos(n \pi y/b)$ and integrating form $0$ to $b$ yields
+  \[
+  \int_0^b \left( v_{x x} + v_{y y} + k^2 v \right) 
+  \cos\left(\frac{n\pi y}{b} \right)\,d y 
+  = \int_0^b \delta(x-\xi) \delta(y-\eta) \cos\left(\frac{n\pi y}{b}\right)\,d y.
+  \]
+  The $v_{y y}$ term becomes
+  \begin{align*}
+    \int_0^b v_{y y} \cos\left(\frac{n\pi y}{b} \right)\,d y 
+    &= \left[ v_y \cos\left(\frac{n\pi y}{b} \right) \right]_0^b -
+    \int_0^b - \frac{n\pi}{b} v_y \sin\left(\frac{n\pi y}{b} \right) \,d y \\
+    &= \left[ \frac{n\pi}{b} v \sin\left(\frac{n\pi y}{b} \right) 
+    \right]_0^b
+    - \int_0^b  \left(\frac{n\pi}{b}\right)^2 v \cos\left(\frac{n\pi y}{b} 
+    \right) \,d y.
+  \end{align*}
+  The right-hand-side becomes
+  \[
+  \int_0^b \delta(x-\xi) \delta(y-\eta) \cos\left(\frac{n\pi y}{b}\right)\,d y
+  = \delta(x-\xi) \cos\left(\frac{n\pi \eta}{b}\right).
+  \]
+  Thus the partial differential equation becomes
+  \[
+  \int_0^b \left( v_{x x} - \left(\frac{n\pi}{b}\right)^2 v + k^2 v \right) 
+  \cos\left(\frac{n\pi y}{b} \right)\,d y 
+  = \delta(x-\xi) \cos\left(\frac{n\pi \eta}{b}\right).
+  \]
+  Substituting in Equation~\ref{fdevcn} and using the orthogonality of the
+  cosines gives us
+  \[
+  \boxed{
+    c_n''(x) + \left[ k^2 - \left(\frac{n\pi}{b}\right)^2 \right] c_n(x)
+    = \frac{2}{b} \delta(x-\xi) \cos\left(\frac{n\pi \eta}{b}\right).
+    }
+  \]
+
+  Now we need to solve for the coefficients in the expansion of $v(x,y)$.
+  The homogeneous solutions for $c_0(x)$ are $\e^{\pm \imath k x}$.  The solution for 
+  $u(x,y,t)$ must satisfy the radiation condition.  The waves at $x=-\infty$
+  travel to the left and the waves at $x=+\infty$ travel to the right.  The
+  two solutions of that will satisfy these conditions are, respectively,
+  \[
+  y_1 = \e^{-\imath k x}, \qquad y_2 = \e^{\imath k x}.
+  \]
+  The Wronskian of these two solutions is $\imath 2 k$.  Thus the solution for 
+  $c_0(x)$ is
+  \[
+  \boxed{
+    c_0(x) = \frac{\e^{- \imath k x_<} \e^{\imath k x_>}}{\imath b k}
+    }
+  \]
+
+  We need to consider three cases for the equation for $c_n$.
+  \begin{description}
+  \item{$\mathbf{k \boldsymbol{>} n \boldsymbol{\pi} / b}$}
+    Let $\alpha = \sqrt{k^2-(n \pi/b)^2}$.
+    The homogeneous solutions that satisfy the radiation condition are
+    \[
+    y_1 = \e^{-\imath \alpha x}, \qquad y_2 = \e^{\imath \alpha x}.
+    \]
+    The Wronskian of the two solutions is $\imath 2 \alpha$.  Thus the solution is
+    \[
+    \boxed{
+      c_n(x) = \frac{\e^{- \imath \alpha x_<} \e^{\imath \alpha x_>}}{\imath b \alpha} 
+      \cos\left(\frac{n\pi \eta}{b}\right).
+      }
+    \]
+    In the case that $\cos\left(\frac{n\pi \eta}{b}\right) = 0$ this reduces to 
+    the trivial solution.
+  \item{$\mathbf{k \boldsymbol{=} n \boldsymbol{\pi} / b}$}
+    The homogeneous solutions that are bounded at infinity are
+    \[
+    y_1 = 1, \qquad y_2 = 1.
+    \]
+    If the right-hand-side is nonzero there is no way to combine these solutions
+    to satisfy both the continuity and the derivative jump conditions.
+    Thus if $\cos\left(\frac{n\pi \eta}{b}\right) \neq 0$ there is no bounded 
+    solution.  If $\cos\left(\frac{n\pi \eta}{b}\right) = 0$ then the solution 
+    is not unique.
+    \[
+    c_n(x) = \mathrm{const}.
+    \]
+  \item{$\mathbf{k \boldsymbol{<} n \boldsymbol{\pi} / b}$}
+    Let $\beta = \sqrt{(n \pi / b)^2 - k^2}$.
+    The homogeneous solutions that are bounded at infinity are
+    \[
+    y_1 = \e^{\beta x}, \qquad y_2 = \e^{-\beta x}.
+    \]
+    The Wronskian of these solutions is $-2 \beta$.  Thus the solution is
+    \[
+    \boxed{
+      c_n(x) = -\frac{\e^{\beta x_<} \e^{-\beta x_>}}{b \beta} 
+      \cos\left(\frac{n \pi \eta}{b} \right)
+      }
+    \]
+    In the case that $\cos\left(\frac{n\pi \eta}{b}\right) = 0$ this reduces to 
+    the trivial solution.
+  \end{description}
+\end{Example}
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+%%=============================================================================
+\exercises{
+\pagebreak
+\flushbottom
+\section{Exercises}
+
+
+
+
+
+
+%% Slab, insulated on bottom fixed temperature on top
+\begin{Exercise}
+  A slab is perfectly insulated at the surface $x = 0$ and has a specified 
+  time varying temperature $f(t)$ at the surface $x = L$.  Initially the
+  temperature is zero.  Find the temperature $u(x,t)$ if the heat conductivity
+  in the slab is $\kappa = 1$.  
+\end{Exercise}
+
+
+
+
+
+%% Laplace's equation on a semi-infinite strip.
+\begin{Exercise}
+  Solve
+  \begin{gather*}
+    u_{x x} + u_{y y} = 0, \quad 0 < x < L, \quad y > 0, \\
+    u(x, 0) = f(x), \quad u(0, y) = g(y), \quad u(L, y) = h(y),
+  \end{gather*}
+  with an eigenfunction expansion.
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+{
+}
+%%=============================================================================
+\hints{
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+
+%% Slab, insulated on bottom fixed temperature on top
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+%% Laplace's equation on a semi-infinite strip.
+\begin{Hint}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+\raggedbottom
+}
+%%=============================================================================
+\solutions{
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+
+%% Slab, insulated on bottom fixed temperature on top
+\begin{Solution}
+  The problem is
+  \begin{gather*}
+    u_t = u_{x x}, \quad 0 < x < L, t > 0, \\
+    u_x(0,t) = 0, \quad u(L,t) = f(t), \quad u(x,0) = 0.
+  \end{gather*}
+  We will solve this problem with an eigenfunction expansion.  We find these
+  eigenfunction by replacing the inhomogeneous boundary condition with the
+  homogeneous one, $u(L,t) = 0$.
+  We substitute the separation of variables $v(x,t) = X(x) T(t)$ into the
+  homogeneous partial differential equation.
+  \begin{gather*}
+    X T' = X'' T \\
+    \frac{T'}{T} = \frac{X''}{X} = - \lambda^2.
+  \end{gather*}
+  This gives us the regular Sturm-Liouville eigenvalue problem,
+  \[
+  X'' = - \lambda^2 X, \quad X'(0) = X(L) = 0,
+  \]
+  which has the solutions,
+  \[
+  \lambda_n = \frac{\pi (2n-1)}{2L}, \quad
+  X_n = \cos \left( \frac{\pi (2n-1) x}{2L} \right), \quad
+  n \in \mathbb{N}.
+  \]
+  Our solution for $u(x,t)$ will be an eigenfunction expansion in these
+  eigenfunctions.  Since the inhomogeneous boundary condition is a function of
+  $t$, the coefficients will be functions of $t$.
+  \[
+  \boxed{
+    u(x,t) = \sum_{n = 1}^\infty a_n(t) \cos( \lambda_n x ) 
+    }
+  \]
+  Since $u(x,t)$ does not satisfy the homogeneous boundary conditions 
+  of the eigenfunctions, the series is not uniformly convergent and we 
+  are not allowed to differentiate it with respect to $x$.
+  We substitute the expansion into the partial differential equation, 
+  multiply by the eigenfunction and integrate from $x = 0$ to $x = L$.
+  We use integration by parts to move derivatives from $u$ to the 
+  eigenfunctions.
+  \begin{gather*}
+    u_t = u_{x x} \\
+    \int_0^L u_t \cos( \lambda_m x ) \,d x 
+    = \int_0^L u_{x x} \cos( \lambda_m x ) \,d x \\
+    \int_0^L \left( \sum_{n = 1}^\infty a_n'(t) \cos( \lambda_n x ) \right)
+    \cos( \lambda_m x ) \,d x 
+    = \left[ u_x \cos( \lambda_m x ) \right]_0^L
+    + \int_0^L u_x \lambda_m \sin( \lambda_m x ) \,d x \\
+    \frac{L}{2} a_m'(t) 
+    = \left[ u \lambda_m \sin( \lambda_m x ) \right]_0^L
+    - \int_0^L u \lambda_m^2 \cos( \lambda_m x ) \,d x \\
+    \frac{L}{2} a_m'(t) 
+    = \lambda_m u(L,t) \sin( \lambda_m L ) 
+    - \lambda_m^2 \int_0^L 
+    \left( \sum_{n = 1}^\infty a_n(t) \cos( \lambda_n x ) \right)
+    \cos( \lambda_m x ) \,d x \\
+    \frac{L}{2} a_m'(t) 
+    = \lambda_m (-1)^n f(t) - \lambda_m^2 \frac{L}{2} a_m(t) \\
+    a_m'(t) + \lambda_m^2 a_m(t) = (-1)^n \lambda_m f(t) 
+  \end{gather*}
+  From the initial condition $u(x,0) = 0$ we see that $a_m(0) = 0$.  Thus 
+  we have a first order differential equation and an initial condition for
+  each of the $a_m(t)$.
+  \[
+  a_m'(t) + \lambda_m^2 a_m(t) = (-1)^n \lambda_m f(t), \quad a_m(0) = 0
+  \]
+  This equation has the solution,
+  \[
+  \boxed{
+    a_m(t) = (-1)^n \lambda_m \int_0^t \e^{-\lambda_m^2 (t - \tau)} f(\tau)\,d\tau.
+    }
+  \]
+\end{Solution}
+
+
+
+
+
+
+
+
+%% Laplace's equation on a semi-infinite strip.
+\begin{Solution}
+  \begin{gather*}
+    u_{x x} + u_{y y} = 0, \quad 0 < x < L, \quad y > 0, \\
+    u(x, 0) = f(x), \quad u(0, y) = g(y), \quad u(L, y) = h(y),
+  \end{gather*}
+  We seek a solution of the form,
+  \[
+  u(x, y) = \sum_{n = 1}^\infty u_n(y) \sin \left( \frac{n \pi x}{L} \right).
+  \]
+  Since we have inhomogeneous boundary conditions at $x = 0, L$, we cannot
+  differentiate the series representation with respect to $x$.
+  We multiply Laplace's equation by the eigenfunction and integrate from
+  $x = 0$ to $x = L$.
+  \begin{gather*}
+    \int_0^L \left( u_{x x} + u_{y y} \right) \sin \left( \frac{m \pi x}{L} \right)
+    \, d x = 0 \\
+    \intertext{We use integration by parts to move derivatives from $u$ to 
+      the eigenfunctions.}
+    \left[ u_x \sin \left( \frac{m \pi x}{L} \right) \right]_0^L
+    - \frac{m \pi}{L} \int_0^L u_x \cos \left( \frac{m \pi x}{L} \right)
+    \,d x + \frac{L}{2} u_m''(y) = 0 \\
+    \left[ - \frac{m \pi}{L} u \cos\left( \frac{m \pi x}{L} \right) \right]_0^L
+    - \left( \frac{m \pi}{L} \right)^2 \int_0^L u 
+    \sin \left( \frac{m \pi x}{L} \right) \,d x
+    + \frac{L}{2} u_m''(y) = 0 \\
+    - \frac{m \pi}{L} h(y) (-1)^m + \frac{m \pi}{L} g(y) 
+    - \frac{L}{2} \left( \frac{m \pi}{L} \right)^2 u_m(y)
+    + \frac{L}{2} u_m''(y) = 0 \\
+    u_m''(y) - \left( \frac{m \pi}{L} \right)^2 u_m(y) = 2 m \pi
+    \left( (-1)^m h(y) - g(y) \right)
+  \end{gather*}
+  Now we have an ordinary differential equation for the $u_n(y)$.  In order 
+  that the solution is bounded, we require that each $u_n(y)$ is bounded as
+  $y \to \infty$.  We use the boundary condition $u(x, 0) = f(x)$ to determine
+  boundary conditions for the $u_m(y)$ at $y = 0$.
+  \begin{gather*}
+    u(x, 0) = \sum_{n = 1}^\infty u_n(0) \sin \left( \frac{n \pi x}{L} \right) = f(x) \\
+    u_n(0) = f_n \equiv \frac{2}{L} \int_0^L f(x) 
+    \sin \left( \frac{n \pi x}{L} \right) \,d x
+  \end{gather*}
+  Thus we have the problems,
+  \[
+  u_n''(y) - \left( \frac{n \pi}{L} \right)^2 u_n(y) = 2 n \pi
+  \left( (-1)^n h(y) - g(y) \right), 
+  \quad u_n(0) = f_n, \quad u_n(+\infty)\ \mathrm{bounded},
+  \]
+  for the coefficients in the expansion.  We will solve these with Green 
+  functions.  Consider the associated Green function problem
+  \[
+  G_n''(y; \eta) - \left( \frac{n \pi}{L} \right)^2 G_n(y; \eta) = 
+  \delta(y - \eta), \quad
+  G_n(0; \eta) = 0, \quad G_n(+\infty; \eta)\ \mathrm{bounded}.
+  \]
+  The homogeneous solutions that satisfy the boundary conditions are
+  \[
+  \sinh \left( \frac{n \pi y}{L} \right) \quad \mathrm{and} \quad
+  \e^{-n \pi y / L},
+  \]
+  respectively.  The Wronskian of these solutions is
+  \[
+  \begin{vmatrix}
+    \sinh \left( \frac{n \pi y}{L} \right) & \e^{-n \pi y / L} \\
+    \frac{n \pi}{L} \sinh \left( \frac{n \pi y}{L} \right) 
+    & - \frac{n \pi}{L} \e^{-n \pi y / L} 
+  \end{vmatrix}
+  =
+  - \frac{n \pi}{L} \e^{- 2 n \pi y / L}.
+  \]
+  Thus the Green function is
+  \[
+  G_n(y; \eta) = - \frac{ L \sinh \left( \frac{n \pi y_<}{L} \right)
+    \e^{- n \pi y_> / L} }{ n \pi \e^{-2 n \pi \eta / L} }.
+  \]
+  Using the Green function we determine the $u_n(y)$ and thus the solution 
+  of Laplace's equation.
+  \begin{gather*}
+    \boxed{
+      u_n(y) = f_n \e^{- n \pi y / L} + 2 n \pi \int_0^\infty G_n(y; \eta)
+      \left( (-1)^n h(\eta) - g(\eta) \right) \,d\eta
+      } \\
+    \boxed{
+      u(x, y) = \sum_{n = 1}^\infty u_n(y) \sin \left( \frac{n \pi x}{L} \right).
+      }
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}

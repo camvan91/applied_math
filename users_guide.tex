@@ -1,0 +1,183 @@
+\documentclass{article}
+
+\usepackage{color}
+\usepackage[pdftex,
+	    colorlinks=true]
+           {hyperref}
+%\usepackage
+%        [pdftex,
+%        colorlinks=true,
+%        hyperindex=true,
+%        plainpages=true,
+%        bookmarks=true,
+%%        pdfpagescrop={60 552 60 444}
+%%       linkcolor=webgreen,
+%        pdftitle={Introduction to Methods of Applied Mathematics},
+%        pdfauthor={Sean Mauch},
+%        pdfsubject={calculus,functions of a complex
+%        variable,differential equations},
+%        pdfpagemode=UseOutlines]{hyperref}
+
+\title{Using the Source of ``Introduction to Methods of Applied Mathematics''}
+\author{Sean Mauch}
+
+\begin{document}
+\maketitle
+
+
+
+\section{Open Source Text}
+
+My applied math text is \textit{open source}.  All of the source used in the 
+creation of the text is available for download.  The 
+\href{http://www.latex-project.org/}{\LaTeX} 
+source which comprises the text, the 
+\href{http://www.wolfram.com/}{Mathematica}
+notebooks and 
+\href{http://www.xfig.org/}{xfig}
+files used to make the graphics, etc. are all available. I hope this will 
+save instructors time, as they will be able to cut and paste portions 
+of the text to make problem sets, handouts and slides.
+
+
+
+\section{Downloading}
+
+You can obtain the source (as well as the compiled 
+\href{http://www.adobe.com/products/acrobat/}{PDF}
+and 
+\href{http://www.cs.wisc.edu/~ghost/}{postscript}
+files) from my homepage: 
+\href{http://www.its.caltech.edu/~sean}
+{http://www.its.caltech.edu/{\~{}}sean}.
+Follow the \textit{Publications} link, then the 
+\textit{Applied Math Textbook} link and finally the 
+\textit{Unabridged version} link.  Save either the zip archive or the gzip 
+archive to your computer.  On linux systems, you can unpack the zip archive 
+with: 
+\begin{verbatim}
+unzip applied_math_source.zip
+\end{verbatim}
+or unpack the gzip archive with:
+\begin{verbatim}
+gunzip applied_math_source.tar.gz
+tar xvf applied_math_source.tar
+\end{verbatim}
+This will create the directory \verb+applied_math+.
+
+
+
+\section{Operating Systems}
+
+One can install 
+\href{http://www.tug.org/}{\TeX} and \LaTeX\ on almost any operating system.
+However, I only have experience with using \LaTeX\ on Linux systems and
+some of the advise in this article is specific to Linux (or Unix) systems.  
+
+
+
+\section{Layout}
+
+Each part of the text has a top-level directory.
+\begin{description}
+\item{\verb+preface+} Preface
+\item{\verb+algebra+} Algebra
+\item{\verb+calculus+} Calculus
+\item{\verb+fcv+} Functions of a Complex Variable
+\item{\verb+ode+} Ordinary Differential Equations
+\item{\verb+pde+} Partial Differential Equations
+\item{\verb+cv+} Calculus of Variations
+\item{\verb+nde+} Nonlinear Differential Equations
+\item{\verb+appendix+} Appendices
+\end{description}
+These directories have subdirectories for each chapter.  Each chapter 
+directory has a file with a \verb+.tex+ extension which contains the 
+\LaTeX\ source for that chapter.  \LaTeX\ files in the root directory
+include the sources in the chapters to make the various versions of 
+the text.  Each chapter directory also contains the graphics for that
+chapter.  Each graphic is supplied in PDF format (with a \verb+.pdf+
+extension) and in encapsulated postscript format%
+\footnote{You can convert encapsulated postscript files to PDF format
+with
+\href{http://www.ctan.org/tex-archive/support/epstopdf/}{epstopdf}.
+}
+(with a \verb+.eps+ extension).  This allows one to compile the source 
+into either PDF or DVI formats.  (The DVI format can be converted to 
+postscript with the 
+\href{http://www.radicaleye.com/dvips.html}{dvips}
+program.)  The files used to make the graphics are included as well.  Most
+of the graphics are made with Mathematica (\verb+.nb+) or xfig (\verb+.fig+).
+
+In the root directory \verb+header.tex+ contains includes, macros and 
+definitions that are used throughout the source.  
+(I have tried to use few custom definitions in order
+to make cutting and pasting easier.)
+Have a look at this file if you cut and past the source to make new documents.
+You will probably want to include this file (or a modified version of it)
+in your source.
+
+
+
+
+\section{Compiling}
+
+In the top level directory there is the make file \verb+Makefile+.  Executing
+\begin{verbatim}
+make
+\end{verbatim}
+will build the postscript, the PDF letter and the PDF screen versions of the 
+text.  If you only want to build one of these choose 
+from the following commands:
+\begin{verbatim}
+make ps
+make pdf
+make online
+make users_guide
+\end{verbatim}
+Use \verb+make users_guide+ to make this document.
+
+
+
+\section{Making Handouts}
+
+If you cut and paste the source to make handouts, you will probably have to
+include a few packages in the header of your document.  In particular, you
+will need to put
+\begin{verbatim}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\end{verbatim}
+in your header.  If you use graphics, you will need either
+\begin{verbatim}
+\usepackage[pdftex]{graphicx}
+\end{verbatim}
+for PDF output from \verb+pdflatex+ or
+\begin{verbatim}
+\usepackage{graphicx}
+\end{verbatim}
+for DVI output from \verb+latex+.
+
+In the root directory \verb+header.tex+ contains includes, macros and 
+definitions that are used throughout the source. You may want to 
+include this file instead of including individual packages.  Check out
+the file \verb+applied_math.tex+ (which makes the PDF screen version of 
+the text) to see an example of how to do this.
+
+
+
+\section{Making Slides}
+
+You can make slides using \LaTeX.  See the file 
+\verb+fcv/number/number_slides.tex+ for an example.  Go to the 
+\verb+fcv/number/+ directory and compile the slides with 
+\begin{verbatim}
+pdflatex number_slides.tex
+\end{verbatim}
+to make a PDF file.
+To make a postscript file, change the \verb+pdf+ variable to 
+\verb+false+ in the source and then execute 
+\begin{verbatim}
+latex number_slides.tex
+\end{verbatim}
+
+\end{document}

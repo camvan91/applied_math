@@ -1,0 +1,348 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6497,        243]*)
+(*NotebookOutlinePosition[      7155,        267]*)
+(*  CellTagsIndexPosition[      7111,        263]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ODE/Techniques for Nonlinear Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Bernoulli Equations", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n1/10/01"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]\ y\/\[DifferentialD]\ t + \(p(
+            t)\)\ y = \(q(t)\)\ y\^\[Alpha]\)]]], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Consider the Bernoulli equation", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]y\/\[DifferentialD]t + \(p(t)\) 
+          y = \(q(t)\)\ \(\(y\^\[Alpha]\)\(.\)\)\)], "DisplayFormula"],
+
+Cell[TextData[{
+  "Solve the Bernoulli equation for ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Alpha] = 1\)]],
+  "."
+}], "Text"],
+
+Cell[TextData[{
+  "Show that for ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Alpha] \[NotEqual] 1\)]],
+  " the substitution ",
+  Cell[BoxData[
+      \(TraditionalForm\`u = y\^\(1 - \[Alpha]\)\)]],
+  " reduces Bernoulli's equation to a linear equation."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell[TextData[{
+  "First we solve the Bernoulli equation for ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Alpha] = 1\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(DSolve[\(y'\)[t] + p[t] y[t] \[Equal] q[t] y[t], y[t], t]\)], "Input"],
+
+Cell[BoxData[
+    \(% /. DSolve`t \[Rule] \[Tau]\)], "Input"],
+
+Cell[TextData[{
+  "Now we show that for ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Alpha] \[NotEqual] 1\)]],
+  " the substitution ",
+  Cell[BoxData[
+      \(TraditionalForm\`u = y\^\(1 - \[Alpha]\)\)]],
+  " reduces Bernoulli's equation to a linear equation.  We start with"
+}], "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]y\/\[DifferentialD]t + \(p(t)\) 
+          y - \(q(t)\)\ y\^\[Alpha] = 0. \)], "DisplayFormula"],
+
+Cell[TextData[{
+  "We make the change of variables ",
+  Cell[BoxData[
+      \(TraditionalForm\`u = y\^\(1 - \[Alpha]\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(y'\)[t] + p[t] y[t] - 
+        q[t] y[t]\^\[Alpha] /. {y[t] \[Rule] 
+          u[t]\^\(1/\((1 - \[Alpha])\)\), \(y'\)[
+            t] \[Rule] \[PartialD]\_t u[t]\^\(1/\((1 - \[Alpha])\)\)}\)], \
+"Input"],
+
+Cell[TextData[{
+  "We multiply by ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox["u", 
+          RowBox[{"1", "-", 
+            RowBox[{\(1/\((1 - \[Alpha])\)\), Cell[""], Cell[""]}]}]], 
+        TraditionalForm]]],
+  " and simplify."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(%*u[t]\^\(1 - 1/\((1 - \[Alpha])\)\) // PowerExpand\) // 
+      Simplify\)], "Input"],
+
+Cell["We obtain the linear equation,", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]u\/\[DifferentialD]t + \((1 - \
+\[Alpha])\) \(p(t)\)\ u - \((1 - \[Alpha])\) \(q(t)\) = 
+      0. \)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`\(t\^2\) \[DifferentialD]y\/\[DifferentialD]t + 
+          2  t\ y - y\^3 = 0\)]],
+  ",    ",
+  Cell[BoxData[
+      \(TraditionalForm\`t > 0\)]]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the general solution of", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\(t\^2\) \[DifferentialD]y\/\[DifferentialD]t + 
+        2  t\ y - y\^3 = 0, \ \ \ \ t > 0. \)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell[BoxData[
+    \(DSolve[\(t\^2\) \(y'\)[t] + 2  t\ y[t] - y[t]\^3 \[Equal] 0, y[t], 
+      t]\)], "Input"],
+
+Cell["We can write the solution as", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = \(\[PlusMinus]\(\(\@\(5  t\)\/\@\(2 - \
+t\^5\)\)\(.\)\)\)\)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]y\/\[DifferentialD]x + 2  x\ y + 
+        y\^2 = 0\)]]], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find the general solution of", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]y\/\[DifferentialD]x + 2  x\ y + 
+        y\^2 = 0. \)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell[BoxData[
+    \(DSolve[\(y'\)[x] + 2  x\ y[x] + y[x]\^2 \[Equal] 0, y[x], x]\)], "Input"],
+
+Cell["We can write the solution as", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y = \(\(\(2  \[ExponentialE]\^\(-x\^2\)\)\/\(\(\@\[Pi]\
+\) \(erf(x)\) + c\)\)\(.\)\)\)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 128, 3, 249, "Title",
+  Evaluatable->False],
+Cell[1870, 56, 39, 0, 82, "Subtitle"],
+Cell[1912, 58, 277, 9, 101, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2214, 71, 159, 2, 72, "Section"],
+
+Cell[CellGroupData[{
+Cell[2398, 77, 30, 0, 56, "Subsection"],
+Cell[2431, 79, 47, 0, 38, "Text"],
+Cell[2481, 81, 156, 2, 47, "DisplayFormula"],
+Cell[2640, 85, 131, 5, 38, "Text"],
+Cell[2774, 92, 266, 8, 59, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3077, 105, 30, 0, 56, "Subsection"],
+Cell[3110, 107, 140, 5, 38, "Text"],
+Cell[3253, 114, 90, 1, 56, "Input"],
+Cell[3346, 117, 61, 1, 35, "Input"],
+Cell[3410, 120, 288, 8, 59, "Text"],
+Cell[3701, 130, 149, 2, 47, "DisplayFormula"],
+Cell[3853, 134, 141, 5, 38, "Text"],
+Cell[3997, 141, 225, 5, 57, "Input"],
+Cell[4225, 148, 256, 9, 40, "Text"],
+Cell[4484, 159, 107, 2, 36, "Input"],
+Cell[4594, 163, 46, 0, 38, "Text"],
+Cell[4643, 165, 173, 3, 47, "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4865, 174, 216, 7, 46, "Section"],
+
+Cell[CellGroupData[{
+Cell[5106, 185, 30, 0, 56, "Subsection"],
+Cell[5139, 187, 44, 0, 38, "Text"],
+Cell[5186, 189, 151, 2, 47, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5374, 196, 30, 0, 56, "Subsection"],
+Cell[5407, 198, 109, 2, 57, "Input"],
+Cell[5519, 202, 44, 0, 38, "Text"],
+Cell[5566, 204, 120, 2, 64, "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5735, 212, 134, 2, 46, "Section"],
+
+Cell[CellGroupData[{
+Cell[5894, 218, 30, 0, 56, "Subsection"],
+Cell[5927, 220, 44, 0, 38, "Text"],
+Cell[5974, 222, 127, 2, 47, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6138, 229, 30, 0, 56, "Subsection"],
+Cell[6171, 231, 93, 1, 57, "Input"],
+Cell[6267, 234, 44, 0, 38, "Text"],
+Cell[6314, 236, 143, 2, 59, "DisplayFormula"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

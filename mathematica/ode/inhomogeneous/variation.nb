@@ -1,0 +1,558 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     10986,        402]*)
+(*NotebookOutlinePosition[     11644,        426]*)
+(*  CellTagsIndexPosition[     11600,        422]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ODE/ Inhomogeneous Differential Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Variation of Parameters", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n01/13/2001\nAnti-Copyright @ 2000 by Mauch Publishing Company, \
+un-Incorporated"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' - 5  y' + 6  y = 
+      2  \[ExponentialE]\^t\)]]], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find a particular solution of the differential equation", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y'' - 5  y' + 6  y = 
+      2 \(\( \[ExponentialE]\^t\)\(.\)\)\)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["First we find a particular solution directly.", "Text"],
+
+Cell[BoxData[
+    \(Clear[t, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[\(y''\)[t] - 5 \( y'\)[t] + 6  y[t] \[Equal] 2  Exp[t], \n\t
+      y[t], t]\)], "Input"],
+
+Cell["A particular solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = \(\(\[ExponentialE]\^t\)\(.\)\)\)], \
+"DisplayFormula"],
+
+Cell["\<\
+Now we find a particular solution with variation of parameters.  \
+The homogeneous solutions are\
+\>", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_1 = \[ExponentialE]\^\(2  t\), \ \ \ \ y\_2 = \(\(\
+\[ExponentialE]\^\(3  t\)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell["We compute the Wronskian of the solutions.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"Det", "[", 
+        RowBox[{"(", GridBox[{
+              {\(Exp[2  t]\), \(Exp[3  t]\)},
+              {\(2  Exp[2  t]\), \(3  Exp[3  t]\)}
+              }], ")"}], "]"}], Cell[""]}]], "Input"],
+
+Cell["A particular solution is", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(-Exp[2  t]\), 
+        RowBox[{"\[Integral]", 
+          RowBox[{
+            RowBox[{"(", 
+              FractionBox[
+                RowBox[{
+                "2", \(Exp[t]\), " ", \(Exp[3  t]\), Cell[""]}], \(Exp[
+                  5  t]\)], ")"}], \(\[DifferentialD]t\)}]}]}], "+", 
+      RowBox[{\(Exp[3  t]\), 
+        RowBox[{"\[Integral]", 
+          RowBox[{
+            RowBox[{"(", 
+              FractionBox[
+                RowBox[{
+                "2", \(Exp[t]\), " ", \(Exp[2  t]\), Cell[""]}], \(Exp[
+                  5  t]\)], ")"}], \(\[DifferentialD]t\)}]}]}]}]], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = \(\(\[ExponentialE]\^t\)\(.\)\)\)], \
+"DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' + y = tan(t)\)]]], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find a particular solution of the differential equation", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y'' + y = tan(t)\)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["First we find a particular solution directly.", "Text"],
+
+Cell[BoxData[
+    \(Clear[t, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[\(y''\)[t] + y[t] \[Equal] Tan[t], \n\ty[t], t]\)], "Input"],
+
+Cell[BoxData[
+    \(FullSimplify[\(-Cos[t]\)\ Sin[t] + 
+        Cos[t]\ \((Log[Cos[t\/2] - Sin[t\/2]] - Log[Cos[t\/2] + Sin[t\/2]] + 
+              Sin[t])\)]\)], "Input"],
+
+Cell["A particular solution is", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = \(cos(
+          t)\)\ \(\(ln(\(cos(t/2) - sin(t/2)\)\/\(cos(t/2) + sin(t/2)\))\)\(.\
+\)\)\)], "DisplayFormula"],
+
+Cell["\<\
+Now we find a particular solution with variation of parameters.  \
+The homogeneous solutions are\
+\>", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_1 = 
+      cos(t), \ \ \ \ y\_2 = \(\(sin(t)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell["We compute the Wronskian of the solutions.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"Det", "[", 
+        RowBox[{"(", GridBox[{
+              {\(Cos[t]\), \(Sin[t]\)},
+              {\(-Sin[t]\), \(Cos[t]\)}
+              }], ")"}], "]"}], Cell[""]}]], "Input"],
+
+Cell[BoxData[
+    \(% // Simplify\)], "Input"],
+
+Cell["A particular solution is", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(-Cos[t]\), 
+        RowBox[{"\[Integral]", 
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{\(Tan[t]\), " ", \(Sin[t]\), Cell[""]}], 
+              ")"}], \(\[DifferentialD]t\)}]}]}], "+", 
+      RowBox[{\(Sin[t]\), 
+        RowBox[{"\[Integral]", 
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{\(Tan[t]\), \(Cos[t]\), Cell[""]}], 
+              ")"}], \(\[DifferentialD]t\)}]}]}]}]], "Input"],
+
+Cell[BoxData[
+    \(% // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = \(cos(
+          t)\)\ \(\(ln(\(cos(t/2) - sin(t/2)\)\/\(cos(t/2) + sin(t/2)\))\)\(.\
+\)\)\)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' - 5  y' + 6  y = g(t)\)]]], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Subsection"],
+
+Cell["Find a particular solution of the differential equation", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y'' - 5  y' + 
+        6  y = \(\(g(t)\)\(.\)\)\)], "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection"],
+
+Cell["\<\
+We find a particular solution with variation of parameters.  The \
+homogeneous solutions are\
+\>", "Text"],
+
+Cell[BoxData[
+    \(DSolve[\(y''\)[t] - 5 \( y'\)[t] + 6  y[t] \[Equal] 0, y[t], 
+      t]\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_1 = \[ExponentialE]\^\(2  t\), \ \ \ \ y\_2 = \(\(\
+\[ExponentialE]\^\(3  t\)\)\(.\)\)\)], "DisplayFormula"],
+
+Cell["We compute the Wronskian of the solutions.", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"Det", "[", 
+        RowBox[{"(", GridBox[{
+              {\(Exp[2  t]\), \(Exp[3  t]\)},
+              {\(2  Exp[2  t]\), \(3  Exp[3  t]\)}
+              }], ")"}], "]"}], Cell[""]}]], "Input"],
+
+Cell["A particular solution is", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(-Exp[2  t]\), 
+        RowBox[{"\[Integral]", 
+          RowBox[{
+            RowBox[{"(", 
+              FractionBox[
+                
+                RowBox[{\(g[t]\), " ", \(Exp[3  t]\), Cell[""]}], \(Exp[
+                  5  t]\)], ")"}], \(\[DifferentialD]t\)}]}]}], "+", 
+      RowBox[{\(Exp[3  t]\), 
+        RowBox[{"\[Integral]", 
+          RowBox[{
+            RowBox[{"(", 
+              FractionBox[
+                
+                RowBox[{\(g[t]\), " ", \(Exp[2  t]\), Cell[""]}], \(Exp[
+                  5  t]\)], ")"}], \(\[DifferentialD]t\)}]}]}]}]], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`y\_p = \(\[ExponentialE]\^\(3  
+                t\)\) \(\[Integral]\(\[ExponentialE]\^\(\(-3\) t\)\) \(g(
+                t)\) \[DifferentialD]t\) - \(\[ExponentialE]\^\(2  
+                t\)\) \(\[Integral]\(\[ExponentialE]\^\(\(-2\) t\)\) \(g(
+                t)\) \(\(\[DifferentialD]t\)\(.\)\)\)\)], "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' + y = x\)]]], "Section"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[{\(\(y'\)'\)[x] + y[x] == x, y[0] == 1, \(y'\)[0] == 0}, \n\t
+      y[x], x]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\(x\^2\) y'' - x\ y' + y = x\)]]], "Section"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[x\^2\ \(\(y'\)'\)[x] - x\ \(y'\)[x] + y[x] == x, y[x], 
+      x]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' + y = \[ExponentialE]\^x\)]]], "Section"],
+
+Cell[BoxData[
+    \(DSolve[\(y''\)[x] + y[x] \[Equal] Exp[x], y[x], x] // 
+      Simplify\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' + \(\[Lambda]\^2\) y = sin\ x\)]]], "Section"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[x] + \(\[Lambda]\^2\) y[x] \[Equal] Sin[x], 
+          y[0] \[Equal] 0, \(y'\)[0] \[Equal] 0}, y[x], x] // 
+      Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[x] + y[x] \[Equal] Sin[x], 
+          y[0] \[Equal] 0, \(y'\)[0] \[Equal] 0}, y[x], x] // 
+      Simplify\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y'' + y = g(x)\)]]], "Section"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " can't solve the problem,"
+}], "Text"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''\)[x] + y[x] \[Equal] g[x], 
+        y[0] \[Equal] 0, \(y'\)[0] \[Equal] 0}, y[x], x]\)], "Input"],
+
+Cell["\<\
+but it can verify that the solution satisfies the differential \
+equation and the initial conditions.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(y[x_] := \[Integral]\_0\%x g[t] Sin[x - t] \[DifferentialD]t\)], "Input"],
+
+Cell[BoxData[
+    \(\(y''\)[x] + y[x]\)], "Input"],
+
+Cell[BoxData[
+    \(y[0]\)], "Input"],
+
+Cell[BoxData[
+    \(\(y'\)[0]\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[y]\)], "Input"]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 131, 3, 307, "Title",
+  Evaluatable->False],
+Cell[1873, 56, 43, 0, 82, "Subtitle"],
+Cell[1919, 58, 350, 10, 143, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2294, 72, 117, 2, 65, "Section"],
+
+Cell[CellGroupData[{
+Cell[2436, 78, 30, 0, 56, "Subsection"],
+Cell[2469, 80, 71, 0, 38, "Text"],
+Cell[2543, 82, 121, 2, 30, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2701, 89, 30, 0, 56, "Subsection"],
+Cell[2734, 91, 61, 0, 38, "Text"],
+Cell[2798, 93, 44, 1, 35, "Input"],
+Cell[2845, 96, 115, 2, 56, "Input"],
+Cell[2963, 100, 40, 0, 38, "Text"],
+Cell[3006, 102, 99, 2, 32, "DisplayFormula"],
+Cell[3108, 106, 120, 3, 59, "Text"],
+Cell[3231, 111, 148, 2, 31, "DisplayFormula"],
+Cell[3382, 115, 58, 0, 38, "Text"],
+Cell[3443, 117, 235, 6, 52, "Input"],
+Cell[3681, 125, 40, 0, 38, "Text"],
+Cell[3724, 127, 635, 17, 149, "Input"],
+Cell[4362, 146, 99, 2, 32, "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4510, 154, 84, 1, 39, "Section"],
+
+Cell[CellGroupData[{
+Cell[4619, 159, 30, 0, 56, "Subsection"],
+Cell[4652, 161, 71, 0, 38, "Text"],
+Cell[4726, 163, 75, 1, 30, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4838, 169, 30, 0, 56, "Subsection"],
+Cell[4871, 171, 61, 0, 38, "Text"],
+Cell[4935, 173, 44, 1, 35, "Input"],
+Cell[4982, 176, 87, 1, 56, "Input"],
+Cell[5072, 179, 171, 3, 171, "Input"],
+Cell[5246, 184, 40, 0, 38, "Text"],
+Cell[5289, 186, 156, 3, 49, "DisplayFormula"],
+Cell[5448, 191, 120, 3, 59, "Text"],
+Cell[5571, 196, 115, 2, 30, "DisplayFormula"],
+Cell[5689, 200, 58, 0, 38, "Text"],
+Cell[5750, 202, 218, 6, 54, "Input"],
+Cell[5971, 210, 46, 1, 35, "Input"],
+Cell[6020, 213, 40, 0, 38, "Text"],
+Cell[6063, 215, 476, 13, 93, "Input"],
+Cell[6542, 230, 46, 1, 35, "Input"],
+Cell[6591, 233, 156, 3, 49, "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6796, 242, 93, 1, 39, "Section"],
+
+Cell[CellGroupData[{
+Cell[6914, 247, 30, 0, 56, "Subsection"],
+Cell[6947, 249, 71, 0, 38, "Text"],
+Cell[7021, 251, 106, 2, 31, "DisplayFormula"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7164, 258, 30, 0, 56, "Subsection"],
+Cell[7197, 260, 116, 3, 59, "Text"],
+Cell[7316, 265, 103, 2, 56, "Input"],
+Cell[7422, 269, 148, 2, 31, "DisplayFormula"],
+Cell[7573, 273, 58, 0, 38, "Text"],
+Cell[7634, 275, 235, 6, 52, "Input"],
+Cell[7872, 283, 40, 0, 38, "Text"],
+Cell[7915, 285, 621, 17, 149, "Input"],
+Cell[8539, 304, 360, 5, 46, "DisplayFormula"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[8948, 315, 79, 1, 39, "Section"],
+Cell[9030, 318, 44, 1, 35, "Input"],
+Cell[9077, 321, 116, 2, 77, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9230, 328, 96, 1, 39, "Section"],
+Cell[9329, 331, 44, 1, 35, "Input"],
+Cell[9376, 334, 104, 2, 57, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9517, 341, 96, 1, 39, "Section"],
+Cell[9616, 344, 102, 2, 56, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9755, 351, 101, 1, 39, "Section"],
+Cell[9859, 354, 171, 3, 57, "Input"],
+Cell[10033, 359, 154, 3, 56, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[10224, 367, 82, 1, 39, "Section"],
+Cell[10309, 370, 109, 4, 38, "Text"],
+Cell[10421, 376, 131, 2, 56, "Input"],
+Cell[10555, 380, 125, 3, 59, "Text"],
+Cell[10683, 385, 93, 1, 53, "Input"],
+Cell[10779, 388, 50, 1, 35, "Input"],
+Cell[10832, 391, 37, 1, 35, "Input"],
+Cell[10872, 394, 42, 1, 35, "Input"],
+Cell[10917, 397, 41, 1, 35, "Input"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

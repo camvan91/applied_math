@@ -1,0 +1,96 @@
+\documentclass{report}
+
+\begin{document}
+
+
+
+%----------------------------------------------------------------------------
+\begin{figure}[p]
+\begin{center}
+\setlength{\unitlength}{1in}
+\begin{picture}(2, 2)(-1, -1)
+\put(0,0){\vector(1,0){1}}
+\put(0,0){\vector(-1,0){1}}
+\put(0,0){\vector(0,1){1}}
+\put(0,0){\vector(0,-1){1}}
+\thicklines
+
+% Circle of radius R_2
+\put(0,0){\bigcircle{1.6}}
+\put(0,0){\vector(1,2){0.3578}}
+\put(0.18, 0.5){\makebox(0,0){$R_2$}}
+
+% Circle of radius R_1
+\put(0,0){\bigcircle{0.5}}
+\put(0,0){\vector(2,1){0.2236}}
+\put(0.14, 0.12){\makebox(0,0){$R_1$}}
+
+% Circle of radius r_1
+\put(0,0){\bigcircle{0.6}}
+\put(0,0){\vector(-2,1){0.2683}}
+\put(-0.14, 0.12){\makebox(0,0){$r_1$}}
+\put(0.2121, 0.2121){\vector(-1, 1){0.001}}
+\put(-0.2121, -0.2121){\vector(1, -1){0.001}}
+
+% Circle of radius r_2
+\put(0,0){\bigcircle{1.5}}
+\put(0,0){\vector(-1,2){0.3354}}
+\put(-0.18, 0.5){\makebox(0,0){$r_2$}}
+\put(0.5303, 0.5303){\vector(-1, 1){0.001}}
+\put(-0.5303, -0.5303){\vector(1, -1){0.001}}
+
+\put(-0.25, -0.25){\makebox(0,0){$C_1$}}
+\put(-0.49, -0.49){\makebox(0,0){$C_2$}}
+
+% Point at z.
+\put(0.4, -0.4){\circle*{0.02}}
+% Circle around z.
+\put(0.4, -0.4){\circle{0.2}}
+\put(0.4, -0.3){\vector(-1, 0){0.001}}
+\put(0.4, -0.5){\vector(1, 0){0.001}}
+\put(0.4, -0.35){\makebox(0,0){$z$}}
+\put(0.25, -0.4){\makebox(0,0){$C_z$}}
+
+\put(0.9, 0.05){\makebox(0,0){$\Re(\zeta)$}}
+\put(0.1, 0.95){\makebox(0,0){$\Im(\zeta)$}}
+\end{picture}
+
+
+
+\begin{picture}(2, 2)(-1, -1)
+\put(0,0){\vector(1,0){1}}
+\put(0,0){\vector(-1,0){1}}
+\put(0,0){\vector(0,1){1}}
+\put(0,0){\vector(0,-1){1}}
+\thicklines
+
+\put(0,0){\bigcircle{1.6}}
+\put(0,0){\bigcircle{0.5}}
+
+\put(0,0){\vector(1,2){0.3578}}
+\put(0.23, 0.6){\makebox(0,0){$R_2$}}
+\put(0,0){\vector(2,1){0.2236}}
+\put(0.14, 0.12){\makebox(0,0){$R_1$}}
+\put(0.36, -0.36){\makebox(0,0){$C$}}
+\qbezier(0.5, 0)(0.6, 0.4)(0, 0.5)
+\qbezier(0, 0.5)(-0.4125, 0.56875)(-0.5, 0)
+\qbezier(-0.5, 0)(-0.6, -0.65)(0, -0.5)
+\qbezier(0, -0.5)(0.4, -0.4)(0.5, 0)
+
+\put(0.5, 0){\vector(1, 4){0.001}}
+\put(-0.5, 0){\vector(-1, -4){0.001}}
+
+\put(0.9, 0.05){\makebox(0,0){$\Re(\zeta)$}}
+\put(0.1, 0.95){\makebox(0,0){$\Im(\zeta)$}}
+\end{picture}
+\end{center}
+
+\caption{Contours for a Laurent Expansion in an Annulus.}
+\label{laur_cont}
+\end{figure}
+%----------------------------------------------------------------------------
+
+
+
+
+\end{document}

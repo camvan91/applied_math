@@ -1,0 +1,164 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3012,        106]*)
+(*NotebookOutlinePosition[      3670,        130]*)
+(*  CellTagsIndexPosition[      3626,        126]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ODE/Techniques for Linear Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Euler Equations", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@its.caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n6/22/00"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`x\ y''' + y'' + y'\/x = 0\)]]], "Section"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(DSolve[x\ \(\(\(y'\)'\)'\)[x] + \(\(y'\)'\)[x] + \(y'\)[x]\/x == 0, 
+      y[x], x]\)], "Input"],
+
+Cell[BoxData[
+    \(Simplify[%]\)], "Input"],
+
+Cell["Thus the solution is", "Text"],
+
+Cell[TextData[{
+  "\t",
+  Cell[BoxData[
+      \(TraditionalForm\`y(x) = 
+        c\_1 + \(c\_2\) x\ \(cos(log(x))\) + \(c\_3\) x\ \(sin(log(x))\)\)]],
+  "."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\(x\^2\) y'' - 2  x\ y' + 2  y = 0\)]]], "Section"],
+
+Cell[BoxData[
+    \(DSolve[\(x\^2\) \(y''\)[x] - 2  x\ \(y'\)[x] + 2  y[x] \[Equal] 0, 
+      y[x], x]\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 125, 3, 191, "Title",
+  Evaluatable->False],
+Cell[1867, 56, 35, 0, 82, "Subtitle"],
+Cell[1905, 58, 281, 9, 101, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2211, 71, 93, 1, 73, "Section"],
+Cell[2307, 74, 44, 1, 35, "Input"],
+Cell[2354, 77, 116, 2, 81, "Input"],
+Cell[2473, 81, 44, 1, 35, "Input"],
+Cell[2520, 84, 36, 0, 38, "Text"],
+Cell[2559, 86, 168, 6, 38, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2764, 97, 102, 1, 65, "Section"],
+Cell[2869, 100, 115, 2, 57, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

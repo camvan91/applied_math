@@ -1,0 +1,706 @@
+\flushbottom
+
+%%%%
+%% Improve the exposition of the section on Euler equations and add back in.
+%%%%
+%% Include all the material in chap 5 of Spiegel.
+%%%%
+
+
+
+%%===========================================================================
+%%===========================================================================
+\chapter{Difference Equations}
+
+Televisions should have a dial to turn up the intelligence.  There is a 
+brightness knob, but it doesn't work.
+
+\begin{flushright}
+  -?
+\end{flushright}
+
+
+
+%%============================================================================
+\section{Introduction}
+\begin{Example}
+  \label{gambler's-ruin-intro}
+  \index{gambler's ruin problem}
+  \textbf{Gambler's ruin problem.}
+  Consider a gambler that initially has $n$ dollars.  He plays a game in which
+  he has a probability $p$ of winning a dollar and $q$ of losing a dollar.
+  (Note that $p + q = 1$.)
+  The gambler has decided that if he attains $N$ dollars he will stop playing
+  the game.  In this case we will say that he has succeeded.  Of course if he 
+  runs out of money before that happens, we will say that he is ruined.  What is
+  the probability of the gambler's ruin?  Let us denote this probability by
+  $a_n$.  We know that if he has no money left, then his ruin is certain, so 
+  $a_0$ = 1.  If he reaches $N$ dollars he will quit the game, so that
+  $a_N = 0$.  If he is somewhere in between ruin and success then the probability
+  of his ruin is equal to $p$ times the probability of his ruin if he had
+  $n+1$ dollars plus $q$ times the probability of his ruin if he had
+  $n-1$ dollars.  Writing this in an equation,
+  \[ a_n = pa_{n+1} + q a_{n-1} \quad \mathrm{subject to}\quad a_0=1, \quad
+  a_N = 0.\]
+  This is an example of a difference equation.  You will learn how to solve this
+  particular problem in the section on constant coefficient equations.
+\end{Example}
+
+
+
+
+\index{discrete derivative}
+Consider the sequence $a_1, a_2, a_3, \ldots$ Analogous to a derivative of
+a continuous function, we can define a discrete derivative on the sequence
+\[      D a_n = a_{n+1} - a_n. \]
+The second discrete derivative is then defined as
+\[      D^2a_n = D[a_{n+1} - a_n] = a_{n+2} - 2 a_{n+1} + a_n. \]
+\index{discrete integral}
+The discrete integral of $a_n$ is
+\[      \sum_{i=n_0}^n a_i. \]
+Corresponding to
+\[ \int_\alpha^\beta \frac{\dd f}{\dd x}\,dx = f(\beta) - f(\alpha),\]
+in the discrete realm we have
+\[ \sum_{n=\alpha}^{\beta-1} D[a_n] = \sum_{n=\alpha}^{\beta-1} (a_{n+1}-a_n)
+= a_\beta - a_\alpha. \]
+
+Linear difference equations have the form 
+\[ D^r a_n + p_{r-1}(n) D^{r-1}a_n + \cdots + p_1(n)D a_n + p_0(n)a_n = f(n).\]
+From the definition of the discrete derivative an equivalent form is
+\[ a_{n+r} + q_{r-1}(n) a_{n_r-1} + \cdots + q_1(n)a_{n+1} + q_0(n)a_n=f(n).\]
+
+Besides being important in their own right, we will need to solve
+difference equations in order to develop series solutions of 
+differential equations.  Also, some methods of solving differential equations
+numerically are based on approximating them with difference equations.
+
+There are many similarities between differential and difference equations.
+Like differential equations, an $r^{t h}$ order homogeneous difference 
+equation has $r$ linearly independent solutions.  The general solution
+to the $r^{t h}$ order inhomogeneous equation is the sum of the 
+particular solution and an arbitrary linear combination of the homogeneous
+solutions.  
+
+For an $r^{t h}$ order difference equation, the initial condition is given
+by specifying the values of the first $r$ $a_n$'s.
+
+
+
+\begin{Example}
+  Consider the difference equation $a_{n-2} - a_{n-1} - a_n = 0$ subject to
+  the initial condition $a_1 = a_2 = 1$.  Note that although we may not 
+  know a closed-form formula for the $a_n$ we can calculate the $a_n$ in 
+  order by substituting into the difference equation.  The first few $a_n$ are
+  $1, 1, 2, 3, 5, 8, 13, 21, \ldots$  We recognize this as the 
+  Fibonacci sequence.  
+\end{Example}
+
+
+
+
+
+%%===========================================================================
+\section{Exact Equations}
+\index{difference equations!exact equations}
+Consider the sequence $a_1, a_2, \ldots$.
+Exact difference equations on this sequence have the form
+\[ D[F(a_n, a_{n+1}, \ldots, n)] = g(n).\]
+We can reduce the order of, (or solve for first order), 
+this equation by summing from $1$ to $n-1$.
+\begin{gather*}
+  \sum_{j=1}^{n-1} D[F(a_j, a_{j+1}, \ldots, j)] = \sum_{j=1}^{n-1} g(j) \\
+  F(a_n, a_{n+1}, \ldots, n) - F(a_1, a_2, \ldots, 1) = \sum_{j=1}^{n-1} g(j) \\
+  F(a_n, a_{n+1}, \ldots, n) = \sum_{j=1}^{n-1} g(j) + F(a_1, a_2, \ldots, 1) 
+\end{gather*}
+
+
+\begin{Result}
+  We can reduce the order of the exact difference equation
+  \[ D[F(a_n, a_{n+1}, \ldots, n)] = g(n), \qquad \mathrm{for}\ n \geq 1\]
+  by summing both sides of the equation to obtain
+  \[F(a_n, a_{n+1}, \ldots, n) = \sum_{j=1}^{n-1} g(j) +F(a_1, a_2, \ldots, 1).\]
+\end{Result}
+
+
+
+\begin{Example} 
+  Consider the difference equation, $D[n a_n] = 1$.   
+  Summing both sides of this equation
+  \begin{gather*} 
+    \sum_{j=1}^{n-1} D[j a_j] = \sum_{j=1}^{n-1} 1 \\ 
+    n a_n - a_1 = n-1 \\ 
+    \boxed{ a_n = \frac{n + a_1 - 1}{n}.} 
+  \end{gather*} 
+\end{Example} 
+
+
+
+
+
+%%============================================================================ 
+\section{Homogeneous First Order} 
+\index{difference equations!first order homogeneous} 
+Consider the homogeneous first order difference equation
+\[      a_{n+1} = p(n)a_n, \qquad \mathrm{for}\ n \geq 1. \] 
+We can directly solve for $a_n$. 
+\begin{align*} 
+  a_n     &=     a_n \frac{a_{n-1}}{a_{n-1}} \frac{a_{n-2}}{a_{n-2}} \cdots  
+  \frac{a_1}{a_1} \\ 
+  &=     a_1 \frac{a_n}{a_{n-1}} \frac{a_{n-1}}{a_{n-2}} \cdots 
+  \frac{a_2}{a_1}  \\ 
+  &=     a_1 p(n-1)p(n-2) \cdots p(1) \\ 
+  &=     a_1 \prod_{j=1}^{n-1} p(j) 
+\end{align*} 
+
+
+Alternatively, we could solve this equation by making it exact. 
+Analogous to an integrating factor for differential equations,  
+we multiply the equation by the summing factor
+\[S(n) = \left[\prod_{j=1}^{n} p(j) \right]^{-1}. \] 
+\begin{gather*} 
+  a_{n+1} - p(n) a_n = 0 \\ 
+  \frac{a_{n+1}}{\prod_{j=1}^{n} p(j)} - \frac{a_n}{\prod_{j=1}^{n-1} p(j)}=0\\ 
+  D \left[\frac{a_n}{\prod_{j=1}^{n-1} p(j)} \right] = 0 \\ 
+  \intertext{Now we sum from $1$ to $n-1$.} 
+  \frac{a_n}{\prod_{j=1}^{n-1} p(j)} - a_1 = 0 \\ 
+  a_n = a_1 \prod_{j=1}^{n-1} p(j) 
+\end{gather*} 
+
+
+
+
+\begin{Result} 
+  The solution of the homogeneous first order difference equation
+  \[ a_{n+1} = p(n)a_n, \qquad \mathrm{for}\ n \geq 1, \] 
+  is  
+  \[a_n = a_1 \prod_{j=1}^{n-1} p(j). \] 
+\end{Result} 
+
+
+
+\begin{Example} 
+  Consider the equation $a_{n+1} = n a_n$ with the initial condition
+  $a_1 = 1$. 
+  \[      a_n = a_1 \prod_{j=1}^{n-1} j = (1) (n-1)!  
+  = \Gamma(n) \] 
+  Recall that $\Gamma(z)$ is the generalization of the factorial function.  For 
+  positive integral values of the argument, $\Gamma(n) = (n-1)!$. 
+\end{Example} 
+
+
+%%============================================================================ 
+\section{Inhomogeneous First Order}
+\index{difference equations!first order inhomogeneous}
+Consider the equation
+\[a_{n+1} = p(n) a_n + q(n) \quad \mathrm{for} \quad n \geq 1. \]
+Multiplying by $S(n)= \left[ \prod_{j=1}^{n} p(j) \right]^{-1}$ yields
+\[ \frac{a_{n+1}}{\prod_{j=1}^{n} p(j)} - \frac{a_n}{\prod_{j=1}^{n-1} p(j)}
+= \frac{q(n)}{\prod_{j=1}^{n} p(j)}.  \]
+The left hand side is a discrete derivative.
+\[ D \left[ \frac{a_n}{\prod_{j=1}^{n-1} p(j)} \right] = 
+\frac{q(n)}{\prod_{j=1}^{n} p(j)} \]
+Summing both sides from $1$ to $n-1$, 
+\[ \frac{a_n}{\prod_{j=1}^{n-1} p(j)} - a_1 = 
+\sum_{k=1}^{n-1} \left[ \frac{q(k)}{\prod_{j=1}^{k} p(j)} \right] \]
+\[ a_n = \left[ \prod_{m=1}^{n-1} p(m) \right]
+\left[ \sum_{k=1}^{n-1} \left[ \frac{q(k)}{\prod_{j=1}^{k} p(j)} 
+  \right] + a_1  \right].   \]
+
+
+\begin{Result}
+  The solution of the inhomogeneous first order difference equation
+  \[a_{n+1} = p(n) a_n + q(n) \quad \mathrm{for} \quad n \geq 1 \]
+  is 
+  \[ a_n = \left[ \prod_{m=1}^{n-1} p(m) \right]
+  \left[ \sum_{k=1}^{n-1} \left[ \frac{q(k)}{\prod_{j=1}^{k} p(j)} 
+    \right] + a_1  \right].   \]
+\end{Result}
+
+
+
+
+
+
+
+
+\begin{Example} 
+  Consider the equation $a_{n+1} = n a_n + 1$ for $n \geq 1$.
+  The summing factor is
+  \begin{gather*}
+    S(n) = \left[ \prod_{j=1}^n j \right]^{-1} = \frac{1}{n!}. \\
+    \intertext{Multiplying the difference equation by the summing factor,}
+    \frac{a_{n+1}}{n!} - \frac{a_n}{(n-1)!} = \frac{1}{n!} \\
+    D\left[ \frac{a_n}{(n-1)!} \right] = \frac{1}{n!} \\
+    \frac{a_n}{(n-1)!} - a_1 = \sum_{k=1}^{n-1} \frac{1}{k!} \\
+    \boxed{ a_n = (n-1)! \left[ \sum_{k=1}^{n-1} \frac{1}{k!} 
+        + a_1 \right].} 
+  \end{gather*}
+\end{Example}
+
+
+
+
+
+\begin{Example}
+  Consider the equation
+  \[
+  a_{n+1} = \lambda a_n + \mu, \quad \mathrm{for}\ n \geq 0.
+  \]
+  From the above result, (with the products and sums starting at zero instead
+  of one), the solution is
+  \begin{align*}
+    a_0     &= \left[ \prod_{m=0}^{n-1} \lambda \right] 
+    \left[ \sum_{k=0}^{n-1} \left[ \frac{\mu}
+        {\prod_{j=0}^k \lambda} \right] + a_0 \right] \\
+    &= \lambda^n \left[ \sum_{k=0}^{n-1} \left[ \frac{\mu}
+        {\lambda^{k+1}} \right] + a_0 \right] \\
+    &= \lambda^n \left[ \mu \frac{\lambda^{-n-1}-\lambda^{-1}}
+      {\lambda^{-1} - 1} + a_0 \right] \\
+    &= \lambda^n \left[ \mu \frac{\lambda^{-n}-1}
+      {1 - \lambda} + a_0 \right] \\
+    &= \mu \frac{1 - \lambda^n} {1 - \lambda} + a_0 \lambda^n. 
+  \end{align*}
+\end{Example}
+
+
+
+
+
+
+
+%%============================================================================
+\section{Homogeneous Constant Coefficient Equations}
+\index{difference equations!constant coefficient equations}
+Homogeneous constant coefficient equations have the form
+\[ a_{n+N} + p_{N-1} a_{n+N-1} + \cdots + p_1 a_{n+1} + p_0 a_n = 0. \]
+The substitution $a_n = r^n$ yields
+\begin{align*}
+  r^N + p_{N-1}r^{N-1} + \cdots + p_1 r + p_0 &= 0 \\
+  (r-r_1)^{m_1}\cdots (r-r_k)^{m_k} &= 0.
+\end{align*}
+
+If $r_1$ is a distinct root then the associated linearly independent solution
+is $r_1^n$.  If $r_1$ is a root of multiplicity $m > 1$ then the associated
+solutions are $r_1^n, n r_1^n, n^2r_1^n, \ldots, n^{m-1} r_1^n$.
+
+
+
+\begin{Result}
+  Consider the homogeneous constant coefficient difference equation
+  \[ a_{n+N} + p_{N-1} a_{n+N-1} + \cdots + p_1 a_{n+1} + p_0 a_n = 0. \]
+  The substitution $a_n = r^n$ yields the equation
+  \[(r-r_1)^{m_1}\cdots (r-r_k)^{m_k} = 0. \]
+  A set of linearly independent solutions is
+  \[ \{r_1^n, n r_1^n, \ldots, n^{m_1-1}r_1^n, \ldots, r_k^n, n r_k^n, \ldots,
+  n^{m_k-1}r_k^n\}.\]
+\end{Result}
+
+
+
+\begin{Example}
+  Consider the equation $a_{n+2} - 3a_{n+1} + 2a_n = 0$ with the initial 
+  conditions $a_1 = 1$ and $a_2 = 3$.  The substitution $a_n = r^n$ yields
+  \[      r^2 - 3r + 2 = (r-1)(r-2) = 0. \]
+  Thus the general solution is
+  \[      a_n = c_1 1^n + c_2 2^n. \]
+  The initial conditions give the two equations,
+  \begin{align*}
+    a_1 = 1 &= c_1 + 2c_2  \\
+    a_2 = 3 &= c_1 + 4c_2
+  \end{align*}
+  Since $c_1 = -1$ and $c_2 = 1$, the solution to the difference equation
+  subject to the initial conditions is
+  \[ a_n = 2^n - 1.\]
+\end{Example}
+
+
+
+\begin{Example}
+  \index{gambler's ruin problem}
+  Consider the gambler's ruin problem that was introduced in 
+  Example~\ref{gambler's-ruin-intro}.
+  The equation for the probability of the gambler's ruin at $n$ dollars is
+  \[ a_n = pa_{n+1} + q a_{n-1} \quad \mathrm{subject to}\quad a_0=1, \quad
+  a_N = 0.\]
+  We assume that $0<p<1$.  
+  With the substitution $a_n = r^n$ we obtain
+  \[ r = p r^2 + q. \]
+  The roots of this equation are
+  \begin{align*}
+    r       &= \frac{1 \pm \sqrt{1 - 4p q}}{2p} \\
+    &= \frac{1 \pm \sqrt{1 - 4p(1-p)}}{2p} \\
+    &= \frac{1 \pm \sqrt{(1 - 2p)^2}}{2p} \\
+    &= \frac{1 \pm |1-2p|}{2p}.
+  \end{align*}
+  We will consider the two cases $p \neq 1/2$ and $p = 1/2$.
+  \begin{description}
+  \item{$\mathbf{p \boldsymbol{\neq} 1 \boldsymbol{/} 2}$\textbf{.}} 
+    If $p < 1/2$, the roots are 
+    \begin{gather*}
+      r = \frac{1 \pm (1-2p)}{2p} \\
+      r_1 = \frac{1-p}{p} = \frac{q}{p}, \qquad r_2 = 1.
+    \end{gather*}
+    If $p > 1/2$ the roots are
+    \begin{gather*}
+      r = \frac{1 \pm (2p-1)}{2p} \\
+      r_1 = 1, \qquad r_2 = \frac{-p + 1}{p} = \frac{q}{p}.
+    \end{gather*}
+    Thus the general solution for $p \neq 1/2$ is
+    \[a_n = c_1  + c_2\left(\frac{q}{p}\right)^n.\]
+    The boundary condition $a_0=1$ requires that $c_1 + c_2 = 1$.  From the 
+    boundary condition $a_N=0$ we have
+    \begin{gather*}
+      (1-c_2) + c_2 \left(\frac{q}{p}\right)^N = 0 \\
+      c_2 = \frac{-1}{-1 + (q/p)^N} \\
+      c_2 = \frac{p^N}{p^N-q^N}.
+    \end{gather*}
+    Solving for $c_1$,
+    \begin{gather*}
+      c_1 = 1 - \frac{p^N}{p^N-q^N} \\
+      c_1 = \frac{-q^N}{p^N - q^N}.
+    \end{gather*}
+    Thus we have 
+    \[\boxed{a_n =  \frac{-q^N}{p^N-q^N} 
+      + \frac{p^N}{p^N-q^N}\left(\frac{q}{p}\right)^n.} \]
+
+  \item{$\mathbf{p \boldsymbol{=} 1 \boldsymbol{/} 2}$\textbf{.}}
+    In this case, the two roots of the polynomial are both $1$.  The 
+    general solution is
+    \[ a_n = c_1 + c_2 n.\]
+    The left boundary condition demands that $c_1 = 1$.  From the right 
+    boundary condition we obtain
+    \begin{gather*}
+      1 + c_2 N = 0 \\
+      c_2 = -\frac{1}{N}.
+    \end{gather*}
+    Thus the solution for this case is
+    \[ \boxed{a_n = 1 - \frac{n}{N}.} \]
+    As a check that this formula makes sense, 
+    we see that for $n = N/2$ the probability of ruin is 
+    $1 - \frac{N/2}{N} = \frac{1}{2}$.
+  \end{description}
+\end{Example}
+
+
+
+
+
+%%============================================================================
+\section{Reduction of Order}
+\index{reduction of order!difference equations}
+Consider the difference equation
+\begin{equation} \label{difference_a_n}
+  (n+1)(n+2)a_{n+2}-3(n+1)a_{n+1}+2a_n = 0\quad \mathrm{for}\quad n \geq 0 
+\end{equation}
+We see that one solution to this equation is $a_n = 1/n!$.
+Analogous to the reduction of order for differential equations, the substitution
+$a_n = b_n / n!$ will reduce the order of the difference equation.
+\begin{gather}
+  \frac{(n+1)(n+2)b_{n+2}}{(n+2)!} - \frac{3(n+1)b_{n+1}}{(n+1)!} 
+  + \frac{2b_n}{n!} = 0 \nonumber \\
+  b_{n+2} - 3b_{n+1} + 2b_n = 0 \label{difference_b_n}
+\end{gather}
+At first glance it appears that we have not reduced the order of the equation,
+but writing it in terms of discrete derivatives
+\[D^2 b_n - D b_n = 0 \]
+shows that we now have a first order difference equation for $D b_n$.
+The substitution $b_n = r^n$ in equation~\ref{difference_b_n} yields the
+algebraic equation
+\[r^2 - 3r + 2 = (r-1)(r-2) = 0.\]
+Thus the solutions are $b_n = 1$ and $b_n = 2^n$.  Only the $b_n=2^n$ 
+solution will give us another linearly independent solution for $a_n$. 
+Thus the second solution for $a_n$ is $a_n = b_n / n! = 2^n / n!$.
+The general solution to equation~\ref{difference_a_n} is then
+\[\boxed{ a_n = c_1 \frac{1}{n!} + c_2 \frac{2^n}{n!}. } \]
+
+
+\begin{Result} 
+  Let $a_n = s_n$ be a homogeneous solution of a linear difference equation. 
+  The substitution $a_n = s_n b_n$ will yield a difference equation for $b_n$ 
+  that is of order one less than the equation for $a_n$. 
+\end{Result} 
+
+
+
+%%=========================================================================== 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\section{*Euler Equations} 
+%%\index{difference equations!Euler equation} 
+%%The second order homogeneous Euler difference equation has the form
+%%\[ (n+1)n D^2 a_n + p_1 n D a_n + p_0 a_n = 0.\] 
+%%We look for solutions of the form 
+%%\[a_n = \frac{\Gamma(n+r)}{\Gamma(n)}.\] 
+%%Recall that $\Gamma(x+1) = x \Gamma(x)$, and for non-negative integral $n$,  
+%%$\Gamma(n+1) = n!$. 
+%%Now we 
+%%find the finite derivatives of $a_n = \Gamma(n+r)/\Gamma(n)$. 
+%%\begin{align*} 
+%%D a_n   &= D \frac{\Gamma(n+r)}{\Gamma(n)} \\ 
+%%       &= \frac{\Gamma(n+1+r)}{\Gamma(n+1)} -  
+%%               \frac{\Gamma(n+r)}{\Gamma(n)} \\ 
+%%       &= \frac{(n+r)\Gamma(n+r)}{n\Gamma(n)} -  
+%%               \frac{n\Gamma(n+r)}{n\Gamma(n)} \\ 
+%%       &= \frac{r\Gamma(n+r)}{n\Gamma(n)} \\ 
+%%D^2a_n  &= \frac{r\Gamma(n+1+r)}{(n+1)\Gamma(n+1)} -  
+%%               \frac{r\Gamma(n+r)}{n\Gamma(n)} \\ 
+%%       &= \frac{r(n+r)\Gamma(n+r)}{(n+1)n\Gamma(n)} -  
+%%               \frac{r(n+1)\Gamma(n+r)}{(n+1)n\Gamma(n)} \\ 
+%%       &= \frac{r(r-1)\Gamma(n+r)}{(n+1)n\Gamma(n)} 
+%%\end{align*} 
+%%Substituting these formulas into the difference equation, 
+%%\begin{gather*} 
+%%(n+1)n \frac{r(r-1)\Gamma(n+r)}{(n+1)n\Gamma(n)} +  
+%%       p_1 n \frac{r\Gamma(n+r)}{n\Gamma(n)} +  
+%%       p_0 \frac{\Gamma(n+r)}{\Gamma(n)} = 0 \\ 
+%%r(r-1) + p_1 r + p_0 = 0. \\ 
+%%\intertext{Factoring this equation,} 
+%%(r-r_1)(r-r_2) = 0. 
+%%\end{gather*} 
+%%If the roots are distinct, then the general solution to the difference  
+%%equation is 
+%%\[ a_n = c_1 \frac{\Gamma(n+r_1)}{\Gamma(n)} +  
+%%               c_2 \frac{\Gamma(n+r_2)}{\Gamma(n)}. \] 
+%%If the roots are not distinct, then we can use reduction of order to find 
+%%the second linearly independent solution. 
+
+%%For the $n^{t h}$ order Euler equation we use the same approach as for  
+%%the second order equation. 
+
+
+
+
+
+
+%%\begin{Result} 
+%%Consider the second order Euler difference equation
+%%\[ (n+1)n D^2 a_n + p_1 n D a_n + p_0 a_n = 0.\] 
+%%The substitution
+%%\[a_n = \frac{\Gamma(n+r)}{\Gamma(n)}\] 
+%%will yield the algebraic equation
+%%\[(r-r_1)(r-r_2) = 0.\] 
+%%If the roots are distinct, the linearly independent solutions are 
+%%\[ a_n = \frac{\Gamma(n+r_1)}{\Gamma(n)} \qquad \mathrm{and} \qquad 
+%%       a_n = \frac{\Gamma(n+r_2)}{\Gamma(n)}.\] 
+%%If the roots are not distinct, reduction of order can be used to find the 
+%%second solution. 
+%%\end{Result} 
+
+
+
+
+
+
+
+%%\begin{Example} 
+%%Consider the difference equation
+%%\[(n^2 + n)a_{n+2} - (2n^2 + 4n)a_{n+1} + (n^2+3n+2)a_n = 0.\] 
+%%First we write this equation in terms of finite derivatives. 
+%%\begin{gather*} 
+%%(n^2 + n)(a_{n+2}-2a_{n+1}+a_n) + (-2n^2 -4n + 2n^2 + 2n)a_{n+1} 
+%%       + (n^2 + 3n + 2 - n^2 - n)a_n = 0 \\ 
+%%(n+1)n D^2a_n -2n a_{n+1} + (2n+2) a_n = 0 \\ 
+%%(n+1)n D^2a_n -2n (a_{n+1} - a_n) + (2n + 2 - 2n)a_n = 0 \\ 
+%%(n+1)n D^2a_n -2n D_n + 2 a_n = 0  
+%%\end{gather*} 
+%%We see that this is a second order Euler equation.  The substitution 
+%%$a_n = \Gamma(n+r)/\Gamma(n)$ yields the algebraic equation 
+%%\[r(r-1) - 2r + 2 = 0, \] 
+%%which has roots $r_1 = 1$, $r_2 = 2$.  Thus the general solution is 
+%%\begin{gather*} 
+%%a_n = c_1 \frac{\Gamma(n+1)}{\Gamma(n)} + c_2 %%\frac{\Gamma(n+2)}{\Gamma(n)}\\ 
+%%\boxed{a_n = c_1 n + c_2 (n+1)n.} 
+%%\end{gather*} 
+%%\end{Example} 
+
+
+
+
+
+\raggedbottom
+%%=========================================================================== 
+\exercises{
+\pagebreak
+\flushbottom
+\section{Exercises} 
+
+
+
+
+
+
+\begin{Exercise}
+  \label{exercise fibonacci}
+  Find a formula for the $n^{t h}$ term in the Fibonacci sequence
+  $1,1,2,3,5,8,13,\ldots$. 
+  \index{Fibonacci sequence} 
+
+  \hintsolution{fibonacci}
+\end{Exercise} 
+
+
+
+
+\begin{Exercise} 
+  \label{exercise an2=2nan}
+  Solve the difference equation
+  \[ 
+  a_{n+2} = \frac{2}{n} a_n, \quad a_1 = a_2 = 1. 
+  \] 
+
+  \hintsolution{an2=2nan}
+\end{Exercise} 
+
+
+
+
+
+
+
+
+
+\raggedbottom 
+}
+%%=========================================================================== 
+\hints{
+\pagebreak
+\flushbottom
+\section{Hints} 
+
+
+
+
+
+
+
+\begin{Hint}
+  \label{hint fibonacci}
+  The difference equation corresponding to the Fibonacci sequence is 
+  \[a_{n+2} - a_{n+1} - a_n = 0, \qquad a_1 = a_2 = 1. \] 
+\end{Hint} 
+
+
+
+
+
+
+\begin{Hint} 
+  \label{hint an2=2nan}
+  Consider this exercise as two first order difference equations; one for  
+  the even terms, one for the odd terms. 
+\end{Hint} 
+
+
+
+
+
+
+
+
+\raggedbottom 
+}
+%%=========================================================================== 
+\solutions{
+\pagebreak
+\flushbottom
+\section{Solutions} 
+
+
+
+
+
+
+
+
+\begin{Solution} 
+  \label{solution fibonacci}
+  We can describe the Fibonacci sequence with the difference equation 
+  \begin{gather*} 
+    a_{n+2} - a_{n+1} - a_n = 0, \qquad a_1 = a_2 = 1. \\ 
+    \intertext{With the substitution $a_n = r^n$ we obtain the equation} 
+    r^2 - r - 1 = 0. \\ 
+    \intertext{This equation has the two distinct roots} 
+    r_1 = \frac{1 + \sqrt{5}}{2}, \qquad r_2 = \frac{1 - \sqrt{5}}{2}. \\ 
+    \intertext{Thus the general solution is} 
+    a_n = c_1 \left(\frac{1 + \sqrt{5}}{2}\right)^n +  
+    c_2 \left(\frac{1 - \sqrt{5}}{2}\right)^n. 
+  \end{gather*} 
+  From the initial conditions we have 
+  \begin{alignat*}{2} 
+    &c_1 r_1 +      &c_2 r_2        &= 1 \\ 
+    &c_1 r_1^2 +    &c_2 r_2^2      &= 1. 
+  \end{alignat*} 
+  Solving for $c_2$ in the first equation, 
+  \[c_2 = \frac{1}{r_2}(1 - c_1 r_1).\] 
+  We substitute this into the second equation. 
+  \begin{gather*} 
+    c_1r_1^2 + \frac{1}{r_2}(1 - c_1 r_1)r_2^2 = 1 \\ 
+    c_1(r_1^2 - r_1r_2) = 1-r_2 
+  \end{gather*} 
+  \begin{align*} 
+    c_1     &= \frac{1-r_2}{r_1^2 - r_1r_2} \\ 
+    &= \frac{1 - \frac{1-\sqrt{5}}{2}} 
+    {\frac{1+\sqrt{5}}{2} \sqrt{5}} \\ 
+    &= \frac{\frac{1+\sqrt{5}}{2}} 
+    {\frac{1+\sqrt{5}}{2} \sqrt{5}} \\ 
+    &= \frac{1}{\sqrt{5}} 
+  \end{align*} 
+  Substitute this result into the equation for $c_2$. 
+  \begin{align*} 
+    c_2     &= \frac{1}{r_2}\left(1 - \frac{1}{\sqrt{5}} r_1\right) \\ 
+    &= \frac{2}{1-\sqrt{5}} 
+    \left(1 - \frac{1}{\sqrt{5}} \frac{1+\sqrt{5}}{2}\right) \\ 
+    &= - \frac{2}{1-\sqrt{5}}  
+    \left( \frac{1-\sqrt{5}}{2\sqrt{5}} \right) \\ 
+    &= -\frac{1}{\sqrt{5}} 
+  \end{align*} 
+  Thus the $n^{t h}$ term in the Fibonacci sequence has the formula 
+  \[ \boxed{ a_n = \frac{1}{\sqrt{5}} \left(\frac{1 + \sqrt{5}}{2}\right)^n - 
+    \frac{1}{\sqrt{5}} \left(\frac{1 - \sqrt{5}}{2}\right)^n.} \] 
+  
+  It is interesting to note that although the Fibonacci sequence is defined 
+  in terms of integers, one cannot express the formula form the $n^{t h}$  
+  element in terms of rational numbers. 
+\end{Solution} 
+
+
+
+
+
+
+\begin{Solution} 
+  \label{solution an2=2nan}
+  We can consider  
+  \[ a_{n+2} = \frac{2}{n} a_n, \quad a_1 = a_2 = 1 \] 
+  to be a first order difference equation. 
+  First consider the odd terms. 
+  \begin{align*} 
+    a_1     &= 1 \\ 
+    a_3     &= \frac{2}{1} \\ 
+    a_5     &= \frac{2}{3} \frac{2}{1} \\ 
+    a_n     &= \frac{2^{(n-1)/2}}{(n-2)(n-4)\cdots(1)} 
+  \end{align*} 
+  For the even terms, 
+  \begin{align*} 
+    a_2     &= 1 \\ 
+    a_4     &= \frac{2}{2} \\ 
+    a_6     &= \frac{2}{4} \frac{2}{2} \\ 
+    a_n     &= \frac{2^{(n-2)/2}}{(n-2)(n-4)\cdots(2)}. 
+  \end{align*} 
+  Thus 
+  \[ \boxed{ a_n =  
+    \begin{cases} 
+      \frac{2^{(n-1)/2}}{(n-2)(n-4)\cdots(1)}  \quad &\mathrm{for odd}\ n \\ 
+      \frac{2^{(n-2)/2}}{(n-2)(n-4)\cdots(2)}  \quad &\mathrm{for even}\ n. 
+    \end{cases} } 
+  \] 
+\end{Solution} 
+
+
+
+
+
+
+
+
+\raggedbottom
+}

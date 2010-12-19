@@ -1,0 +1,3 @@
+Set the following environment variables to compile the online version.
+setenv pool_size 500000
+setenv max_strings 40000

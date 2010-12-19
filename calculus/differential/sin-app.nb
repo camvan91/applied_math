@@ -1,0 +1,119 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2760,         79]*)
+(*NotebookOutlinePosition[      3409,        102]*)
+(*  CellTagsIndexPosition[      3365,         98]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(app1[x_] = Normal[Series[Sin[x], {x, 0, 1}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(app3[x_] = Normal[Series[Sin[x], {x, 0, 3}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(app5[x_] = Normal[Series[Sin[x], {x, 0, 5}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(app7[x_] = Normal[Series[Sin[x], {x, 0, 7}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(<< Graphics`Legend`\)], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[{Sin[x], app1[x], app3[x], app5[x], 
+          app7[x]}, {x, \(-\[Pi]\), \[Pi]}, 
+        PlotStyle \[Rule] {{GrayLevel[0]}, {Hue[0]}, {Hue[0.25]}, {Hue[
+                0.5]}, {Hue[
+                0.75]}}, \[IndentingNewLine]Ticks \[Rule] {{\(-\[Pi]\), 
+              0, \[Pi]}, {\(-3\), \(-2\), \(-1\), 0, 1, 2, 3}}, 
+        ImageSize \[Rule] 
+          400, \[IndentingNewLine]PlotLegend \[Rule] {"\<sin(x)\>", "\<1 term\
+\>", "\<2 terms\>", "\<3 terms\>", "\<4 terms\>"}, 
+        LegendPosition \[Rule] {1.1, \(-0.3\)}, 
+        LegendSize \[Rule] {1, 0.6}];\)\)], "Input"]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1920}, {0, 1200}},
+WindowSize->{744, 1120},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 82, 1, 39, "Input"],
+Cell[1839, 54, 82, 1, 39, "Input"],
+Cell[1924, 57, 82, 1, 39, "Input"],
+Cell[2009, 60, 82, 1, 39, "Input"],
+Cell[2094, 63, 52, 1, 39, "Input"],
+Cell[2149, 66, 607, 11, 223, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

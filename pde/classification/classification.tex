@@ -1,0 +1,1040 @@
+\flushbottom
+
+
+
+
+%%============================================================================
+%%============================================================================
+\chapter{Classification of Partial Differential Equations}
+
+
+%%
+%% Classify PDE's
+%%
+%% Derive some partial differential equations.
+%%
+
+
+
+
+
+
+%%===========================================================================
+\section{Classification of Second Order Quasi-Linear Equations}
+
+
+
+
+
+Consider the general second order quasi-linear partial differential 
+equation in two variables.
+\begin{equation}
+  \label{a(x,y)u_xx+2b(x,y)u_xy+c(x,y)u_yy=F(x,y,u,u_x,u_y)}
+  a(x,y) u_{x x} + 2 b(x,y) u_{x y} + c(x,y) u_{y y} = F(x, y, u, u_x, u_y)
+\end{equation}
+We classify the equation by the sign of the discriminant.
+At a given point $x_0$, $y_0$, the equation is classified as one 
+of the following types:
+\[
+\begin{matrix}
+  b^2 - a c > 0: \quad &\mathrm{hyperbolic} 
+  \\
+  b^2 - a c = 0: \quad &\mathrm{parabolic} 
+  \\
+  b^2 - a c < 0: \quad &\mathrm{elliptic} 
+\end{matrix}
+\]
+If an equation has a particular type for all points $x$, $y$ in a domain
+then the equation is said to be of that type in the domain.
+Each of these types has a canonical form that can be obtained through
+a change of independent variables.  The type of an equation indicates
+much about the nature of its solution.
+
+We seek a change of independent variables, (a different coordinate 
+system), such that 
+Equation~\ref{a(x,y)u_xx+2b(x,y)u_xy+c(x,y)u_yy=F(x,y,u,u_x,u_y)}
+has a simpler form.  We will find that a second order quasi-linear
+partial differential equation in two variables can be transformed to
+one of the canonical forms:
+\begin{alignat*}{2}
+  &u_{\xi \psi} = G(\xi, \psi, u, u_\xi, u_\psi), &\quad &\mathrm{hyperbolic} 
+  \\
+  &u_{\xi \xi} = G(\xi, \psi, u, u_\xi, u_\psi), &\quad &\mathrm{parabolic} 
+  \\
+  &u_{\xi \xi} + u_{\psi \psi} = G(\xi, \psi, u, u_\xi, u_\psi), &\quad &\mathrm{elliptic}
+\end{alignat*}
+
+
+Consider the change of independent variables 
+\[
+\xi = \xi(x,y), \qquad \psi = \psi(x,y).
+\]
+We calculate the partial derivatives of $u$.
+\begin{align*}
+  u_x &= \xi_x u_\xi + \psi_x u_\psi 
+  \\
+  u_y &= \xi_y u_\xi + \psi_y u_\psi 
+  \\
+  u_{xx} &= \xi_x^2 u_{\xi \xi} + 2 \xi_x \psi_x u_{\xi\psi} + \psi_x^2 u_{\psi\psi} + \xi_{xx} u_\xi + \psi_{xx} u_{\psi} 
+  \\
+  u_{x y} &= \xi_x \xi_y u_{\xi\xi} + (\xi_x \psi_y + \xi_y \psi_x) u_{\xi\psi}      + \psi_x \psi_y u_{\psi\psi} + \xi_{x y} u_\xi + \psi_{x y} u_\psi 
+  \\
+  u_{y y} &= \xi_y^2 u_{\xi\xi} + 2 \xi_y \psi_y u_{\xi\psi} + \psi_y^2 u_{\psi\psi} + \xi_{y y} u_{\xi} + \psi_{y y} u_\psi
+\end{align*}
+Substituting these into 
+Equation~\ref{a(x,y)u_xx+2b(x,y)u_xy+c(x,y)u_yy=F(x,y,u,u_x,u_y)}
+yields an equation in $\xi$ and $\psi$.
+\begin{multline*}
+  \label{left(axi_x^2+2bxi_xxi_y+cxi_y^2right)u_xixi}
+  \left( a \xi_x^2 + 2 b \xi_x \xi_y + c \xi_y^2 \right) u_{\xi\xi}
+  + 2 \left( a \xi_x \psi_x + b(\xi_x \psi_y + \xi_y \psi_x ) + c \xi_y \psi_y \right) u_{\xi\psi} 
+  \\
+  + \left( a \psi_x^2 + 2 b \psi_x \psi_y + c \psi_y^2 \right) u_{\psi\psi} = H(\xi, \psi, u, u_\xi, u_\psi)
+\end{multline*}
+\begin{equation}
+  \label{alpha(xi,eta)u_xixi+beta(xi,eta)u_xieta}
+  \alpha(\xi,\psi) u_{\xi \xi} + \beta(\xi,\psi) u_{\xi \psi} + \gamma(\xi,\psi) u_{\psi \psi} = H(\xi, \psi, u, u_\xi, u_\psi)
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+%%------------------------------------------------------------------------------
+\subsection{Hyperbolic Equations}
+
+
+
+We start with a hyperbolic equation, ($b^2 - a c > 0$).
+We seek a change of independent variables that will put 
+Equation~\ref{a(x,y)u_xx+2b(x,y)u_xy+c(x,y)u_yy=F(x,y,u,u_x,u_y)}
+in the form
+\begin{equation}
+  \label{u_xieta=G(xi,eta,u,u_xi,u_eta)}
+  u_{\xi \psi} = G(\xi, \psi, u, u_\xi, u_\psi)
+\end{equation}
+We require that the $u_{\xi\xi}$ and $u_{\psi\psi}$ terms vanish.
+That is $\alpha = \gamma = 0$ in 
+Equation~\ref{alpha(xi,eta)u_xixi+beta(xi,eta)u_xieta}.
+This gives us two constraints on $\xi$ and $\psi$.
+\begin{gather}
+  \label{axi_x^2+2bxi_xxi_y+cxi_y^2=0}
+  a \xi_x^2 + 2 b \xi_x \xi_y + c \xi_y^2 = 0, \qquad a \psi_x^2 + 2 b \psi_x \psi_y + c \psi_y^2 = 0 
+  \\
+  \nonumber
+  \frac{\xi_x}{\xi_y} = \frac{-b + \sqrt{b^2 - a c}}{a}, \qquad
+  \frac{\psi_x}{\psi_y} = \frac{-b - \sqrt{b^2 - a c}}{a}
+  \\
+  \nonumber
+  \xi_x + \frac{b - \sqrt{b^2 - a c}}{a} \xi_y = 0, \qquad
+  \psi_x + \frac{b + \sqrt{b^2 - a c}}{a} \psi_y = 0
+\end{gather}
+Here we chose the signs in the quadratic formulas to get different solutions
+for $\xi$ and $\psi$.
+
+Now we have first order quasi-linear partial differential equations for 
+the coordinates $\xi$ and $\psi$.  We solve these equations with the method
+of characteristics.  The characteristic equations for $\xi$ are 
+\[
+\frac{\dd y}{\dd x} = \frac{b - \sqrt{b^2 - a c}}{a}, \quad
+\frac{\dd}{\dd x} \xi(x,y(x)) = 0
+\]
+Solving the differential equation for $y(x)$ determines 
+$\xi(x,y)$.  We just write the solution for $y(x)$ in the form
+$F(x,y(x)) = \mathrm{const}$.  Since the solution of the differential equation
+for $\xi$ is $\xi(x,y(x)) = \mathrm{const}$, we then have $\xi = F(x,y)$.
+Upon solving for $\xi$ and $\psi$ we divide 
+Equation~\ref{alpha(xi,eta)u_xixi+beta(xi,eta)u_xieta}
+by $\beta(\xi,\psi)$ to obtain the canonical form.
+
+
+
+
+
+Note that we could have solved for $\xi_y /  \xi_x$ in 
+Equation~\ref{axi_x^2+2bxi_xxi_y+cxi_y^2=0}.
+\[
+\frac{\dd x}{\dd y} = - \frac{\xi_y}{\xi_x} = \frac{b - \sqrt{b^2 - a c}}{c}
+\]
+This form is useful if $a$ vanishes.
+
+
+
+
+
+Another canonical form for  hyperbolic equations is
+\begin{equation}
+  \label{u_sigmasigma-u_tautau=K(sigma,tau,u,u_sigma,u_tau)}
+  u_{\sigma \sigma} - u_{\tau \tau} = K(\sigma, \tau, u, u_\sigma, u_\tau).
+\end{equation}
+We can transform Equation~\ref{u_xieta=G(xi,eta,u,u_xi,u_eta)} 
+to this form with the change of variables
+\[
+\sigma = \xi + \psi, \quad \tau = \xi - \psi.
+\]
+Equation~\ref{u_xieta=G(xi,eta,u,u_xi,u_eta)} becomes
+\[
+u_{\sigma \sigma} - u_{\tau \tau} 
+= G \left( \frac{\sigma + \tau}{2}, \frac{\sigma - \tau}{2}, u, u_\sigma + u_\tau, u_\sigma - u_\tau \right).
+\]
+
+
+
+
+
+
+
+
+
+
+\begin{Example}
+  Consider the wave equation with a source.
+  \[
+  u_{t t} - c^2 u_{x x} = s(x,t)
+  \]
+  Since $0 - (1)(-c^2) > 0$, the equation is hyperbolic.
+  We find the new variables.
+  \begin{gather*}
+    \frac{\dd x}{\dd t} = - c, \quad 
+    x = - c t + \mathrm{const}, \quad
+    \xi = x + c t 
+    \\
+    \frac{\dd x}{\dd t} = c, \quad 
+    x = c t + \mathrm{const}, \quad
+    \psi = x - c t
+  \end{gather*}
+  Then we determine $t$ and $x$ in terms of $\xi$ and $\psi$.
+  \[
+  t = \frac{\xi - \psi}{2 c}, \quad x = \frac{\xi + \psi}{2}
+  \]
+
+  We calculate the derivatives of $\xi$ and $\psi$.
+  \begin{alignat*}{2}
+    \xi_t &= c &\quad \xi_x &= 1 
+    \\
+    \psi_t &= - c &\quad \psi_x &= 1 
+  \end{alignat*}
+  Then we calculate the derivatives of $u$.
+  \begin{align*}
+    u_{t t} &= c^2 u_{\xi \xi} - 2 c^2 u_{\xi \psi} + c^2 u_{\psi \psi} 
+    \\
+    u_{x x} &= u_{\xi \xi} + u_{\psi \psi} 
+  \end{align*}
+  Finally we transform the equation to canonical form.
+  \begin{gather*}
+    - 2 c^2 u_{\xi \psi} = s \left( \frac{\xi + \psi}{2}, \frac{\xi - \psi}{2 c} \right) 
+    \\
+    \boxed{
+      u_{\xi \psi} = - \frac{1}{2 c^2} s \left( \frac{\xi + \psi}{2}, \frac{\xi - \psi}{2 c} \right)
+      }
+  \end{gather*}
+
+  If $s(x,t) = 0$, then the equation is $u_{\xi \psi} = 0$ we can
+  integrate with respect to $\xi$ and $\psi$ to obtain the 
+  solution, $u = f(\xi) + g(\psi)$.  Here $f$ and $g$ are arbitrary
+  $C^2$ functions.  In terms of $t$ and $x$, we have
+  \[
+  \boxed{
+    u(x,t) = f(x + c t) + g(x - c t).
+    }
+  \]
+
+  To put the wave equation in the form of
+  Equation~\ref{u_sigmasigma-u_tautau=K(sigma,tau,u,u_sigma,u_tau)}
+  we make a change of variables
+  \begin{gather*}
+    \sigma = \xi + \psi = 2 x, \quad \tau = \xi - \psi = 2 c t
+    \\
+    u_{t t} - c^2 u_{x x} = s(x,t) 
+    \\
+    4 c^2 u_{\tau \tau} - 4 c^2 u_{\sigma \sigma} = s \left( \frac{\sigma}{2}, \frac{\tau}{2 c} \right) 
+    \\
+    \boxed{
+      u_{\sigma \sigma} - u_{\tau \tau} = - \frac{1}{4 c^2} s \left( \frac{\sigma}{2}, \frac{\tau}{2 c} \right)
+      }
+  \end{gather*}
+\end{Example}
+
+
+
+
+
+
+
+
+
+
+
+\begin{Example}
+  \label{y^2u_xx-x^2u_yy=0}
+  Consider
+  \[
+  y^2 u_{x x} - x^2 u_{y y} = 0.
+  \]
+  For $x \neq 0$ and $y \neq 0$ this equation is hyperbolic. We find the new variables.
+  \begin{gather*}
+    \frac{\dd y}{\dd x} = - \frac{\sqrt{ y^2 x^2 }}{y^2} = - \frac{x}{y}, \quad 
+    y \,\dd y = - x \,\dd x, \quad
+    \frac{y^2}{2} = - \frac{x^2}{2} + \mathrm{const}, \quad
+    \xi = y^2 + x^2 
+    \\
+    \frac{\dd y}{\dd x} = \frac{\sqrt{ y^2 x^2 }}{y^2} = \frac{x}{y}, \quad 
+    y \,\dd y = x \,\dd x, \quad
+    \frac{y^2}{2} = \frac{x^2}{2} + \mathrm{const}, \quad
+    \psi = y^2 - x^2
+  \end{gather*}
+
+  We calculate the derivatives of $\xi$ and $\psi$.
+  \begin{alignat*}{2}
+    \xi_x &= 2 x &\quad \xi_y &= 2 y 
+    \\
+    \psi_x &= -2 x  &\quad \psi_y &= 2 y 
+  \end{alignat*}
+  Then we calculate the derivatives of $u$.
+  \begin{gather*}
+    u_x = 2 x ( u_\xi - u_\psi ) 
+    \\
+    u_y = 2 y ( u_\xi + u_\psi ) 
+    \\
+    u_{x x} = 4 x^2 ( u_{\xi \xi} - 2 u_{\xi \psi} + u_{\psi \psi} ) + 2 ( u_\xi - u_\psi ) 
+    \\
+    u_{y y} = 4 y^2 ( u_{\xi \xi} + 2 u_{\xi \psi} + u_{\psi \psi} ) + 2 ( u_\xi + u_\psi )
+  \end{gather*}
+  Finally we transform the equation to canonical form.
+  \begin{gather*}
+    y^2 u_{x x} - x^2 u_{y y} = 0 
+    \\
+    - 8 x^2 y^2 u_{\xi \psi} - 8 x^2 y^2 u_{\xi \psi} + 2 y^2 ( u_\xi - u_\psi ) + 2 x^2 ( u_\xi + u_\psi ) = 0 
+    \\
+    16 \frac{1}{2} (\xi - \psi) \frac{1}{2} (\xi + \psi) u_{\xi \psi} = 2 \xi u_\xi - 2 \psi u_\psi 
+    \\
+    \boxed{
+      u_{\xi \psi} = \frac{\xi u_\xi - \psi u_\psi}{ 2 (\xi^2 - \psi^2) }
+      }
+  \end{gather*}
+\end{Example}
+
+
+
+
+
+
+
+
+
+\begin{Example}
+  Consider Laplace's equation.
+  \[
+  u_{x x} + u_{y y} = 0
+  \]
+  Since $0 - (1)(1) < 0$, the equation is elliptic.
+  We will transform this equation to the canical form of 
+  Equation~\ref{u_xieta=G(xi,eta,u,u_xi,u_eta)}.
+  We find the new variables.
+  \begin{gather*}
+    \frac{\dd y}{\dd x} = - \imath, \quad 
+    y = - \imath x + \mathrm{const}, \quad
+    \xi = x + \imath y 
+    \\
+    \frac{\dd y}{\dd x} = \imath, \quad 
+    y = \imath x + \mathrm{const}, \quad
+    \psi = x - \imath y
+  \end{gather*}
+
+  We calculate the derivatives of $\xi$ and $\psi$.
+  \begin{alignat*}{2}
+    \xi_x &= 1 &\quad \xi_y &= \imath 
+    \\
+    \psi_x &= 1 &\quad \psi_y &= -\imath 
+  \end{alignat*}
+  Then we calculate the derivatives of $u$.
+  \begin{align*}
+    u_{x x} &= u_{\xi \xi} + 2 u_{\xi \psi} + u_{\psi \psi} 
+    \\
+    u_{y y} &= - u_{\xi \xi} + 2 u_{\xi \psi} - u_{\psi \psi}
+  \end{align*}
+  Finally we transform the equation to canonical form.
+  \begin{gather*}
+    4 u_{\xi \psi} = 0 
+    \\
+    \boxed{
+      u_{\xi \psi} = 0
+      }
+  \end{gather*}
+
+  We integrate with respect to $\xi$ and $\psi$ to obtain the 
+  solution, $u = f(\xi) + g(\psi)$.  Here $f$ and $g$ are arbitrary
+  $C^2$ functions.  In terms of $x$ and $y$, we have
+  \[
+  \boxed{
+    u(x,y) = f(x + \imath y) + g(x - \imath y).
+    }
+  \]
+  This solution makes a lot of sense, because the real and imaginary
+  parts of an analytic function are harmonic.
+\end{Example}
+
+
+
+
+
+
+
+
+
+%%------------------------------------------------------------------------------
+\subsection{Parabolic equations}
+
+
+Now we consider a parabolic equation, ($b^2 - a c = 0$).
+We seek a change of independent variables that will put 
+Equation~\ref{a(x,y)u_xx+2b(x,y)u_xy+c(x,y)u_yy=F(x,y,u,u_x,u_y)}
+in the form
+\begin{equation}
+  \label{eqn uxixi=Gxipsiuuu}
+  u_{\xi \xi} = G(\xi, \psi, u, u_\xi, u_\psi).
+\end{equation}
+We require that the $u_{\xi \psi}$ and $u_{\psi\psi}$ terms vanish.
+That is $\beta = \gamma = 0$ in 
+Equation~\ref{alpha(xi,eta)u_xixi+beta(xi,eta)u_xieta}.
+This gives us two constraints on $\xi$ and $\psi$.
+\[
+a \xi_x \psi_x + b(\xi_x \psi_y + \xi_y \psi_x ) + c \xi_y \psi_y = 0, \qquad a \psi_x^2 + 2 b \psi_x \psi_y + c \psi_y^2 = 0 
+\]
+We consider the case $a \neq 0$.  The latter constraint allows us to solve 
+for $\psi_x / \psi_y$.
+\[
+\frac{\psi_x}{\psi_y} = \frac{-b - \sqrt{b^2 - a c}}{a} = - \frac{b}{a}
+\]
+With this information, the former constraint is trivial.
+\begin{gather*}
+  a \xi_x \psi_x + b(\xi_x \psi_y + \xi_y \psi_x ) + c \xi_y \psi_y = 0
+  \\
+  a \xi_x (-b/a) + b(\xi_x + \xi_y (-b/a) ) + c \xi_y = 0
+  \\
+  (a c - b^2) \xi_y = 0
+  \\
+  0 = 0
+\end{gather*}
+Thus we have a first order partial differential equation for the $\psi$ 
+coordinate which we can solve with the method of characteristics.
+\[
+\psi_x + \frac{b}{a} \psi_y = 0
+\]
+The $\xi$ coordinate is chosen to be anything linearly independent of $\psi$.
+The characteristic equations for $\psi$ are 
+\[
+\frac{\dd y}{\dd x} = \frac{b}{a}, \quad
+\frac{\dd}{\dd x} \psi(x,y(x)) = 0
+\]
+Solving the differential equation for $y(x)$ determines 
+$\psi(x,y)$.  We just write the solution for $y(x)$ in the form
+$F(x,y(x)) = \mathrm{const}$.  Since the solution of the differential equation
+for $\psi$ is $\psi(x,y(x)) = \mathrm{const}$, we then have $\psi = F(x,y)$.
+Upon solving for $\psi$ and choosing a linearly independent $\xi$, we divide 
+Equation~\ref{alpha(xi,eta)u_xixi+beta(xi,eta)u_xieta}
+by $\alpha(\xi,\psi)$ to obtain the canonical form.
+
+In the case that $a = 0$, we would instead have the constraint,
+\[
+\psi_x + \frac{b}{c} \psi_y = 0.
+\]
+
+
+
+%% CONTINUE example
+
+
+
+
+
+%%------------------------------------------------------------------------------
+\subsection{Elliptic Equations}
+
+
+
+We start with an elliptic equation, ($b^2 - a c < 0$).
+We seek a change of independent variables that will put 
+Equation~\ref{a(x,y)u_xx+2b(x,y)u_xy+c(x,y)u_yy=F(x,y,u,u_x,u_y)}
+in the form
+\begin{equation}
+  \label{u_sigmasigma+u_tautau=G(sigma,tau,u,u_sigma,u_tau)}
+  u_{\sigma \sigma} + u_{\tau \tau} = G(\sigma, \tau, u, u_\sigma, u_\tau)
+\end{equation}
+If we make the change of variables determined by
+\[
+\frac{\xi_x}{\xi_y} = \frac{-b + \imath \sqrt{a c - b^2}}{a}, \qquad
+\frac{\psi_x}{\psi_y} = \frac{-b - \imath \sqrt{a c - b^2}}{a},
+\]
+the equation will have the form
+\[
+u_{\xi \psi} = G(\xi, \psi, u, u_\xi, u_\psi).
+\]
+$\xi$ and $\psi$ are complex-valued.  If we then make the change of 
+variables 
+\[
+\sigma = \frac{\xi + \psi}{2}, \quad
+\tau = \frac{\xi - \psi}{2 \imath}
+\]
+we will obtain the canonical form of 
+Equation~\ref{u_sigmasigma+u_tautau=G(sigma,tau,u,u_sigma,u_tau)}.
+Note that since $\xi$ and $\psi$ are complex conjugates, $\sigma$ and $\tau$ are 
+real-valued.
+
+
+
+
+
+\begin{Example}
+  Consider
+  \begin{equation}
+    \label{y^2u_xx+x^2u_yy=0}
+    y^2 u_{x x} + x^2 u_{y y} = 0.
+  \end{equation}
+  For $x \neq 0$ and $y \neq 0$ this equation is elliptic.
+  We find new variables that will put this equation in the form
+  $u_{\xi \psi} = G(\cdot)$.  From Example~\ref{y^2u_xx-x^2u_yy=0}
+  we see that they are
+  \begin{gather*}
+    \frac{\dd y}{\dd x} = - \imath \frac{\sqrt{ y^2 x^2 }}{y^2} 
+    = - \imath \frac{x}{y}, \quad 
+    y \,\dd y = - \imath x \,\dd x, \quad
+    \frac{y^2}{2} = - \imath \frac{x^2}{2} + \mathrm{const}, \quad
+    \xi = y^2 + \imath x^2 
+    \\
+    \frac{\dd y}{\dd x} = \imath \frac{\sqrt{ y^2 x^2 }}{y^2} = \imath \frac{x}{y}, \quad 
+    y \,\dd y = \imath x \,\dd x, \quad
+    \frac{y^2}{2} = \imath \frac{x^2}{2} + \mathrm{const}, \quad
+    \psi = y^2 - \imath x^2 \\
+  \end{gather*}
+  The variables that will put Equation~\ref{y^2u_xx+x^2u_yy=0} in 
+  canonical form are
+  \[
+  \sigma = \frac{\xi + \psi}{2} = y^2, \quad
+  \tau = \frac{\xi - \psi}{2 \imath} = x^2
+  \]
+  We calculate the derivatives of $\sigma$ and $\tau$.
+  \begin{alignat*}{2}
+    \sigma_x &= 0 &\quad \sigma_y &= 2 y 
+    \\
+    \tau_x &= 2 x  &\quad \tau_y &= 0
+  \end{alignat*}
+  Then we calculate the derivatives of $u$.
+  \begin{gather*}
+    u_x = 2 x u_\tau 
+    \\
+    u_y = 2 y u_\sigma 
+    \\
+    u_{x x} = 4 x^2 u_{\tau \tau} + 2 u_\tau 
+    \\
+    u_{y y} = 4 y^2 u_{\sigma \sigma} + 2 u_\sigma
+  \end{gather*}
+  Finally we transform the equation to canonical form.
+  \begin{gather*}
+    y^2 u_{x x} + x^2 u_{y y} = 0 
+    \\
+    \sigma ( 4 \tau u_{\tau \tau} + 2 u_\tau ) + \tau ( 4 \sigma u_{\sigma \sigma} + 2 u_\sigma ) = 0 
+    \\
+    \boxed{
+      u_{\sigma \sigma} + u_{\tau \tau} = - \frac{1}{2 \sigma} u_\sigma - \frac{1}{2 \tau} u_{\tau}
+      }
+  \end{gather*}
+\end{Example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%==============================================================================
+\section{Equilibrium Solutions}
+
+
+\begin{Example}
+  Consider the equilibrium solution for the following problem.
+  \[ 
+  u_t = u_{x x}, \qquad u(x,0) = x, \quad u_x(0,t) = u_x(1,t) = 0
+  \]
+  Setting $u_t = 0$ we have an ordinary differential equation.
+  \[ 
+  \frac{\dd^2 u}{\dd x^2} = 0
+  \]
+  This equation has the solution,
+  \[
+  u = a x + b. 
+  \]
+  Applying the boundary conditions we see that
+  \[ 
+  u = b. 
+  \]
+  To determine the constant, we note that the heat energy in the rod is
+  constant in time.
+  \begin{gather*}
+    \int_0^1 u(x,t)\,\dd x = \int_0^1 u(x,0) \,\dd x 
+    \\
+    \int_0^1 b \,\dd x = \int_0^1 x \,\dd x
+  \end{gather*}
+  Thus the equilibrium solution is
+  \[ 
+  u(x) = \frac{1}{2}. 
+  \]
+\end{Example}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Do the same with the backward heat equation to show that a problem
+%% may not have an equilibrium solution.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+%%=============================================================================
+\exercises{
+\pagebreak
+\flushbottom
+\section{Exercises}
+
+
+
+
+
+
+\begin{Exercise}
+  \label{exercise classify transform uxx+1y2uyy}
+  Classify and transform the following equation into canonical form.
+  \[ 
+  u_{x x} + (1+y)^2 u_{y y} = 0
+  \]
+
+  \hintsolution{classify transform uxx+1y2uyy}
+\end{Exercise}
+
+
+
+
+
+
+
+
+
+
+%%Classify in a region $R$ each of the equations:
+\begin{Exercise}
+  \label{exercise classify ut=puxx}
+  Classify as hyperbolic, parabolic, or
+  elliptic in a region $R$ each of the equations:
+  \begin{enumerate}
+  \item 
+    $\displaystyle u_t = (p u_x)_x$
+  \item 
+    $\displaystyle u_{tt} = c^2u_{xx} - \gamma u$
+  \item 
+    $\displaystyle (qu_x)_x + (qu_t)_t = 0$
+  \end{enumerate}
+  where $p(x)$, $c(x,t)$, $q(x,t)$, and $\gamma(x)$ are given functions
+  that take on only positive values in a region $R$ of the $(x,t)$ plane.
+
+  \hintsolution{classify ut=puxx}
+\end{Exercise}
+
+
+
+
+
+
+
+
+%% Transform each of the following equations into canonical form.
+\begin{Exercise}
+  \label{exercise transform phixx-y2phiyy+phix-phi+x2=0}
+  Transform each of the following equations
+  for $\phi(x,y)$ into canonical form in appropriate regions
+  \begin{enumerate}
+  \item 
+    $\displaystyle \phi_{xx} - y^2 \phi_{yy} + \phi_x -\phi + x^2 = 0$
+  \item 
+    $\displaystyle \phi_{xx} + x \phi_{yy} = 0$
+  \end{enumerate}
+  The equation in part (b) is known as {\it Tricomi's equation} and is
+  a model for transonic fluid flow in which the flow speed changes from 
+  supersonic to subsonic.
+
+  \hintsolution{transform phixx-y2phiyy+phix-phi+x2=0}
+\end{Exercise}
+
+
+
+
+
+
+\raggedbottom
+}
+%%=============================================================================
+\hints{
+\pagebreak
+\flushbottom
+\section{Hints}
+
+
+
+
+
+
+
+
+\begin{Hint}
+  \label{hint classify transform uxx+1y2uyy}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+%%Classify in a region $R$ each of the equations:
+\begin{Hint}
+  \label{hint classify ut=puxx}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+
+%% Transform each of the following equations into canonical form.
+\begin{Hint}
+  \label{hint transform phixx-y2phiyy+phix-phi+x2=0}
+  %% CONTINUE
+\end{Hint}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom
+}
+%%=============================================================================
+\solutions{
+\pagebreak
+\flushbottom
+\section{Solutions}
+
+
+
+
+
+
+
+
+\begin{Solution}
+  \label{solution classify transform uxx+1y2uyy}
+  For $y = -1$, the equation is parabolic.  For this case it is already in
+  the canonical form, $u_{x x} = 0$.
+
+  For $y \neq -1$, the equation is elliptic.  We find new variables that will put
+  the equation in the form $u_{\xi \psi} = G(\xi,\psi,u,u_\xi,u_\psi)$.
+  \begin{gather*}
+    \frac{\dd y}{\dd x} = \imath \sqrt{(1+y)^2} = \imath (1 + y)
+    \\
+    \frac{\dd y}{1 + y} = \imath \dd x
+    \\
+    \log(1+y) = \imath x + c
+    \\
+    1 + y = c \e^{\imath x}
+    \\
+    (1 + y) \e^{-\imath x} = c
+    \\
+    \xi = (1 + y) \e^{-\imath x}
+    \\
+    \psi = \overline{\xi} = (1 + y) \e^{\imath x}
+  \end{gather*}
+  The variables that will put the equation in canonical form are 
+  \[
+  \sigma = \frac{\xi + \psi}{2} = (1 + y) \cos x, \quad
+  \tau = \frac{\xi - \psi}{\imath 2} = (1 + y) \sin x.
+  \]
+  We calculate the derivatives of $\sigma$ and $\tau$.
+  \begin{alignat*}{2}
+    \sigma_x &= - (1 + y) \sin x &\quad \sigma_y &= \cos x
+    \\
+    \tau_x &= (1 + y) \cos x &\quad \tau_y &= \sin x
+  \end{alignat*}
+  Then we calculate the derivatives of $u$.
+  \begin{gather*}
+    u_x = - (1 + y) \sin(x) u_\sigma + (1 + y) \cos(x) u_\tau
+    \\
+    u_y = \cos(x) u_\sigma + \sin(x) u_\tau
+    \\
+    u_{x x} = (1 + y)^2 \sin^2(x) u_{\sigma \sigma} + (1 + y)^2 \cos^2(x) u_{\tau \tau}
+    - (1 + y) \cos(x) u_\sigma - (1 + y) \sin(x) u_\tau
+    \\
+    u_{y y} = \cos^2(x) u_{\sigma \sigma} + \sin^2(x) u_{\tau \tau}
+  \end{gather*}
+  We substitute these results into the differential equation to obtain the 
+  canonical form.
+  \begin{gather*}
+    u_{x x} + (1 + y)^2 u_{y y} = 0
+    \\
+    (1 + y)^2 \left( u_{\sigma \sigma} + u_{\tau \tau} \right) 
+    - (1 + y) \cos(x) u_\sigma - (1 + y) \sin(x) u_\tau = 0
+    \\
+    \left( \sigma^2 + \tau^2 \right) \left( u_{\sigma \sigma} + u_{\tau \tau} \right) - \sigma u_\sigma - \tau u_\tau = 0
+    \\
+    \boxed{
+      u_{\sigma \sigma} + u_{\tau \tau} = \frac{ \sigma u_\sigma + \tau u_\tau }{ \sigma^2 + \tau^2 }
+      }
+  \end{gather*}
+\end{Solution}
+
+
+
+
+
+
+
+
+
+%%Classify in a region $R$ each of the equations:
+\begin{Solution}
+  \label{solution classify ut=puxx}
+  \begin{enumerate}
+
+
+  \item
+    \begin{gather*}
+      u_t = (p u_x)_x 
+      \\
+      p u_{x x} + 0 u_{x t} + 0 u_{t t} + p_x u_x - u_t = 0
+    \end{gather*}
+    Since $0^2 - p 0 = 0$, the equation is parabolic.
+
+
+  \item
+    \begin{gather*}
+      u_{tt} = c^2 u_{xx} - \gamma u 
+      \\
+      u_{tt} + 0 u_{t x} - c^2 u_{xx} + \gamma u = 0
+    \end{gather*}
+    Since $0^2 - (1)(-c^2) > 0$, the equation is hyperbolic.
+
+
+  \item
+    \begin{gather*}
+      (q u_x)_x + (q u_t)_t = 0 
+      \\
+      q u_{x x} + 0 u_{x t} + q u_{t t} + q_x u_x + q_t u_t = 0
+    \end{gather*}
+    Since $0^2 - q q < 0$, the equation is elliptic.
+  \end{enumerate}
+\end{Solution}
+
+
+
+
+
+
+
+
+
+
+
+
+%% Transform each of the following equations into canonical form.
+\begin{Solution}
+  \label{solution transform phixx-y2phiyy+phix-phi+x2=0}
+  \begin{enumerate}
+
+
+  \item
+    For $y \neq 0$, the equation is hyperbolic.  We find the new 
+    independent variables.
+    \begin{gather*}
+      \frac{\dd y}{\dd x} = \frac{\sqrt{y^2}}{1} = y, \quad
+      y = c \e^x, \quad
+      \e^{-x} y = c, \quad
+      \xi = \e^{-x} y 
+      \\
+      \frac{\dd y}{\dd x} = \frac{-\sqrt{y^2}}{1} = -y, \quad
+      y = c \e^{-x}, \quad
+      \e^x y = c, \quad
+      \psi = \e^x y
+    \end{gather*}
+    Next we determine $x$ and $y$ in terms of $\xi$ and $\psi$.
+    \begin{gather*}
+      \xi \psi = y^2, \quad y = \sqrt{\xi \psi} 
+      \\
+      \psi = \e^x \sqrt{\xi \psi}, \quad
+      \e^x = \sqrt{\psi / \xi}, \quad
+      x = \frac{1}{2} \log \left( \frac{\psi}{\xi} \right)
+    \end{gather*}
+    We calculate the derivatives of $\xi$ and $\psi$.
+    \begin{gather*}
+      \xi_x = - \e^{-x} y = - \xi 
+      \\
+      \xi_y = \e^{-x} = \sqrt{\xi / \psi} 
+      \\
+      \psi_x = \e^x y = \psi 
+      \\
+      \psi_y = \e^x = \sqrt{\psi / \xi}
+    \end{gather*}
+    Then we calculate the derivatives of $\phi$.
+    \begin{gather*}
+      \frac{\partial}{\partial x} = - \xi \frac{\partial}{\partial \xi} + \psi \frac{\partial}{\partial \psi}, \quad
+      \frac{\partial}{\partial y} = \sqrt{ \frac{\xi}{\psi} } \frac{\partial}{\partial \xi}
+      + \sqrt{ \frac{\psi}{\xi} } \frac{\partial}{\partial \psi} 
+      \\
+      \phi_x = -\xi \phi_\xi + \psi \phi_\psi, \quad
+      \phi_y = \sqrt{ \frac{\xi}{\psi} } \phi_\xi + \sqrt{ \frac{\psi}{\xi} } \phi_\psi 
+      \\
+      \phi_{x x} = \xi^2 \phi_{\xi \xi} - 2 \xi \psi \phi_{\xi \psi} + \psi^2 \phi_{\psi \psi} + \xi \phi_\xi + \psi \phi_\psi,
+      \quad
+      \phi_{y y} = \frac{\xi}{\psi} \phi_{\xi \xi} + 2 \phi_{\xi \psi} + \frac{\psi}{\xi} \phi_{\psi \psi}
+    \end{gather*}
+    Finally we transform the equation to canonical form.
+    \begin{gather*}
+      \phi_{x x} - y^2 \phi_{y y} + \phi_x - \phi + x^2 = 0 
+      \\
+      -4 \xi \psi \phi_{\xi \psi} + \xi \phi_\xi + \psi \phi_\psi - \xi \phi_\xi + \psi \phi_\psi - \phi
+      + \log \left( \frac{\psi}{\xi} \right) = 0 
+      \\
+      \boxed{
+        \phi_{\xi \psi} = \frac{1}{2 \xi} \phi_\psi + \phi
+        - \log \left( \frac{\psi}{\xi} \right)
+        }
+    \end{gather*}
+    
+    For $y = 0$ we have the ordinary differential equation
+    \[
+    \phi_{xx} + \phi_x -\phi + x^2 = 0.
+    \]
+    
+    
+  \item
+    For $x < 0$, the equation is hyperbolic.  We find the new 
+    independent variables.
+    \begin{gather*}
+      \frac{\dd y}{\dd x} = \sqrt{-x}, \quad
+      y = \frac{2}{3} x \sqrt{-x} + c, \quad
+      \xi = \frac{2}{3} x \sqrt{-x} - y 
+      \\
+      \frac{\dd y}{\dd x} = - \sqrt{-x}, \quad
+      y = - \frac{2}{3} x \sqrt{-x} + c, \quad
+      \psi = \frac{2}{3} x \sqrt{-x} + y
+    \end{gather*}
+    Next we determine $x$ and $y$ in terms of $\xi$ and $\psi$.
+    \[
+    x = - \left( \frac{3}{4} (\xi + \psi) \right)^{1/3}, \quad
+    y = \frac{\psi - \xi}{2}
+    \]
+    We calculate the derivatives of $\xi$ and $\psi$.
+    \begin{gather*}
+      \xi_x = \sqrt{-x} = \left( \frac{3}{4} (\xi + \psi) \right)^{1/6}, \quad
+      \xi_y = -1 
+      \\
+      \psi_x = \left( \frac{3}{4} (\xi + \psi) \right)^{1/6}, \quad
+      \psi_y = 1
+    \end{gather*}
+    Then we calculate the derivatives of $\phi$.
+    \begin{gather*}
+      \phi_x = \left( \frac{3}{4} (\xi + \psi) \right)^{1/6} \left( \phi_\xi + \phi_\psi \right) 
+      \\
+      \phi_y = - \phi_\xi + \phi_\psi 
+      \\
+      \phi_{x x} = \left( \frac{3}{4} (\xi + \psi) \right)^{1/3}
+      \left( \phi_{\xi \xi} + \phi_{\psi \psi} \right) + (6(\xi + \psi))^{1/3} \phi_{\xi \psi}
+      + (6(\xi + \psi))^{-2/3} \left( \phi_\xi + \phi_\psi \right) 
+      \\
+      \phi_{y y} = \phi_{\xi \xi} - 2 \phi_{\xi \psi} + \phi_{\psi \psi}
+    \end{gather*}
+    Finally we transform the equation to canonical form.
+    \begin{gather*}
+      \phi_{x x} + x \phi_{y y} = 0 
+      \\
+      (6(\xi + \psi))^{1/3} \phi_{\xi \psi} + (6(\xi + \psi))^{1/3} \phi_{\xi \psi}
+      + (6(\xi + \psi))^{-2/3} \left( \phi_\xi + \phi_\psi \right) = 0 
+      \\
+      \boxed{
+        \phi_{\xi \psi} = - \frac{ \phi_\xi + \phi_\psi }{ 12 (\xi + \psi) }
+        }
+    \end{gather*}
+
+    For $x > 0$, the equation is elliptic.  The variables we defined
+    before are complex-valued.
+    \[
+    \xi = \imath \frac{2}{3} x^{3/2} - y, \quad
+    \psi = \imath \frac{2}{3} x^{3/2} + y
+    \]
+    We choose the new real-valued variables.
+    \[
+    \alpha = \xi - \psi, \quad
+    \beta = -\imath (\xi + \psi)
+    \]
+    We write the derivatives in terms of $\alpha$ and $\beta$.
+    \begin{gather*}
+      \phi_\xi = \phi_\alpha - \imath \phi_\beta 
+      \\
+      \phi_\psi = - \phi_\alpha - \imath \phi_\beta 
+      \\
+      \phi_{\xi \psi} = - \phi_{\alpha \alpha} - \phi_{\beta \beta}
+    \end{gather*}
+    We transform the equation to canonical form.
+    \begin{gather*}
+      \phi_{\xi \psi} = - \frac{ \phi_\xi + \phi_\psi }{ 12 (\xi + \psi) } 
+      \\
+      - \phi_{\alpha \alpha} - \phi_{\beta \beta} = - \frac{ - 2 \imath \phi_{\beta} }{ 12 \imath \beta } 
+      \\
+      \boxed{
+        \phi_{\alpha \alpha} + \phi_{\beta \beta} = - \frac{ \phi_\beta }{ 6 \beta }
+        }
+    \end{gather*}
+  \end{enumerate}
+\end{Solution}
+
+
+
+
+\raggedbottom
+}

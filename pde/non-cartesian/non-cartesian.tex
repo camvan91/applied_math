@@ -1,0 +1,252 @@
+\flushbottom
+
+
+
+
+%%============================================================================
+%%============================================================================
+\chapter{Non-Cartesian Coordinates}
+
+
+
+
+%%
+%% Give examples of circular, spherical, and cylindrical.
+%%
+
+
+
+
+
+
+%%==============================================================================
+\section{Spherical Coordinates}
+Writing rectangular coordinates in terms of spherical coordinates,
+\begin{align*}
+  x &= r \cos \theta \sin \phi \\
+  y &= r \sin \theta \sin \phi \\
+  z &= r \cos \phi.
+\end{align*}
+The Jacobian is
+\begin{align*}
+  &\begin{vmatrix}
+    \cos\theta\sin\phi      & -r\sin\theta\sin\phi  & r\cos\theta\cos\phi \\
+    \sin\theta\sin\phi      & r\cos\theta\sin\phi   & r\sin\theta\cos\phi \\
+    \cos\phi                & 0                     & -r \sin \phi
+  \end{vmatrix} \\
+  &\qquad = r^2 \sin\phi
+  \begin{vmatrix}
+    \cos\theta\sin\phi      & -\sin\theta   & \cos\theta\cos\phi \\
+    \sin\theta\sin\phi      & \cos\theta    & \sin\theta\cos\phi \\
+    \cos\phi                & 0             & - \sin \phi
+  \end{vmatrix} \\
+  &\qquad = \big|r^2 \sin\phi(-\cos^2\theta\sin^2\phi - \sin^2\theta\cos^2\phi
+  -\cos^2\theta\cos^2\phi - \sin^2\theta \sin^2\phi) \big| \\
+  &\qquad = r^2 \sin\phi(\sin^2\phi + \cos^2\phi) \\
+  &\qquad = r^2 \sin\phi.
+\end{align*}
+Thus we have that
+\[ \iiint\limits_V f(x,y,z) \,\dd x\,\dd y\,\dd z
+= \iiint\limits_V f(r,\theta,\phi)r^2 \sin\phi\,\dd r\,\dd \theta\,\dd \phi.\]
+
+
+
+
+%%==============================================================================
+\section{Laplace's Equation in a Disk}
+Consider Laplace's equation in polar coordinates
+\[ \frac{1}{r}\frac{\partial}{\partial r} \left(r\frac{\partial u}{\partial r}\right) + \frac{1}{r^2}
+\frac{\partial^2u}{\partial \theta^2} = 0, \qquad 0 \leq r \leq 1 \]
+subject to the the boundary conditions
+\begin{enumerate}
+\item $u(1,\theta) = f(\theta)$
+\item $u_r(1,\theta) = g(\theta)$.
+\end{enumerate}
+
+
+We separate variables with $u(r,\theta) = R(r)T(\theta)$.
+\begin{gather*}
+  \frac{1}{r}(R' T + r R'' T) + \frac{1}{r^2} R T'' = 0 \\
+  r^2\frac{R''}{R} + r \frac{R'}{R} = -\frac{T''}{T} = \lambda
+\end{gather*}
+Thus we have the two ordinary differential equations
+\begin{gather*}
+  T''+\lambda T = 0, \qquad T(0)=T(2\pi), \quad T'(0)=T'(2\pi) \\
+  r^2 R'' + r R' - \lambda R = 0, \qquad R(0) < \infty.
+\end{gather*}
+
+The eigenvalues and eigenfunctions for the equation in $T$ are
+\begin{gather*}
+  \lambda_0 = 0, \qquad T_0 = \frac{1}{2} \\
+  \lambda_n = n^2, \qquad T_n^{(1)} = \cos(n\theta), \quad
+  T_n^{(2)} = \sin(n\theta)
+\end{gather*}
+(I chose $T_0=1/2$ so that all the eigenfunctions have the same norm.)
+
+For $\lambda=0$ the general solution for $R$ is
+\[ R = c_1 + c_2 \log r. \]
+Requiring that the solution be bounded gives us
+\[ R_0 = 1. \]
+For $\lambda=n^2>0$ the general solution for $R$ is
+\[ R = c_1 r^n + c^2 r^{-n}. \]
+Requiring that the solution be bounded gives us
+\[ R_n = r^n. \]
+Thus the general solution for $u$ is
+\[ \boxed{ u(r,\theta) = \frac{a_0}{2} + \sum_{n = 1}^\infty r^n \left[ a_n \cos(n\theta)
+    + b_n \sin(n\theta) \right]. } \]
+
+For the boundary condition $u(1,\theta)=f(\theta)$ we have the equation
+\[ f(\theta) = \frac{a_0}{2} + \sum_{n = 1}^\infty  \left[ a_n \cos(n\theta)
+  + b_n \sin(n\theta) \right]. \]
+If $f(\theta)$ has a Fourier series then the coefficients are
+\begin{align*}
+  a_0 &= \frac{1}{\pi} \int_0^{2\pi} f(\theta)\,\dd \theta \\
+  a_n &= \frac{1}{\pi} \int_0^{2\pi} f(\theta) \cos(n\theta)\,\dd \theta \\
+  b_n &= \frac{1}{\pi} \int_0^{2\pi} f(\theta) \sin(n\theta)\,\dd \theta .
+\end{align*}
+
+
+For the boundary condition $u_r(1,\theta)=g(\theta)$ we have the equation
+\[ g(\theta) =  \sum_{n = 1}^\infty n \left[ a_n \cos(n\theta)
+  + b_n \sin(n\theta) \right]. \]
+$g(\theta)$ has a series of this form only if
+\[ \int_0^{2\pi} g(\theta)\,\dd \theta = 0. \]
+The coefficients are
+\begin{align*}
+  a_n &= \frac{1}{n\pi} \int_0^{2\pi} g(\theta) \cos(n\theta)\,\dd \theta \\
+  b_n &= \frac{1}{n\pi} \int_0^{2\pi} g(\theta) \sin(n\theta)\,\dd \theta .
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+%%============================================================================
+\section{Laplace's Equation in an Annulus}
+Consider the problem
+\[ \nabla^2 u = \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial u}{\partial r} \right)
++ \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} = 0,
+\qquad 0 \leq r < a, \quad -\pi < \theta \leq \pi, \]
+with the boundary condition
+\[ u(a,\theta) = \theta^2. \]
+
+\vspace{.1in}
+
+So far this problem only has one boundary condition.  By requiring that the
+solution be finite, we get the boundary condition
+\[ |u(0,\theta)| < \infty. \]
+By specifying that the solution be $C^1$, (continuous and continuous first
+derivative) we obtain
+\[ u(r,-\pi) = u(r, \pi) \qquad \mathrm{and} \qquad
+\frac{\partial u}{\partial \theta}(r, -\pi) = \frac{\partial u}{\partial \theta}(r, \pi). \]
+
+We will use the method of separation of variables.  We seek solutions of the
+form
+\[ u(r,\theta) = R(r) \Theta(\theta). \]
+Substituting into the partial differential equation,
+\begin{gather*}
+  \frac{\partial^2 u}{\partial r^2} + \frac{1}{r} \frac{\partial u}{\partial r}
+  + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} = 0 \\
+  R'' \Theta + \frac{1}{r} R' \Theta = - \frac{1}{r^2} R \Theta'' \\
+  \frac{r^2 R''}{R} + \frac{r R'}{R} = - \frac{\Theta''}{\Theta} = \lambda
+\end{gather*}
+Now we have the boundary value problem for $\Theta$,
+\begin{gather*}
+  \Theta''(\theta) + \lambda \Theta(\theta) = 0,
+  \qquad -\pi < \theta \leq \pi,  \\
+  \intertext{subject to}
+  \Theta(-\pi) = \Theta(\pi) \qquad \mathrm{and} \qquad
+  \Theta'(-\pi) = \Theta'(\pi)
+\end{gather*}
+We consider the following three cases for the eigenvalue, $\lambda$,
+\begin{description}
+\item{$\bf \boldsymbol{\lambda} \boldsymbol{<} 0$.}
+  No linear combination of the solutions,
+  $\Theta = \exp(\sqrt{-\lambda} \theta), \exp(-\sqrt{-\lambda} \theta)$,
+  can satisfy the boundary conditions.  Thus there are no negative eigenvalues.
+\item{$\bf \boldsymbol{\lambda} \boldsymbol{=} 0$.}
+  The general solution solution is $\Theta = a + b \theta$.  By applying
+  the boundary conditions, we get $\Theta = a$.  Thus we have the eigenvalue and
+  eigenfunction,
+  \[\lambda_0 = 0, \qquad  A_0 = 1. \]
+\item{$\bf \boldsymbol{\lambda} \boldsymbol{>} 0$.}
+  The general solution is $\Theta = a \cos (\sqrt{\lambda} \theta) +
+  b \sin (\sqrt{\lambda} \theta)$.  Applying the boundary conditions yields the
+  eigenvalues
+  \[ \lambda_n = n^2, \quad n = 1, 2, 3, \ldots \]
+  with the associated eigenfunctions
+  \[ A_n = \cos (n \theta) \quad \mathrm{and} \quad B_n = \sin(n \theta).\]
+\end{description}
+
+The equation for $R$ is
+\[ r^2 R'' + r R' - \lambda_n R = 0.\]
+In the case $\lambda_0 = 0$, this becomes
+\begin{gather*}
+  R'' = - \frac{1}{r} R'  \\
+  R' = \frac{a}{r} \\
+  R = a \log r + b \\
+  \intertext{Requiring that the solution be bounded at $r=0$ yields (to within
+    a constant multiple)}
+  R_0 = 1.
+\end{gather*}
+
+For $\lambda_n = n^2$, $n \geq 1$, we have
+\begin{gather*}
+  r^2 R'' + r R' - n^2 R = 0 \\
+  \intertext{Recognizing that this is an Euler equation and making the
+    substitution $R = r^\alpha$,}
+  \alpha(\alpha-1) + \alpha - n^2 = 0 \\
+  \alpha = \pm n \\
+  R = a r^n + b r^{-n}. \\
+  \intertext{requiring that the solution be bounded at $r=0$ we obtain (to within
+    a constant multiple)}
+  R_n = r^n
+\end{gather*}
+
+The general solution to the partial differential equation is a linear combination of the eigenfunctions
+\[ u(r,\theta) = c_0 + \sum_{n=1}^\infty \left[ c_n r^n \cos n\theta +
+  d_n r^n \sin n\theta \right]. \]
+We determine the coefficients of the expansion with the boundary condition
+\[ u(a,\theta) = \theta^2 = c_0 + \sum_{n=1}^\infty
+\left[ c_n a^n \cos n\theta + d_n a^n \sin n\theta \right]. \]
+We note that the eigenfunctions $1$, $\cos n\theta$, and $\sin n\theta$ are
+orthogonal on $-\pi \leq \theta \leq \pi$.  Integrating the boundary condition from $-\pi$
+to $\pi$ yields
+\begin{gather*}
+  \int_{-\pi}^\pi \theta^2\,\dd \theta = \int_{-\pi}^\pi c_0\,\dd \theta \\
+  c_0 = \frac{\pi^2}{3}.
+\end{gather*}
+Multiplying the boundary condition by $\cos m \theta$ and integrating gives
+\begin{gather*}
+  \int_{-\pi}^\pi \theta^2 \cos m\theta \,\dd \theta =
+  c_m a^m \int_{-\pi}^{\pi} \cos^2 m\theta\,\dd \theta \\
+  c_m = \frac{(-1)^m 8 \pi}{m^2 a^m}.
+\end{gather*}
+We multiply by $\sin m \theta$ and integrate to get
+\begin{gather*}
+  \int_{-\pi}^\pi \theta^2 \sin m\theta \, d\theta =
+  d_m a^m \int_{-\pi}^{\pi} \sin^2 m\theta\,\dd \theta \\
+  d_m = 0
+\end{gather*}
+Thus the solution is
+\[ \boxed{u(r,\theta) = \frac{\pi^2}{3} +
+  \sum_{n=1}^\infty \frac{(-1)^n 8 \pi}{n^2 a^n} r^n \cos n \theta. } \]
+
+
+
+
+
+
+
+
+
+
+
+\raggedbottom

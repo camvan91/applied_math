@@ -1,0 +1,449 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8798,        334]*)
+(*NotebookOutlinePosition[      9456,        358]*)
+(*  CellTagsIndexPosition[      9412,        354]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ODE/Laplace", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Laplace", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@its.caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\n6/22/00"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["The Laplace Transform", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Laplace Transform", "Subsection"],
+
+Cell[TextData[{
+  "If you are using ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " 3.0:  To use the Laplace transform load the ",
+  StyleBox["LaplaceTransform", "Input"],
+  " package.  This is unnecessary in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " 4.0."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(<< Calculus`LaplaceTransform`\)], "Input"],
+
+Cell[TextData[{
+  "The ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox[\(LaplaceTransform[]\),
+          "Input"], TraditionalForm]]],
+  " function gives the Laplace transform of a function."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(TraditionalForm\`F(
+        s) = \[Integral]\_0\%\[Infinity]\( \[ExponentialE]\^\(\(-s\)\ t\)\) \
+\(f(t)\) \[DifferentialD]t\)], "DisplayFormula",
+  TextAlignment->Center,
+  TextJustification->0],
+
+Cell[BoxData[
+    \(\(?LaplaceTransform\)\)], "Input"],
+
+Cell[TextData[{
+  "The Laplace transform of ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\ \[ExponentialE]\^t\)]],
+  " is"
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(LaplaceTransform[t\ Exp[t], t, s]\)], "Input"],
+
+Cell[TextData[{
+  "The Laplace transform of ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(f'\)' \((t)\)\)]],
+  " is"
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(LaplaceTransform[\(\(f'\)'\)[t], t, s]\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Inverse Laplace Transform", "Subsection"],
+
+Cell[TextData[{
+  "The ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox[\(InverseLaplaceTransform[]\),
+          "Input"], TraditionalForm]]],
+  " function gives the inverse Laplace transform."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(TraditionalForm\`f(
+        t) = \(1\/\(2  \[Pi]\ \[ImaginaryI]\)\) \(\[Integral]\_\(c - \
+\[ImaginaryI]\[Infinity]\)\%\(c + \[ImaginaryI]\[Infinity]\)\(\[ExponentialE]\
+\^\(s\ t\)\) \(F(s)\) \(\(\[DifferentialD]s\)\(.\)\)\)\)], "DisplayFormula",
+  TextAlignment->Center,
+  TextJustification->0],
+
+Cell[TextData[{
+  "Here ",
+  Cell[BoxData[
+      \(TraditionalForm\`c\)]],
+  " is to the right of the singularities of ",
+  Cell[BoxData[
+      \(TraditionalForm\`F(s)\)]],
+  ".  ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " has a function for doing inverse Laplace transforms."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(\(?InverseLaplaceTransform\)\)], "Input"],
+
+Cell[TextData[{
+  "Note that ",
+  StyleBox["InverseLaplaceTransform[]", "Input"],
+  " returns a result that is valid only for ",
+  Cell[BoxData[
+      \(TraditionalForm\`t \[GreaterEqual] 0\)]],
+  ".  The inverse Laplace transform of ",
+  Cell[BoxData[
+      \(TraditionalForm\`1\/s\^2\)]],
+  " is ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\ \(H(t)\)\)]],
+  ".  ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " returns a result that is valid for positive ",
+  Cell[BoxData[
+      \(TraditionalForm\`t\)]],
+  "."
+}], "Text",
+  TextAlignment->Left,
+  TextJustification->1],
+
+Cell[BoxData[
+    \(InverseLaplaceTransform[1\/s\^2, s, t]\)], "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[ScriptCapitalL][Log\ t]\)]]], "Section"],
+
+Cell[BoxData[
+    \(LaplaceTransform[Log[t], t, s]\)], "Input"],
+
+Cell[BoxData[
+    \(\(?EulerGamma\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\(\[ScriptCapitalL]\^\(-1\)\)[\(\@\(\[Pi]\/s\)\) \
+\[ExponentialE]\^\(\(-2\) \@\(a\ s\)\)]\)]]], "Section"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " is not able to do the inverse transform."
+}], "Text"],
+
+Cell[BoxData[
+    \(InverseLaplaceTransform[\(\@\(\[Pi]\/s\)\) Exp[\(-2\) \@\(a\ s\)], s, 
+      t]\)], "Input"],
+
+Cell["However, it can do the transform.", "Text"],
+
+Cell[BoxData[
+    \(LaplaceTransform[Exp[\(-a\)/t]\/\@t, t, s]\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`y\^\((4)\) - y = t\)]]], "Section"],
+
+Cell["We can solve the differential equation directly.", "Text"],
+
+Cell[BoxData[
+    \(DSolve[{\(y''''\)[t] - y[t] \[Equal] t, 
+        y[0] \[Equal] 0, \(y'\)[0] \[Equal] 0, \(y''\)[0] \[Equal] 
+          0, \(y'''\)[0] \[Equal] 0}, y[t], t]\)], "Input"],
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"],
+
+Cell["We can also use the Laplace transform.", "Text"],
+
+Cell[BoxData[
+    \(LaplaceTransform[\(y''''\)[t] - y[t], t, s] \[Equal] 
+      LaplaceTransform[t, t, s]\)], "Input"],
+
+Cell[BoxData[
+    \(% /. {LaplaceTransform[y[t], t, s] \[Rule] Y[s], 
+        y[0] \[Rule] 0, \(y'\)[0] \[Rule] 0, \(y''\)[0] \[Rule] 
+          0, \(y'''\)[0] \[Rule] 0}\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[%, Y[s]]\)], "Input"],
+
+Cell[BoxData[
+    \(InverseLaplaceTransform[1\/\(s\^2\ \((\(-1\) + s\^4)\)\), s, 
+      t]\)], "Input"],
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]y\/\[DifferentialD]t = 
+      sin\ t + \[Integral]\_0\%t\( y(\[Tau])\) \(cos(
+              t - \[Tau])\) \[DifferentialD]\[Tau]\)]]], "Section"],
+
+Cell[BoxData[
+    \(LaplaceTransform[\(y'\)[t], t, s] \[Equal] 
+      LaplaceTransform[
+        Sin[t] + \[Integral]\_0\%t y[\[Tau]] 
+              Cos[t - \[Tau]] \[DifferentialD]\[Tau], t, s]\)], "Input"],
+
+Cell[BoxData[
+    \(% /. {LaplaceTransform[y[t], t, s] \[Rule] Y[s], 
+        y[0] \[Rule] 0}\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[%, Y[s]]\)], "Input"],
+
+Cell[BoxData[
+    \(InverseLaplaceTransform[1\/s\^3, s, t]\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+    \(TraditionalForm\`\[DifferentialD]u\/\[DifferentialD]t + u(t) - 
+        u(t - 1) = 0\)]]], "Section"],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " will not \"simplify\" the Laplace transform of ",
+  Cell[BoxData[
+      \(TraditionalForm\`u(t - 1)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(LaplaceTransform[u[t - 1], t, s]\)], "Input"],
+
+Cell["However, we can do another part of the problem.", "Text"],
+
+Cell[BoxData[
+    \(u0[0]\/\(1 + s - Exp[\(-s\)]\) + \(Exp[\(-s\)]\/\(1 + s - 
+                Exp[\(-s\)]\)\) \(\[Integral]\_\(-1\)\%0 Exp[\(-s\)\ t] 
+              u0[t] \[DifferentialD]t\) /. u0[t_] \[Rule] 1\)], "Input"],
+
+Cell[BoxData[
+    \(% // Simplify\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 101, 3, 133, "Title",
+  Evaluatable->False],
+Cell[1843, 56, 27, 0, 82, "Subtitle"],
+Cell[1873, 58, 281, 9, 101, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2179, 71, 40, 0, 67, "Section"],
+
+Cell[CellGroupData[{
+Cell[2244, 75, 39, 0, 56, "Subsection"],
+Cell[2286, 77, 343, 12, 81, "Text"],
+Cell[2632, 91, 62, 1, 35, "Input"],
+Cell[2697, 94, 253, 9, 59, "Text"],
+Cell[2953, 105, 215, 5, 48, "DisplayFormula"],
+Cell[3171, 112, 54, 1, 35, "Input"],
+Cell[3228, 115, 181, 7, 38, "Text"],
+Cell[3412, 124, 66, 1, 35, "Input"],
+Cell[3481, 127, 175, 7, 38, "Text"],
+Cell[3659, 136, 71, 1, 35, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3767, 142, 47, 0, 56, "Subsection"],
+Cell[3817, 144, 254, 9, 59, "Text"],
+Cell[4074, 155, 315, 6, 50, "DisplayFormula"],
+Cell[4392, 163, 350, 13, 59, "Text"],
+Cell[4745, 178, 61, 1, 35, "Input"],
+Cell[4809, 181, 583, 21, 85, "Text"],
+Cell[5395, 204, 71, 1, 57, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5515, 211, 93, 1, 65, "Section"],
+Cell[5611, 214, 63, 1, 35, "Input"],
+Cell[5677, 217, 48, 1, 35, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5762, 223, 158, 2, 78, "Section"],
+Cell[5923, 227, 125, 4, 38, "Text"],
+Cell[6051, 233, 112, 2, 89, "Input"],
+Cell[6166, 237, 49, 0, 38, "Text"],
+Cell[6218, 239, 75, 1, 63, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6330, 245, 86, 1, 65, "Section"],
+Cell[6419, 248, 64, 0, 38, "Text"],
+Cell[6486, 250, 188, 3, 77, "Input"],
+Cell[6677, 255, 50, 1, 35, "Input"],
+Cell[6730, 258, 54, 0, 38, "Text"],
+Cell[6787, 260, 118, 2, 56, "Input"],
+Cell[6908, 264, 183, 3, 56, "Input"],
+Cell[7094, 269, 47, 1, 35, "Input"],
+Cell[7144, 272, 103, 2, 86, "Input"],
+Cell[7250, 276, 50, 1, 35, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7337, 282, 212, 3, 72, "Section"],
+Cell[7552, 287, 206, 4, 101, "Input"],
+Cell[7761, 293, 106, 2, 56, "Input"],
+Cell[7870, 297, 47, 1, 35, "Input"],
+Cell[7920, 300, 71, 1, 57, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8028, 306, 135, 2, 71, "Section"],
+Cell[8166, 310, 194, 7, 38, "Text"],
+Cell[8363, 319, 65, 1, 35, "Input"],
+Cell[8431, 322, 63, 0, 38, "Text"],
+Cell[8497, 324, 224, 3, 133, "Input"],
+Cell[8724, 329, 46, 1, 35, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

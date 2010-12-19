@@ -1,0 +1,33 @@
+%% header_hyperref.tex
+
+\newcommand{\hintsolution}[1]{
+  \noindent
+  \hyperref[hint #1]{Hint},
+  \hyperref[solution #1]{Solution}
+}
+
+\newcommand{\quizsolution}[1]{
+  \noindent
+  \hyperref[quiz solution #1]{Solution}
+}
+
+\usepackage[pdftex]{graphicx}
+\pdfcompresslevel=9
+\usepackage{color}
+\usepackage
+      [pdftex,
+      colorlinks=true,
+      hyperindex=true,
+      plainpages=true,
+      bookmarks=true,
+%      pdfpagescrop={60 552 60 444}
+%     linkcolor=webgreen,
+      pdftitle={Introduction to Methods of Applied Mathematics},
+      pdfauthor={Sean Mauch},
+      pdfsubject={calculus,functions of a complex
+      variable,differential equations},
+      pdfpagemode=UseOutlines]{hyperref}
+\definecolor{webgreen}{rgb}{0,0.5,0}
+\pdfinfo{
+  /PageMode (/UseOutlines)
+}

@@ -1,0 +1,364 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6940,        282]*)
+(*NotebookOutlinePosition[      7591,        305]*)
+(*  CellTagsIndexPosition[      7547,        301]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Calculus/Differential", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell["Implicit Differentiation", "Subtitle"],
+
+Cell[TextData[{
+  "Sean Mauch\nsean@caltech.edu\n",
+  ButtonBox["http://www.its.caltech.edu/~sean",
+    ButtonData:>{
+      URL[ "http://www.its.caltech.edu/~sean"], None},
+    ButtonStyle->"Hyperlink"],
+  "\nApril 4, 2004"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`x\^2 + y\^2 = 1\)]],
+  ".  Find ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  "."
+}], "Section"],
+
+Cell[TextData[{
+  "Find ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((1/2)\)\)]],
+  ", given that ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\^2 + y\^2 = 1\)]],
+  ".  What is ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((1/2)\)\)]],
+  "?"
+}], "Text"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((y[x]\^2 + x\^2)\)\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[% == 0, \(y'\)[x]]\)], "Input"],
+
+Cell[TextData[{
+  "Thus we have that ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\) = \(-\(x\/\(y(x)\)\)\)\)]],
+  ".  To find ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((1\/2)\)\)]],
+  " we need to find ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(x)\)]],
+  " in terms of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(Solve[y[x]\^2 + x\^2 == 1, y[x]]\)], "Input"],
+
+Cell[BoxData[
+    \(y[x_] = y[x] /. %\)], "Input"],
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " can have the two values:"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(-x\)/y[x]\)], "Input"],
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((1\/2)\)\)]],
+  " can have the two values:"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(y'\)[1\/2]\)], "Input"],
+
+Cell[TextData[{
+  "Here is a plot of ",
+  Cell[BoxData[
+      \(TraditionalForm\`y(x)\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Plot[{\(y[x]\)\[LeftDoubleBracket]1\[RightDoubleBracket], \(y[
+              x]\)\[LeftDoubleBracket]2\[RightDoubleBracket], \(\(y'\)[
+              x]\)\[LeftDoubleBracket]1\[RightDoubleBracket], \(\(y'\)[
+              x]\)\[LeftDoubleBracket]2\[RightDoubleBracket]}, {x, \(-1\), 
+          1}, AspectRatio \[Rule] Automatic];\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  Cell[BoxData[
+      \(TraditionalForm\`x\^2 - x\ y + y\^2 = 3\)]],
+  ".  Find ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`y'' \((x)\)\)]],
+  "."
+}], "Section"],
+
+Cell[TextData[{
+  "We will find ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`y'' \((x)\)\)]],
+  ", given that ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\^2 - x\ y + y\^2 = 3\)]],
+  ".  As a side note, this is the eqation of an ellipse.  We'll plot the \
+function just for fun.  We determine an appropriate range for ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and then use ImplicitPlot."
+}], "Text"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(Solve[x\^2 - x\ y + y\^2 \[Equal] 3, y]\)], "Input"],
+
+Cell[BoxData[
+    \(<< Graphics`ImplicitPlot`\)], "Input"],
+
+Cell[BoxData[
+    \(\(ImplicitPlot[x\^2 - x\ y + y\^2 \[Equal] 3, {x, \(-2\), 2}, 
+        AspectRatio \[Rule] Automatic];\)\)], "Input"],
+
+Cell[TextData[{
+  "We differentiate the left side of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\^2 - x\ y + y\^2 = 3\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\((x\^2 - x\ y[x] + y[x]\^2)\)\)], "Input"],
+
+Cell[TextData[{
+  "Now we set this equal to the derivative of the right side and solve for ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(Solve[% == 0, \(y'\)[x]]\)], "Input"],
+
+Cell[TextData[{
+  "The next statement defines ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(y'\)[x]\)]],
+  " as the above solution."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(y'\)[x_] = \(y'\)[x] /. %[\([1]\)]\)], "Input"],
+
+Cell[TextData[{
+  "Then we differentiate ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " to get ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(y'\)' \((x)\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(\[PartialD]\_x\ \(y'\)[x]\)], "Input"],
+
+Cell[TextData[{
+  "Note that ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " has automatically substituted in the definition of ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  " into the above expression.  We simplify the expression."
+}], "Text"],
+
+Cell[BoxData[
+    \(Simplify[%]\)], "Input"],
+
+Cell["\<\
+Finally we can simplify the numerator by using the original \
+implicit equation.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(% /. \((x\^2 - x\ y[x] + y[x]\^2)\) -> 3\)], "Input"],
+
+Cell[TextData[{
+  "This removes the definition of ",
+  Cell[BoxData[
+      \(TraditionalForm\`y' \((x)\)\)]],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(Remove[y]\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1920}, {0, 1200}},
+WindowSize->{1013, 1117},
+WindowMargins->{{Automatic, -2}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 111, 3, 136, "Title",
+  Evaluatable->False],
+Cell[1890, 58, 44, 0, 77, "Subtitle"],
+Cell[1937, 60, 283, 9, 121, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2245, 73, 169, 7, 107, "Section"],
+Cell[2417, 82, 260, 11, 46, "Text"],
+Cell[2680, 95, 44, 1, 39, "Input"],
+Cell[2727, 98, 67, 1, 47, "Input"],
+Cell[2797, 101, 57, 1, 39, "Input"],
+Cell[2857, 104, 355, 14, 55, "Text"],
+Cell[3215, 120, 65, 1, 47, "Input"],
+Cell[3283, 123, 50, 1, 39, "Input"],
+Cell[3336, 126, 114, 4, 46, "Text"],
+Cell[3453, 132, 44, 1, 39, "Input"],
+Cell[3500, 135, 117, 4, 52, "Text"],
+Cell[3620, 141, 45, 1, 69, "Input"],
+Cell[3668, 144, 176, 8, 46, "Text"],
+Cell[3847, 154, 365, 5, 62, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4249, 164, 245, 10, 107, "Section"],
+Cell[4497, 176, 480, 15, 71, "Text"],
+Cell[4980, 193, 44, 1, 39, "Input"],
+Cell[5027, 196, 72, 1, 47, "Input"],
+Cell[5102, 199, 58, 1, 39, "Input"],
+Cell[5163, 202, 137, 2, 47, "Input"],
+Cell[5303, 206, 142, 5, 46, "Text"],
+Cell[5448, 213, 77, 1, 47, "Input"],
+Cell[5528, 216, 168, 5, 46, "Text"],
+Cell[5699, 223, 57, 1, 39, "Input"],
+Cell[5759, 226, 144, 5, 46, "Text"],
+Cell[5906, 233, 69, 1, 39, "Input"],
+Cell[5978, 236, 194, 8, 46, "Text"],
+Cell[6175, 246, 58, 1, 39, "Input"],
+Cell[6236, 249, 271, 8, 71, "Text"],
+Cell[6510, 259, 44, 1, 39, "Input"],
+Cell[6557, 262, 104, 3, 46, "Text"],
+Cell[6664, 267, 73, 1, 47, "Input"],
+Cell[6740, 270, 127, 5, 46, "Text"],
+Cell[6870, 277, 42, 1, 39, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

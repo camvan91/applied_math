@@ -1,0 +1,170 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4056,        127]*)
+(*NotebookOutlinePosition[      4705,        150]*)
+(*  CellTagsIndexPosition[      4661,        146]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(g = 9.81;\)\)], "Input"],
+
+Cell[TextData[{
+  "Object dropped at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t = 0\)]],
+  " from an initial height of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\_0\)]],
+  ".\nSave as trajectory_1d_tx_x0.eps."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Plot[
+        Evaluate[Table[\(-g\)\ t\^2/2 + x0, {x0, 1, 20}]], {t, 
+          0, \@\(2*20/g\)}, PlotRange \[Rule] {0, 20}, 
+        Ticks \[Rule] {Table[x, {x, 0, 2, 0.5}], Table[y, {y, 0, 20, 5}]}, 
+        AxesLabel \[Rule] {t, x}];\)\)], "Input"],
+
+Cell[TextData[{
+  "Object projected upward at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t = 0\)]],
+  " with on initial velocity of ",
+  Cell[BoxData[
+      \(TraditionalForm\`v\_0\)]],
+  ".\nSave as trajectory_1d_tx_v0.eps."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Plot[
+        Evaluate[Table[\(-g\)\ t\^2/2 + v0\ t, {v0, 1, 10, 1/2}]], {t, 0, 
+          2*10/g}, PlotRange \[Rule] {0, 5*10/g}, 
+        Ticks \[Rule] {Table[x, {x, 0, 2, 0.5}], Table[y, {y, 0, 5, 1}]}, 
+        AxesLabel \[Rule] {t, x}];\)\)], "Input"],
+
+Cell[TextData[{
+  "Object dropped at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t = 0\)]],
+  " from an initial height of ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\_0\)]],
+  ".\nSave as trajectory_1d_xxd_x0.eps."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[
+        Evaluate[Table[{\(-g\)\ t\^2/2 + x0, \(-g\)\ t}, {x0, 1, 20}]], {t, 
+          0, \@\(2*20/g\)}, 
+        PlotRange \[Rule] {{0, 20 +  .1}, {\(-g\) \@\(2*20/g\), 0}}, 
+        Ticks \[Rule] {Table[x, {x, 0, 20, 5}], 
+            Table[y, {y, \(-20\), 0, 5}]}, 
+        AxesLabel \[Rule] {x, \(x\& . \)}];\)\)], "Input"],
+
+Cell[TextData[{
+  "Object projected upward at ",
+  Cell[BoxData[
+      \(TraditionalForm\`t = 0\)]],
+  " with on initial velocity of ",
+  Cell[BoxData[
+      \(TraditionalForm\`v\_0\)]],
+  ".\nSave as trajectory_1d_xxd_v0.eps."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[
+        Evaluate[
+          Table[{\(-g\)\ t\^2/2 + v0\ t, \(-g\)\ t + v0}, {v0, 1, 10, 
+              1/2}]], {t, 0, 2*10/g}, 
+        PlotRange \[Rule] {{0, 5*10/g + 0.1}, {\(-10\), 10}}, 
+        Ticks \[Rule] {Table[x, {x, 0, 5, 1}], 
+            Table[y, {y, \(-10\), 10, 5}]}, 
+        AxesLabel \[Rule] {x, \(x\& . \)}];\)\)], "Input"]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1920}, {0, 1200}},
+WindowSize->{744, 1117},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 46, 1, 39, "Input"],
+Cell[1803, 54, 227, 8, 71, "Text"],
+Cell[2033, 64, 273, 5, 137, "Input"],
+Cell[2309, 71, 238, 8, 71, "Text"],
+Cell[2550, 81, 278, 5, 120, "Input"],
+Cell[2831, 88, 228, 8, 71, "Text"],
+Cell[3062, 98, 365, 7, 204, "Input"],
+Cell[3430, 107, 239, 8, 71, "Text"],
+Cell[3672, 117, 380, 8, 175, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

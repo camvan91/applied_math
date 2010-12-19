@@ -1,0 +1,108 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2602,         70]*)
+(*NotebookOutlinePosition[      3241,         93]*)
+(*  CellTagsIndexPosition[      3197,         89]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(Plot3D[0, {x, \(-1\), 1}, {t, 0, 1}, PlotPoints \[Rule] 2, 
+        ViewPoint -> {0.300, \ \(-2.713\), \ 2.000}, 
+        PlotRange \[Rule] {{\(-1\), 1}, {0, 1}, {0,  .51}}, 
+        AxesLabel \[Rule] {"\<x\>", "\<t\>", "\<\>"}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[
+        Graphics3D[{\[IndentingNewLine]Polygon[{{\(-1\), 0, 0}, {1, 0, 
+                  0}, {1, 1, 0}, {\(-1\), 1, 
+                  0}}], \[IndentingNewLine]Polygon[{{0, 0,  .5}, {1, 
+                  1,  .5}, {\(-1\), 
+                  1,  .5}}], \[IndentingNewLine]Polygon[{{0, 0, 0}, {1, 1, 
+                  0}, {1, 1,  .5}, {0, 
+                  0,  .5}}], \[IndentingNewLine]Polygon[{{0, 0, 0}, {\(-1\), 
+                  1, 0}, {\(-1\), 1,  .5}, {0, 
+                  0,  .5}}]\[IndentingNewLine]}]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Show[%%, %];\)\)], "Input"]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowSize->{520, 600},
+WindowMargins->{{18, Automatic}, {99, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 266, 4, 75, "Input"],
+Cell[1986, 55, 560, 10, 107, "Input"],
+Cell[2549, 67, 49, 1, 27, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

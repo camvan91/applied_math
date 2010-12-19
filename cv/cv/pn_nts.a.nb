@@ -1,0 +1,570 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      9320,        381]*)
+(*NotebookOutlinePosition[      9955,        404]*)
+(*  CellTagsIndexPosition[      9911,        400]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Problem 2", "Section"],
+
+Cell[BoxData[
+    \(Clear[y]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x_] := x\ \((2 - x)\)\ a; \n
+    Integrate[\(y'\)[x]\^2 + y[x]\^2 + 2  x\ y[x], {x, 0, 2}]\)], "Input"],
+
+Cell[BoxData[
+    \(\(8\ a\)\/3 + \(56\ a\^2\)\/15\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[D[\(8\ a\)\/3 + \(56\ a\^2\)\/15, a] == 0, a]\)], "Input"],
+
+Cell[BoxData[
+    \({{a \[Rule] \(-\(5\/14\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(8\ a\)\/3 + \(56\ a\^2\)\/15 /. a \[Rule] \(-\(5\/14\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(10\/21\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-0.476190476190476186`\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Plot[{2\ Sinh[x]/Sinh[2] - x, x \((2 - x)\) \((\(-5\)/14)\)}, {x, 0, 
+        2}]; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x_] := x\ \((2 - x)\)\ \((a + b\ x)\); \n
+    Integrate[\(y'\)[x]\^2 + y[x]\^2 + 2  x\ y[x], {x, 0, 2}]\)], "Input"],
+
+Cell[BoxData[
+    \(\(8\ a\)\/3 + \(56\ a\^2\)\/15 + \(16\ b\)\/5 + \(112\ a\ b\)\/15 + 
+      \(192\ b\^2\)\/35\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[{D[%, a] == 0, D[%, b] == 0}, {a, b}]\)], "Input"],
+
+Cell[BoxData[
+    \({{a \[Rule] \(-\(33\/161\)\), b \[Rule] \(-\(7\/46\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(%% /. %[\([1]\)]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(416\/805\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-0.516770186335403725`\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Plot[{2\ Sinh[x]/Sinh[2] - x, 
+        x \((2 - x)\) \((\(-33\)/161 - 7\ x/46)\)}, {x, 0, 2}]; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x_] := a\ Sin[\[Pi]\ x/2]; \n
+    Integrate[\(y'\)[x]\^2 + y[x]\^2 + 2  x\ y[x], {x, 0, 2}]\)], "Input"],
+
+Cell[BoxData[
+    \(Integrate::"gener" \( : \ \) "Unable to check convergence"\)], "Message"],
+
+Cell[BoxData[
+    \(\(a\ \((32 + a\ \[Pi]\ \((4 + \[Pi]\^2)\))\)\)\/\(4\ \[Pi]\)\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[D[%, a] == 0, a]\)], "Input"],
+
+Cell[BoxData[
+    \({{a \[Rule] \(-\(16\/\(\[Pi]\ \((4 + \[Pi]\^2)\)\)\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(%% /. %[\([1]\)]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(64\/\(\[Pi]\^2\ \((4 + \[Pi]\^2)\)\)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-0.467537181709400595`\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Plot[{2\ Sinh[x]/Sinh[2] - x, 
+        \(-16\)\ Sin[\[Pi]\ x/2]/\((\[Pi]\ \((\[Pi]\^2 + 4)\))\)}, {x, 0, 
+        2}]; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x_] := a\ Sin[\[Pi]\ x/2] + b\ Sin[\[Pi]\ x]; \n
+    Integrate[\(y'\)[x]\^2 + y[x]\^2 + 2  x\ y[x], {x, 0, 2}]\)], "Input"],
+
+Cell[BoxData[
+    \(Integrate::"gener" \( : \ \) "Unable to check convergence"\)], "Message"],
+
+Cell[BoxData[
+    \(\(32\ a + a\^2\ \[Pi]\ \((4 + \[Pi]\^2)\) + 
+        4\ b\ \((\(-4\) + b\ \((\[Pi] + \[Pi]\^3)\))\)\)\/\(4\ \[Pi]\)\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[{D[%, a] == 0, D[%, b] == 0}, {a, b}]\)], "Input"],
+
+Cell[BoxData[
+    \({{a \[Rule] \(-\(16\/\(\[Pi]\ \((4 + \[Pi]\^2)\)\)\)\), 
+        b \[Rule] 2\/\(\[Pi]\ \((1 + \[Pi]\^2)\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(%% /. %[\([1]\)]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(% // FullSimplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(\(4\ \((20 + 17\ \[Pi]\^2)\)\)\/\(\[Pi]\^2\ 
+            \((4 + 5\ \[Pi]\^2 + \[Pi]\^4)\)\)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-0.504823242877250777`\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Plot[{2\ Sinh[x]/Sinh[2] - x, 
+        \(-16\)\ Sin[\[Pi]\ x/2]/\((\[Pi]\ \((\[Pi]\^2 + 4)\))\) + 
+          2\ Sin[\[Pi]\ x]/\((\[Pi]\ \((\[Pi]\^2 + 1)\))\)}, {x, 0, 2}]; 
+    \)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 3", "Section"],
+
+Cell[BoxData[
+    \(Clear[y]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DSolve[\(\(y'\)'\)[x] + \(y'\)[x]/x + \((1 - 1/x\^2)\)\ y[x] == 0, 
+      y[x], x]\)], "Input"],
+
+Cell[BoxData[
+    \({{y[x] \[Rule] BesselJ[1, \@x\^2]\ C[1] + BesselY[1, x]\ C[2]}}\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x_] := c1\ BesselJ[1, x] + c2\ BesselY[1, x] - x; \n
+    Solve[{y[1] == 0, y[2] == 0}, {c1, c2}]\)], "Input"],
+
+Cell[BoxData[
+    \({{c1 \[Rule] 
+          \(-\(\((2\ BesselY[1, 1] - BesselY[1, 2])\)/
+              \((\(-BesselJ[1, 2]\)\ BesselY[1, 1] + 
+                  BesselJ[1, 1]\ BesselY[1, 2])\)\)\), 
+        c2 \[Rule] 
+          \(-\(\((\(-2\)\ BesselJ[1, 1] + BesselJ[1, 2])\)/
+              \((\(-BesselJ[1, 2]\)\ BesselY[1, 1] + 
+                  BesselJ[1, 1]\ BesselY[1, 2])\)\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(exact[x_] = y[x] /. %[\([1]\)]; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(NIntegrate[
+      x\ \(y'\)[x]\^2 - \(x\^2 - 1\)\/x\ y[x]\^2 - 2  x\^2\ y[x], {x, 1, 2}]
+      \)], "Input"],
+
+Cell[BoxData[
+    \(\(-0.310946855997865068`\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x_] := \((x - 1)\) \((2 - x)\) a; \n
+    Integrate[
+      x\ \(y'\)[x]\^2 - \(x\^2 - 1\)\/x\ y[x]\^2 - 2\ x\^2\ y[x], {x, 1, 2}]
+      \)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(1\/30\)\)\ \((7 - 179\ a)\)\ a + 
+      4\/15\ a\ \((\(-2\) + a\ \((\(-31\) + 15\ Log[2])\))\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[D[%, a] == 0, a]\)], "Input"],
+
+Cell[BoxData[
+    \({{a \[Rule] 23\/\(6\ \((\(-23\) + 40\ Log[2])\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FullSimplify[%% /. %[\([1]\)]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(529\/\(360\ \((\(-23\) + 40\ Log[2])\)\)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-0.3109351483209708`\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Plot[{exact[x], 
+        \((x - 1)\) \((2 - x)\) 23\/\(6\ \((\(-23\) + 40\ Log[2])\)\)}, {x, 
+        1, 2}]; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(y[x_] := \((x - 1)\) \((2 - x)\) \((a + b\ x)\); \n
+    Integrate[
+      x\ \(y'\)[x]\^2 - \(x\^2 - 1\)\/x\ y[x]\^2 - 2\ x\^2\ y[x], {x, 1, 2}]
+      \)], "Input"],
+
+Cell[BoxData[
+    \(1\/840\ 
+        \((5012\ a\^2 - b\ \((112 + 405\ b)\) - 4\ a\ \((49 + 521\ b)\))\) + 
+      4\/105\ \((
+          b\ \((\(-28\) + 45\ b)\) + 2\ a\ \((\(-7\) + 52\ b)\) + 
+            7\ a\^2\ \((\(-31\) + 15\ Log[2])\))\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[{D[%, a] == 0, D[%, b] == 0}, {a, b}]\)], "Input"],
+
+Cell[BoxData[
+    \({{a \[Rule] 9891\/\(4\ \((\(-298313\) + 434700\ Log[2])\)\), 
+        b \[Rule] 
+          \(7\ \((\(-41929\) + 60480\ Log[2])\)\)\/\(2\ 
+              \((\(-298313\) + 434700\ Log[2])\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FullSimplify[%% /. %[\([1]\)]]\)], "Input"],
+
+Cell[BoxData[
+    \(10584\/\(5\ \((\(-7245\) + 24649\/\(\(-5267\) + 7680\ Log[2]\))\)\)\)], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-0.310940601456701504`\)\)], "Output"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 800}, {0, 600}},
+WindowSize->{520, 455},
+WindowMargins->{{-68, Automatic}, {Automatic, 19}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 28, 0, 75, "Section"],
+Cell[1762, 53, 41, 1, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[1828, 58, 125, 2, 95, "Input"],
+Cell[1956, 62, 64, 1, 64, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2057, 68, 84, 1, 72, "Input"],
+Cell[2144, 71, 62, 1, 59, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2243, 77, 91, 1, 72, "Input"],
+Cell[2337, 80, 49, 1, 59, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2423, 86, 37, 1, 37, "Input"],
+Cell[2463, 89, 60, 1, 36, "Output"]
+}, Open  ]],
+Cell[2538, 93, 120, 2, 77, "Input"],
+
+Cell[CellGroupData[{
+Cell[2683, 99, 138, 2, 95, "Input"],
+Cell[2824, 103, 126, 2, 64, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2987, 110, 76, 1, 57, "Input"],
+Cell[3066, 113, 90, 1, 59, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3193, 119, 49, 1, 37, "Input"],
+Cell[3245, 122, 51, 1, 59, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3333, 128, 37, 1, 37, "Input"],
+Cell[3373, 131, 60, 1, 36, "Output"]
+}, Open  ]],
+Cell[3448, 135, 132, 2, 77, "Input"],
+
+Cell[CellGroupData[{
+Cell[3605, 141, 126, 2, 95, "Input"],
+Cell[3734, 145, 93, 1, 51, "Message"],
+Cell[3830, 148, 97, 2, 67, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3964, 155, 55, 1, 37, "Input"],
+Cell[4022, 158, 90, 1, 62, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4149, 164, 49, 1, 37, "Input"],
+Cell[4201, 167, 79, 1, 62, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4317, 173, 37, 1, 37, "Input"],
+Cell[4357, 176, 60, 1, 36, "Output"]
+}, Open  ]],
+Cell[4432, 180, 156, 3, 102, "Input"],
+
+Cell[CellGroupData[{
+Cell[4613, 187, 145, 2, 95, "Input"],
+Cell[4761, 191, 93, 1, 51, "Message"],
+Cell[4857, 194, 152, 3, 67, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5046, 202, 76, 1, 57, "Input"],
+Cell[5125, 205, 143, 2, 62, "Output"]
+}, Open  ]],
+Cell[5283, 210, 49, 1, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[5357, 215, 50, 1, 37, "Input"],
+Cell[5410, 218, 134, 2, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5581, 225, 37, 1, 37, "Input"],
+Cell[5621, 228, 60, 1, 36, "Output"]
+}, Open  ]],
+Cell[5696, 232, 214, 4, 133, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5947, 241, 28, 0, 75, "Section"],
+Cell[5978, 243, 41, 1, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[6044, 248, 115, 2, 102, "Input"],
+Cell[6162, 252, 100, 2, 81, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6299, 259, 131, 2, 77, "Input"],
+Cell[6433, 263, 402, 8, 169, "Output"]
+}, Open  ]],
+Cell[6850, 274, 69, 1, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[6944, 279, 128, 3, 133, "Input"],
+Cell[7075, 284, 60, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7172, 290, 170, 4, 154, "Input"],
+Cell[7345, 296, 133, 2, 106, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7515, 303, 55, 1, 37, "Input"],
+Cell[7573, 306, 85, 1, 63, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7695, 312, 63, 1, 37, "Input"],
+Cell[7761, 315, 83, 1, 63, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7881, 321, 37, 1, 37, "Input"],
+Cell[7921, 324, 58, 1, 36, "Output"]
+}, Open  ]],
+Cell[7994, 328, 147, 3, 132, "Input"],
+
+Cell[CellGroupData[{
+Cell[8166, 335, 183, 4, 154, "Input"],
+Cell[8352, 341, 256, 5, 167, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8645, 351, 76, 1, 57, "Input"],
+Cell[8724, 354, 224, 4, 115, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8985, 363, 63, 1, 37, "Input"],
+Cell[9051, 366, 104, 2, 79, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9192, 373, 37, 1, 37, "Input"],
+Cell[9232, 376, 60, 1, 36, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+
